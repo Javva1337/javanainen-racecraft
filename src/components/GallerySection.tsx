@@ -1,14 +1,15 @@
 import { useState } from "react";
 import { X } from "lucide-react";
 import { useScrollReveal } from "./useScrollReveal";
+import gallery5 from "@/assets/gallery-5.png";
 
 const images = [
-  { id: 1, label: "Action på banan", span: "col-span-2 row-span-2" },
-  { id: 2, label: "Fokus före start", span: "" },
-  { id: 3, label: "Podium", span: "" },
-  { id: 4, label: "Strategi", span: "" },
-  { id: 5, label: "Helmet close-up", span: "" },
-  { id: 6, label: "Racing i regn", span: "col-span-2" },
+  { id: 1, label: "Action på banan", span: "col-span-2 row-span-2", src: "" },
+  { id: 2, label: "Fokus före start", span: "", src: "" },
+  { id: 3, label: "Podium", span: "", src: "" },
+  { id: 4, label: "Strategi", span: "", src: "" },
+  { id: 5, label: "Helmet close-up", span: "", src: gallery5 },
+  { id: 6, label: "Racing i regn", span: "col-span-2", src: "" },
 ];
 
 export default function GallerySection() {
