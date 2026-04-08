@@ -6,7 +6,7 @@ const values = [
   {
     icon: Eye,
     title: "Exponering",
-    desc: "Logotyp på racingoverall, digitala kanaler och takbox på tävlingsbilen. Vill man slå på stort finns möjlighet att lacka om hjälmen.",
+    desc: "Logotyp på racingoverall, digitala kanaler och takbox på bilen som tar oss till och från tävlingarna. Vill man slå på stort finns möjlighet att lacka om hjälmen.",
   },
   {
     icon: Heart,
