@@ -1,4 +1,4 @@
-import { Eye, Award, Handshake } from "lucide-react";
+import { Eye, Heart } from "lucide-react";
 import { useScrollReveal } from "./useScrollReveal";
 import sponsorPrimab from "@/assets/sponsor-primab.png";
 
@@ -6,17 +6,12 @@ const values = [
   {
     icon: Eye,
     title: "Exponering",
-    desc: "Logotyp på kart, racingdräkt och digitala kanaler. Synlighet vid internationella tävlingar.",
+    desc: "Logotyp på racingoverall, digitala kanaler och takbox på tävlingsbilen. Vill man slå på stort finns möjlighet att lacka om hjälmen.",
   },
   {
-    icon: Award,
-    title: "Nätverk",
-    desc: "Koppling till motorsport på elitnivå. Närvaro vid event och mästerskap.",
-  },
-  {
-    icon: Handshake,
-    title: "Trovärdighet",
-    desc: "Associering med dokumenterade resultat på VM-nivå.",
+    icon: Heart,
+    title: "Stötta satsningen",
+    desc: "Var med på vägen mot VM-titeln. Associering med dokumenterade resultat på VM-nivå.",
   },
 ];
 
@@ -35,7 +30,7 @@ export default function SponsorsSection() {
         </div>
 
         {/* Value props */}
-        <div className="grid md:grid-cols-3 gap-8 mb-20">
+        <div className="grid md:grid-cols-2 gap-8 mb-20">
           {values.map((v, i) => (
             <div
               key={v.title}
@@ -53,26 +48,20 @@ export default function SponsorsSection() {
 
         {/* Logo grid */}
         <div className="mb-16">
-          <p className="text-center text-xs tracking-[0.2em] uppercase text-muted-foreground mb-8">
-            Nuvarande & framtida partners
-          </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[
-              { key: 1, logo: sponsorPrimab, alt: "PrimAB" },
-              { key: 2 },
-              { key: 3 },
-              { key: 4 },
-            ].map((item) => (
-              <div
-                key={item.key}
-                className="aspect-[3/1] bg-transparent border border-primary/30 flex items-center justify-center hover:border-primary/50 transition-colors p-4"
+            <div className="aspect-[3/1] bg-transparent border border-primary/30 flex items-center justify-center hover:border-primary/50 transition-colors p-4">
+              <img src={sponsorPrimab} alt="PrimAB" className="max-h-full max-w-full object-contain" />
+            </div>
+            {[2, 3, 4].map((key) => (
+              <a
+                key={key}
+                href="#kontakt"
+                className="aspect-[3/1] bg-transparent border border-dashed border-primary/20 flex items-center justify-center hover:border-primary/40 transition-colors p-4 group"
               >
-                {item.logo ? (
-                  <img src={item.logo} alt={item.alt} className="max-h-full max-w-full object-contain" />
-                ) : (
-                  <span className="text-muted-foreground text-xs tracking-widest uppercase">Logotyp {item.key}</span>
-                )}
-              </div>
+                <span className="text-muted-foreground text-xs tracking-widest uppercase group-hover:text-primary transition-colors">
+                  Din logotyp här?
+                </span>
+              </a>
             ))}
           </div>
         </div>
