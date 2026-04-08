@@ -19,7 +19,7 @@ export default function ContactSection() {
           <h2 className="font-display text-3xl md:text-4xl text-foreground mb-4">Kontakt</h2>
           <div className="flex items-center justify-center gap-2 text-muted-foreground text-sm">
             <Mail size={16} className="text-primary" />
-            <span>rickard@javanainen.se</span>
+            <a href="mailto:rickard@rickardjavanainen.se" className="hover:text-primary transition-colors">rickard@rickardjavanainen.se</a>
           </div>
         </div>
 
