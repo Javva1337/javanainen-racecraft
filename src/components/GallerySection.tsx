@@ -61,11 +61,16 @@ export default function GallerySection() {
           >
             <X size={28} />
           </button>
-          <div className="max-w-4xl w-full aspect-video bg-secondary border border-border flex items-center justify-center">
-            <span className="text-muted-foreground text-sm tracking-[0.15em] uppercase">
-              Bild {lightbox}
-            </span>
-          </div>
+          {(() => {
+            const img = images.find(i => i.id === lightbox);
+            return img?.src ? (
+              <img src={img.src} alt={img.label} className="max-w-4xl w-full max-h-[80vh] object-contain" />
+            ) : (
+              <div className="max-w-4xl w-full aspect-video bg-secondary border border-border flex items-center justify-center">
+                <span className="text-muted-foreground text-sm tracking-[0.15em] uppercase">Bild {lightbox}</span>
+              </div>
+            );
+          })()}
         </div>
       )}
     </section>
