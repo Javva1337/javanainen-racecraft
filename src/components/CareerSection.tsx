@@ -1,13 +1,13 @@
 import { useScrollReveal } from "./useScrollReveal";
 
 const milestones = [
-  { year: "2019", title: "Första tävlingssäsongen", desc: "Debut inom hyrkarting med omedelbar potential." },
-  { year: "2020", title: "Nationell framgång", desc: "Etablerade sig i toppen av den svenska scenen." },
-  { year: "2021", title: "Internationellt genombrott", desc: "Första internationella tävlingar med starka resultat." },
-  { year: "2022", title: "VM – Bronsmedalj", desc: "Tredjeplats i världsmästerskapet. En plats bland de bästa." },
-  { year: "2023", title: "Strategisk utveckling", desc: "Förfinade racecraft och taktisk körning." },
-  { year: "2024", title: "Mästerskapsförberedelse", desc: "Intensiv träning och uppbyggnad inför VM-satsningen." },
-  { year: "2025", title: "VM Billund – Satsningen", desc: "Allt leder hit. Världsmästerskapet i Danmark." },
+  { year: "2005", title: "Gokart", desc: "Första steget in i motorsport. 10 år gammal." },
+  { year: "2015", title: "SRKC-vinst & VM Italien", desc: "Vinnare av SRKC Linköping. Nations Cup-seger och individuell final i VM." },
+  { year: "2016", title: "VM Italien — 3:e plats", desc: "Vinst i finalheatet. Bronsmedalj totalt i världsmästerskapet." },
+  { year: "2017", title: "VM-final, Spanien", desc: "Kvalificerade sig till final i världsmästerskapet." },
+  { year: "2018", title: "SRKC-vinst & VM-final Polen", desc: "Vann SRKC Göteborg. VM-final: uppkörning från 16:e till 9:e plats." },
+  { year: "2021", title: "SRKC-final", desc: "6:e plats totalt. Näst bästa svensk." },
+  { year: "2026", title: "VM Billund, Danmark", desc: "Världsmästerskapet i hyrkart. Juni 2026." },
 ];
 
 export default function CareerSection() {

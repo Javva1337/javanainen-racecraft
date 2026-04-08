@@ -6,17 +6,17 @@ const values = [
   {
     icon: Eye,
     title: "Exponering",
-    desc: "Synlighet på internationella arenor, sociala medier och i medierapportering kring VM-satsningen.",
+    desc: "Logotyp på kart, racingdräkt och digitala kanaler. Synlighet vid internationella tävlingar.",
   },
   {
     icon: Award,
-    title: "Varumärkesbyggande",
-    desc: "Associera ditt varumärke med elit, ambition och strategisk precision på världsnivå.",
+    title: "Nätverk",
+    desc: "Koppling till motorsport på elitnivå. Närvaro vid event och mästerskap.",
   },
   {
     icon: Handshake,
-    title: "Professionell representation",
-    desc: "En förare som representerar partners med trovärdighet, professionalitet och resultat.",
+    title: "Trovärdighet",
+    desc: "Associering med dokumenterade resultat på VM-nivå.",
   },
 ];
 
@@ -28,10 +28,9 @@ export default function SponsorsSection() {
       <div ref={ref} className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <div className="gold-line mx-auto mb-6" />
-          <h2 className="font-display text-3xl md:text-4xl text-foreground mb-4">Partners & Sponsorer</h2>
+          <h2 className="font-display text-3xl md:text-4xl text-foreground mb-4">Partners</h2>
           <p className="text-muted-foreground max-w-xl mx-auto text-sm leading-relaxed">
-            En investering i Rickard är en investering i synlighet, prestige och resultat. 
-            Bli en del av satsningen mot världstoppen.
+            Samarbeten byggs kring synlighet, trovärdighet och gemensamt värde.
           </p>
         </div>
 

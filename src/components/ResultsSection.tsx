@@ -1,13 +1,14 @@
 import { useScrollReveal } from "./useScrollReveal";
 
 const results = [
-  { event: "Världsmästerskapet", location: "Internationell", date: "2022", position: "3:e", podium: true },
-  { event: "Nordiska Mästerskapet", location: "Stockholm", date: "2023", position: "1:a", podium: true },
-  { event: "European Rental Kart Cup", location: "Berlin", date: "2023", position: "2:a", podium: true },
-  { event: "Svenska Mästerskapet", location: "Göteborg", date: "2023", position: "1:a", podium: true },
-  { event: "International Trophy", location: "Milano", date: "2024", position: "4:e", podium: false },
-  { event: "Nordic Open", location: "Köpenhamn", date: "2024", position: "2:a", podium: true },
-  { event: "Kvalificering VM", location: "Billund", date: "2024", position: "1:a", podium: true },
+  { event: "SRKC Linköping", location: "Linköping", date: "2015", position: "1:a", podium: true },
+  { event: "KWC Nations Cup", location: "Italien", date: "2015", position: "1:a", podium: true },
+  { event: "KWC Individuellt", location: "Italien", date: "2015", position: "Finalist", podium: false },
+  { event: "KWC — Världsmästerskapet", location: "Italien", date: "2016", position: "3:e", podium: true },
+  { event: "KWC", location: "Spanien", date: "2017", position: "Finalist", podium: false },
+  { event: "SRKC Göteborg", location: "Göteborg", date: "2018", position: "1:a", podium: true },
+  { event: "KWC", location: "Polen", date: "2018", position: "9:e", podium: false },
+  { event: "SRKC", location: "Sverige", date: "2021", position: "6:e", podium: false },
 ];
 
 export default function ResultsSection() {
@@ -28,7 +29,7 @@ export default function ResultsSection() {
           <div className="hidden md:grid grid-cols-4 gap-4 text-xs tracking-[0.15em] uppercase text-muted-foreground border-b border-border pb-3 mb-4">
             <span>Tävling</span>
             <span>Plats</span>
-            <span>Datum</span>
+            <span>År</span>
             <span className="text-right">Position</span>
           </div>
 

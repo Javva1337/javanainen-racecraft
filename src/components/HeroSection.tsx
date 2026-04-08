@@ -27,7 +27,7 @@ export default function HeroSection() {
           className="text-sm md:text-base tracking-[0.25em] uppercase text-muted-foreground mb-12 opacity-0 animate-fade-in-up"
           style={{ animationDelay: "0.7s" }}
         >
-          VM-satsande racingförare&ensp;|&ensp;Strategisk racecraft&ensp;|&ensp;Bevisad prestation
+          Hyrkart&ensp;|&ensp;3:e plats VM 2016&ensp;|&ensp;VM Billund 2026
         </p>
         <div
           className="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 animate-fade-in-up"

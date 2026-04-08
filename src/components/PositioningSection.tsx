@@ -5,17 +5,17 @@ const stats = [
   {
     icon: Trophy,
     title: "Top 3 i VM",
-    desc: "Tidigare bronsmedaljör i världsmästerskapet. Bevisad kapacitet på högsta nivå.",
+    desc: "Bronsmedaljör i VM 2016. Finalist i VM 2015, 2017 och 2018.",
   },
   {
     icon: Brain,
     title: "Strategisk racecraft",
-    desc: "Vinner med precision och kalkyl. Varje lopp är en schackmatch på banan.",
+    desc: "Stark i taktiska beslut under race. Konsekvent i tävlingssituationer.",
   },
   {
     icon: Target,
-    title: "VM Billund 2025",
-    desc: "Siktar på det ultimata målet. Fokuserad satsning mot världsmästerskapet i Danmark.",
+    title: "VM Billund 2026",
+    desc: "Världsmästerskapet i hyrkart. Billund, Danmark. Juni 2026.",
   },
 ];
 

@@ -63,7 +63,7 @@ export default function ContactSection() {
             type="submit"
             className="w-full py-3 bg-primary text-primary-foreground text-xs tracking-[0.2em] uppercase hover:bg-primary/80 transition-all duration-300"
           >
-            Skicka meddelande
+            Skicka
           </button>
         </form>
       </div>
