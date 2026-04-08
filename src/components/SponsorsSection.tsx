@@ -69,7 +69,7 @@ export default function SponsorsSection() {
                 className="aspect-[3/1] bg-transparent border border-primary/30 flex items-center justify-center hover:border-primary/50 transition-colors p-4"
               >
                 {item.logo ? (
-                  <img src={item.logo} alt={item.alt} className="max-h-full max-w-full object-contain brightness-0 invert" />
+                  <img src={item.logo} alt={item.alt} className="max-h-full max-w-full object-contain" />
                 ) : (
                   <span className="text-muted-foreground text-xs tracking-widest uppercase">Logotyp {item.key}</span>
                 )}
