@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { X } from "lucide-react";
 import { useScrollReveal } from "./useScrollReveal";
+import gallery1 from "@/assets/gallery-1.jpg";
 import gallery5 from "@/assets/gallery-5.png";
 
 const images = [
-  { id: 1, label: "Action på banan", span: "col-span-2 row-span-2", src: "" },
+  { id: 1, label: "Action på banan", span: "col-span-2 row-span-2", src: gallery1 },
   { id: 2, label: "Fokus före start", span: "", src: "" },
   { id: 3, label: "Podium", span: "", src: "" },
   { id: 4, label: "Strategi", span: "", src: "" },
