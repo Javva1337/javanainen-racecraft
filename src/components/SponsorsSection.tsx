@@ -66,10 +66,10 @@ export default function SponsorsSection() {
             ].map((item) => (
               <div
                 key={item.key}
-                className="aspect-[3/1] bg-white/90 border border-border flex items-center justify-center hover:border-primary/20 transition-colors p-3"
+                className="aspect-[3/1] bg-transparent border border-primary/30 flex items-center justify-center hover:border-primary/50 transition-colors p-4"
               >
                 {item.logo ? (
-                  <img src={item.logo} alt={item.alt} className="max-h-full max-w-full object-contain" />
+                  <img src={item.logo} alt={item.alt} className="max-h-full max-w-full object-contain brightness-0 invert" />
                 ) : (
                   <span className="text-muted-foreground text-xs tracking-widest uppercase">Logotyp {item.key}</span>
                 )}
