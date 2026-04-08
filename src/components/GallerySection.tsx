@@ -3,12 +3,13 @@ import { X } from "lucide-react";
 import { useScrollReveal } from "./useScrollReveal";
 import gallery1 from "@/assets/gallery-1.jpg";
 import gallery2 from "@/assets/gallery-2.jpg";
+import gallery3 from "@/assets/gallery-3.jpg";
 import gallery5 from "@/assets/gallery-5.png";
 
 const images = [
   { id: 1, label: "Action på banan", span: "col-span-2 row-span-2", src: gallery1 },
   { id: 2, label: "Fokus före start", span: "", src: gallery2 },
-  { id: 3, label: "Podium", span: "", src: "" },
+  { id: 3, label: "Podium", span: "", src: gallery3 },
   { id: 4, label: "Strategi", span: "", src: "" },
   { id: 5, label: "Helmet close-up", span: "", src: gallery5 },
   { id: 6, label: "Racing i regn", span: "col-span-2", src: "" },
