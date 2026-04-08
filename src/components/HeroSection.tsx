@@ -1,0 +1,58 @@
+import { ChevronDown } from "lucide-react";
+
+export default function HeroSection() {
+  return (
+    <section
+      id="hero"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+    >
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-secondary" />
+      <div className="absolute inset-0 opacity-20"
+        style={{
+          backgroundImage: `radial-gradient(ellipse at 30% 50%, hsl(38 40% 60% / 0.08) 0%, transparent 60%),
+                            radial-gradient(ellipse at 70% 30%, hsl(38 40% 60% / 0.05) 0%, transparent 50%)`,
+        }}
+      />
+
+      {/* Content */}
+      <div className="relative z-10 text-center px-6 max-w-4xl">
+        <div className="gold-line mx-auto mb-8 opacity-0 animate-fade-in-up" style={{ animationDelay: "0.2s" }} />
+        <h1
+          className="font-display text-5xl md:text-7xl lg:text-8xl tracking-tight text-foreground mb-6 opacity-0 animate-fade-in-up"
+          style={{ animationDelay: "0.4s" }}
+        >
+          Rickard Javanainen
+        </h1>
+        <p
+          className="text-sm md:text-base tracking-[0.25em] uppercase text-muted-foreground mb-12 opacity-0 animate-fade-in-up"
+          style={{ animationDelay: "0.7s" }}
+        >
+          VM-satsande racingförare&ensp;|&ensp;Strategisk racecraft&ensp;|&ensp;Bevisad prestation
+        </p>
+        <div
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 animate-fade-in-up"
+          style={{ animationDelay: "1s" }}
+        >
+          <a
+            href="#karriar"
+            className="px-8 py-3 border border-primary text-primary text-xs tracking-[0.2em] uppercase hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+          >
+            Se karriär
+          </a>
+          <a
+            href="#partners"
+            className="px-8 py-3 bg-primary text-primary-foreground text-xs tracking-[0.2em] uppercase hover:bg-primary/80 transition-all duration-300"
+          >
+            Bli partner
+          </a>
+        </div>
+      </div>
+
+      {/* Scroll indicator */}
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 opacity-0 animate-fade-in-up" style={{ animationDelay: "1.5s" }}>
+        <ChevronDown className="text-muted-foreground animate-scroll-hint" size={24} />
+      </div>
+    </section>
+  );
+}
