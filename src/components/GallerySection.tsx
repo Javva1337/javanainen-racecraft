@@ -34,11 +34,15 @@ export default function GallerySection() {
               }`}
               style={{ transitionDelay: `${i * 100}ms` }}
             >
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span className="text-muted-foreground text-xs tracking-[0.15em] uppercase group-hover:text-primary transition-colors">
-                  {img.label}
-                </span>
-              </div>
+              {img.src ? (
+                <img src={img.src} alt={img.label} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              ) : (
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <span className="text-muted-foreground text-xs tracking-[0.15em] uppercase group-hover:text-primary transition-colors">
+                    {img.label}
+                  </span>
+                </div>
+              )}
               <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-300" />
             </button>
           ))}
