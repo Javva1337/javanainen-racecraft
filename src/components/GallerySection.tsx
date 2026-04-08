@@ -1,14 +1,15 @@
 import { useState } from "react";
 import { X } from "lucide-react";
 import { useScrollReveal } from "./useScrollReveal";
+import gallery5 from "@/assets/gallery-5.png";
 
 const images = [
-  { id: 1, label: "Action på banan", span: "col-span-2 row-span-2" },
-  { id: 2, label: "Fokus före start", span: "" },
-  { id: 3, label: "Podium", span: "" },
-  { id: 4, label: "Strategi", span: "" },
-  { id: 5, label: "Helmet close-up", span: "" },
-  { id: 6, label: "Racing i regn", span: "col-span-2" },
+  { id: 1, label: "Action på banan", span: "col-span-2 row-span-2", src: "" },
+  { id: 2, label: "Fokus före start", span: "", src: "" },
+  { id: 3, label: "Podium", span: "", src: "" },
+  { id: 4, label: "Strategi", span: "", src: "" },
+  { id: 5, label: "Helmet close-up", span: "", src: gallery5 },
+  { id: 6, label: "Racing i regn", span: "col-span-2", src: "" },
 ];
 
 export default function GallerySection() {
@@ -33,11 +34,15 @@ export default function GallerySection() {
               }`}
               style={{ transitionDelay: `${i * 100}ms` }}
             >
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span className="text-muted-foreground text-xs tracking-[0.15em] uppercase group-hover:text-primary transition-colors">
-                  {img.label}
-                </span>
-              </div>
+              {img.src ? (
+                <img src={img.src} alt={img.label} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              ) : (
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <span className="text-muted-foreground text-xs tracking-[0.15em] uppercase group-hover:text-primary transition-colors">
+                    {img.label}
+                  </span>
+                </div>
+              )}
               <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-300" />
             </button>
           ))}
@@ -56,11 +61,16 @@ export default function GallerySection() {
           >
             <X size={28} />
           </button>
-          <div className="max-w-4xl w-full aspect-video bg-secondary border border-border flex items-center justify-center">
-            <span className="text-muted-foreground text-sm tracking-[0.15em] uppercase">
-              Bild {lightbox}
-            </span>
-          </div>
+          {(() => {
+            const img = images.find(i => i.id === lightbox);
+            return img?.src ? (
+              <img src={img.src} alt={img.label} className="max-w-4xl w-full max-h-[80vh] object-contain" />
+            ) : (
+              <div className="max-w-4xl w-full aspect-video bg-secondary border border-border flex items-center justify-center">
+                <span className="text-muted-foreground text-sm tracking-[0.15em] uppercase">Bild {lightbox}</span>
+              </div>
+            );
+          })()}
         </div>
       )}
     </section>
