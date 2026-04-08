@@ -1,16 +1,14 @@
 
+## Update sponsor logo grid styling
 
-## Add PrimAB logo to Partners section
-
-**What**: Replace the first placeholder ("Logotyp 1") in the SponsorsSection with the uploaded PrimAB logo.
+**What**: Remove the white background from logo containers so they blend into the dark site background, and add a subtle gold/primary border for separation.
 
 **Steps**:
 
-1. Copy `user-uploads://PrimAB_logotyp_på_transparent_bakgrund.png` to `src/assets/sponsor-primab.png`
-2. Update `src/components/SponsorsSection.tsx`:
-   - Import the logo asset
-   - Convert the logo grid from placeholder text to a data-driven array
-   - Replace the first grid item with an `<img>` showing the PrimAB logo, keeping items 2-4 as placeholders
+1. **Update `src/components/SponsorsSection.tsx`**:
+   - Change logo container class from `bg-white/90 border border-border` to `bg-transparent border border-primary/30` (gold-tinted border)
+   - For the PrimAB logo (dark on transparent), apply CSS `filter: invert(1) brightness(2)` or similar to make it visible on the dark background
+   - Keep hover effect as `hover:border-primary/50` for a brighter gold on hover
+   - Remove the `p-3` padding or keep minimal padding for breathing room
 
-**Technical detail**: The logo has a transparent background and dark blue color. Since the site uses a dark theme, we may need to add a light/white background or use CSS `filter: invert()` to ensure visibility. Will add a subtle light background to the logo container.
-
+**Technical detail**: The PrimAB logo is dark blue on transparent background. On the dark site theme it will be invisible without either inverting the colors via CSS filter or keeping a light background. Using `filter: brightness(0) invert(1)` will turn it white/light, making it visible against the dark background while maintaining the transparent look the user wants.
