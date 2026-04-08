@@ -6,6 +6,7 @@ import gallery2 from "@/assets/gallery-2.jpg";
 import gallery3 from "@/assets/gallery-3.jpg";
 import gallery4 from "@/assets/gallery-4.jpg";
 import gallery5 from "@/assets/gallery-5.png";
+import gallery6 from "@/assets/gallery-6.jpg";
 
 const images = [
   { id: 1, label: "Action på banan", span: "col-span-2 row-span-2", src: gallery1 },
@@ -13,7 +14,7 @@ const images = [
   { id: 3, label: "Podium", span: "", src: gallery3 },
   { id: 4, label: "Strategi", span: "", src: gallery4 },
   { id: 5, label: "Helmet close-up", span: "", src: gallery5 },
-  { id: 6, label: "Racing i regn", span: "col-span-2", src: "" },
+  { id: 6, label: "Racing i regn", span: "col-span-2", src: gallery6 },
 ];
 
 export default function GallerySection() {
