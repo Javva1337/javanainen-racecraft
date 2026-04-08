@@ -1,4 +1,5 @@
 import { useScrollReveal } from "./useScrollReveal";
+import portrait from "@/assets/portrait.jpg";
 
 export default function AboutSection() {
   const { ref, isVisible } = useScrollReveal();
@@ -6,13 +7,13 @@ export default function AboutSection() {
   return (
     <section id="om" className="section-padding">
       <div ref={ref} className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-        {/* Portrait placeholder */}
+        {/* Portrait */}
         <div
-          className={`aspect-[3/4] bg-secondary border border-border flex items-center justify-center transition-all duration-700 ${
+          className={`aspect-[3/4] bg-secondary border border-border overflow-hidden transition-all duration-700 ${
             isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
           }`}
         >
-          <span className="text-muted-foreground text-xs tracking-[0.2em] uppercase">Porträttbild</span>
+          <img src={portrait} alt="Rickard Javanainen" className="w-full h-full object-cover object-top" />
         </div>
 
         {/* Text */}
