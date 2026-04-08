@@ -1,5 +1,6 @@
 import { Eye, Award, Handshake } from "lucide-react";
 import { useScrollReveal } from "./useScrollReveal";
+import sponsorPrimab from "@/assets/sponsor-primab.png";
 
 const values = [
   {
@@ -57,12 +58,21 @@ export default function SponsorsSection() {
             Nuvarande & framtida partners
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[1, 2, 3, 4].map((n) => (
+            {[
+              { key: 1, logo: sponsorPrimab, alt: "PrimAB" },
+              { key: 2 },
+              { key: 3 },
+              { key: 4 },
+            ].map((item) => (
               <div
-                key={n}
-                className="aspect-[3/1] bg-secondary border border-border flex items-center justify-center hover:border-primary/20 transition-colors"
+                key={item.key}
+                className="aspect-[3/1] bg-white/90 border border-border flex items-center justify-center hover:border-primary/20 transition-colors p-3"
               >
-                <span className="text-muted-foreground text-xs tracking-widest uppercase">Logotyp {n}</span>
+                {item.logo ? (
+                  <img src={item.logo} alt={item.alt} className="max-h-full max-w-full object-contain" />
+                ) : (
+                  <span className="text-muted-foreground text-xs tracking-widest uppercase">Logotyp {item.key}</span>
+                )}
               </div>
             ))}
           </div>
