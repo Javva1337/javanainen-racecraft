@@ -25,26 +25,16 @@ export default function AboutSection() {
           <div className="gold-line mb-6" />
           <h2 className="font-display text-3xl md:text-4xl text-foreground mb-6">Om Rickard</h2>
           <p className="text-muted-foreground leading-relaxed mb-4">
-            Uppvuxen i Dalarna började Rickard sin motorsportresa redan vid 10 års ålder bakom ratten på en gokart. 
-            Intresset växte snabbt och ledde vidare till tävlingar i bland annat Renault Clio Cup och JTCC. 
-            Under tiden på Racinggymnasiet i Mjölby flyttade han till Östergötland – och det var där hyrkarten 
-            på allvar tog över.
+            Uppvuxen i Dalarna. Började köra gokart vid 10 års ålder. Tävlade senare i Renault Clio Cup och JTCC innan hyrkarten tog över under tiden på Racinggymnasiet i Mjölby.
           </p>
           <p className="text-muted-foreground leading-relaxed mb-4">
-            2015 vann Rickard den första upplagan av SRKC i Linköping, vilket öppnade dörren till Kart World 
-            Championship i Italien. Att köra upp Sverige från sista till första plats i Nations Cup är fortfarande 
-            ett av karriärens starkaste minnen. I den individuella tävlingen nådde han final efter en pallplats i semi.
+            Vann första upplagan av SRKC i Linköping 2015. Samma år: VM i Italien, där Sverige gick från sista till första plats i Nations Cup. Individuellt: semifinalplacering med pallplats, vidare till final.
           </p>
           <p className="text-muted-foreground leading-relaxed mb-4">
-            Året därpå arrangerade han själv SRKC 2016 och tog sig åter till VM i Italien – där han vann 
-            finalheatet och slutade totalt trea i världsmästerskapet. Ett resultat som betydde enormt, både 
-            personligen och för svensk hyrkart. Finaler i VM 2017 (Spanien), VM i Polen (uppkörning från 16:e 
-            till 9:e plats) och SRKC-vinsten i Göteborg 2018 följde.
+            VM i Italien 2016: vinst i finalheatet, 3:e plats totalt. Finalist i VM 2017 (Spanien). SRKC-vinst i Göteborg 2018 efter jämn final mot Max Sjölander. VM-final i Polen samma år — uppkörning från 16:e till 9:e plats. SRKC-final 2021: 6:e plats, näst bästa svensk.
           </p>
           <p className="text-muted-foreground leading-relaxed">
-            Efter en period som "pensionerad" har drömmen aldrig riktigt släppt. Nu satsar Rickard åter mot 
-            världstoppen – med VM i hyrkart i Billund, Danmark i juni 2026 som nästa mål. På många sätt sluts 
-            cirkeln, men ett nytt kapitel har precis börjat.
+            Nu åter aktiv med fokus på VM i hyrkart, Billund, Danmark, juni 2026.
           </p>
         </div>
       </div>
