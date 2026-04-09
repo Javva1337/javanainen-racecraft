@@ -6,6 +6,7 @@ const links = [
   { label: "Om", href: "#om" },
   { label: "Karriär", href: "#karriar" },
   { label: "Resultat", href: "#resultat" },
+  { label: "VM 2026", href: "#vm2026" },
   { label: "Galleri", href: "#galleri" },
   { label: "Partners", href: "#partners" },
   { label: "Kontakt", href: "#kontakt" },
