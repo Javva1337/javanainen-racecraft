@@ -2,12 +2,12 @@ import { useScrollReveal } from "./useScrollReveal";
 
 const milestones = [
   { year: "2002", title: "Gokart", desc: "Första steget in i motorsport. 10 år gammal." },
-  { year: "2002–2006", title: "Gokart — olika klasser", desc: "Flera år av utveckling genom olika gokartklasser." },
+  { year: "2002–2006", title: "Gokart — olika klasser", desc: "Flera år av utveckling genom olika gokartklasser, med flertalet vinster och pallplatser." },
   { year: "2007", title: "Renault Junior Cup", desc: "2:a plats totalt i Renault Junior Cup." },
   { year: "2008–2010", title: "JTCC", desc: "Junior Touring Car Championship. Flertalet pallplatser." },
   { year: "2011", title: "Ginetta G20 Cup", desc: "Inhopp mitt i säsongen — vann 2 av 6 race. 8:e plats totalt av 22 förare med enbart hälften av racen körda." },
   { year: "2015", title: "SRKC-vinst & VM Italien", desc: "Vinnare av SRKC Linköping. 7:e plats individuellt i VM." },
-  { year: "2016", title: "VM Italien — 3:e plats", desc: "Vinst i finalheatet. Bronsmedalj totalt i världsmästerskapet." },
+  { year: "2016", title: "VM Italien — 3:e plats", desc: "Vinst i finalen men en sammalagd Bronsmedalj totalt i världsmästerskapet." },
   { year: "2017", title: "VM Spanien", desc: "11:e plats i världsmästerskapet." },
   { year: "2018", title: "SRKC-vinst & VM Polen", desc: "Vann SRKC Göteborg. 12:e plats i VM." },
   { year: "2021", title: "SRKC-final", desc: "6:e plats totalt. Näst bästa svensk." },
