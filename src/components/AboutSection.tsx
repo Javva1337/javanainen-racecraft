@@ -28,10 +28,10 @@ export default function AboutSection() {
             Uppvuxen i Dalarna. Började köra gokart vid 10 års ålder. Tävlade senare i Renault Clio Cup och JTCC innan hyrkarten tog över under tiden på Racinggymnasiet i Mjölby.
           </p>
           <p className="text-muted-foreground leading-relaxed mb-4">
-            Vann första upplagan av SRKC i Linköping 2015. Samma år: VM i Italien, där Sverige gick från sista till första plats i Nations Cup. Individuellt: semifinalplacering med pallplats, vidare till final.
+            Vann första upplagan av SRKC i Linköping 2015. Samma år: VM i Italien, där jag körde Sveriges lag från sista till första plats i Nations Cup. Individuellt: semifinalplacering med pallplats, vidare till final.
           </p>
           <p className="text-muted-foreground leading-relaxed mb-4">
-            VM i Italien 2016: vinst i finalheatet, 3:e plats totalt. Finalist i VM 2017 (Spanien). SRKC-vinst i Göteborg 2018 efter jämn final mot Max Sjölander. VM-final i Polen samma år — uppkörning från 16:e till 9:e plats. SRKC-final 2021: 6:e plats, näst bästa svensk.
+            VM i Italien 2016: vinst i finalen, 3:e plats totalt. Finalist i VM 2017 (Spanien). SRKC-vinst i Göteborg 2018 efter jämn final mot Max Sjölander. VM-final i Polen samma år — uppkörning från 16:e till 9:e plats. SRKC-final 2021: 6:e plats, näst bästa svensk.
           </p>
           <p className="text-muted-foreground leading-relaxed">
             Nu åter aktiv med fokus på VM i hyrkart, Billund, Danmark, juni 2026.
