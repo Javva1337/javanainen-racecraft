@@ -2,11 +2,11 @@ import { useScrollReveal } from "./useScrollReveal";
 
 const results = [
   { event: "SRKC Linköping", location: "Linköping", date: "2015", position: "1:a", podium: true },
-  { event: "KWC Individuellt", location: "Italien", date: "2015", position: "7:e", podium: false },
-  { event: "KWC — VM", location: "Italien", date: "2016", position: "3:e", podium: true },
-  { event: "KWC", location: "Spanien", date: "2017", position: "11:e", podium: false },
+  { event: "KWC — VM", location: "Italien", date: "2015", position: "11:e av 127", podium: false },
+  { event: "KWC — VM", location: "Italien", date: "2016", position: "3:e av 102", podium: true },
+  { event: "KWC — VM", location: "Spanien", date: "2017", position: "12:e av 172", podium: false },
   { event: "SRKC Göteborg", location: "Göteborg", date: "2018", position: "1:a", podium: true },
-  { event: "KWC", location: "Polen", date: "2018", position: "12:e", podium: false },
+  { event: "KWC — VM", location: "Polen", date: "2018", position: "14:e av 131", podium: false },
   { event: "SRKC", location: "Sverige", date: "2021", position: "6:e", podium: false },
   { event: "SRKC", location: "Sverige", date: "2026", position: "3:e bästa svensk", podium: false },
 ];
