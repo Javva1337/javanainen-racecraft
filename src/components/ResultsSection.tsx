@@ -7,8 +7,8 @@ const results = [
   { event: "KWC — VM", location: "Spanien", date: "2017", position: "12:e av 172", podium: false },
   { event: "SRKC Göteborg", location: "Göteborg", date: "2018", position: "1:a", podium: true },
   { event: "KWC — VM", location: "Polen", date: "2018", position: "14:e av 131", podium: false },
-  { event: "SRKC", location: "Sverige", date: "2021", position: "6:e", podium: false },
-  { event: "SRKC", location: "Sverige", date: "2026", position: "3:e bästa svensk", podium: false },
+  { event: "SRKC", location: "Sverige", date: "2021", position: "6:e, 2:a bästa svensk", podium: true },
+  { event: "SRKC", location: "Sverige", date: "2026", position: "3:e bästa svensk", podium: true },
 ];
 
 export default function ResultsSection() {
