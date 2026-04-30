@@ -1,27 +1,29 @@
+## Lägg till Labatus som första sponsor
 
-
-## Ny sektion: Världsmästerskapet 2026
+### Val av logofil
+Sidan har en mycket mörk bakgrund (`--background: 0 0% 4%`), så **den negativa (vita) varianten** används. Jag väljer **SVG-formatet** (`Labatus_Logo_NEG_RGB.svg`) eftersom det är vektorbaserat, skalar perfekt på alla skärmstorlekar och har minimal filstorlek.
 
 ### Vad som byggs
-En ny komponent `ChampionshipSection.tsx` som presenterar årets VM-tävling med formatbeskrivning, vad som avgör, Nations Cup och karaktär. Placeras mellan ResultsSection och GallerySection i sidans flöde.
 
-### Struktur
+Partners-sektionen byggs om så att den både visar en stolt presentation av Labatus som befintlig partner OCH behåller den inbjudande "Vill du synas här?"-känslan för framtida sponsorer. Det får sektionen att kännas etablerad utan att stänga dörren för fler.
 
-Sektionen delas upp i fyra block:
+### Ny struktur i `SponsorsSection.tsx`
 
-1. **Intro** — Kort om KWC 2026: 160+ förare, lika förutsättningar, standardiserat material
-2. **Format** — De tre stegen (8 kvalheat, 1 semifinal, final med 18 bästa) presenterade visuellt med siffror/ikoner
-3. **Vad som avgör + Karaktär** — Kombination av kravlistan (stabil prestation, beslutsfattande, anpassning) och karaktärsbeskrivningen (racecraft, strategi, konsekvens)
-4. **Nations Cup** — Kort beskrivning av lagtävlingen
-
-### Design
-- Samma stilmönster som övriga sektioner (scroll-reveal, gold-line, font-display headings)
-- Format-stegen visas som tre horisontella kort med siffror (8 → 1 → 18)
-- Kravlistan som en enkel grid med korta punkter
-- Ton: saklig och faktacentrerad, inga förbjudna ord
+1. **Rubrik & intro** — oförändrat ("Partners")
+2. **Värdeerbjudande-korten** (Exponering / Stötta satsningen) — oförändrade
+3. **NYTT: "Officiell partner"-block**
+   - Liten etikett: "OFFICIELL PARTNER" (guld, tracking-wide, uppercase)
+   - Labatus-logotypen centrerad, generös storlek (~max-w-xs/sm), med padding och subtil hover-effekt
+   - Stilren ram i samma stil som övriga kort
+4. **"Vill du synas här?"-CTA** — behålls men flyttas under Labatus-blocket och justeras språkligt så det passar nu när det finns en partner ("Bli en del av resan tillsammans med Labatus...")
 
 ### Filer som ändras
-- **Ny fil**: `src/components/ChampionshipSection.tsx`
-- **Ändras**: `src/pages/Index.tsx` — import + placering efter ResultsSection
-- **Ändras**: `src/components/Navigation.tsx` — nytt nav-länk "VM 2026" mellan Resultat och Galleri
 
+- **Ny fil**: `src/assets/labatus-logo.svg` (kopia av `user-uploads://Labatus_Logo_NEG_RGB.svg`)
+- **Ändras**: `src/components/SponsorsSection.tsx` — importera logotypen, lägg till Officiell partner-block, justera CTA-texten
+
+### Designdetaljer
+- Logotypen importeras som ES6-modul från `@/assets/labatus-logo.svg`
+- Block-bakgrund: subtil `bg-card` med `border-primary/20` för att lyfta fram partnern
+- Scroll-reveal-animation i samma stil som övriga element
+- Responsiv: logo skalar ner snyggt på mobil

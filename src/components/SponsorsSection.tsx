@@ -1,5 +1,6 @@
 import { Eye, Heart, ArrowRight } from "lucide-react";
 import { useScrollReveal } from "./useScrollReveal";
+import labatusLogo from "@/assets/labatus-logo.svg";
 
 const values = [
   {
@@ -45,19 +46,47 @@ export default function SponsorsSection() {
           ))}
         </div>
 
-        {/* Partner CTA area — inviting, not empty-looking */}
+        {/* Official partner — Labatus */}
+        <div
+          className={`relative border border-primary/20 bg-card p-10 md:p-14 mb-12 transition-all duration-700 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
+          style={{ transitionDelay: "300ms" }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.04] to-transparent pointer-events-none" />
+          <div className="relative flex flex-col items-center text-center">
+            <span className="text-[10px] tracking-[0.3em] uppercase text-primary mb-8">
+              Officiell partner
+            </span>
+            <a
+              href="https://labatus.se"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block group"
+              aria-label="Labatus — officiell partner"
+            >
+              <img
+                src={labatusLogo}
+                alt="Labatus logotyp"
+                className="w-full max-w-xs md:max-w-sm h-auto opacity-90 group-hover:opacity-100 transition-opacity duration-300"
+              />
+            </a>
+          </div>
+        </div>
+
+        {/* Partner CTA area */}
         <div
           className={`relative border border-primary/20 p-12 md:p-16 text-center mb-16 transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
-          style={{ transitionDelay: "300ms" }}
+          style={{ transitionDelay: "450ms" }}
         >
           <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.03] to-transparent pointer-events-none" />
           <p className="font-display text-xl md:text-2xl text-foreground mb-3 relative">
             Vill du synas här?
           </p>
           <p className="text-muted-foreground text-sm max-w-md mx-auto leading-relaxed mb-8 relative">
-            Jag söker partners som vill vara med på resan mot toppen. Din logotyp, ditt varumärke — synligt vid varje tävling och i alla kanaler.
+            Bli en del av resan tillsammans med Labatus. Din logotyp, ditt varumärke — synligt vid varje tävling och i alla kanaler.
           </p>
           <a
             href="#kontakt"
