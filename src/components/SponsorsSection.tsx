@@ -47,7 +47,7 @@ export default function SponsorsSection() {
           ))}
         </div>
 
-        {/* Official partner — Labatus */}
+        {/* Partners */}
         <div
           className={`relative border border-primary/20 bg-card p-10 md:p-14 mb-12 transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
@@ -55,23 +55,38 @@ export default function SponsorsSection() {
           style={{ transitionDelay: "300ms" }}
         >
           <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.04] to-transparent pointer-events-none" />
-          <div className="relative flex flex-col items-center text-center">
-            <span className="text-[10px] tracking-[0.3em] uppercase text-primary mb-8">
-              Officiell partner
+          <div className="relative flex flex-col items-center">
+            <span className="text-[10px] tracking-[0.3em] uppercase text-primary mb-10">
+              Partners
             </span>
-            <a
-              href="https://labatus.se"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block group"
-              aria-label="Labatus — officiell partner"
-            >
-              <img
-                src={labatusLogo}
-                alt="Labatus logotyp"
-                className="w-full max-w-xs md:max-w-sm h-auto opacity-90 group-hover:opacity-100 transition-opacity duration-300"
-              />
-            </a>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 w-full max-w-3xl">
+              <a
+                href="https://labatus.se"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center min-h-32 px-8 py-6 border border-border/40 hover:border-primary/30 transition-all duration-300 group"
+                aria-label="Labatus — partner"
+              >
+                <img
+                  src={labatusLogo}
+                  alt="Labatus logotyp"
+                  className="max-h-16 md:max-h-20 w-auto opacity-90 group-hover:opacity-100 transition-opacity duration-300"
+                />
+              </a>
+              <a
+                href="https://primab.se"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center min-h-32 px-8 py-6 bg-white border border-border/40 hover:border-primary/30 transition-all duration-300 group"
+                aria-label="Primab — partner"
+              >
+                <img
+                  src={primabLogo}
+                  alt="Primab logotyp"
+                  className="max-h-16 md:max-h-20 w-auto opacity-95 group-hover:opacity-100 transition-opacity duration-300"
+                />
+              </a>
+            </div>
           </div>
         </div>
 
