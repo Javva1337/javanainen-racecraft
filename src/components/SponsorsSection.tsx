@@ -102,7 +102,7 @@ export default function SponsorsSection() {
             Vill du synas här?
           </p>
           <p className="text-muted-foreground text-sm max-w-md mx-auto leading-relaxed mb-8 relative">
-            Bli en del av resan tillsammans med Labatus. Din logotyp, ditt varumärke — synligt vid varje tävling och i alla kanaler.
+            Bli en del av satsningen tillsammans med Labatus och Primab. Din logotyp, ditt varumärke — synligt vid varje tävling och i alla kanaler.
           </p>
           <a
             href="#kontakt"
