@@ -1,6 +1,7 @@
 import { Eye, Heart, ArrowRight } from "lucide-react";
 import { useScrollReveal } from "./useScrollReveal";
 import labatusLogo from "@/assets/labatus-logo.svg";
+import primabLogo from "@/assets/primab-logo.png";
 
 const values = [
   {
