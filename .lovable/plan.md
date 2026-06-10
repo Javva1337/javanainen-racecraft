@@ -1,29 +1,38 @@
-## Lägg till Labatus som första sponsor
+## Lägg till Primab som partner
 
-### Val av logofil
-Sidan har en mycket mörk bakgrund (`--background: 0 0% 4%`), så **den negativa (vita) varianten** används. Jag väljer **SVG-formatet** (`Labatus_Logo_NEG_RGB.svg`) eftersom det är vektorbaserat, skalar perfekt på alla skärmstorlekar och har minimal filstorlek.
+### Hämtning av logotyp
+Primabs logotyp ligger publikt på deras WordPress-installation:
+`https://primab.se/wp-content/uploads/2022/11/primab_logotyp2.webp`
 
-### Vad som byggs
+Jag laddar ner filen, konverterar den till PNG (bättre kompatibilitet än webp för logotyper i React) och sparar i `src/assets/primab-logo.png`.
 
-Partners-sektionen byggs om så att den både visar en stolt presentation av Labatus som befintlig partner OCH behåller den inbjudande "Vill du synas här?"-känslan för framtida sponsorer. Det får sektionen att kännas etablerad utan att stänga dörren för fler.
+### Hantering av mörk bakgrund
+Primabs logotyp är mörkblå och syns dåligt direkt mot sajtens svarta bakgrund. Lösning: visa logotypen på en ljus "chip" (vit bakgrund med subtil padding och rundade hörn) så färgerna behåller sin identitet. Det är en vanlig och elegant lösning för partnervisning där olika sponsorer har olika logotypstilar.
 
 ### Ny struktur i `SponsorsSection.tsx`
 
-1. **Rubrik & intro** — oförändrat ("Partners")
-2. **Värdeerbjudande-korten** (Exponering / Stötta satsningen) — oförändrade
-3. **NYTT: "Officiell partner"-block**
-   - Liten etikett: "OFFICIELL PARTNER" (guld, tracking-wide, uppercase)
-   - Labatus-logotypen centrerad, generös storlek (~max-w-xs/sm), med padding och subtil hover-effekt
-   - Stilren ram i samma stil som övriga kort
-4. **"Vill du synas här?"-CTA** — behålls men flyttas under Labatus-blocket och justeras språkligt så det passar nu när det finns en partner ("Bli en del av resan tillsammans med Labatus...")
+Eftersom vi nu går från 1 till 2 partners byggs "Officiell partner"-blocket om till en **partner-grid** istället för ett enskilt logo-block:
+
+1. **Rubrik & intro** — oförändrat
+2. **Värdeerbjudande-korten** — oförändrade  
+3. **Partner-grid** (ny layout):
+   - Etikett: "PARTNERS" (guld, uppercase, tracking-wide) — uppdaterad från "OFFICIELL PARTNER"
+   - 2-kolumners grid (1 kolumn på mobil) inuti samma ram som idag
+   - **Labatus**: vit SVG visas direkt mot mörk bakgrund (som idag)
+   - **Primab**: visas på en ljus chip (`bg-white` med padding ~`p-8`, subtila rundade hörn) så den mörkblå loggan syns tydligt
+   - Båda är klickbara länkar med hover-effekt
+4. **"Vill du synas här?"-CTA** — uppdateras: "Bli en del av resan tillsammans med Labatus och Primab..."
 
 ### Filer som ändras
 
-- **Ny fil**: `src/assets/labatus-logo.svg` (kopia av `user-uploads://Labatus_Logo_NEG_RGB.svg`)
-- **Ändras**: `src/components/SponsorsSection.tsx` — importera logotypen, lägg till Officiell partner-block, justera CTA-texten
+- **Ny fil**: `src/assets/primab-logo.png` (nedladdad och konverterad från primab.se)
+- **Ändras**: `src/components/SponsorsSection.tsx` — partner-grid med båda logotyperna, uppdaterad CTA-text
 
 ### Designdetaljer
-- Logotypen importeras som ES6-modul från `@/assets/labatus-logo.svg`
-- Block-bakgrund: subtil `bg-card` med `border-primary/20` för att lyfta fram partnern
-- Scroll-reveal-animation i samma stil som övriga element
-- Responsiv: logo skalar ner snyggt på mobil
+- Båda logotyperna får samma höjd-budget (`max-h-20` eller liknande) så de visuellt balanseras trots olika proportioner
+- Labatus: behåller `opacity-90 hover:opacity-100` på mörk yta
+- Primab: ljus chip med subtil skugga eller `border-primary/10` så den smälter in med övrig design
+- Responsiv: staplas vertikalt under `md`-brytpunkt
+
+### Att tänka på
+Att hämta en logga från ett företags hemsida utan deras explicita godkännande är vanligt för "syns hos sponsor"-listor men juridiskt en gråzon. Rekommenderar att du dubbelkollar med Primab att de är okej med visningen — gärna be om en officiell logotypfil i hög upplösning på samma gång.
