@@ -20,6 +20,11 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
   },
+  alternates: {
+    types: {
+      "application/rss+xml": [{ url: "/feed.xml", title: "Rickard Javanainen — Nyheter" }],
+    },
+  },
   robots: { index: true, follow: true },
 };
 

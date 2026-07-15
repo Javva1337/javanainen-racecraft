@@ -64,7 +64,9 @@ export function Footer({ lang }: { lang: Lang }) {
                   href={partner.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center rounded-sm bg-snow px-3 py-2 transition-transform duration-150 hover:scale-[1.02] active:scale-[0.98]"
+                  className={`inline-flex items-center rounded-sm px-3 py-2 transition-transform duration-150 hover:scale-[1.02] active:scale-[0.98] ${
+                    partner.chip === "light" ? "bg-snow" : "border border-line"
+                  }`}
                 >
                   <Image
                     src={partner.logo}

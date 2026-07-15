@@ -19,11 +19,15 @@ export const PARTNERS = [
     name: "Labatus",
     url: "https://labatus.se",
     logo: "/images/partners/labatus.svg",
+    /** Labatus ordmärke är vitt — ska ligga direkt på mörk botten */
+    chip: "dark",
   },
   {
     name: "Primab",
     url: "https://primab.se",
     logo: "/images/partners/primab.png",
+    /** Primab-loggan är mörkblå — behöver ljus chip */
+    chip: "light",
   },
 ] as const;
 
