@@ -1,0 +1,53 @@
+---
+# ============================================================
+# MALL FÖR DAGLIG VM-RAPPORT
+# 1. Kopiera filen till content/nyheter/vm-dag-N-krok.mdx
+#    (filnamnet blir URL:en, t.ex. vm-dag-3-fran-p12-till-p5)
+# 2. Fyll i frontmatter + brödtext (15–20 min)
+# 3. Uppdatera även content/vm-status.json med samma siffror
+# 4. Committa + pusha → Vercel bygger och publicerar
+# Faktarutan renderas automatiskt ur fälten nedan, och
+# delningsbilden genereras med "VM DAG {day}" + standing i gult
+# + partnerloggor. Partnerfoten läggs till automatiskt.
+# ============================================================
+
+# Rubrik med krok, inte bara datum:
+# "Dag 3: Från P12 till P5 i regnet" slår "VM-rapport dag 3"
+title: "Dag N: [KROKEN — det viktigaste som hände idag]"
+
+# 1–2 meningar. Syns i artikellistan, sökresultat och delningar.
+description: "[Sammanfatta dagen i en mening — siffran + känslan.]"
+
+date: 2026-07-XX
+category: "VM 2026"
+
+# VM-dag 1–11 (22 juli = dag 1). Styr delningsbilden.
+day: 0
+
+# Dagens siffror — faktarutan överst i artikeln:
+heatsRaced: 0            # Heat körda idag (eller totalt, var konsekvent)
+bestFinish: "P–"         # Bästa placering idag
+standing: "P–"           # Aktuell totalställning (visas STORT i delningsbilden)
+nationsCup: "P–"         # Sveriges läge i Nations Cup
+
+# En mening om vad som väntar — skapar följetongskänslan:
+tomorrow: "[Imorgon väntar ...]"
+
+# Valfri bild (ladda upp till public/images/vm/ först):
+# image: "/images/vm/dag-N.jpg"
+---
+
+[**Stycke 1 — dagens berättelse börjar här.** Ett nyckelmoment per heat: starten,
+en omkörning, ett taktiskt val, kartlotteriet. Skriv som du pratar —
+inifrån-perspektivet är det ingen annan har.]
+
+[**Stycke 2** — nästa heat eller nästa vändpunkt.]
+
+[**Stycke 3** — hur det känns i kroppen/huvudet, läget i depån, något en
+läsare utan racingbakgrund förstår.]
+
+[**Stycke 4–5 (valfritt)** — Nations Cup-läget, en lagkamrat, en konkurrent
+att hålla ögonen på.]
+
+[Valfritt: bädda in ett 20-sekundersklipp eller en mobilbild — äkthet slår
+produktion.]
