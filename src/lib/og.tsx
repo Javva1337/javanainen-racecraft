@@ -90,10 +90,15 @@ export type OgOptions = {
   date?: string;
   /** Visa Labatus + Primab i botten (race-rapporter) */
   showPartners?: boolean;
+  /** Språk för mallens fasta texter */
+  lang?: "sv" | "en";
 };
 
 export async function buildOgImage(options: OgOptions): Promise<ImageResponse> {
-  const { title, subtitle, day, keyStat, date, showPartners } = options;
+  const { title, subtitle, day, keyStat, date, showPartners, lang = "sv" } = options;
+  const dayLabel = lang === "sv" ? `VM DAG ${day}` : `WORLDS DAY ${day}`;
+  const partnersLabel = lang === "sv" ? "Möjliggörs av" : "Made possible by";
+  const footerLabel = lang === "sv" ? "Hyrkart-VM · Vandel 2026" : "Kart Worlds · Vandel 2026";
   const fonts = await loadFonts();
   const logos = showPartners ? await loadPartnerLogos() : null;
   const isRaceReport = typeof day === "number";
@@ -171,7 +176,7 @@ export async function buildOgImage(options: OgOptions): Promise<ImageResponse> {
                   textTransform: "uppercase",
                 }}
               >
-                {`VM DAG ${day}`}
+                {dayLabel}
               </span>
               <span
                 style={{
@@ -259,7 +264,7 @@ export async function buildOgImage(options: OgOptions): Promise<ImageResponse> {
                   fontWeight: 500,
                 }}
               >
-                Möjliggörs av
+                {partnersLabel}
               </span>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={logos.labatus} alt="Labatus" width={159} height={34} />
@@ -286,7 +291,7 @@ export async function buildOgImage(options: OgOptions): Promise<ImageResponse> {
                 fontWeight: 500,
               }}
             >
-              Hyrkart-VM · Vandel 2026
+              {footerLabel}
             </span>
           )}
         </div>
