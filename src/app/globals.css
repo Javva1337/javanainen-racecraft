@@ -1,0 +1,243 @@
+@import "tailwindcss";
+
+/*
+ * Designtokens — "Skandinavisk minimalism möter motorsport".
+ * Flaggult (#FECC02) används ENDAST för prestation och handling:
+ * pallplatser, CTA-knappar, tidslinjenoder, aktiv countdown-siffra.
+ * Gult får aldrig ligga på ljus botten (WCAG).
+ */
+@theme {
+  --color-midnight: #0a1628;
+  --color-midnight-800: #0d1b2e;
+  --color-midnight-700: #14263f;
+  --color-line: #223752;
+  --color-flagblue: #006aa7;
+  --color-flagblue-bright: #3d9bd1;
+  --color-flagyellow: #fecc02;
+  --color-snow: #f7f5f0;
+  --color-mist: #a9b9cc;
+  --color-mist-dim: #7e90a8;
+
+  --font-display: var(--font-archivo), "Archivo", "Arial Narrow", sans-serif;
+  --font-sans: var(--font-inter), "Inter", system-ui, sans-serif;
+
+  --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out-strong: cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-midnight);
+    color: var(--color-snow);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: var(--color-flagyellow);
+    color: var(--color-midnight);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-flagblue-bright);
+    outline-offset: 2px;
+  }
+}
+
+/* Rubrikstil: Archivo expanderad, versaler, generös spärrning */
+@utility heading-caps {
+  font-family: var(--font-display);
+  font-stretch: 118%;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Tabulära siffror — tabeller, countdown, statistik */
+@utility tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+@layer components {
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    font-family: var(--font-display);
+    font-stretch: 112%;
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    transition:
+      transform 160ms var(--ease-out-strong),
+      background-color 200ms var(--ease-out-strong),
+      border-color 200ms var(--ease-out-strong),
+      color 200ms var(--ease-out-strong);
+  }
+
+  .btn:active {
+    transform: scale(0.97);
+  }
+
+  /* CTA = handling = flaggult på mörk botten */
+  .btn-primary {
+    background-color: var(--color-flagyellow);
+    color: var(--color-midnight);
+  }
+
+  .btn-primary:hover {
+    background-color: #ffd83d;
+  }
+
+  .btn-secondary {
+    border: 1px solid var(--color-line);
+    color: var(--color-snow);
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--color-flagblue-bright);
+  }
+
+  /* Scroll-in-avslöjande (styrs av <Reveal>) */
+  .reveal {
+    opacity: 0;
+    transform: translateY(12px);
+    transition:
+      opacity 500ms var(--ease-out-strong),
+      transform 500ms var(--ease-out-strong);
+  }
+
+  .reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Brödtext i artiklar (MDX) */
+  .prose-rj {
+    color: var(--color-mist);
+    line-height: 1.75;
+    font-size: 1.0625rem;
+  }
+
+  .prose-rj p {
+    margin-block: 1.25em;
+  }
+
+  .prose-rj h2 {
+    font-family: var(--font-display);
+    font-stretch: 115%;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--color-snow);
+    font-size: 1.35rem;
+    margin-block: 2em 0.75em;
+  }
+
+  .prose-rj h3 {
+    font-family: var(--font-display);
+    color: var(--color-snow);
+    font-size: 1.1rem;
+    margin-block: 1.75em 0.5em;
+  }
+
+  .prose-rj strong {
+    color: var(--color-snow);
+    font-weight: 600;
+  }
+
+  .prose-rj a {
+    color: var(--color-flagblue-bright);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .prose-rj a:hover {
+    color: var(--color-snow);
+  }
+
+  .prose-rj ul,
+  .prose-rj ol {
+    margin-block: 1.25em;
+    padding-inline-start: 1.5em;
+  }
+
+  .prose-rj ul {
+    list-style: disc;
+  }
+
+  .prose-rj ol {
+    list-style: decimal;
+  }
+
+  .prose-rj li {
+    margin-block: 0.4em;
+  }
+
+  .prose-rj li::marker {
+    color: var(--color-flagblue-bright);
+  }
+
+  .prose-rj blockquote {
+    border-inline-start: 2px solid var(--color-flagblue);
+    padding-inline-start: 1.25em;
+    margin-block: 1.5em;
+    color: var(--color-snow);
+    font-style: italic;
+  }
+
+  .prose-rj table {
+    width: 100%;
+    margin-block: 1.5em;
+    border-collapse: collapse;
+    font-variant-numeric: tabular-nums;
+    font-size: 0.95rem;
+  }
+
+  .prose-rj th {
+    text-align: left;
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 0.75rem;
+    color: var(--color-mist-dim);
+    padding: 0.5em 1em 0.5em 0;
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  .prose-rj td {
+    padding: 0.5em 1em 0.5em 0;
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  .prose-rj img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .prose-rj hr {
+    border: 0;
+    border-top: 1px solid var(--color-line);
+    margin-block: 2em;
+  }
+}
+
+/* Återhållsam rörelse: reduced motion → allt blir omedelbart */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
