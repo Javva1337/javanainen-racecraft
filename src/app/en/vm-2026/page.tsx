@@ -57,7 +57,7 @@ export default function EnglishVmPage() {
       </header>
 
       {mode === "before" && (
-        <section className="mb-16 border border-line bg-midnight-800 p-8" aria-label="Countdown">
+        <section className="mb-16 border border-line bg-midnight-800 p-5 sm:p-8" aria-label="Countdown">
           <p className="heading-caps mb-4 text-xs tracking-[0.16em] text-mist-dim">
             Nations Cup · {KWC.nationsCupLabel.en}
           </p>
@@ -130,7 +130,7 @@ export default function EnglishVmPage() {
         <h2 id="format-heading" className="heading-caps mb-6 text-2xl font-bold text-snow">
           How the format works
         </h2>
-        <div className="mb-8 grid grid-cols-3 gap-4">
+        <div className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
           {FORMAT_STATS.map((stat) => (
             <Reveal key={stat.label}>
               <div className="border border-line bg-midnight-800 p-6 text-center">

@@ -35,14 +35,14 @@ export function NewsletterForm({ lang }: { lang: Lang }) {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-2">
-      <div className="flex gap-2">
+      <div className="grid grid-cols-[minmax(0,1fr)_auto] gap-2">
         <input
           type="email"
           name="email"
           required
           placeholder={t.placeholder}
           aria-label={t.ariaLabel}
-          className="min-w-0 flex-1 border border-line bg-midnight-800 px-3 py-2.5 text-sm text-snow placeholder:text-mist-dim transition-colors duration-200 focus:border-flagblue-bright focus:outline-none"
+          className="w-full min-w-0 border border-line bg-midnight-800 px-3 py-2.5 text-sm text-snow placeholder:text-mist-dim transition-colors duration-200 focus:border-flagblue-bright focus:outline-none"
         />
         <button
           type="submit"

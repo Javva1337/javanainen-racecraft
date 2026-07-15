@@ -58,7 +58,7 @@ export default function VmPage() {
 
       {/* Lägesberoende block */}
       {mode === "before" && (
-        <section className="mb-16 border border-line bg-midnight-800 p-8" aria-label="Nedräkning">
+        <section className="mb-16 border border-line bg-midnight-800 p-5 sm:p-8" aria-label="Nedräkning">
           <p className="heading-caps mb-4 text-xs tracking-[0.16em] text-mist-dim">
             Nations Cup · {KWC.nationsCupLabel.sv}
           </p>
@@ -134,7 +134,7 @@ export default function VmPage() {
         <h2 id="format-heading" className="heading-caps mb-6 text-2xl font-bold text-snow">
           Så funkar formatet
         </h2>
-        <div className="mb-8 grid grid-cols-3 gap-4">
+        <div className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
           {FORMAT_STATS.map((stat) => (
             <Reveal key={stat.label}>
               <div className="border border-line bg-midnight-800 p-6 text-center">

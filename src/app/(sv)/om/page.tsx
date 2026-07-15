@@ -70,7 +70,7 @@ export default function AboutPage() {
         </p>
       </header>
 
-      <div className="grid gap-12 lg:grid-cols-[2fr_3fr]">
+      <div className="grid grid-cols-1 gap-12 lg:grid-cols-[2fr_3fr]">
         {/* Pokalbilden */}
         <div className="lg:sticky lg:top-24 lg:self-start">
           <Reveal>

@@ -18,7 +18,7 @@ export function Footer({ lang }: { lang: Lang }) {
           <Kurbits className="h-9 w-64 opacity-70" />
         </div>
 
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
           <div>
             <p className="heading-caps mb-3 text-sm font-bold tracking-[0.16em] text-snow">
               Rickard Javanainen

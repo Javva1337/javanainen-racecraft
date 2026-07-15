@@ -40,11 +40,11 @@ export function Countdown({ target, lang }: { target: number; lang: Lang }) {
   const activeIndex = units.findIndex((unit) => (unit.value ?? 0) > 0);
 
   return (
-    <div className="flex items-start gap-4 sm:gap-6" role="timer" aria-label={t.countdownTo}>
+    <div className="flex items-start gap-3 sm:gap-6" role="timer" aria-label={t.countdownTo}>
       {units.map((unit, index) => (
         <div key={unit.key} className="flex flex-col items-center">
           <span
-            className={`heading-caps tabular text-4xl font-bold transition-colors duration-200 sm:text-5xl ${
+            className={`heading-caps tabular text-3xl font-bold transition-colors duration-200 sm:text-5xl ${
               index === activeIndex ? "text-flagyellow" : "text-snow"
             }`}
           >

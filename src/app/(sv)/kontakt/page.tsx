@@ -19,7 +19,7 @@ export default function ContactPage() {
         </p>
       </header>
 
-      <div className="grid gap-12 lg:grid-cols-[3fr_2fr]">
+      <div className="grid grid-cols-1 gap-12 lg:grid-cols-[3fr_2fr]">
         <ContactForm />
         <aside>
           <p className="heading-caps mb-2 text-xs tracking-[0.14em] text-mist-dim">E-post</p>
