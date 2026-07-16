@@ -81,6 +81,8 @@ export const DICT = {
       followVm: "Följ VM här",
       becomePartner: "Bli partner",
       seeCareer: "Se karriären",
+      soundOn: "Slå på ljud",
+      soundOff: "Stäng av ljud",
     },
     common: {
       readMore: "Läs mer",
@@ -162,6 +164,8 @@ export const DICT = {
       followVm: "Follow the Worlds",
       becomePartner: "Become a partner",
       seeCareer: "See the career",
+      soundOn: "Turn sound on",
+      soundOff: "Turn sound off",
     },
     common: {
       readMore: "Read more",
