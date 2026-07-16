@@ -187,8 +187,8 @@ export default function VmPage() {
             <h3 className="heading-caps mb-2 text-lg text-snow">Nations Cup</h3>
             <p className="text-sm leading-relaxed text-mist">
               Lagtävlingen där förarna representerar sitt land, {KWC.nationsCupLabel.sv}. Varje
-              resultat bidrar till nationens totala placering. Rickard kör för Sverige. 2015 körde
-              han en stint från sist till först på vägen mot lagets femteplats totalt.
+              resultat bidrar till nationens totala placering. Rickard har kört Nations Cup i alla
+              sina VM: femma 2015–2017 och sexa 2018. I år är målet pallen, för Sverige.
             </p>
           </div>
         </div>

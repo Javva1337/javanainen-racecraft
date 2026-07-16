@@ -8,13 +8,15 @@ import { PARTNERS } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Partners — var med på vägen mot VM-titeln",
   description:
-    "Labatus och Primab möjliggör VM-satsningen. Exponering på overall, digitala kanaler, takbox och hjälmlackering, plus dagliga VM-rapporter som mätbar sponsorleverans.",
+    "Primab och Labatus möjliggör VM-satsningen. Exponering på overall, digitala kanaler, takbox och hjälmlackering.",
   alternates: { canonical: "/partners" },
 };
 
 const PARTNER_INTROS: Record<string, string> = {
-  Labatus: "Labatus är med sedan starten av satsningen, synliga i varje rapport, varje delningsbild och varje utskick.",
-  Primab: "Primab stöttar vägen mot VM-titeln. Associering med dokumenterade resultat på VM-nivå.",
+  Primab:
+    "Primab har varit partner genom alla år av den här satsningen, från de första VM-åren till comebacken. Ett stöd vi är väldigt tacksamma för.",
+  Labatus:
+    "Labatus är ny partner för i år och med hela vägen mot VM 2026. Stort tack för förtroendet.",
 };
 
 const PACKAGES = [
@@ -24,7 +26,7 @@ const PACKAGES = [
   },
   {
     title: "Digitala kanaler",
-    text: "Exponering på sajten, i nyhetsbrevet och i sociala kanaler. Varje race-rapport bär partnerlogotyperna.",
+    text: "Exponering på sajten, i nyhetsbrevet och i sociala kanaler under hela satsningen.",
   },
   {
     title: "Takbox",
@@ -85,25 +87,6 @@ export default function PartnersPage() {
         </div>
       </section>
 
-      {/* VM-rapporterna som sponsorleverans */}
-      <section className="mb-20 border border-flagblue/40 bg-midnight-800 p-8" aria-labelledby="leverans-heading">
-        <h2 id="leverans-heading" className="heading-caps mb-4 text-2xl font-bold text-snow">
-          Dagliga VM-rapporter — mätbar exponering
-        </h2>
-        <div className="max-w-3xl space-y-4 leading-relaxed text-mist">
-          <p>
-            Under VM-veckan <strong className="text-snow">22 juli–1 augusti</strong> publiceras en
-            race-rapport per dag här på sajten, med egen delningsbild där partnerlogotyperna
-            ingår, distribuerad via nyhetsbrev, Instagram, Facebook och LinkedIn samma kväll.
-          </p>
-          <p>
-            Partners syns i <strong className="text-snow">varje rapport, varje delningsbild och
-            varje utskick</strong>, samma placering varje dag. Efter VM får varje partner en
-            exponeringsrapport med faktiska siffror: visningar, klick och räckvidd per kanal.
-          </p>
-        </div>
-      </section>
-
       <KurbitsDivider className="mb-20" />
 
       {/* Exponeringspaket */}
@@ -129,7 +112,7 @@ export default function PartnersPage() {
           Vill du synas här?
         </h2>
         <p className="mx-auto mb-6 max-w-xl text-mist">
-          Bli en del av satsningen tillsammans med Labatus och Primab. Din logotyp, ditt
+          Bli en del av satsningen tillsammans med Primab och Labatus. Din logotyp, ditt
           varumärke, synligt vid varje tävling och i alla kanaler.
         </p>
         <Link href="/kontakt" className="btn btn-primary">

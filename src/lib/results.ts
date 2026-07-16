@@ -149,8 +149,8 @@ export const TIMELINE: TimelineEntry[] = [
     years: "2016",
     title: { sv: "VM Italien — brons", en: "Worlds in Italy — bronze" },
     description: {
-      sv: "Vinst i finalen. 3:e av 102 totalt i världsmästerskapet.",
-      en: "Won the final. 3rd of 102 overall in the World Championship.",
+      sv: "Vinst i finalen. 3:e av 102 totalt i världsmästerskapet. 5:a med Sverige i Nations Cup, där en miss i ett depåstopp kostade chansen till segern.",
+      en: "Won the final. 3rd of 102 overall in the World Championship. 5th with Sweden in the Nations Cup, where a pit-stop mistake cost the team a shot at the win.",
     },
     highlight: true,
   },
@@ -158,8 +158,8 @@ export const TIMELINE: TimelineEntry[] = [
     years: "2017",
     title: { sv: "VM Spanien", en: "Worlds in Spain" },
     description: {
-      sv: "12:e av 172 i världsmästerskapet, största startfältet hittills.",
-      en: "12th of 172 in the World Championship, the largest field to date.",
+      sv: "12:e av 172 i världsmästerskapet, största startfältet hittills. 5:a med Sverige i Nations Cup.",
+      en: "12th of 172 in the World Championship, the largest field to date. 5th with Sweden in the Nations Cup.",
     },
     highlight: false,
   },
@@ -167,8 +167,8 @@ export const TIMELINE: TimelineEntry[] = [
     years: "2018",
     title: { sv: "SRKC-vinst & VM Polen", en: "SRKC win & Worlds in Poland" },
     description: {
-      sv: "Vann SRKC Göteborg. 14:e av 131 i VM, från 16:e till 9:e i finalracet.",
-      en: "Won SRKC Gothenburg. 14th of 131 at the Worlds, climbing from 16th to 9th in the final race.",
+      sv: "Vann SRKC Göteborg. 14:e av 131 i VM, från 16:e till 9:e i finalracet. 6:a med Sverige i Nations Cup.",
+      en: "Won SRKC Gothenburg. 14th of 131 at the Worlds, climbing from 16th to 9th in the final race. 6th with Sweden in the Nations Cup.",
     },
     highlight: true,
   },
