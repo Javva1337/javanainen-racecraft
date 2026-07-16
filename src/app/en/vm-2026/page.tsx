@@ -18,7 +18,7 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: "Worlds 2026 — Kart World Championship at Vandel, Denmark",
   description:
-    "Everything about the 2026 Kart World Championship: schedule, format and daily reports. Nations Cup 25–26 July, KWC Individual 28 July–1 August. 180 drivers, 20th edition — Rickard Javanainen races for Sweden.",
+    "Everything about the 2026 Kart World Championship: schedule, format and daily reports. Nations Cup 25–26 July, KWC Individual 28 July–1 August. 180 drivers, 20th edition. Rickard Javanainen races for Sweden.",
   alternates: {
     canonical: "/en/vm-2026",
     languages: { "sv-SE": "/vm-2026", en: "/en/vm-2026", "x-default": "/vm-2026" },
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 
 const SCHEDULE = [
   { dates: "22 July", label: "Championship week begins", detail: "The 20th edition of the Kart World Championship opens at Vandel Kart" },
-  { dates: "25–26 July", label: "Nations Cup", detail: "The team event — Rickard races for Sweden", highlight: true },
+  { dates: "25–26 July", label: "Nations Cup", detail: "The team event, Rickard races for Sweden", highlight: true },
   { dates: "28 July–1 August", label: "KWC Individual", detail: "The individual world championship: qualifying heats, semifinal and final", highlight: true },
 ];
 
@@ -76,7 +76,7 @@ export default function EnglishVmPage() {
         <section className="mb-16 border border-line bg-midnight-800 p-8">
           <h2 className="heading-caps mb-3 text-2xl font-bold text-snow">Worlds 2026 — how it went</h2>
           <p className="max-w-2xl text-mist">
-            Championship week is over. All daily reports are collected below — the full summary
+            Championship week is over. All daily reports are collected below, and the full summary
             is published under News.
           </p>
         </section>
@@ -148,15 +148,14 @@ export default function EnglishVmPage() {
         <div className="max-w-3xl space-y-4 leading-relaxed text-mist">
           <p>
             Everyone races equal equipment in the same weight class, and karts are drawn by lot
-            between heats. Each driver runs <strong className="text-snow">8 qualifying heats</strong>{" "}
-            — one result is dropped — before the semifinal decides which{" "}
+            between heats. Each driver runs <strong className="text-snow">8 qualifying heats</strong>,{" "}
+            one result is dropped, before the semifinal decides which{" "}
             <strong className="text-snow">18 drivers</strong> contest the final.
           </p>
           <p>
             That adds up to <strong className="text-snow tabular">10 races</strong> in a week. The
-            championship goes to whoever collects the most points across the entire event — a
-            format that rewards consistency and the ability to deliver in every race, not
-            one-off results.
+            championship goes to whoever collects the most points across the entire event. It
+            rewards consistency and the ability to deliver in every race, not one-off results.
           </p>
         </div>
       </section>
@@ -177,8 +176,8 @@ export default function EnglishVmPage() {
             <h3 className="heading-caps mb-2 text-lg text-snow">Nations Cup</h3>
             <p className="text-sm leading-relaxed text-mist">
               The team event where drivers represent their country, {KWC.nationsCupLabel.en}.
-              Every result counts toward the nation's total — Rickard races for Sweden, the team
-              that went from last to first in 2015.
+              Every result counts toward the nation's total. Rickard races for Sweden. In 2015 he
+              drove a stint from last to first on the way to the team's fifth place overall.
             </p>
           </div>
         </div>
@@ -191,7 +190,7 @@ export default function EnglishVmPage() {
         <p className="max-w-3xl leading-relaxed text-mist">
           {KWC.venue} is located in the {KWC.area.en} in Jutland, Denmark, and hosts the 20th
           edition of the Kart World Championship. Track facts and corner-by-corner driver notes
-          will be published here after the practice days — straight from the paddock.
+          will be published here after the practice days, straight from the paddock.
         </p>
       </section>
 
@@ -206,14 +205,14 @@ export default function EnglishVmPage() {
             <span className="text-flagyellow" aria-hidden="true">→</span>
             <span>
               <strong className="text-snow">Daily reports on this site.</strong> One report per
-              race day, published the same evening — the numbers first, the story underneath.
+              race day, published the same evening. The numbers first, the story underneath.
             </span>
           </li>
           <li className="flex gap-3">
             <span className="text-flagyellow" aria-hidden="true">→</span>
             <span>
               <strong className="text-snow">The newsletter.</strong> Every report straight to
-              your inbox — sign up in the footer.
+              your inbox, sign up in the footer.
             </span>
           </li>
           <li className="flex gap-3">

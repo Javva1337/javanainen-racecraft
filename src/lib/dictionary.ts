@@ -33,7 +33,7 @@ export const DICT = {
       button: "Prenumerera",
       pending: "Skickar …",
       success:
-        "Tack! Du får ett bekräftelsemejl — klicka på länken i det för att aktivera prenumerationen (dubbel opt-in).",
+        "Tack! Du får ett bekräftelsemejl. Klicka på länken i det för att aktivera prenumerationen (dubbel opt-in).",
       error: "Något gick fel. Prova igen, eller mejla",
       ariaLabel: "E-postadress för nyhetsbrevet",
     },
@@ -61,7 +61,7 @@ export const DICT = {
     news: {
       title: "Nyheter",
       description:
-        "Race-rapporter, satsningen och vägen till hyrkart-VM 2026 — skrivna av föraren själv.",
+        "Race-rapporter, satsningen och vägen till hyrkart-VM 2026, skrivna av föraren själv.",
       all: "Alla",
       empty: "Inga artiklar i den här kategorin ännu.",
     },
@@ -71,7 +71,7 @@ export const DICT = {
       hours: "tim",
       minutes: "min",
       seconds: "sek",
-      liveBanner: "VM pågår — läs dagens rapport →",
+      liveBanner: "VM pågår, läs dagens rapport →",
       afterBanner: "VM 2026 — så gick det →",
       latestNews: "Senaste nytt",
       allNews: "Alla nyheter →",
@@ -110,7 +110,7 @@ export const DICT = {
       button: "Subscribe",
       pending: "Sending …",
       success:
-        "Thanks! You'll receive a confirmation email — click the link in it to activate your subscription (double opt-in).",
+        "Thanks! You'll receive a confirmation email. Click the link in it to activate your subscription (double opt-in).",
       error: "Something went wrong. Try again, or email",
       ariaLabel: "Email address for the newsletter",
     },
@@ -132,14 +132,14 @@ export const DICT = {
         copied: "Copied!",
       },
       fallbackNotice:
-        "This article has not been translated yet — showing the Swedish original." as string | null,
+        "This article has not been translated yet, so the Swedish original is shown." as string | null,
       backToList: "All news",
       tomorrowHeading: "Tomorrow",
     },
     news: {
       title: "News",
       description:
-        "Race reports, the campaign and the road to the 2026 Kart World Championship — written by the driver himself.",
+        "Race reports, the campaign and the road to the 2026 Kart World Championship, written by the driver himself.",
       all: "All",
       empty: "No articles in this category yet.",
     },
@@ -149,7 +149,7 @@ export const DICT = {
       hours: "hrs",
       minutes: "min",
       seconds: "sec",
-      liveBanner: "The Worlds are live — read today's report →",
+      liveBanner: "The Worlds are live, read today's report →",
       afterBanner: "Worlds 2026 — how it went →",
       latestNews: "Latest news",
       allNews: "All news →",

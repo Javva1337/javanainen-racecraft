@@ -18,7 +18,7 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: "VM 2026 — hyrkart-VM i Vandel, Danmark",
   description:
-    "Allt om Kart World Championship 2026: schema, format och dagliga rapporter. Nations Cup 25–26 juli, KWC Individual 28 juli–1 augusti. 180 förare, 20:e upplagan — Rickard Javanainen kör för Sverige.",
+    "Allt om Kart World Championship 2026: schema, format och dagliga rapporter. Nations Cup 25–26 juli, KWC Individual 28 juli–1 augusti. 180 förare, 20:e upplagan. Rickard Javanainen kör för Sverige.",
   alternates: {
     canonical: "/vm-2026",
     languages: { "sv-SE": "/vm-2026", en: "/en/vm-2026", "x-default": "/vm-2026" },
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 
 const SCHEDULE = [
   { dates: "22 juli", label: "VM-veckan börjar", detail: "20:e upplagan av Kart World Championship öppnar på Vandel Kart" },
-  { dates: "25–26 juli", label: "Nations Cup", detail: "Lagtävlingen — Rickard kör för Sverige", highlight: true },
+  { dates: "25–26 juli", label: "Nations Cup", detail: "Lagtävlingen, Rickard kör för Sverige", highlight: true },
   { dates: "28 juli–1 augusti", label: "KWC Individual", detail: "Det individuella världsmästerskapet: kvalheat, semifinal och final", highlight: true },
 ];
 
@@ -77,7 +77,7 @@ export default function VmPage() {
         <section className="mb-16 border border-line bg-midnight-800 p-8">
           <h2 className="heading-caps mb-3 text-2xl font-bold text-snow">VM 2026 — så gick det</h2>
           <p className="max-w-2xl text-mist">
-            Tävlingsveckan är avslutad. Alla dagsrapporter finns samlade nedan — summeringen
+            Tävlingsveckan är avslutad. Alla dagsrapporter finns samlade nedan, summeringen
             publiceras under Nyheter.
           </p>
         </section>
@@ -152,13 +152,13 @@ export default function VmPage() {
         <div className="max-w-3xl space-y-4 leading-relaxed text-mist">
           <p>
             Alla kör likvärdigt material i samma viktklass, och kartarna lottas mellan heaten.
-            Varje förare kör <strong className="text-snow">8 kvalheat</strong> — ett resultat
-            räknas bort — innan semifinalen avgör vilka{" "}
+            Varje förare kör <strong className="text-snow">8 kvalheat</strong>, ett resultat
+            räknas bort, innan semifinalen avgör vilka{" "}
             <strong className="text-snow">18 förare</strong> som gör upp i finalen.
           </p>
           <p>
             Totalt blir det upp till <strong className="text-snow tabular">10 race</strong> under
-            veckan. Mästerskapet vinns av den som samlar flest poäng över hela tävlingen — ett
+            veckan. Mästerskapet vinns av den som samlar flest poäng över hela tävlingen. Ett
             upplägg som premierar jämnhet och förmågan att leverera i varje race, inte enstaka
             toppresultat.
           </p>
@@ -187,8 +187,8 @@ export default function VmPage() {
             <h3 className="heading-caps mb-2 text-lg text-snow">Nations Cup</h3>
             <p className="text-sm leading-relaxed text-mist">
               Lagtävlingen där förarna representerar sitt land, {KWC.nationsCupLabel.sv}. Varje
-              resultat bidrar till nationens totala placering — Rickard kör för Sverige, laget
-              som 2015 gick från sist till först.
+              resultat bidrar till nationens totala placering. Rickard kör för Sverige. 2015 körde
+              han en stint från sist till först på vägen mot lagets femteplats totalt.
             </p>
           </div>
         </div>
@@ -202,7 +202,7 @@ export default function VmPage() {
         <p className="max-w-3xl leading-relaxed text-mist">
           {KWC.venue} ligger i {KWC.area.sv} på Jylland i Danmark och är värd för den 20:e
           upplagan av Kart World Championship. Banfakta och förarkommentarer kurva för kurva
-          publiceras här efter träningsdagarna — direkt från depån.
+          publiceras här efter träningsdagarna, direkt från depån.
         </p>
       </section>
 
@@ -218,14 +218,14 @@ export default function VmPage() {
             <span className="text-flagyellow" aria-hidden="true">→</span>
             <span>
               <strong className="text-snow">Dagliga rapporter här på sajten.</strong> En rapport
-              per tävlingsdag, publicerad samma kväll — siffrorna överst, berättelsen under.
+              per tävlingsdag, publicerad samma kväll. Siffrorna överst, berättelsen under.
             </span>
           </li>
           <li className="flex gap-3">
             <span className="text-flagyellow" aria-hidden="true">→</span>
             <span>
               <strong className="text-snow">Nyhetsbrevet.</strong> Varje rapport direkt i
-              inkorgen — anmäl dig i sidfoten.
+              inkorgen, anmäl dig i sidfoten.
             </span>
           </li>
           <li className="flex gap-3">
