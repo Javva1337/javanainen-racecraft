@@ -30,12 +30,16 @@ export const DICT = {
     },
     newsletter: {
       placeholder: "din@epost.se",
+      namePlaceholder: "Ditt namn",
       button: "Prenumerera",
       pending: "Skickar …",
       success:
-        "Tack! Du får ett bekräftelsemejl. Klicka på länken i det för att aktivera prenumerationen (dubbel opt-in).",
+        "Tack, du är anmäld! Race-rapporten kommer direkt i inkorgen under VM-veckan.",
       error: "Något gick fel. Prova igen, eller mejla",
       ariaLabel: "E-postadress för nyhetsbrevet",
+      nameAriaLabel: "Ditt namn",
+      consent:
+        "Genom att anmäla dig sparar vi ditt namn och din e-post för att skicka rapporten. Avanmäl när som helst genom att mejla",
     },
     article: {
       readingTime: (min: number) => `${min} min läsning`,
@@ -107,12 +111,16 @@ export const DICT = {
     },
     newsletter: {
       placeholder: "you@email.com",
+      namePlaceholder: "Your name",
       button: "Subscribe",
       pending: "Sending …",
       success:
-        "Thanks! You'll receive a confirmation email. Click the link in it to activate your subscription (double opt-in).",
+        "Thanks, you're signed up! The race report lands in your inbox during championship week.",
       error: "Something went wrong. Try again, or email",
       ariaLabel: "Email address for the newsletter",
+      nameAriaLabel: "Your name",
+      consent:
+        "By signing up you let us store your name and email to send the report. Unsubscribe anytime by emailing",
     },
     article: {
       readingTime: (min: number) => `${min} min read`,
