@@ -20,7 +20,7 @@ export default function CareerPage() {
         <NationBadge className="mb-4" />
         <h1 className="heading-caps text-4xl font-extrabold text-snow sm:text-5xl">Karriär</h1>
         <p className="mt-3 max-w-2xl text-mist">
-          Från gokart i Dalarna 2002 till hyrkart-VM i Vandel 2026 — hela vägen, med siffrorna
+          Från gokart i Dalarna 2002 till hyrkart-VM i Vandel 2026. Hela vägen, med siffrorna
           som bevisar den.
         </p>
       </header>
@@ -42,6 +42,18 @@ export default function CareerPage() {
             </div>
           ))}
         </div>
+        <p className="mt-4 text-xs text-mist-dim">
+          Invald i{" "}
+          <a
+            href="https://srkc.nu/results/hall-of-fame/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-flagblue-bright underline underline-offset-2"
+          >
+            SRKC:s Hall of Fame
+          </a>
+          , hittills som ende förare.
+        </p>
       </section>
 
       {/* Resultattabell — kanoniska värden ur lib/results.ts */}

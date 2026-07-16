@@ -8,31 +8,31 @@ import { PARTNERS } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Partners — var med på vägen mot VM-titeln",
   description:
-    "Labatus och Primab möjliggör VM-satsningen. Exponering på overall, digitala kanaler, takbox och hjälmlackering — plus dagliga VM-rapporter som mätbar sponsorleverans.",
+    "Labatus och Primab möjliggör VM-satsningen. Exponering på overall, digitala kanaler, takbox och hjälmlackering, plus dagliga VM-rapporter som mätbar sponsorleverans.",
   alternates: { canonical: "/partners" },
 };
 
 const PARTNER_INTROS: Record<string, string> = {
-  Labatus: "Labatus är med sedan starten av satsningen — synliga i varje rapport, varje delningsbild och varje utskick.",
-  Primab: "Primab stöttar vägen mot VM-titeln — associering med dokumenterade resultat på VM-nivå.",
+  Labatus: "Labatus är med sedan starten av satsningen, synliga i varje rapport, varje delningsbild och varje utskick.",
+  Primab: "Primab stöttar vägen mot VM-titeln. Associering med dokumenterade resultat på VM-nivå.",
 };
 
 const PACKAGES = [
   {
     title: "Racingoverall",
-    text: "Logotyp på overallen — synlig i varje foto och varje TV-bild från depå till prispall.",
+    text: "Logotyp på overallen, synlig i varje foto och varje TV-bild från depå till prispall.",
   },
   {
     title: "Digitala kanaler",
-    text: "Exponering på sajten, i nyhetsbrevet och i sociala kanaler — varje race-rapport bär partnerlogotyperna.",
+    text: "Exponering på sajten, i nyhetsbrevet och i sociala kanaler. Varje race-rapport bär partnerlogotyperna.",
   },
   {
     title: "Takbox",
-    text: "Takboxen på bilen som tar oss till och från tävlingarna — rullande exponering genom hela Europa.",
+    text: "Takboxen på bilen som tar oss till och från tävlingarna. Rullande exponering genom hela Europa.",
   },
   {
     title: "Hjälmlackering",
-    text: "Vill man slå på stort finns möjligheten att lacka om hjälmen — den mest personliga ytan inom motorsport.",
+    text: "Vill man slå på stort finns möjligheten att lacka om hjälmen, den mest personliga ytan inom motorsport.",
   },
 ];
 
@@ -93,12 +93,12 @@ export default function PartnersPage() {
         <div className="max-w-3xl space-y-4 leading-relaxed text-mist">
           <p>
             Under VM-veckan <strong className="text-snow">22 juli–1 augusti</strong> publiceras en
-            race-rapport per dag här på sajten — med egen delningsbild där partnerlogotyperna
+            race-rapport per dag här på sajten, med egen delningsbild där partnerlogotyperna
             ingår, distribuerad via nyhetsbrev, Instagram, Facebook och LinkedIn samma kväll.
           </p>
           <p>
             Partners syns i <strong className="text-snow">varje rapport, varje delningsbild och
-            varje utskick</strong> — samma placering varje dag. Efter VM får varje partner en
+            varje utskick</strong>, samma placering varje dag. Efter VM får varje partner en
             exponeringsrapport med faktiska siffror: visningar, klick och räckvidd per kanal.
           </p>
         </div>
@@ -130,7 +130,7 @@ export default function PartnersPage() {
         </h2>
         <p className="mx-auto mb-6 max-w-xl text-mist">
           Bli en del av satsningen tillsammans med Labatus och Primab. Din logotyp, ditt
-          varumärke — synligt vid varje tävling och i alla kanaler.
+          varumärke, synligt vid varje tävling och i alla kanaler.
         </p>
         <Link href="/kontakt" className="btn btn-primary">
           Bli partner

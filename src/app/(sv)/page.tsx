@@ -23,12 +23,12 @@ export const metadata: Metadata = {
 const MERITS = [
   {
     title: "Top 3 i VM",
-    text: "Bronsmedaljör i VM 2016 — vinst i finalen, 3:e av 102. Finalist i VM 2015, 2017 och 2018.",
+    text: "Bronsmedaljör i VM 2016. Vinst i finalen, 3:e av 102. Finalist i VM 2015, 2017 och 2018.",
     highlight: true,
   },
   {
     title: "Strategisk racecraft",
-    text: "Stark i taktiska beslut under race. Konsekvent i tävlingssituationer — i ett format som premierar jämnhet är det avgörande.",
+    text: "Stark i taktiska beslut under race, konsekvent när det räknas. I ett format som premierar jämnhet är det avgörande.",
     highlight: false,
   },
   {

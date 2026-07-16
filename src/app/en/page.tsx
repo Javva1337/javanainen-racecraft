@@ -24,12 +24,12 @@ export const metadata: Metadata = {
 const MERITS = [
   {
     title: "Top 3 at the Worlds",
-    text: "World Championship bronze medalist 2016 — won the final, 3rd of 102. Worlds finalist in 2015, 2017 and 2018.",
+    text: "World Championship bronze medalist 2016. Won the final, 3rd of 102. Worlds finalist in 2015, 2017 and 2018.",
     highlight: true,
   },
   {
     title: "Strategic racecraft",
-    text: "Strong tactical decisions in race conditions. Consistent when it counts — decisive in a format that rewards it.",
+    text: "Strong tactical decisions in race conditions, consistent when it counts. Decisive in a format that rewards it.",
     highlight: false,
   },
   {
