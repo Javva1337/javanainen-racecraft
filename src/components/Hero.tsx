@@ -5,6 +5,7 @@ import { DICT, type Lang } from "@/lib/dictionary";
 import type { SiteMode } from "@/lib/mode";
 import { KWC, TAGLINE } from "@/lib/site";
 import { Countdown } from "./Countdown";
+import { HeroVideo } from "./HeroVideo";
 import { NationBadge } from "./NationBadge";
 
 /**
@@ -12,10 +13,14 @@ import { NationBadge } from "./NationBadge";
  *  - före VM: countdown till Nations Cup 25 juli
  *  - under VM: "VM pågår — läs dagens rapport →"
  *  - efter VM: "VM 2026 — så gick det →"
- * Video-loop förberedd: lägg hero-loop.mp4 i /public/videos och sätt
- * HERO_VIDEO nedan — regnbilden är fallback/poster.
+ * Bakgrunden är en video-loop (1080p H.264 + AAC, ~3 MB) med ljudknapp —
+ * se HeroVideo. Postern är videons första frame så bytet bild→video blir
+ * osynligt. Bilden ligger alltid under videon: den syns vid
+ * prefers-reduced-motion och om videon inte kan spelas. Sätt HERO_VIDEO
+ * till null för att gå tillbaka till stillbild.
  */
-const HERO_VIDEO: string | null = null;
+const HERO_VIDEO: string | null = "/videos/hero-loop.mp4";
+const HERO_POSTER = "/images/hero-poster.jpg";
 
 export function Hero({
   lang,
@@ -37,25 +42,25 @@ export function Hero({
 
   return (
     <section className="relative flex min-h-[88svh] items-end overflow-hidden">
-      {/* Bakgrund: video-loop när den finns, annars regnbilden */}
-      {HERO_VIDEO ? (
-        <video
+      {/* Bakgrund: stillbild i botten, video-loop ovanpå (döljs vid reducerad rörelse) */}
+      <Image
+        src={HERO_VIDEO ? HERO_POSTER : "/images/hero-rain.jpg"}
+        alt={
+          HERO_VIDEO
+            ? "Rickard Javanainen i gokart med hjälm"
+            : "Rickard Javanainen i regnrace"
+        }
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover"
+      />
+      {HERO_VIDEO && (
+        <HeroVideo
           src={HERO_VIDEO}
-          poster="/images/hero-rain.jpg"
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-      ) : (
-        <Image
-          src="/images/hero-rain.jpg"
-          alt="Rickard Javanainen i regnrace"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
+          poster={HERO_POSTER}
+          soundOnLabel={t.soundOn}
+          soundOffLabel={t.soundOff}
         />
       )}
       <div
