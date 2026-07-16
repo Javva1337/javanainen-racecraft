@@ -10,24 +10,25 @@ export const SITE_NAME = "Rickard Javanainen";
 export const CONTACT_EMAIL = "rickard@rickardjavanainen.se";
 
 export const SOCIAL = {
-  instagram: "https://www.instagram.com/rickardjavanainen",
+  instagram: "https://www.instagram.com/javva13/",
   facebook: "https://www.facebook.com/rickardjavanainen",
 } as const;
 
+/** Primab först — partner genom alla år av satsningen. Labatus ny för 2026. */
 export const PARTNERS = [
-  {
-    name: "Labatus",
-    url: "https://labatus.se",
-    logo: "/images/partners/labatus.svg",
-    /** Labatus ordmärke är vitt — ska ligga direkt på mörk botten */
-    chip: "dark",
-  },
   {
     name: "Primab",
     url: "https://primab.se",
     logo: "/images/partners/primab.png",
     /** Primab-loggan är mörkblå — behöver ljus chip */
     chip: "light",
+  },
+  {
+    name: "Labatus",
+    url: "https://labatus.se",
+    logo: "/images/partners/labatus.svg",
+    /** Labatus ordmärke är vitt — ska ligga direkt på mörk botten */
+    chip: "dark",
   },
 ] as const;
 

@@ -1,7 +1,6 @@
 /**
  * Galleri med bildtexter i formatet "Beskrivning · Plats, År".
- * OBS: Plats/år är utkast att verifiera mot faktiska bilder — beskrivningarna
- * kommer från gamla sajtens alt-texter.
+ * Plats/år verifierade av Rickard 2026-07-16.
  */
 export type MediaItem = {
   src: string;
@@ -16,7 +15,7 @@ export const MEDIA_ITEMS: MediaItem[] = [
   {
     src: "/images/gallery-1.jpg",
     alt: { sv: "Action på banan", en: "On-track action" },
-    caption: { sv: "Action på banan · Sverige, 2021", en: "On-track action · Sweden, 2021" },
+    caption: { sv: "Action på banan · Spanien, 2017", en: "On-track action · Spain, 2017" },
     span: "col-span-2 row-span-2",
     width: 1200,
     height: 1200,
@@ -24,7 +23,7 @@ export const MEDIA_ITEMS: MediaItem[] = [
   {
     src: "/images/gallery-2.jpg",
     alt: { sv: "Fokus före start", en: "Focus before the start" },
-    caption: { sv: "Fokus före start · Sverige, 2021", en: "Focus before the start · Sweden, 2021" },
+    caption: { sv: "Fokus före start · Polen, 2018", en: "Focus before the start · Poland, 2018" },
     width: 800,
     height: 800,
   },
@@ -37,8 +36,8 @@ export const MEDIA_ITEMS: MediaItem[] = [
   },
   {
     src: "/images/gallery-4.jpg",
-    alt: { sv: "Strategi i depån", en: "Strategy in the paddock" },
-    caption: { sv: "Strategi · Sverige, 2021", en: "Strategy · Sweden, 2021" },
+    alt: { sv: "Prispallen efter sprintvinst", en: "Podium after a sprint win" },
+    caption: { sv: "Prispallen efter sprintvinst · Italien, 2016", en: "Podium after a sprint win · Italy, 2016" },
     width: 800,
     height: 800,
   },
@@ -51,8 +50,8 @@ export const MEDIA_ITEMS: MediaItem[] = [
   },
   {
     src: "/images/gallery-6.jpg",
-    alt: { sv: "Racing i regn", en: "Racing in the rain" },
-    caption: { sv: "Racing i regn · Sverige, 2021", en: "Racing in the rain · Sweden, 2021" },
+    alt: { sv: "Fokus på banan", en: "Focus on track" },
+    caption: { sv: "Fokus på banan · Italien, 2016", en: "Focus on track · Italy, 2016" },
     span: "col-span-2",
     width: 1200,
     height: 600,

@@ -52,7 +52,6 @@ export const DICT = {
         standing: "Totalställning",
         nationsCup: "Nations Cup — Sverige",
       },
-      partnerFooter: "VM-satsningen möjliggörs av",
       share: {
         heading: "Dela",
         copy: "Kopiera länk",
@@ -86,7 +85,7 @@ export const DICT = {
     common: {
       readMore: "Läs mer",
       contact: "Kontakt",
-      partnersLine: "VM-satsningen möjliggörs av Labatus och Primab",
+      partnersLine: "VM-satsningen möjliggörs av Primab och Labatus",
     },
   },
   en: {
@@ -133,7 +132,6 @@ export const DICT = {
         standing: "Overall standing",
         nationsCup: "Nations Cup — Sweden",
       },
-      partnerFooter: "The Worlds campaign is made possible by",
       share: {
         heading: "Share",
         copy: "Copy link",
@@ -168,7 +166,7 @@ export const DICT = {
     common: {
       readMore: "Read more",
       contact: "Contact",
-      partnersLine: "The Worlds campaign is made possible by Labatus and Primab",
+      partnersLine: "The Worlds campaign is made possible by Primab and Labatus",
     },
   },
 } as const;

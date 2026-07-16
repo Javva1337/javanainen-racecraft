@@ -8,7 +8,6 @@ import { DICT, type Lang } from "@/lib/dictionary";
 import { SITE_URL } from "@/lib/site";
 import { FactBox } from "./FactBox";
 import { NewsArticleJsonLd } from "./JsonLd";
-import { PartnerFooter } from "./PartnerFooter";
 import { ShareButtons } from "./ShareButtons";
 
 /** Artikelvyn enligt rapportens mall 5.2 — delas av sv- och en-routerna. */
@@ -79,8 +78,6 @@ export function ArticleView({ article, lang }: { article: Article; lang: Lang })
       )}
 
       <ShareButtons url={url} title={frontmatter.title} lang={lang} />
-
-      <PartnerFooter lang={lang} />
 
       <p className="mt-10">
         <Link
