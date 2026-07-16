@@ -2,7 +2,8 @@
 
 Så kopplar du anmälningsformuläret till ditt Google Sheet. Görs en gång.
 
-**Målark:** https://docs.google.com/spreadsheets/d/1tg5jsPaNnWCp0jcNZxh4Cv0nU9fX3cS6UYqwySvIu2k/edit
+**Målark:** `https://docs.google.com/spreadsheets/d/DITT_ARK_ID/edit`
+(den riktiga länken hålls privat — publiceras inte i det publika repot)
 
 ## 1. Klistra in Apps Script
 
