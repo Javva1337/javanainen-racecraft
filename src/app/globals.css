@@ -227,6 +227,24 @@
   }
 }
 
+/* Lenis smooth scroll (aktiv endast på /karriar) — standardrecept från lenis-docs */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
 /* Återhållsam rörelse: reduced motion → allt blir omedelbart */
 @media (prefers-reduced-motion: reduce) {
   *,
