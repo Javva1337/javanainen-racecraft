@@ -2,9 +2,9 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "nextjs-dev",
+      "name": "engelska-worktree",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
+      "runtimeArgs": ["--prefix", "C:/dev/javanainen-engelska", "run", "dev"],
       "port": 3000
     }
   ]
