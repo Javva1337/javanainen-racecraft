@@ -124,6 +124,11 @@ export const DICT = {
         { href: "/en", label: "Home" },
         { href: "/en/vm-2026", label: "Worlds 2026" },
         { href: "/en/news", label: "News" },
+        { href: "/en/career", label: "Career" },
+        { href: "/en/about", label: "About" },
+        { href: "/en/partners", label: "Partners" },
+        { href: "/en/media", label: "Media" },
+        { href: "/en/contact", label: "Contact" },
       ],
       openMenu: "Open menu",
       closeMenu: "Close menu",
@@ -218,20 +223,31 @@ export const DICT = {
 
 export type Dictionary = (typeof DICT)["sv"] | (typeof DICT)["en"];
 
+/** Statiska sidpar (sv ↔ en). Artikelsidor hanteras med regex nedan. */
+const PATH_MAP: ReadonlyArray<readonly [string, string]> = [
+  ["/", "/en"],
+  ["/vm-2026", "/en/vm-2026"],
+  ["/nyheter", "/en/news"],
+  ["/karriar", "/en/career"],
+  ["/om", "/en/about"],
+  ["/partners", "/en/partners"],
+  ["/media", "/en/media"],
+  ["/kontakt", "/en/contact"],
+  ["/press", "/en/press"],
+];
+
 /** Motsvarande sida på det andra språket (för språkväxlaren + hreflang). */
 export function altLangPath(pathname: string, target: Lang): string {
   const clean = pathname.replace(/\/+$/, "") || "/";
   if (target === "en") {
-    if (clean === "/") return "/en";
-    if (clean === "/vm-2026") return "/en/vm-2026";
-    if (clean === "/nyheter") return "/en/news";
+    const pair = PATH_MAP.find(([sv]) => sv === clean);
+    if (pair) return pair[1];
     const article = clean.match(/^\/nyheter\/([^/]+)$/);
     if (article) return `/en/news/${article[1]}`;
     return "/en";
   }
-  if (clean === "/en") return "/";
-  if (clean === "/en/vm-2026") return "/vm-2026";
-  if (clean === "/en/news") return "/nyheter";
+  const pair = PATH_MAP.find(([, en]) => en === clean);
+  if (pair) return pair[0];
   const article = clean.match(/^\/en\/news\/([^/]+)$/);
   if (article) return `/nyheter/${article[1]}`;
   return "/";
