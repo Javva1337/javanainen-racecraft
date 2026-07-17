@@ -107,6 +107,7 @@ export default function CareerPage() {
           mode={mode}
           latestHref={latestHref}
           latestTitle={latest?.frontmatter.title ?? null}
+          lang="sv"
         />
       </div>
 
