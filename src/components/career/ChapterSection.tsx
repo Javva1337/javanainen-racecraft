@@ -32,7 +32,10 @@ export function ChapterSection({
         className="absolute left-[var(--rail-x)] top-[7.5rem] flex -translate-x-1/2 flex-col items-center gap-2 sm:top-[10.5rem]"
         aria-hidden="true"
       >
-        <span className="block h-3 w-3 rounded-full bg-flagyellow shadow-[0_0_12px_rgba(254,204,2,0.45)]" />
+        <span
+          data-chapter-dot
+          className="block h-3 w-3 rounded-full bg-flagyellow shadow-[0_0_12px_rgba(254,204,2,0.45)]"
+        />
         <span className="heading-caps tabular text-[0.65rem] font-bold tracking-[0.1em] text-mist-dim">
           {chapter.num}
         </span>

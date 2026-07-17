@@ -11,6 +11,7 @@ import { ChapterJakten } from "@/components/career/ChapterJakten";
 import { ChapterNav } from "@/components/career/ChapterNav";
 import { ChapterVandel } from "@/components/career/ChapterVandel";
 import { QuoteInterlude } from "@/components/career/QuoteInterlude";
+import { RaceLine } from "@/components/career/RaceLine";
 import { ScrollCue } from "@/components/career/ScrollCue";
 import { CHAPTERS } from "@/lib/career-story";
 import { getAllArticles } from "@/lib/content";
@@ -84,6 +85,12 @@ export default function CareerPage() {
         data-story
         className="relative mx-auto max-w-6xl [--rail-x:1.25rem] sm:[--rail-x:3rem]"
       >
+        {/* Statisk guidelinje — finns alltid, även utan JS */}
+        <div
+          className="absolute inset-y-0 left-[var(--rail-x)] w-px -translate-x-1/2 bg-line/60"
+          aria-hidden="true"
+        />
+        <RaceLine />
         <ChapterDalarna />
         <ChapterBanracing />
         <ChapterGenombrottet />
