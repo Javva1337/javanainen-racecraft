@@ -4,6 +4,8 @@ import { KurbitsDivider } from "@/components/Kurbits";
 import { NationBadge } from "@/components/NationBadge";
 import { Reveal } from "@/components/Reveal";
 import { Timeline } from "@/components/Timeline";
+import { VideoBackdrop } from "@/components/VideoBackdrop";
+import { DICT } from "@/lib/dictionary";
 import { RESULTS, STATS, TIMELINE } from "@/lib/results";
 
 export const metadata: Metadata = {
@@ -15,16 +17,33 @@ export const metadata: Metadata = {
 
 export default function CareerPage() {
   return (
-    <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-      <header className="mb-14">
-        <NationBadge className="mb-4" />
-        <h1 className="heading-caps text-4xl font-extrabold text-snow sm:text-5xl">Karriär</h1>
-        <p className="mt-3 max-w-2xl text-mist">
-          Från gokart i Dalarna 2002 till hyrkart-VM i Vandel 2026. Hela vägen, med siffrorna
-          som bevisar den.
-        </p>
-      </header>
+    <>
+      {/* Hero: prispallsceremonin som video-loop, samma mönster som startsidan */}
+      <section className="relative flex min-h-[64svh] items-end overflow-hidden">
+        <VideoBackdrop
+          video="/videos/karriar-podium.mp4"
+          poster="/images/karriar-poster.jpg"
+          imageAlt="Prispallsceremoni — Rickard Javanainen i mitten på pallen"
+          soundOnLabel={DICT.sv.common.soundOn}
+          soundOffLabel={DICT.sv.common.soundOff}
+        />
+        <div
+          className="absolute inset-0 bg-gradient-to-t from-midnight via-midnight/70 to-midnight/20"
+          aria-hidden="true"
+        />
+        <div className="relative mx-auto w-full max-w-6xl px-4 pb-14 pt-36 sm:px-6">
+          <NationBadge className="mb-4" />
+          <h1 className="heading-caps text-4xl font-extrabold text-snow sm:text-5xl lg:text-6xl">
+            Karriär
+          </h1>
+          <p className="mt-3 max-w-2xl text-mist sm:text-lg">
+            Från gokart i Dalarna 2002 till hyrkart-VM i Vandel 2026. Hela vägen, med siffrorna
+            som bevisar den.
+          </p>
+        </div>
+      </section>
 
+      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
       {/* Javanainen i siffror */}
       <section className="mb-20" aria-labelledby="stats-heading">
         <h2 id="stats-heading" className="heading-caps mb-6 text-2xl font-bold text-snow">
@@ -136,6 +155,7 @@ export default function CareerPage() {
           <Timeline entries={TIMELINE} lang="sv" />
         </Reveal>
       </section>
-    </div>
+      </div>
+    </>
   );
 }
