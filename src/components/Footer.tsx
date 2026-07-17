@@ -44,7 +44,7 @@ export function Footer({ lang }: { lang: Lang }) {
               ))}
               <li>
                 <Link
-                  href="/press"
+                  href={lang === "sv" ? "/press" : "/en/press"}
                   className="text-mist transition-colors duration-200 hover:text-snow"
                 >
                   {t.press}
