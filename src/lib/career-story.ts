@@ -25,6 +25,3 @@ export const CHAPTERS: ChapterDef[] = [
   { id: "vandel", num: "06", years: "2026", title: "Vandel" },
   { id: "facit", num: null, years: "2015–2026", title: "Facit" },
 ];
-
-/** Kapitlen som ligger inne i berättelseflödet (racinglinjens noder). */
-export const STORY_CHAPTER_IDS = CHAPTERS.filter((c) => c.num !== null).map((c) => c.id);

@@ -99,18 +99,14 @@ export function StintSequence() {
   );
 
   return (
-    <div ref={rootRef} data-stint className="mt-14 border border-line bg-midnight-800 p-8 sm:mt-20 sm:p-14">
+    <div ref={rootRef} className="mt-14 border border-line bg-midnight-800 p-8 sm:mt-20 sm:p-14">
       <p className="heading-caps text-xs tracking-[0.18em] text-mist-dim">
         Nations Cup <span aria-hidden="true">·</span> Italien 2015
       </p>
 
       <div className="mt-8 flex items-end gap-8 sm:gap-14">
         {/* Positionsstegen: fylls nedifrån och upp i takt med scrubben */}
-        <div
-          data-stint-ladder
-          className="flex flex-col items-start gap-[7px] sm:gap-2"
-          aria-hidden="true"
-        >
+        <div className="flex flex-col items-start gap-[7px] sm:gap-2" aria-hidden="true">
           {Array.from({ length: LADDER_STEPS }, (_, i) => (
             <span
               key={i}

@@ -21,6 +21,11 @@ export function ImageReveal({
     if (!element) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
+    // Redan i viewport vid mount (t.ex. deep-link)? Hoppa över revealen helt —
+    // annars garanteras en klippt första frame innan IO-callbacken hunnit köra.
+    const rect = element.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) return;
+
     element.classList.add("image-reveal-pending");
     const observer = new IntersectionObserver(
       (entries) => {

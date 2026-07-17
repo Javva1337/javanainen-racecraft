@@ -192,6 +192,22 @@ export const TIMELINE: TimelineEntry[] = [
   },
 ];
 
+/**
+ * Berättelsens nyckeltal på /karriar — de animerade räknarnas värden.
+ * Samma sanningskälla som RESULTS/TIMELINE ovan: ändras ett tal där måste
+ * det ändras här (och tvärtom), aldrig i komponenterna.
+ */
+export const STORY_FACTS = {
+  /** VM Spanien 2017 — största startfältet (RESULTS: "12:e av 172") */
+  field2017: 172,
+  /** VM Italien 2016 — startfältets storlek (RESULTS: "3:e av 102") */
+  field2016: 102,
+  /** VM Polen 2018 — finalracet (RESULTS-not: "Från 16:e till 9:e") */
+  climb2018: { from: 16, to: 9 },
+  /** Ginetta G20 Cup 2011 (TIMELINE: "vann 2 av 6 race. 8:a av 22 förare") */
+  ginetta2011: { wins: 2, races: 6, place: 8, drivers: 22 },
+} as const;
+
 /** "Javanainen i siffror" */
 export const STATS = [
   {

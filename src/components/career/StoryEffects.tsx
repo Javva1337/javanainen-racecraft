@@ -37,7 +37,9 @@ export function StoryEffects() {
             y: 28,
             duration: 0.7,
             ease: "power3.out",
-            scrollTrigger: { trigger: element, start: "top 82%" },
+            // once: triggern dör efter spelning — annars kan en senare
+            // ScrollTrigger.refresh() återapplicera startläget (dold text)
+            scrollTrigger: { trigger: element, start: "top 82%", once: true },
           });
         });
 

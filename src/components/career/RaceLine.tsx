@@ -20,6 +20,7 @@ export function RaceLine() {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const pathRef = useRef<SVGPathElement>(null);
   const [geometry, setGeometry] = useState<Geometry | null>(null);
+  const lastGeometryKeyRef = useRef("");
 
   // Mät kapitelnodernas positioner och bygg linjens geometri
   useEffect(() => {
@@ -57,6 +58,11 @@ export function RaceLine() {
         previousY = y;
       });
 
+      // Likhetsvakt: ResizeObservern fyrar även när inget ändrats (pin-
+      // omberäkningar) — utan vakten skulle alla ScrollTriggers återskapas
+      const key = `${d}|${width}|${height}`;
+      if (key === lastGeometryKeyRef.current) return;
+      lastGeometryKeyRef.current = key;
       setGeometry({ d, width, height });
     };
 
@@ -107,7 +113,8 @@ export function RaceLine() {
             autoAlpha: 0,
             duration: 0.5,
             ease: "back.out(2)",
-            scrollTrigger: { trigger: node, start: "top 72%" },
+            // once: skyddar mot att refresh() återapplicerar startläget
+            scrollTrigger: { trigger: node, start: "top 72%", once: true },
           });
         });
       });

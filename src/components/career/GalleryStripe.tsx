@@ -72,7 +72,7 @@ export function GalleryStripe({ items, hint = "Scrolla för att utforska" }: {
   );
 
   return (
-    <div ref={rootRef} data-stripe className="mt-14 sm:mt-20 sm:overflow-x-clip">
+    <div ref={rootRef} className="mt-14 sm:mt-20 sm:overflow-x-clip">
       <p className="heading-caps mb-6 flex items-center gap-3 text-[0.65rem] tracking-[0.2em] text-mist-dim">
         {hint}
         <span aria-hidden="true">→</span>
