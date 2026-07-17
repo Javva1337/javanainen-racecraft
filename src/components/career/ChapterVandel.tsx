@@ -28,6 +28,7 @@ const COPY = {
     latestNews: "Senaste nyheten",
     allNews: "Alla nyheter",
     vmHref: "/vm-2026",
+    imgAlt: "Rickard Javanainens hjälm i närbild",
   },
   en: {
     lede: "The story doesn't end in the archive. It continues in Vandel.",
@@ -46,6 +47,7 @@ const COPY = {
     latestNews: "Latest news",
     allNews: "All news",
     vmHref: "/en/vm-2026",
+    imgAlt: "Rickard Javanainen's helmet in close-up",
   },
 } as const;
 
@@ -92,7 +94,7 @@ export function ChapterVandel({
           <ImageReveal className="aspect-square border border-line">
             <Image
               src="/images/gallery-5.png"
-              alt={lang === "sv" ? "Rickard Javanainens hjälm i närbild" : "Rickard Javanainen's helmet in close-up"}
+              alt={t.imgAlt}
               width={800}
               height={800}
               sizes="(max-width: 640px) 92vw, 32vw"

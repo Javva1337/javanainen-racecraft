@@ -29,9 +29,9 @@ export type StripeItem =
       label: string;
     };
 
-export function GalleryStripe({ items, hint = "Scrolla för att utforska" }: {
+export function GalleryStripe({ items, hint }: {
   items: StripeItem[];
-  hint?: string;
+  hint: string;
 }) {
   const rootRef = useRef<HTMLDivElement>(null);
 
