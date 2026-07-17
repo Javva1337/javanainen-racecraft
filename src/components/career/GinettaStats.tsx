@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import type { Lang } from "@/lib/dictionary";
 import { STORY_FACTS } from "@/lib/results";
 import { counterTween, DESKTOP_MOTION, MOBILE_MOTION } from "./motion";
 
@@ -15,15 +16,41 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
  * slutvärdena direkt. Talen läses ur lib/results.ts (STORY_FACTS).
  */
 const GINETTA = STORY_FACTS.ginetta2011;
-const GINETTA_STATS = [
-  { value: GINETTA.wins, suffix: "", label: "vinster" },
-  { value: GINETTA.races, suffix: "", label: "race" },
-  { value: GINETTA.place, suffix: ":a", label: `av ${GINETTA.drivers} totalt` },
-] as const;
 
-const displayOf = (stat: (typeof GINETTA_STATS)[number]) => `${stat.value}${stat.suffix}`;
+const COPY = {
+  sv: {
+    intro: "Inhopp mitt i säsongen, som stand-in utan försäsong.",
+    placeSuffix: ":a",
+    wins: "vinster",
+    races: "race",
+    ofTotal: (drivers: number) => `av ${drivers} totalt`,
+    note: (place: number, drivers: number) =>
+      `${place}:a av ${drivers} förare totalt — med bara hälften av racen körda.`,
+  },
+  en: {
+    intro: "A mid-season call-up, as a stand-in with no pre-season.",
+    placeSuffix: "th",
+    wins: "wins",
+    races: "races",
+    ofTotal: (drivers: number) => `of ${drivers} overall`,
+    note: (place: number, drivers: number) =>
+      `${place}th of ${drivers} drivers overall — having raced only half the season.`,
+  },
+} as const;
 
-export function GinettaStats() {
+type GinettaStat = { value: number; suffix: string; label: string };
+
+const statsFor = (lang: Lang): GinettaStat[] => [
+  { value: GINETTA.wins, suffix: "", label: COPY[lang].wins },
+  { value: GINETTA.races, suffix: "", label: COPY[lang].races },
+  { value: GINETTA.place, suffix: COPY[lang].placeSuffix, label: COPY[lang].ofTotal(GINETTA.drivers) },
+];
+
+const displayOf = (stat: GinettaStat) => `${stat.value}${stat.suffix}`;
+
+export function GinettaStats({ lang }: { lang: Lang }) {
+  const t = COPY[lang];
+  const stats = statsFor(lang);
   const rootRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
@@ -32,19 +59,19 @@ export function GinettaStats() {
       if (!root) return;
       const values = Array.from(root.querySelectorAll<HTMLElement>("[data-ginetta-value]"));
       const note = root.querySelector<HTMLElement>("[data-ginetta-note]");
-      if (values.length !== GINETTA_STATS.length || !note) return;
+      if (values.length !== stats.length || !note) return;
 
       const mm = gsap.matchMedia();
 
       const restore = () => {
         values.forEach((el, i) => {
-          el.textContent = displayOf(GINETTA_STATS[i]);
+          el.textContent = displayOf(stats[i]);
         });
       };
 
       const buildCounts = (tl: gsap.core.Timeline) => {
         values.forEach((el, i) => {
-          const stat = GINETTA_STATS[i];
+          const stat = stats[i];
           tl.add(
             counterTween(el, {
               from: 0,
@@ -97,11 +124,11 @@ export function GinettaStats() {
         Ginetta G20 Cup <span aria-hidden="true">·</span> 2011
       </p>
       <p className="mt-3 max-w-2xl text-base leading-relaxed text-mist">
-        Inhopp mitt i säsongen, som stand-in utan försäsong.
+        {t.intro}
       </p>
 
       <dl className="mt-10 grid grid-cols-3 gap-4 sm:gap-8">
-        {GINETTA_STATS.map((stat) => (
+        {stats.map((stat) => (
           <div key={stat.label} className="flex flex-col gap-2">
             <dd
               data-ginetta-value
@@ -117,7 +144,7 @@ export function GinettaStats() {
       </dl>
 
       <p className="mt-8 text-sm leading-relaxed text-mist" data-ginetta-note>
-        {GINETTA.place}:a av {GINETTA.drivers} förare totalt — med bara hälften av racen körda.
+        {t.note(GINETTA.place, GINETTA.drivers)}
       </p>
     </div>
   );

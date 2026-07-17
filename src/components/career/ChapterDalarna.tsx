@@ -1,26 +1,37 @@
 import { Kurbits } from "@/components/Kurbits";
 import { CHAPTERS } from "@/lib/career-story";
+import type { Lang } from "@/lib/dictionary";
 import { BackdropYear } from "./BackdropYear";
 import { ChapterSection } from "./ChapterSection";
 
 const chapter = CHAPTERS.find((c) => c.id === "dalarna")!;
 
+const COPY = {
+  sv: {
+    lede: "Tio år gammal. Första gokarten.",
+    p1: "Första steget in i motorsport togs 2002, i en gokart i Dalarna. Tio år gammal, och direkt fast.",
+    p2: "Åren som följde, 2002–2006, blev flera år av utveckling genom olika gokartklasser — med flertalet vinster och pallplatser längs vägen.",
+    plateLabel: "Där det började",
+  },
+  en: {
+    lede: "Ten years old. The first go-kart.",
+    p1: "The first step into motorsport came in 2002, in a go-kart in Dalarna. Ten years old, and instantly hooked.",
+    p2: "The years that followed, 2002–2006, brought several seasons of development through different karting classes — with a number of wins and podiums along the way.",
+    plateLabel: "Where it started",
+  },
+} as const;
+
 /** Kapitel 01 — Dalarna (2002–2006). Där det började: första gokarten, tio år gammal. */
-export function ChapterDalarna() {
+export function ChapterDalarna({ lang }: { lang: Lang }) {
+  const t = COPY[lang];
   return (
-    <ChapterSection chapter={chapter} lang="sv" lede="Tio år gammal. Första gokarten.">
+    <ChapterSection chapter={chapter} lang={lang} lede={t.lede}>
       <BackdropYear year="2002" className="-right-8 top-4 sm:-right-16" />
 
       <div className="relative mt-12 grid gap-10 sm:mt-16 sm:grid-cols-[3fr_2fr] sm:gap-14">
         <div className="space-y-5 text-base leading-relaxed text-mist sm:text-lg" data-chapter-copy>
-          <p>
-            Första steget in i motorsport togs 2002, i en gokart i Dalarna. Tio år gammal, och
-            direkt fast.
-          </p>
-          <p>
-            Åren som följde, 2002–2006, blev flera år av utveckling genom olika gokartklasser —
-            med flertalet vinster och pallplatser längs vägen.
-          </p>
+          <p>{t.p1}</p>
+          <p>{t.p2}</p>
         </div>
 
         {/* Inga arkivbilder från åren finns bevarade — grafisk platta med kurbitslinje,
@@ -32,7 +43,7 @@ export function ChapterDalarna() {
           <Kurbits className="w-44 max-w-full text-flagblue" />
           <figcaption className="flex flex-col items-center gap-2 text-center">
             <span className="heading-caps text-[0.65rem] tracking-[0.22em] text-mist-dim">
-              Där det började
+              {t.plateLabel}
             </span>
             <span className="heading-caps tabular text-2xl font-bold text-snow">
               Dalarna <span aria-hidden="true">·</span> 2002

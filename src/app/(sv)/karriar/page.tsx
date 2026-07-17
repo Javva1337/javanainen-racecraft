@@ -97,8 +97,8 @@ export default function CareerPage() {
         />
         <RaceLine />
         <StoryEffects />
-        <ChapterDalarna />
-        <ChapterBanracing />
+        <ChapterDalarna lang="sv" />
+        <ChapterBanracing lang="sv" />
         <ChapterGenombrottet />
         <ChapterBronset />
         <QuoteInterlude quote="Med samma material för alla finns inget att gömma sig bakom." />
