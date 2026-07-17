@@ -1,6 +1,13 @@
 import { NextResponse } from "next/server";
 import { createHash, timingSafeEqual } from "node:crypto";
-import { buildArticleMdx, buildSlug, buildVmStatus, type RapportFalt } from "@/lib/publicera";
+import {
+  buildArticleEnMdx,
+  buildArticleMdx,
+  buildSlug,
+  buildVmStatus,
+  type RapportFalt,
+  type RapportFaltEn,
+} from "@/lib/publicera";
 
 /**
  * Publicerar en VM-rapport från /admin: en atomisk commit till GitHub med
@@ -13,7 +20,7 @@ const MAX_BODY_LEN = 50_000;
 
 const DEFAULT_REPO = "Javva1337/javanainen-racecraft";
 
-type Validerat = { falt: RapportFalt; imageBase64: string | null };
+type Validerat = { falt: RapportFalt; enFalt: RapportFaltEn | null; imageBase64: string | null };
 
 function fel(status: number, error: string): NextResponse {
   return NextResponse.json({ ok: false, error }, { status });
@@ -76,6 +83,22 @@ function validera(body: Record<string, unknown>): Validerat | { error: string } 
     if (!/^[A-Za-z0-9+/=\s]+$/.test(imageBase64)) return { error: "Ogiltig bild." };
   }
 
+  const titleEn = strang(body.titleEn, 200);
+  const descriptionEn = strang(body.descriptionEn, 500);
+  const bodyEn = strang(body.bodyEn, MAX_BODY_LEN);
+  const tomorrowEn =
+    typeof body.tomorrowEn === "string" ? body.tomorrowEn.trim().slice(0, 300) : "";
+  let enFalt: RapportFaltEn | null = null;
+  if (titleEn || descriptionEn || bodyEn || tomorrowEn) {
+    if (!titleEn || !descriptionEn || !bodyEn) {
+      return {
+        error:
+          "Engelsk version: fyll i titel, beskrivning och brödtext — eller lämna alla engelska fält tomma.",
+      };
+    }
+    enFalt = { title: titleEn, description: descriptionEn, tomorrow: tomorrowEn, body: bodyEn };
+  }
+
   return {
     falt: {
       title,
@@ -89,6 +112,7 @@ function validera(body: Record<string, unknown>): Validerat | { error: string } 
       tomorrow,
       body: artikeltext,
     },
+    enFalt,
     imageBase64,
   };
 }
@@ -127,7 +151,7 @@ type TreeEntry = {
 async function publiceraTillGitHub(
   token: string,
   slug: string,
-  { falt, imageBase64 }: Validerat,
+  { falt, enFalt, imageBase64 }: Validerat,
 ): Promise<void> {
   const repo = process.env.ADMIN_GITHUB_REPO ?? DEFAULT_REPO;
   // Utan explicit branch: committa till branchen som deployen byggdes från
@@ -165,6 +189,14 @@ async function publiceraTillGitHub(
     type: "blob",
     content: buildArticleMdx({ ...falt, imagePath }),
   });
+  if (enFalt) {
+    entries.push({
+      path: `content/nyheter/${slug}.en.mdx`,
+      mode: "100644",
+      type: "blob",
+      content: buildArticleEnMdx({ ...falt, imagePath }, enFalt),
+    });
+  }
   entries.push({
     path: "content/vm-status.json",
     mode: "100644",

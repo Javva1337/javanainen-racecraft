@@ -220,3 +220,68 @@ describe("POST /api/admin/publicera — publicering", () => {
     expect(json.error).toMatch(/kunde inte publicera/i);
   });
 });
+
+const engelskaFalt = {
+  titleEn: "Day 3: From P12 to P5 in the rain",
+  descriptionEn: "Two heats, one downpour.",
+  tomorrowEn: "Two more heats tomorrow.",
+  bodyEn: "The start in heat one was the best I have done all year.",
+};
+
+describe("POST /api/admin/publicera — engelsk version", () => {
+  test("delvis ifylld engelska → 400 med begripligt fel, inget GitHub-anrop", async () => {
+    const mock = githubMock();
+    vi.stubGlobal("fetch", mock);
+    const res = await POST(req({ ...giltigPayload, titleEn: "Day 3" }));
+    const json = await res.json();
+    expect(res.status).toBe(400);
+    expect(json.error).toMatch(/engelsk/i);
+    expect(mock).not.toHaveBeenCalled();
+  });
+
+  test("bara tomorrowEn ifyllt räknas också som delvis → 400", async () => {
+    vi.stubGlobal("fetch", githubMock());
+    const res = await POST(req({ ...giltigPayload, tomorrowEn: "Tomorrow ..." }));
+    expect(res.status).toBe(400);
+  });
+
+  test("komplett engelska → .en.mdx som tredje tree-entry i samma commit", async () => {
+    const mock = githubMock();
+    vi.stubGlobal("fetch", mock);
+
+    const res = await POST(req({ ...giltigPayload, ...engelskaFalt }));
+    expect(res.status).toBe(200);
+
+    const [treeCall] = anrop(mock, "/git/trees", "POST");
+    const tree = JSON.parse((treeCall[1] as RequestInit).body as string);
+    const paths = tree.tree.map((e: { path: string }) => e.path);
+    expect(paths).toContain("content/nyheter/vm-dag-3-fran-p12-till-p5-i-regnet.mdx");
+    expect(paths).toContain("content/nyheter/vm-dag-3-fran-p12-till-p5-i-regnet.en.mdx");
+    expect(paths).toContain("content/vm-status.json");
+    expect(paths).toHaveLength(3);
+
+    const enEntry = tree.tree.find((e: { path: string }) => e.path.endsWith(".en.mdx"));
+    expect(enEntry.content).toContain("Day 3: From P12 to P5 in the rain");
+    expect(enEntry.content).toContain('standing: "P5"');
+
+    // Svenska filen är opåverkad av EN-fälten
+    const svEntry = tree.tree.find(
+      (e: { path: string }) => e.path.endsWith(".mdx") && !e.path.endsWith(".en.mdx"),
+    );
+    expect(svEntry.content).toContain("Dag 3: Från P12 till P5 i regnet");
+    expect(svEntry.content).not.toContain("Day 3:");
+  });
+
+  test("engelska + bild → en.mdx innehåller samma bildsökväg", async () => {
+    const mock = githubMock();
+    vi.stubGlobal("fetch", mock);
+    const bild = Buffer.from("låtsas-jpeg").toString("base64");
+    const res = await POST(req({ ...giltigPayload, ...engelskaFalt, imageBase64: bild }));
+    expect(res.status).toBe(200);
+
+    const [treeCall] = anrop(mock, "/git/trees", "POST");
+    const tree = JSON.parse((treeCall[1] as RequestInit).body as string);
+    const enEntry = tree.tree.find((e: { path: string }) => e.path.endsWith(".en.mdx"));
+    expect(enEntry.content).toContain("/images/vm/vm-dag-3-fran-p12-till-p5-i-regnet.jpg");
+  });
+});
