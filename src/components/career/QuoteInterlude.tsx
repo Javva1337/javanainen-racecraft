@@ -19,7 +19,7 @@ export function QuoteInterlude({ quote, lang }: { quote: string; lang: Lang }) {
         <Kurbits className="mx-auto mb-8 w-24 text-flagblue" />
         <blockquote>
           <p className="font-display text-3xl font-semibold leading-tight text-snow sm:text-5xl">
-            "{quote}"
+            ”{quote}”
           </p>
         </blockquote>
       </figure>
