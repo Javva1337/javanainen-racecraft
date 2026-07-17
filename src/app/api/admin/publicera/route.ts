@@ -89,7 +89,10 @@ function validera(body: Record<string, unknown>): Validerat | { error: string } 
   const tomorrowEn =
     typeof body.tomorrowEn === "string" ? body.tomorrowEn.trim().slice(0, 300) : "";
   let enFalt: RapportFaltEn | null = null;
-  if (titleEn || descriptionEn || bodyEn || tomorrowEn) {
+  const harEngelskInput = [body.titleEn, body.descriptionEn, body.bodyEn, body.tomorrowEn].some(
+    (varde) => typeof varde === "string" && varde.trim() !== "",
+  );
+  if (harEngelskInput) {
     if (!titleEn || !descriptionEn || !bodyEn) {
       return {
         error:

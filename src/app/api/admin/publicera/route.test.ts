@@ -245,6 +245,16 @@ describe("POST /api/admin/publicera — engelsk version", () => {
     expect(res.status).toBe(400);
   });
 
+  test("för lång engelsk titel som enda EN-fält → 400, ingen tyst svensk publicering", async () => {
+    const mock = githubMock();
+    vi.stubGlobal("fetch", mock);
+    const res = await POST(req({ ...giltigPayload, titleEn: "x".repeat(250) }));
+    const json = await res.json();
+    expect(res.status).toBe(400);
+    expect(json.error).toMatch(/engelsk/i);
+    expect(mock).not.toHaveBeenCalled();
+  });
+
   test("komplett engelska → .en.mdx som tredje tree-entry i samma commit", async () => {
     const mock = githubMock();
     vi.stubGlobal("fetch", mock);
