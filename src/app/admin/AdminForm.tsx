@@ -436,8 +436,14 @@ export function AdminForm() {
 
       <details className="border border-line bg-midnight-800">
         <summary className="cursor-pointer px-4 py-3 text-sm text-mist">
-          Skriv en engelsk variant{utkast.titleEn.trim() ? " — påbörjad" : ""} (lämna tomt så
-          visas svenska med notis på /en)
+          Skriv en engelsk variant
+          {utkast.titleEn.trim() ||
+          utkast.descriptionEn.trim() ||
+          utkast.bodyEn.trim() ||
+          utkast.tomorrowEn.trim()
+            ? " — påbörjad"
+            : ""}{" "}
+          (lämna tomt så visas svenska med notis på /en)
         </summary>
         <div className="space-y-6 border-t border-line p-4">
           <div>

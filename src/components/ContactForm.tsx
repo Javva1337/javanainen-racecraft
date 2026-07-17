@@ -9,7 +9,7 @@ type Status = "idle" | "pending" | "success" | "error";
 /**
  * Kontaktformulär. Skickar via /api/kontakt (Resend). Om servern saknar
  * e-postnyckel (503) faller formuläret tillbaka på en mailto-länk med
- * ifyllt innehål. All copy kommer ur dictionaryn (sv + en).
+ * ifyllt innehåll. All copy kommer ur dictionaryn (sv + en).
  */
 export function ContactForm({ lang }: { lang: Lang }) {
   const [status, setStatus] = useState<Status>("idle");
