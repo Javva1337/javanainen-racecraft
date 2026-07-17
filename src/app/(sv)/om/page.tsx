@@ -51,7 +51,7 @@ const CHAPTERS = [
     title: "Tillbaka på allvar",
     text: [
       "Efter VM i Polen 2018 tog livet över på det finaste sättet: 2020 föddes vår första son, och 2024 kom hans lillebror. Däremellan satte pandemin stopp för det mesta av tävlandet, så det dröjde några år innan jag var tillbaka på riktigt. Men suget försvann aldrig.",
-      "2021 tog jag 6:e platsen totalt i SRKC-finalen, näst bäst av svenskarna, och 2026 blev det 3:e bästa svensk. SRKC, kvalet till hyrkart-VM, har tagit in mig i sin Hall of Fame, seriens hedersgalleri, hittills som ende förare. Ett fint kvitto på åren som gått. Nu känner jag mig redo att plocka upp drömmen om VM-titeln igen, och det är formen i Danmark som gäller.",
+      "2021 tog jag 6:e platsen totalt i SRKC-finalen, näst bäst av svenskarna, och 2026 blev jag 3:e bästa svensk. SRKC, kvalet till hyrkart-VM, har tagit in mig i sin Hall of Fame, seriens hedersgalleri, hittills som ende förare. Ett fint kvitto på åren som gått. Nu känner jag mig redo att plocka upp drömmen om VM-titeln igen, och det är formen i Danmark som gäller.",
     ],
   },
   {
