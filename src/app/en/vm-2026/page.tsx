@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArticleCard } from "@/components/ArticleCard";
 import { Countdown } from "@/components/Countdown";
 import { CountUp } from "@/components/CountUp";
-import { SportsEventJsonLd } from "@/components/JsonLd";
+import { FaqJsonLd, SportsEventJsonLd } from "@/components/JsonLd";
 import { KurbitsDivider } from "@/components/Kurbits";
 import { LiveStanding } from "@/components/LiveStanding";
 import { NationBadge } from "@/components/NationBadge";
@@ -18,7 +18,7 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: "Worlds 2026 — Kart World Championship at Vandel, Denmark",
   description:
-    "Everything about the 2026 Kart World Championship: schedule, format and daily reports. Nations Cup 25–26 July, KWC Individual 28 July–1 August. 180 drivers, 20th edition. Rickard Javanainen races for Sweden.",
+    "Schedule, format and daily reports from the 2026 Kart World Championship at Vandel Kart, Denmark. Nations Cup 25–26 July, KWC Individual 28 July–1 August.",
   alternates: {
     canonical: "/en/vm-2026",
     languages: { "sv-SE": "/vm-2026", en: "/en/vm-2026", "x-default": "/vm-2026" },
@@ -36,6 +36,26 @@ const FORMAT_STATS = [
   { value: 8, label: "qualifying heats" },
   { value: 1, label: "semifinal" },
   { value: 18, label: "finalists" },
+];
+
+/** Same text in the visible FAQ and the FAQPage schema — they must never drift apart. */
+const FAQ_ITEMS = [
+  {
+    q: "What is the rental kart World Championship?",
+    a: "The Kart World Championship (KWC) is the world championship of rental karting. Everyone races equal karts supplied by the organiser, so the driving decides the result, not the equipment. The 2026 edition is the 20th, with 180 drivers.",
+  },
+  {
+    q: "When and where is the 2026 Worlds held?",
+    a: "From 22 July to 1 August 2026 at Vandel Kart in the Billund area of Jutland, Denmark. The Nations Cup runs 25–26 July and the individual championship 28 July–1 August.",
+  },
+  {
+    q: "How does the championship format work?",
+    a: "Each driver races 8 qualifying heats, with one result dropped. Karts are drawn by lot between heats and the starting order is set by a one-lap time qualifying before each heat. The semifinal decides which 18 drivers race the final.",
+  },
+  {
+    q: "How do I follow Rickard during the Worlds?",
+    a: "A report is published here every race day, the same evening. The reports are also available as an RSS feed and newsletter, and between reports there are clips and photos on Instagram.",
+  },
 ];
 
 export default function EnglishVmPage() {
@@ -244,7 +264,23 @@ export default function EnglishVmPage() {
         </ul>
       </section>
 
-      <SportsEventJsonLd />
+      {/* FAQ */}
+      <section className="mt-16" aria-labelledby="faq-heading">
+        <h2 id="faq-heading" className="heading-caps mb-6 text-2xl font-bold text-snow">
+          Frequently asked questions
+        </h2>
+        <dl className="max-w-3xl space-y-4">
+          {FAQ_ITEMS.map((item) => (
+            <div key={item.q} className="border border-line bg-midnight-800 p-6">
+              <dt className="heading-caps mb-2 text-lg text-snow">{item.q}</dt>
+              <dd className="text-sm leading-relaxed text-mist">{item.a}</dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+
+      <SportsEventJsonLd lang="en" />
+      <FaqJsonLd items={FAQ_ITEMS} />
     </div>
   );
 }
