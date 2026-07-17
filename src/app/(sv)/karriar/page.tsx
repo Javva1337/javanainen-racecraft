@@ -13,6 +13,7 @@ import { ChapterVandel } from "@/components/career/ChapterVandel";
 import { QuoteInterlude } from "@/components/career/QuoteInterlude";
 import { RaceLine } from "@/components/career/RaceLine";
 import { ScrollCue } from "@/components/career/ScrollCue";
+import { StoryEffects } from "@/components/career/StoryEffects";
 import { CHAPTERS } from "@/lib/career-story";
 import { getAllArticles } from "@/lib/content";
 import { DICT } from "@/lib/dictionary";
@@ -91,6 +92,7 @@ export default function CareerPage() {
           aria-hidden="true"
         />
         <RaceLine />
+        <StoryEffects />
         <ChapterDalarna />
         <ChapterBanracing />
         <ChapterGenombrottet />
