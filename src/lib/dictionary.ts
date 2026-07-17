@@ -1,5 +1,20 @@
 export type Lang = "sv" | "en";
 
+import type { Category } from "./content";
+
+/** Kategorinycklarna i frontmatter är svenska — bara visningen översätts. */
+const CATEGORY_LABELS_EN: Record<Category, string> = {
+  "VM 2026": "Worlds 2026",
+  SRKC: "SRKC",
+  Satsningen: "The campaign",
+  Partners: "Partners",
+};
+
+export function categoryLabel(category: string, lang: Lang): string {
+  if (lang === "sv") return category;
+  return CATEGORY_LABELS_EN[category as Category] ?? category;
+}
+
 /** All UI-copy för båda språken. Sidinnehåll ligger i respektive sida/MDX. */
 export const DICT = {
   sv: {
@@ -40,6 +55,19 @@ export const DICT = {
       nameAriaLabel: "Ditt namn",
       consent:
         "Genom att anmäla dig sparar vi ditt namn och din e-post för att skicka rapporten. Avanmäl när som helst genom att mejla",
+    },
+    contactForm: {
+      name: "Namn",
+      namePlaceholder: "Ditt namn",
+      email: "E-post",
+      emailPlaceholder: "din@epost.se",
+      message: "Meddelande",
+      messagePlaceholder: "Ditt meddelande...",
+      send: "Skicka",
+      pending: "Skickar …",
+      success: "Tack för ditt meddelande! Jag återkommer så snart jag kan.",
+      error: "Något gick fel. Prova igen, eller mejla",
+      mailtoSubject: (name: string) => `Kontakt från ${name}`,
     },
     article: {
       readingTime: (min: number) => `${min} min läsning`,
@@ -122,6 +150,19 @@ export const DICT = {
       nameAriaLabel: "Your name",
       consent:
         "By signing up you let us store your name and email to send the report. Unsubscribe anytime by emailing",
+    },
+    contactForm: {
+      name: "Name",
+      namePlaceholder: "Your name",
+      email: "Email",
+      emailPlaceholder: "you@email.com",
+      message: "Message",
+      messagePlaceholder: "Your message...",
+      send: "Send",
+      pending: "Sending …",
+      success: "Thanks for your message! I'll get back to you as soon as I can.",
+      error: "Something went wrong. Try again, or email",
+      mailtoSubject: (name: string) => `Contact from ${name}`,
     },
     article: {
       readingTime: (min: number) => `${min} min read`,
