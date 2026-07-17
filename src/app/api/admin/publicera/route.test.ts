@@ -199,6 +199,18 @@ describe("POST /api/admin/publicera — publicering", () => {
     expect(mdxEntry.content).toContain("/images/vm/vm-dag-3-fran-p12-till-p5-i-regnet.jpg");
   });
 
+  test("utan ADMIN_GITHUB_BRANCH används deployens branch (VERCEL_GIT_COMMIT_REF)", async () => {
+    delete process.env.ADMIN_GITHUB_BRANCH;
+    process.env.VERCEL_GIT_COMMIT_REF = "nextjs-rebuild";
+    const mock = githubMock();
+    vi.stubGlobal("fetch", mock);
+
+    const res = await POST(req(giltigPayload));
+    expect(res.status).toBe(200);
+    expect(anrop(mock, "/git/ref/heads/nextjs-rebuild", "GET")).toHaveLength(1);
+    expect(anrop(mock, "/git/refs/heads/nextjs-rebuild", "PATCH")).toHaveLength(1);
+  });
+
   test("GitHub-fel → 502 med svenskt felmeddelande", async () => {
     const mock = vi.fn(async () => new Response("Bad credentials", { status: 401 }));
     vi.stubGlobal("fetch", mock);
