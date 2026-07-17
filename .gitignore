@@ -17,5 +17,11 @@ next-env.d.ts
 .vercel
 *.tsbuildinfo
 
+# källmaterial till AI-hero-videorna — lokal bokföring, ska inte committas/deployas
+# (4K-original från Higgsfield + källfoton; webbversionerna ligger i public/videos)
+public/images/hf_*.mp4
+public/images/*-video.mp4
+public/images/32_KWC_2016.jpg
+
 .vercel
 .env*
