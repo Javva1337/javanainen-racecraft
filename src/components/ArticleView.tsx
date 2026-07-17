@@ -4,7 +4,7 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import type { Article } from "@/lib/content";
 import { formatDate } from "@/lib/content";
-import { DICT, type Lang } from "@/lib/dictionary";
+import { categoryLabel, DICT, type Lang } from "@/lib/dictionary";
 import { SITE_URL } from "@/lib/site";
 import { FactBox } from "./FactBox";
 import { NewsArticleJsonLd } from "./JsonLd";
@@ -22,7 +22,7 @@ export function ArticleView({ article, lang }: { article: Article; lang: Lang })
       <header className="mb-8">
         <div className="mb-4 flex flex-wrap items-center gap-3 text-xs">
           <span className="heading-caps border border-flagblue px-2 py-0.5 tracking-[0.12em] text-flagblue-bright">
-            {frontmatter.category}
+            {categoryLabel(frontmatter.category, lang)}
           </span>
           {typeof frontmatter.day === "number" && (
             <span className="heading-caps tracking-[0.12em] text-flagyellow">
