@@ -102,7 +102,7 @@ export default function CareerPage() {
         <ChapterGenombrottet lang="sv" />
         <ChapterBronset lang="sv" />
         <QuoteInterlude quote="Med samma material för alla finns inget att gömma sig bakom." lang="sv" />
-        <ChapterJakten />
+        <ChapterJakten lang="sv" />
         <ChapterVandel
           mode={mode}
           latestHref={latestHref}

@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import type { Lang } from "@/lib/dictionary";
 import { STORY_FACTS } from "@/lib/results";
 import { counterTween, DESKTOP_MOTION, MOBILE_MOTION } from "./motion";
 
@@ -16,7 +17,20 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
  */
 const FIELD_SIZE_2017 = STORY_FACTS.field2017;
 
-export function FieldCounter() {
+const COPY = {
+  sv: {
+    bigLabel: "förare — största startfältet hittills.",
+    body: (field: number) => `VM i Spanien 2017: 12:e av ${field}. 5:a med Sverige i Nations Cup.`,
+  },
+  en: {
+    bigLabel: "drivers — the largest field to date.",
+    body: (field: number) =>
+      `The Worlds in Spain 2017: 12th of ${field}. 5th with Sweden in the Nations Cup.`,
+  },
+} as const;
+
+export function FieldCounter({ lang }: { lang: Lang }) {
+  const t = COPY[lang];
   const rootRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
@@ -66,11 +80,11 @@ export function FieldCounter() {
           {FIELD_SIZE_2017}
         </span>
         <span className="heading-caps text-sm tracking-[0.12em] text-mist sm:text-lg">
-          förare — största startfältet hittills.
+          {t.bigLabel}
         </span>
       </p>
       <p className="mt-5 max-w-2xl text-base leading-relaxed text-mist sm:text-lg" data-chapter-copy>
-        VM i Spanien 2017: 12:e av {FIELD_SIZE_2017}. 5:a med Sverige i Nations Cup.
+        {t.body(FIELD_SIZE_2017)}
       </p>
     </div>
   );
