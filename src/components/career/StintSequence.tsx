@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import type { Lang } from "@/lib/dictionary";
 import { DESKTOP_MOTION, MOBILE_MOTION } from "./motion";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
@@ -22,7 +23,23 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
  */
 const LADDER_STEPS = 14;
 
-export function StintSequence() {
+const COPY = {
+  sv: {
+    event: "Italien 2015",
+    from: "Sist",
+    label: "En stint. Från sist till först.",
+    note: "Laget gick i mål som femma totalt.",
+  },
+  en: {
+    event: "Italy 2015",
+    from: "Last",
+    label: "One stint. From last to first.",
+    note: "The team crossed the line fifth overall.",
+  },
+} as const;
+
+export function StintSequence({ lang }: { lang: Lang }) {
+  const t = COPY[lang];
   const rootRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
@@ -101,7 +118,7 @@ export function StintSequence() {
   return (
     <div ref={rootRef} className="mt-14 border border-line bg-midnight-800 p-8 sm:mt-20 sm:p-14">
       <p className="heading-caps text-xs tracking-[0.18em] text-mist-dim">
-        Nations Cup <span aria-hidden="true">·</span> Italien 2015
+        Nations Cup <span aria-hidden="true">·</span> {t.event}
       </p>
 
       <div className="mt-8 flex items-end gap-8 sm:gap-14">
@@ -124,7 +141,7 @@ export function StintSequence() {
               aria-hidden="true"
               className="heading-caps tabular absolute left-0 top-0 text-[clamp(5rem,16vw,11rem)] font-extrabold leading-none text-mist-dim"
             >
-              Sist
+              {t.from}
             </span>
             <span
               data-stint-to
@@ -137,13 +154,13 @@ export function StintSequence() {
             data-stint-label
             className="heading-caps mt-4 text-sm tracking-[0.14em] text-snow sm:text-base"
           >
-            En stint. Från sist till först.
+            {t.label}
           </p>
         </div>
       </div>
 
       <p className="mt-8 max-w-2xl text-sm leading-relaxed text-mist" data-stint-note>
-        Laget gick i mål som femma totalt.
+        {t.note}
       </p>
     </div>
   );

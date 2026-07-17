@@ -99,7 +99,7 @@ export default function CareerPage() {
         <StoryEffects />
         <ChapterDalarna lang="sv" />
         <ChapterBanracing lang="sv" />
-        <ChapterGenombrottet />
+        <ChapterGenombrottet lang="sv" />
         <ChapterBronset />
         <QuoteInterlude quote="Med samma material för alla finns inget att gömma sig bakom." />
         <ChapterJakten />
