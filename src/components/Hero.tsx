@@ -5,8 +5,8 @@ import { DICT, type Lang } from "@/lib/dictionary";
 import type { SiteMode } from "@/lib/mode";
 import { KWC, TAGLINE } from "@/lib/site";
 import { Countdown } from "./Countdown";
-import { HeroVideo } from "./HeroVideo";
 import { NationBadge } from "./NationBadge";
+import { VideoBackdrop } from "./VideoBackdrop";
 
 /**
  * Hero med lägeslogik:
@@ -42,25 +42,23 @@ export function Hero({
 
   return (
     <section className="relative flex min-h-[88svh] items-end overflow-hidden">
-      {/* Bakgrund: stillbild i botten, video-loop ovanpå (döljs vid reducerad rörelse) */}
-      <Image
-        src={HERO_VIDEO ? HERO_POSTER : "/images/hero-rain.jpg"}
-        alt={
-          HERO_VIDEO
-            ? "Rickard Javanainen i gokart med hjälm"
-            : "Rickard Javanainen i regnrace"
-        }
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover"
-      />
-      {HERO_VIDEO && (
-        <HeroVideo
-          src={HERO_VIDEO}
+      {/* Bakgrund: video-loop med stillbildsfallback, annars regnbilden */}
+      {HERO_VIDEO ? (
+        <VideoBackdrop
+          video={HERO_VIDEO}
           poster={HERO_POSTER}
-          soundOnLabel={t.soundOn}
-          soundOffLabel={t.soundOff}
+          imageAlt="Rickard Javanainen i gokart med hjälm"
+          soundOnLabel={DICT[lang].common.soundOn}
+          soundOffLabel={DICT[lang].common.soundOff}
+        />
+      ) : (
+        <Image
+          src="/images/hero-rain.jpg"
+          alt="Rickard Javanainen i regnrace"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
         />
       )}
       <div

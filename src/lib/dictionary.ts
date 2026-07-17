@@ -81,13 +81,13 @@ export const DICT = {
       followVm: "Följ VM här",
       becomePartner: "Bli partner",
       seeCareer: "Se karriären",
-      soundOn: "Slå på ljud",
-      soundOff: "Stäng av ljud",
     },
     common: {
       readMore: "Läs mer",
       contact: "Kontakt",
       partnersLine: "VM-satsningen möjliggörs av Primab och Labatus",
+      soundOn: "Slå på ljud",
+      soundOff: "Stäng av ljud",
     },
   },
   en: {
@@ -164,13 +164,13 @@ export const DICT = {
       followVm: "Follow the Worlds",
       becomePartner: "Become a partner",
       seeCareer: "See the career",
-      soundOn: "Turn sound on",
-      soundOff: "Turn sound off",
     },
     common: {
       readMore: "Read more",
       contact: "Contact",
       partnersLine: "The Worlds campaign is made possible by Primab and Labatus",
+      soundOn: "Turn sound on",
+      soundOff: "Turn sound off",
     },
   },
 } as const;
