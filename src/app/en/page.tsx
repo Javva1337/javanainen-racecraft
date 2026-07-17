@@ -124,6 +124,9 @@ export default function EnglishHomePage() {
               </a>
             ))}
           </div>
+          <Link href="/en/partners" className="btn btn-secondary">
+            Become a partner
+          </Link>
         </div>
       </section>
     </>

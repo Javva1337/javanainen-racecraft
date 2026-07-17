@@ -89,7 +89,7 @@ export function Hero({
                   {t.followVm}
                 </Link>
                 <Link
-                  href={lang === "sv" ? "/partners" : "/en"}
+                  href={lang === "sv" ? "/partners" : "/en/partners"}
                   className="btn btn-secondary"
                 >
                   {t.becomePartner}
