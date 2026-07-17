@@ -163,7 +163,7 @@ export default function CareerPage() {
               >
                 SRKC:s Hall of Fame
               </a>
-              , hittills som ende förare.
+              , hittills som den enda förare som valts in.
             </p>
           </div>
 

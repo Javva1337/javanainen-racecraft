@@ -66,6 +66,6 @@ export const DEFAULT_TITLE = {
 } as const;
 
 export const DEFAULT_DESCRIPTION = {
-  sv: "Rickard Javanainen tog VM-brons 2016 och kör hyrkart-VM (KWC) för Sverige på Vandel Kart i Danmark, 22 juli–1 augusti 2026. En race-rapport per dag under VM-veckan.",
+  sv: "Rickard Javanainen tog VM-brons 2016 och kör hyrkart-VM (KWC) för Sverige på Vandel Kart i Danmark, 22 juli–1 augusti 2026. En racerapport per dag under VM-veckan.",
   en: "Rickard Javanainen, 2016 World Championship bronze medalist, races for Sweden at the Kart World Championship at Vandel Kart, Denmark, 22 July–1 August 2026. Daily race reports straight from the track.",
 } as const;

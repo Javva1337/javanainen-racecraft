@@ -19,7 +19,8 @@ export default function MediaPage() {
       <header className="mb-10">
         <h1 className="heading-caps text-4xl font-extrabold text-snow sm:text-5xl">Media</h1>
         <p className="mt-3 max-w-2xl text-mist">
-          Från banan, depån och prispallen. Högupplösta pressbilder finns på{" "}
+          Bilder från banan, depån och prispallen. Högupplösta pressbilder, biografi och
+          faktablad finns på{" "}
           <a href="/press" className="text-flagblue-bright underline underline-offset-4">
             pressidan
           </a>

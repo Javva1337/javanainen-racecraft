@@ -7,6 +7,7 @@ import { FaqJsonLd, SportsEventJsonLd } from "@/components/JsonLd";
 import { KurbitsDivider } from "@/components/Kurbits";
 import { LiveStanding } from "@/components/LiveStanding";
 import { NationBadge } from "@/components/NationBadge";
+import { NewsletterForm } from "@/components/NewsletterForm";
 import { Reveal } from "@/components/Reveal";
 import { getAllArticles } from "@/lib/content";
 import { getSiteMode } from "@/lib/mode";
@@ -49,8 +50,8 @@ const FAQ_ITEMS = [
     a: "VM körs 22 juli till 1 augusti 2026 på Vandel Kart i Billund-området på Jylland i Danmark. Veckan börjar med träning 22–24 juli, sedan kör Sverige Nations Cup 25–26 juli, 27 juli är vilodag, och det individuella mästerskapet avgörs 28 juli–1 augusti.",
   },
   {
-    q: "Hur funkar VM-formatet?",
-    a: "Varje förare kör 8 kvalheat där ett resultat räknas bort. Kartarna lottas mellan heaten och startordningen sätts av ett varvs tidskval före varje heat. Semifinalen avgör vilka 18 förare som gör upp i finalen.",
+    q: "Hur fungerar VM-formatet?",
+    a: "Varje förare kör 8 kvalheat där ett resultat räknas bort. Kartarna lottas mellan heaten och startordningen avgörs av ett tidskval på ett varv före varje heat. Semifinalen avgör vilka 18 förare som gör upp i finalen.",
   },
   {
     q: "Hur följer jag Rickard under VM?",
@@ -153,7 +154,7 @@ export default function VmPage() {
       {/* Format */}
       <section className="mb-16" aria-labelledby="format-heading">
         <h2 id="format-heading" className="heading-caps mb-6 text-2xl font-bold text-snow">
-          Så funkar formatet
+          Så fungerar formatet
         </h2>
         <div className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
           {FORMAT_STATS.map((stat) => (
@@ -180,9 +181,9 @@ export default function VmPage() {
           </p>
           <p>
             Totalt blir det upp till <strong className="text-snow tabular">10 race</strong> under
-            veckan. Mästerskapet vinns av den som samlar flest poäng över hela tävlingen. Ett
-            upplägg som premierar jämnhet och förmågan att leverera i varje race, inte enstaka
-            toppresultat.
+            veckan. Mästerskapet vinns av den som samlar flest poäng över hela tävlingen. Det är
+            ett upplägg som premierar jämnhet och förmågan att leverera i varje race, inte
+            enstaka toppresultat.
           </p>
           <p>
             <Link href="/nyheter/sa-funkar-hyrkart-vm" className="text-flagblue-bright underline underline-offset-4 transition-colors duration-200 hover:text-snow">
@@ -247,13 +248,13 @@ export default function VmPage() {
             <span className="text-flagyellow" aria-hidden="true">→</span>
             <span>
               <strong className="text-snow">Nyhetsbrevet.</strong> Varje rapport direkt i
-              inkorgen, anmäl dig i sidfoten.
+              inkorgen, anmäl dig här nedanför.
             </span>
           </li>
           <li className="flex gap-3">
             <span className="text-flagyellow" aria-hidden="true">→</span>
             <span>
-              <strong className="text-snow">Sociala kanaler.</strong>{" "}
+              <strong className="text-snow">Sociala kanaler.</strong> Följ{" "}
               <a href={SOCIAL.instagram} target="_blank" rel="noopener noreferrer" className="text-flagblue-bright underline underline-offset-4">
                 Instagram
               </a>{" "}
@@ -275,6 +276,12 @@ export default function VmPage() {
             </span>
           </li>
         </ul>
+        <div className="mt-8 max-w-xl border border-line bg-midnight-800 p-6">
+          <p className="heading-caps mb-4 text-xs tracking-[0.16em] text-mist-dim">
+            Få rapporterna från VM
+          </p>
+          <NewsletterForm lang="sv" />
+        </div>
       </section>
 
       {/* Vanliga frågor */}

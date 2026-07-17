@@ -101,8 +101,11 @@ export const STORY_FACTS = {
 /** "Javanainen i siffror" */
 export const STATS = [
   {
-    value: 5,
-    label: { sv: "VM-starter (inkl. 2026)", en: "World Championship starts (incl. 2026)" },
+    value: 4,
+    label: {
+      sv: "Genomförda VM-starter · uttagen till VM 2026",
+      en: "World Championship starts · qualified for 2026",
+    },
   },
   {
     value: 4,

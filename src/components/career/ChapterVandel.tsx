@@ -12,13 +12,13 @@ const chapter = CHAPTERS.find((c) => c.id === "vandel")!;
 
 const COPY = {
   sv: {
-    lede: "Berättelsen slutar inte i historiken. Den fortsätter i Vandel.",
+    lede: "Historien slutar inte här. Nästa kapitel körs i Vandel.",
     p1Highlight: "3:e bästa svensk i SRKC 2026.",
     p1Rest: (venue: string, dates: string) =>
       ` Klar för hyrkart-VM på ${venue}, ${dates}: KWC Individual och Nations Cup för Sverige.`,
     p2Pre: "Samma år kom också beskedet om en plats i ",
     p2Link: "SRKC:s Hall of Fame",
-    p2Post: ", seriens hedersgalleri, hittills som ende invalde förare.",
+    p2Post: ", seriens hedersgalleri, hittills som den enda förare som valts in.",
     figcaption: "Sverige, 2026",
     during: (title: string | null) =>
       `VM pågår just nu${title ? `. Senaste rapporten: ${title}` : ""}.`,

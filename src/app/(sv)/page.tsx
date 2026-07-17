@@ -23,17 +23,17 @@ export const metadata: Metadata = {
 const MERITS = [
   {
     title: "VM-brons 2016",
-    text: "I hyrkart-VM kör alla likvärdiga kartar, så bara föraren avgör. 2016 vann jag finalracet, och eftersom titeln avgörs på hela veckans poäng räckte det till tredje av 102 totalt: VM-brons. Jag nådde även final 2015, 2017 och 2018.",
+    text: "I hyrkart-VM kör alla med likvärdiga kartar. Det gör att förarens beslut, tempo och precision avgör. 2016 vann jag finalracet, och eftersom titeln avgörs på hela veckans poäng räckte det till en tredjeplats av 102 förare totalt: VM-brons. Jag nådde även final 2015, 2017 och 2018.",
     highlight: true,
   },
   {
     title: "Läser racet",
-    text: "Racet avgörs lika mycket i huvudet som på gasen. Rätt beslut i rätt läge, race efter race. När alla kör likvärdiga kartar är det ofta det som skiljer.",
+    text: "Racet avgörs lika mycket i huvudet som med gaspedalen. Rätt beslut i rätt läge, race efter race. När alla kör likvärdiga kartar är det ofta det som skiljer.",
     highlight: false,
   },
   {
-    title: "VM Vandel 2026",
-    text: "Kart World Championship (KWC), Vandel Kart i Danmark, 22 juli–1 augusti 2026. Nations Cup 25–26 juli. 180 förare.",
+    title: "VM i Vandel 2026",
+    text: "Kart World Championship (KWC) körs på Vandel Kart i Danmark 22 juli–1 augusti 2026. Nations Cup avgörs 25–26 juli, och startfältet omfattar 180 förare.",
     highlight: false,
   },
 ];
@@ -127,7 +127,7 @@ export default function HomePage() {
             ))}
           </div>
           <Link href="/partners" className="btn btn-secondary">
-            Bli partner
+            Se möjligheter som partner
           </Link>
         </div>
       </section>

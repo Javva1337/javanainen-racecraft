@@ -39,17 +39,17 @@ export const DICT = {
       partnersHeading: "Partners",
       navHeading: "Sajten",
       press: "Press",
-      newsletterHeading: "Följ resan till VM",
+      newsletterHeading: "Få rapporterna från VM",
       newsletterText:
         "En rapport per dag under VM-veckan, direkt i inkorgen.",
     },
     newsletter: {
       placeholder: "din@epost.se",
       namePlaceholder: "Ditt namn",
-      button: "Få VM-rapporterna",
+      button: "Få rapporterna direkt i mejlen",
       pending: "Skickar …",
       success:
-        "Tack, du är anmäld! Race-rapporten kommer direkt i inkorgen under VM-veckan.",
+        "Tack, du är anmäld! Racerapporten kommer direkt i inkorgen under VM-veckan.",
       error: "Något gick fel. Prova igen, eller mejla",
       ariaLabel: "E-postadress för nyhetsbrevet",
       nameAriaLabel: "Ditt namn",
@@ -63,7 +63,7 @@ export const DICT = {
       emailPlaceholder: "din@epost.se",
       message: "Meddelande",
       messagePlaceholder: "Ditt meddelande...",
-      send: "Skicka meddelande",
+      send: "Skicka förfrågan",
       pending: "Skickar …",
       success: "Tack för ditt meddelande! Jag återkommer så snart jag kan.",
       error: "Något gick fel. Prova igen, eller mejla",
@@ -92,7 +92,7 @@ export const DICT = {
     news: {
       title: "Nyheter",
       description:
-        "Race-rapporter och vägen till hyrkart-VM 2026, skrivna av föraren själv. Under VM publiceras en ny rapport varje tävlingskväll.",
+        "Racerapporter och berättelser från vägen till hyrkart-VM 2026, skrivna av föraren själv. Under VM publiceras en ny rapport varje tävlingskväll.",
       all: "Alla nyheter",
       empty: "Inga artiklar i den här kategorin ännu.",
     },
@@ -106,8 +106,8 @@ export const DICT = {
       afterBanner: "VM 2026 — så gick det →",
       latestNews: "Senaste nytt",
       allNews: "Alla nyheter →",
-      followVm: "Följ VM 2026",
-      becomePartner: "Bli partner",
+      followVm: "Följ VM-rapporterna",
+      becomePartner: "Se möjligheter som partner",
       seeCareer: "Se karriären",
     },
     common: {

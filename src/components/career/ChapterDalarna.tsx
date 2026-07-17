@@ -10,7 +10,7 @@ const COPY = {
   sv: {
     lede: "Tio år gammal. Första gokarten.",
     p1: "Första steget in i motorsport togs 2002, i en gokart i Dalarna. Tio år gammal, och direkt fast.",
-    p2: "Åren som följde, 2002–2006, blev flera år av utveckling genom olika gokartklasser, med flertalet vinster och pallplatser längs vägen.",
+    p2: "Mellan 2002 och 2006 utvecklades jag genom flera gokartklasser, med flera segrar och pallplatser längs vägen.",
     plateLabel: "Där det började",
   },
   en: {
