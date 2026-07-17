@@ -19,7 +19,7 @@ const PARTNER_INTROS: Record<string, string> = {
   Primab:
     "Primab har varit partner genom alla år av den här satsningen, från de första VM-åren till comebacken. Ett stöd vi är väldigt tacksamma för.",
   Labatus:
-    "Labatus är ny partner för i år och med hela vägen mot VM 2026. Stort tack för förtroendet.",
+    "Labatus är ny partner för 2026 och följer med hela vägen mot VM i Danmark. Stort tack för förtroendet.",
 };
 
 const PACKAGES = [
@@ -37,7 +37,7 @@ const PACKAGES = [
   },
   {
     title: "Hjälmlackering",
-    text: "Vill man slå på stort finns möjligheten att lacka om hjälmen, den mest personliga ytan inom motorsport.",
+    text: "För dig som vill synas extra tydligt finns möjligheten att lacka om hjälmen, den mest personliga ytan inom motorsport.",
   },
 ];
 
@@ -47,7 +47,8 @@ export default function PartnersPage() {
       <header className="mb-14">
         <h1 className="heading-caps text-4xl font-extrabold text-snow sm:text-5xl">Partners</h1>
         <p className="mt-3 max-w-2xl text-mist">
-          Samarbeten som bygger på synlighet och gemensam nytta.
+          Syns tillsammans med en svensk VM-satsning i hyrkart, före, under och efter
+          tävlingsveckan.
         </p>
       </header>
 

@@ -76,8 +76,8 @@ export default function CareerPage() {
             Karriär
           </h1>
           <p className="mt-3 max-w-2xl text-mist sm:text-lg">
-            Från gokart i Dalarna 2002 till hyrkart-VM i Vandel 2026. Hela vägen, med siffrorna
-            som bevisar den, berättad i sex kapitel.
+            Från gokart i Dalarna 2002 till hyrkart-VM i Vandel 2026. Här är resan, berättad i
+            sex kapitel och styrkt av resultaten.
           </p>
           <div className="mt-10 flex justify-center">
             <ScrollCue lang="sv" />

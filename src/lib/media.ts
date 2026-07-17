@@ -29,8 +29,8 @@ export const MEDIA_ITEMS: MediaItem[] = [
   },
   {
     src: "/images/gallery-3.jpg",
-    alt: { sv: "Podium", en: "Podium" },
-    caption: { sv: "Podium · Italien, 2016", en: "Podium · Italy, 2016" },
+    alt: { sv: "Prispallen", en: "Podium" },
+    caption: { sv: "Prispallen · Italien, 2016", en: "Podium · Italy, 2016" },
     width: 800,
     height: 800,
   },

@@ -7,7 +7,7 @@ import { Reveal } from "@/components/Reveal";
 export const metadata: Metadata = {
   title: "Om Rickard — från Dalarna till världstoppen",
   description:
-    "Storyn i kapitel: gokart i Dalarna vid 10 års ålder, Racinggymnasiet i Mjölby, banracing i Ginetta, och vägen till VM-brons i hyrkart och comebacken mot Vandel 2026.",
+    "Berättelsen i kapitel: gokart i Dalarna vid 10 års ålder, Racinggymnasiet i Mjölby, banracing i Ginetta, och vägen till VM-brons i hyrkart och comebacken mot Vandel 2026.",
   alternates: {
     canonical: "/om",
     languages: { "sv-SE": "/om", en: "/en/about", "x-default": "/om" },
@@ -51,7 +51,7 @@ const CHAPTERS = [
     title: "Tillbaka på allvar",
     text: [
       "Efter VM i Polen 2018 tog livet över på det finaste sättet: 2020 föddes vår första son, och 2024 kom hans lillebror. Däremellan satte pandemin stopp för det mesta av tävlandet, så det dröjde några år innan jag var tillbaka på riktigt. Men suget försvann aldrig.",
-      "2021 tog jag 6:e platsen totalt i SRKC-finalen, näst bäst av svenskarna, och 2026 blev jag 3:e bästa svensk. SRKC, kvalet till hyrkart-VM, har tagit in mig i sin Hall of Fame, seriens hedersgalleri, hittills som ende förare. Ett fint kvitto på åren som gått. Nu känner jag mig redo att plocka upp drömmen om VM-titeln igen, och det är formen i Danmark som gäller.",
+      "2021 tog jag 6:e platsen totalt i SRKC-finalen, näst bäst av svenskarna, och 2026 blev jag 3:e bästa svensk. SRKC, kvalet till hyrkart-VM, har tagit in mig i sin Hall of Fame, seriens hedersgalleri, hittills som ende förare. Ett fint kvitto på åren som gått. Nu känner jag mig redo att ta upp jakten på VM-titeln igen. I Danmark är det formen här och nu som avgör.",
     ],
   },
   {
@@ -70,7 +70,7 @@ export default function AboutPage() {
         <NationBadge className="mb-4" />
         <h1 className="heading-caps text-4xl font-extrabold text-snow sm:text-5xl">Om Rickard</h1>
         <p className="mt-3 max-w-2xl text-mist">
-          Från Dalarna till världstoppen. Storyn i sex kapitel.
+          Från Dalarna till världstoppen. Berättelsen i sex kapitel.
         </p>
       </header>
 

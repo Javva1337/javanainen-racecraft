@@ -24,7 +24,7 @@ const COPY = {
       `VM pågår just nu${title ? `. Senaste rapporten: ${title}` : ""}.`,
     after: "VM 2026 är avgjort. Resultaten finns i Facit nedan.",
     cont: (label: string) => `Fortsättning följer. Nations Cup ${label}.`,
-    followVm: "Följ VM här",
+    followVm: "Följ VM 2026",
     latestNews: "Senaste nyheten",
     allNews: "Alla nyheter",
     vmHref: "/vm-2026",

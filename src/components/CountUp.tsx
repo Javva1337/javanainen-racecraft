@@ -4,7 +4,9 @@ import { useEffect, useRef, useState } from "react";
 
 /**
  * Siffra som räknar upp när den scrollas in (IntersectionObserver).
- * Vid prefers-reduced-motion visas slutvärdet direkt.
+ * Server-HTML:en innehåller alltid slutvärdet (SEO/skärmläsare/utan JS får
+ * aldrig se en nolla) — animationen från 0 startar först när JS kört och
+ * elementet är i vy. Vid prefers-reduced-motion visas slutvärdet direkt.
  */
 export function CountUp({
   value,
@@ -20,7 +22,7 @@ export function CountUp({
   className?: string;
 }) {
   const ref = useRef<HTMLSpanElement>(null);
-  const [displayValue, setDisplayValue] = useState(0);
+  const [displayValue, setDisplayValue] = useState(value);
   const hasRunRef = useRef(false);
 
   useEffect(() => {

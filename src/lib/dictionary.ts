@@ -46,7 +46,7 @@ export const DICT = {
     newsletter: {
       placeholder: "din@epost.se",
       namePlaceholder: "Ditt namn",
-      button: "Prenumerera",
+      button: "Få VM-rapporterna",
       pending: "Skickar …",
       success:
         "Tack, du är anmäld! Race-rapporten kommer direkt i inkorgen under VM-veckan.",
@@ -63,7 +63,7 @@ export const DICT = {
       emailPlaceholder: "din@epost.se",
       message: "Meddelande",
       messagePlaceholder: "Ditt meddelande...",
-      send: "Skicka",
+      send: "Skicka meddelande",
       pending: "Skickar …",
       success: "Tack för ditt meddelande! Jag återkommer så snart jag kan.",
       error: "Något gick fel. Prova igen, eller mejla",
@@ -92,8 +92,8 @@ export const DICT = {
     news: {
       title: "Nyheter",
       description:
-        "Race-rapporter, satsningen och vägen till hyrkart-VM 2026, skrivna av föraren själv.",
-      all: "Alla",
+        "Race-rapporter och vägen till hyrkart-VM 2026, skrivna av föraren själv. Under VM publiceras en ny rapport varje tävlingskväll.",
+      all: "Alla nyheter",
       empty: "Inga artiklar i den här kategorin ännu.",
     },
     home: {
@@ -106,7 +106,7 @@ export const DICT = {
       afterBanner: "VM 2026 — så gick det →",
       latestNews: "Senaste nytt",
       allNews: "Alla nyheter →",
-      followVm: "Följ VM här",
+      followVm: "Följ VM 2026",
       becomePartner: "Bli partner",
       seeCareer: "Se karriären",
     },

@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 const MERITS = [
   {
     title: "VM-brons 2016",
-    text: "I hyrkart-VM kör alla likvärdiga kartar, så bara föraren avgör. 2016 vann jag finalracet, och eftersom titeln avgörs på hela veckans poäng räckte det till tredje av 102 totalt: VM-brons. Även final 2015, 2017 och 2018.",
+    text: "I hyrkart-VM kör alla likvärdiga kartar, så bara föraren avgör. 2016 vann jag finalracet, och eftersom titeln avgörs på hela veckans poäng räckte det till tredje av 102 totalt: VM-brons. Jag nådde även final 2015, 2017 och 2018.",
     highlight: true,
   },
   {

@@ -33,8 +33,9 @@ export default function PressPage() {
       <header className="mb-10">
         <h1 className="heading-caps text-4xl font-extrabold text-snow sm:text-5xl">Press</h1>
         <p className="mt-3 max-w-2xl text-mist">
-          Bilder i original, bio på svenska och engelska samt faktablad. Materialet får
-          användas fritt i redaktionella sammanhang med fotobyline där sådan anges. Frågor:{" "}
+          Här finns pressbilder i original, bio på svenska och engelska samt faktablad.
+          Materialet får användas fritt i redaktionella sammanhang. Ange fotograf där
+          fotobyline finns. Frågor:{" "}
           <a href={`mailto:${CONTACT_EMAIL}`} className="text-flagblue-bright underline underline-offset-4">
             {CONTACT_EMAIL}
           </a>
