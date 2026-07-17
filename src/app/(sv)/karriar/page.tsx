@@ -127,7 +127,8 @@ export default function CareerPage() {
               Facit
             </h2>
             <p className="mt-5 max-w-2xl text-base text-mist sm:text-lg">
-              Siffrorna bakom berättelsen — statistiken och samtliga resultat.
+              Siffrorna bakom berättelsen — tidslinjen 2002–2026 som statistik och samtliga
+              resultat.
             </p>
           </header>
 

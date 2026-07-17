@@ -1,13 +1,15 @@
 "use client";
 
+import { STORY_FACTS } from "@/lib/results";
+
 /**
  * Startfältet i VM 2016 som raster: 102 punkter (17 × 6) i en enda SVG —
  * inga DOM-divar. Scrubben tänder raderna och låter den gula punkten vandra
  * till tredjeplatsen; statiskt/utan JS visas slutläget (allt tänt, gul på P3).
  */
-export const FIELD_COLS = 17;
-export const FIELD_ROWS = 6;
-const FIELD_SIZE = 102;
+const FIELD_COLS = 17;
+const FIELD_SIZE = STORY_FACTS.field2016;
+const FIELD_ROWS = Math.ceil(FIELD_SIZE / FIELD_COLS);
 const SPACING = 14;
 const DOT_RADIUS = 3;
 
@@ -20,7 +22,7 @@ function dotPosition(index: number) {
   return { cx: col * SPACING + SPACING / 2, cy: row * SPACING + SPACING / 2 };
 }
 
-export function heroDotPosition() {
+function heroDotPosition() {
   return dotPosition(HERO_INDEX);
 }
 
@@ -44,7 +46,7 @@ export function StartFieldGrid({ className = "" }: { className?: string }) {
       viewBox={`0 0 ${FIELD_COLS * SPACING} ${FIELD_ROWS * SPACING}`}
       className={className}
       role="img"
-      aria-label="Startfältet i VM 2016: 102 förare, tredjeplatsen markerad"
+      aria-label={`Startfältet i VM 2016: ${FIELD_SIZE} förare, tredjeplatsen markerad`}
     >
       {rows.map((cols, row) => (
         <g key={row} data-field-row>

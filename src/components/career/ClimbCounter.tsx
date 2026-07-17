@@ -4,17 +4,17 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { STORY_FACTS } from "@/lib/results";
 import { counterTween, DESKTOP_MOTION, MOBILE_MOTION } from "./motion";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 /**
  * Finalracet i VM Polen 2018: scrub-räknare P16 → P9 (desktop) respektive
- * kort count-down vid in-view (mobil). Statiskt/utan JS: slutläget P9.
- * Siffrorna är samma som i resultattabellen (lib/results.ts).
+ * kort count-down vid in-view (mobil). Statiskt/utan JS: slutläget direkt.
  */
-const CLIMB_FROM = 16;
-const CLIMB_TO = 9;
+const CLIMB_FROM = STORY_FACTS.climb2018.from;
+const CLIMB_TO = STORY_FACTS.climb2018.to;
 
 export function ClimbCounter() {
   const rootRef = useRef<HTMLDivElement>(null);
@@ -60,7 +60,7 @@ export function ClimbCounter() {
   );
 
   return (
-    <div ref={rootRef} data-climb className="border border-line bg-midnight-800 p-8 sm:p-12">
+    <div ref={rootRef} className="border border-line bg-midnight-800 p-8 sm:p-12">
       <p className="heading-caps text-xs tracking-[0.18em] text-mist-dim">
         Finalracet <span aria-hidden="true">·</span> VM Polen 2018
       </p>
@@ -69,10 +69,10 @@ export function ClimbCounter() {
           data-climb-display
           className="heading-caps tabular text-[clamp(4rem,13vw,8.5rem)] font-extrabold leading-none text-flagyellow"
         >
-          P9
+          P{CLIMB_TO}
         </span>
         <span className="heading-caps text-sm tracking-[0.12em] text-mist sm:text-lg">
-          Från 16:e till 9:e i finalracet.
+          Från {CLIMB_FROM}:e till {CLIMB_TO}:e i finalracet.
         </span>
       </div>
       <p className="mt-6 max-w-2xl text-sm leading-relaxed text-mist">

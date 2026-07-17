@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { STORY_FACTS } from "@/lib/results";
 import { ImageReveal } from "./ImageReveal";
 import { StartFieldGrid, heroTravelDelta } from "./StartFieldGrid";
 import { DESKTOP_MOTION, MOBILE_MOTION } from "./motion";
@@ -121,7 +122,7 @@ export function BronzeSequence() {
   );
 
   return (
-    <div ref={rootRef} data-bronze className="mt-14 sm:mt-20">
+    <div ref={rootRef} className="mt-14 sm:mt-20">
       {/* Akt 1 — finalen */}
       <div data-bronze-act1 className="grid items-center gap-10 sm:grid-cols-2 sm:gap-14">
         <div>
@@ -161,7 +162,7 @@ export function BronzeSequence() {
       {/* Akt 2 — startfältet och facit */}
       <div data-bronze-act2 className="mt-24 sm:mt-32">
         <p className="heading-caps text-xs tracking-[0.18em] text-mist-dim">
-          Hela startfältet <span aria-hidden="true">·</span> 102 förare
+          Hela startfältet <span aria-hidden="true">·</span> {STORY_FACTS.field2016} förare
         </p>
         <StartFieldGrid className="mt-8 w-full max-w-3xl" />
 
@@ -170,7 +171,7 @@ export function BronzeSequence() {
             3:e
           </span>
           <span className="heading-caps tabular text-2xl font-bold text-mist sm:text-4xl">
-            av 102
+            av {STORY_FACTS.field2016}
           </span>
         </p>
         <p

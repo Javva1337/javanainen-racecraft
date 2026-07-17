@@ -44,12 +44,20 @@ export function ChapterNav({ chapters }: { chapters: ChapterDef[] }) {
   // Progressionslinjen: fyllnad = hur långt ner på sidan man är
   useEffect(() => {
     let ticking = false;
+    // scrollHeight läses inte varje frame (forcerad layout under scrubben) —
+    // cachas och mäts om högst en gång per sekund eller vid överskjutning
+    let cachedMax = 0;
+    let lastMeasure = 0;
     const update = () => {
       ticking = false;
       const fill = railFillRef.current;
       if (!fill) return;
-      const max = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = max > 0 ? Math.min(1, window.scrollY / max) : 0;
+      const now = performance.now();
+      if (cachedMax <= 0 || now - lastMeasure > 1000 || window.scrollY > cachedMax) {
+        cachedMax = document.documentElement.scrollHeight - window.innerHeight;
+        lastMeasure = now;
+      }
+      const progress = cachedMax > 0 ? Math.min(1, window.scrollY / cachedMax) : 0;
       fill.style.transform = `scaleY(${progress})`;
     };
     const onScroll = () => {
@@ -110,8 +118,10 @@ export function ChapterNav({ chapters }: { chapters: ChapterDef[] }) {
   const goTo = (id: string) => {
     isNavigatingRef.current = true;
     setIsOpen(false);
-    // Scrolla efter nästa frame — menyns cleanup måste hinna släppa Lenis
-    // (lenis.scrollTo ignoreras annars medan instansen är stoppad)
+    // Släpp Lenis direkt (idempotent — cleanupen gör det också): rAF:en kan
+    // annars hinna före Reacts effekt-cleanup, och lenis.scrollTo är no-op
+    // medan instansen är stoppad → hoppet skulle utebli
+    lenis?.start();
     requestAnimationFrame(() => {
       scrollToChapter(id);
       isNavigatingRef.current = false;

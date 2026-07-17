@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { STORY_FACTS } from "@/lib/results";
 import { counterTween, DESKTOP_MOTION, MOBILE_MOTION } from "./motion";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
@@ -11,14 +12,16 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 /**
  * Ginetta G20 Cup 2011 som stat-pop: siffrorna räknas upp i gult medan
  * sektionen är pinnad (desktop) eller vid in-view (mobil). Statiskt/utan JS:
- * slutvärdena. Siffrorna är samma som i tidslinjedatan: vann 2 av 6 race,
- * 8:a av 22 totalt med bara hälften av racen körda.
+ * slutvärdena direkt. Talen läses ur lib/results.ts (STORY_FACTS).
  */
+const GINETTA = STORY_FACTS.ginetta2011;
 const GINETTA_STATS = [
-  { value: 2, display: "2", suffix: "", label: "vinster" },
-  { value: 6, display: "6", suffix: "", label: "race" },
-  { value: 8, display: "8:a", suffix: ":a", label: "av 22 totalt" },
+  { value: GINETTA.wins, suffix: "", label: "vinster" },
+  { value: GINETTA.races, suffix: "", label: "race" },
+  { value: GINETTA.place, suffix: ":a", label: `av ${GINETTA.drivers} totalt` },
 ] as const;
+
+const displayOf = (stat: (typeof GINETTA_STATS)[number]) => `${stat.value}${stat.suffix}`;
 
 export function GinettaStats() {
   const rootRef = useRef<HTMLDivElement>(null);
@@ -35,7 +38,7 @@ export function GinettaStats() {
 
       const restore = () => {
         values.forEach((el, i) => {
-          el.textContent = GINETTA_STATS[i].display;
+          el.textContent = displayOf(GINETTA_STATS[i]);
         });
       };
 
@@ -89,7 +92,7 @@ export function GinettaStats() {
   );
 
   return (
-    <div ref={rootRef} data-ginetta className="border border-line bg-midnight-800 p-8 sm:p-12">
+    <div ref={rootRef} className="border border-line bg-midnight-800 p-8 sm:p-12">
       <p className="heading-caps text-xs tracking-[0.18em] text-mist-dim">
         Ginetta G20 Cup <span aria-hidden="true">·</span> 2011
       </p>
@@ -104,7 +107,7 @@ export function GinettaStats() {
               data-ginetta-value
               className="heading-caps tabular order-first text-5xl font-extrabold text-flagyellow sm:text-7xl"
             >
-              {stat.display}
+              {displayOf(stat)}
             </dd>
             <dt className="heading-caps text-[0.65rem] tracking-[0.16em] text-mist-dim sm:text-xs">
               {stat.label}
@@ -114,7 +117,7 @@ export function GinettaStats() {
       </dl>
 
       <p className="mt-8 text-sm leading-relaxed text-mist" data-ginetta-note>
-        8:a av 22 förare totalt — med bara hälften av racen körda.
+        {GINETTA.place}:a av {GINETTA.drivers} förare totalt — med bara hälften av racen körda.
       </p>
     </div>
   );
