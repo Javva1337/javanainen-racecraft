@@ -17,6 +17,8 @@ export function ChapterNav({ chapters }: { chapters: ChapterDef[] }) {
   const railFillRef = useRef<HTMLDivElement>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
   const toggleRef = useRef<HTMLButtonElement>(null);
+  /** true medan ett kapitelhopp pågår — fokus ska då INTE återgå till knappen */
+  const isNavigatingRef = useRef(false);
   const lenis = useLenis();
   const scrollToChapter = useScrollToChapter();
 
@@ -73,7 +75,10 @@ export function ChapterNav({ chapters }: { chapters: ChapterDef[] }) {
 
     const dialog = dialogRef.current;
     const focusables = dialog?.querySelectorAll<HTMLElement>("a[href], button");
-    (dialog?.querySelector<HTMLElement>("[aria-current='true']") ?? focusables?.[0])?.focus();
+    // Fokus efter nästa frame — dialogen är visibility:hidden tills klassbytet målats
+    const focusFrame = requestAnimationFrame(() => {
+      (dialog?.querySelector<HTMLElement>("[aria-current='true']") ?? focusables?.[0])?.focus();
+    });
 
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
@@ -93,16 +98,24 @@ export function ChapterNav({ chapters }: { chapters: ChapterDef[] }) {
     };
     document.addEventListener("keydown", onKeyDown);
     return () => {
+      cancelAnimationFrame(focusFrame);
       document.removeEventListener("keydown", onKeyDown);
       document.body.style.overflow = "";
       lenis?.start();
-      toggleRef.current?.focus();
+      // Vid kapitelhopp ska fokus landa på målsektionen, inte på knappen
+      if (!isNavigatingRef.current) toggleRef.current?.focus();
     };
   }, [isOpen, lenis]);
 
   const goTo = (id: string) => {
+    isNavigatingRef.current = true;
     setIsOpen(false);
-    scrollToChapter(id);
+    // Scrolla efter nästa frame — menyns cleanup måste hinna släppa Lenis
+    // (lenis.scrollTo ignoreras annars medan instansen är stoppad)
+    requestAnimationFrame(() => {
+      scrollToChapter(id);
+      isNavigatingRef.current = false;
+    });
   };
 
   return (
@@ -179,8 +192,10 @@ export function ChapterNav({ chapters }: { chapters: ChapterDef[] }) {
         role="dialog"
         aria-modal="true"
         aria-label="Välj kapitel"
-        className={`fixed inset-0 z-[60] flex flex-col bg-midnight/95 backdrop-blur-md [transition:opacity_200ms,visibility_200ms] ${
-          isOpen ? "visible opacity-100" : "invisible opacity-0"
+        className={`fixed inset-0 z-[60] flex flex-col bg-midnight/95 backdrop-blur-md ${
+          isOpen
+            ? "visible opacity-100 [transition:opacity_200ms]"
+            : "invisible opacity-0 [transition:opacity_200ms,visibility_0s_200ms]"
         }`}
       >
         <div className="flex items-center justify-between px-4 pb-2 pt-5 sm:px-8">
