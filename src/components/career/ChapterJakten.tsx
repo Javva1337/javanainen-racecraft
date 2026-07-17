@@ -1,6 +1,7 @@
 import { CHAPTERS } from "@/lib/career-story";
 import { ChapterSection } from "./ChapterSection";
 import { ClimbCounter } from "./ClimbCounter";
+import { FieldCounter } from "./FieldCounter";
 import { GalleryStripe, type StripeItem } from "./GalleryStripe";
 
 const chapter = CHAPTERS.find((c) => c.id === "jakten")!;
@@ -35,21 +36,8 @@ export function ChapterJakten() {
       lede="Spanien, Göteborg, Polen. Jämnheten byggdes race för race."
     >
       {/* Spanien 2017 — det bärande talet */}
-      <div className="mt-12 sm:mt-16" data-field-172>
-        <p className="flex flex-wrap items-baseline gap-x-5">
-          <span
-            data-count-172
-            className="heading-caps tabular text-[clamp(5rem,18vw,12rem)] font-extrabold leading-none text-snow"
-          >
-            172
-          </span>
-          <span className="heading-caps text-sm tracking-[0.12em] text-mist sm:text-lg">
-            förare — största startfältet hittills.
-          </span>
-        </p>
-        <p className="mt-5 max-w-2xl text-base leading-relaxed text-mist sm:text-lg" data-chapter-copy>
-          VM i Spanien 2017: 12:e av 172. 5:a med Sverige i Nations Cup.
-        </p>
+      <div className="mt-12 sm:mt-16">
+        <FieldCounter />
       </div>
 
       {/* SRKC Göteborg 2018 — andra titeln */}

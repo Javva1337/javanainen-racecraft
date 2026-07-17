@@ -1,19 +1,127 @@
 "use client";
 
+import { useRef } from "react";
 import Image from "next/image";
+import { useGSAP } from "@gsap/react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ImageReveal } from "./ImageReveal";
-import { StartFieldGrid } from "./StartFieldGrid";
+import { StartFieldGrid, heroTravelDelta } from "./StartFieldGrid";
+import { DESKTOP_MOTION, MOBILE_MOTION } from "./motion";
+
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 /**
- * Berättelsens klimax i två akter (pinnad scrub-sekvens läggs på i
- * animationssteget):
- *  Akt 1 — "Vinst i finalen" med finalbilden och gul understrykning.
- *  Akt 2 — startfältsvisualiseringen: 102 punkter, den gula vandrar till P3.
- * Statiskt/utan JS visas båda akterna i följd, fullt läsbara.
+ * Berättelsens klimax i två akter.
+ *  Desktop: sektionen pinnas och scrollen driver hela förloppet — understryk-
+ *  ningen ritas, akt 1 lämnar, startfältet tänds rad för rad, den gula punkten
+ *  vandrar till P3 och "3:e av 102" tar över.
+ *  Mobil: inga pins — in-view-reveals i förenklad form.
+ *  Reduced motion/utan JS: båda akterna statiska och fullt läsbara (server-
+ *  renderade slutlägen; alla startlägen sätts av JS inuti matchMedia).
  */
 export function BronzeSequence() {
+  const rootRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(
+    () => {
+      const root = rootRef.current;
+      if (!root) return;
+      const act1 = root.querySelector<HTMLElement>("[data-bronze-act1]");
+      const act2 = root.querySelector<HTMLElement>("[data-bronze-act2]");
+      const underline = root.querySelector<HTMLElement>("[data-bronze-underline]");
+      const rows = root.querySelectorAll<SVGGElement>("[data-field-row]");
+      const heroDot = root.querySelector<SVGCircleElement>("[data-field-hero]");
+      const result = root.querySelector<HTMLElement>("[data-bronze-result]");
+      const medal = root.querySelector<HTMLElement>("[data-bronze-medal]");
+      const note = root.querySelector<HTMLElement>("[data-bronze-note]");
+      if (!act1 || !act2 || !underline || !heroDot || !result || !medal || !note) return;
+
+      const travel = heroTravelDelta();
+      const mm = gsap.matchMedia();
+
+      mm.add(DESKTOP_MOTION, () => {
+        // Scenläge: akt 2 bär höjden, akt 1 ligger ovanpå tills scrubben växlar
+        gsap.set(root, {
+          position: "relative",
+          minHeight: "100svh",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+        });
+        gsap.set(act1, { position: "absolute", left: 0, right: 0, top: "50%", yPercent: -50 });
+        gsap.set(act2, { autoAlpha: 0, y: 48, marginTop: 0 });
+        gsap.set(underline, { scaleX: 0, transformOrigin: "left center" });
+        gsap.set(rows, { opacity: 0.12 });
+        gsap.set(heroDot, { x: travel.x, y: travel.y });
+        gsap.set([result, medal, note], { autoAlpha: 0, y: 28 });
+
+        const tl = gsap.timeline({
+          defaults: { ease: "none" },
+          scrollTrigger: {
+            trigger: root,
+            start: "top top",
+            end: "+=220%",
+            pin: true,
+            scrub: 1,
+            anticipatePin: 1,
+            onToggle: (self) =>
+              gsap.set([act1, act2], {
+                willChange: self.isActive ? "transform, opacity" : "auto",
+              }),
+          },
+        });
+
+        tl
+          // Akt 1: understrykningen ritas ut, sekvensen vilar på finalbilden
+          .to(underline, { scaleX: 1, duration: 0.16, ease: "power2.out" })
+          .to({}, { duration: 0.12 })
+          // Växling akt 1 → akt 2
+          .to(act1, { autoAlpha: 0, y: -44, duration: 0.14 })
+          .to(act2, { autoAlpha: 1, y: 0, duration: 0.14 }, "<0.05")
+          // Startfältet tänds rad för rad medan den gula punkten vandrar
+          .to(rows, { opacity: 0.7, duration: 0.28, stagger: 0.05 })
+          .to(heroDot, { x: 0, y: 0, duration: 0.34 }, "<")
+          .to(heroDot, { attr: { r: 7 }, duration: 0.04, ease: "power1.out" })
+          .to(heroDot, { attr: { r: 4.5 }, duration: 0.05, ease: "power1.inOut" })
+          // Facit: 3:e av 102 — VM-brons
+          .to(result, { autoAlpha: 1, y: 0, duration: 0.13, ease: "power2.out" }, "-=0.02")
+          .to(medal, { autoAlpha: 1, y: 0, duration: 0.1, ease: "power2.out" }, "<0.05")
+          .to(note, { autoAlpha: 1, y: 0, duration: 0.1 }, "<0.05");
+      });
+
+      mm.add(MOBILE_MOTION, () => {
+        // Förenklad form: korta in-view-reveals, ingen pinning
+        gsap.set(underline, { scaleX: 0, transformOrigin: "left center" });
+        gsap.set(rows, { opacity: 0.12 });
+        gsap.set(heroDot, { x: travel.x, y: travel.y });
+        gsap.set([result, medal], { autoAlpha: 0, y: 20 });
+
+        gsap.to(underline, {
+          scaleX: 1,
+          duration: 0.7,
+          ease: "power3.out",
+          scrollTrigger: { trigger: act1, start: "top 72%" },
+        });
+
+        gsap
+          .timeline({
+            defaults: { ease: "power2.out" },
+            scrollTrigger: { trigger: act2, start: "top 75%" },
+          })
+          .to(rows, { opacity: 0.7, duration: 0.5, stagger: 0.06 })
+          .to(heroDot, { x: 0, y: 0, duration: 0.7, ease: "power2.inOut" }, "<")
+          .to(result, { autoAlpha: 1, y: 0, duration: 0.4 }, "-=0.2")
+          .to(medal, { autoAlpha: 1, y: 0, duration: 0.35 }, "<0.1");
+      });
+
+      return () => mm.revert();
+    },
+    { scope: rootRef },
+  );
+
   return (
-    <div data-bronze className="mt-14 sm:mt-20">
+    <div ref={rootRef} data-bronze className="mt-14 sm:mt-20">
       {/* Akt 1 — finalen */}
       <div data-bronze-act1 className="grid items-center gap-10 sm:grid-cols-2 sm:gap-14">
         <div>
@@ -24,7 +132,7 @@ export function BronzeSequence() {
             Vinst i finalen
             <span
               data-bronze-underline
-              className="mt-3 block h-1 w-full origin-left bg-flagyellow"
+              className="mt-3 block h-1 w-full bg-flagyellow"
               aria-hidden="true"
             />
           </h3>

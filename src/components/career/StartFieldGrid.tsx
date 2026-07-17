@@ -14,10 +14,21 @@ const DOT_RADIUS = 3;
 /** P3 = tredje rutan i första raden (radordnat startfält) */
 const HERO_INDEX = 2;
 
-export function heroDotPosition() {
-  const col = HERO_INDEX % FIELD_COLS;
-  const row = Math.floor(HERO_INDEX / FIELD_COLS);
+function dotPosition(index: number) {
+  const col = index % FIELD_COLS;
+  const row = Math.floor(index / FIELD_COLS);
   return { cx: col * SPACING + SPACING / 2, cy: row * SPACING + SPACING / 2 };
+}
+
+export function heroDotPosition() {
+  return dotPosition(HERO_INDEX);
+}
+
+/** Gula punktens resa: från fältets sista ruta till P3 (som x/y-delta). */
+export function heroTravelDelta() {
+  const hero = dotPosition(HERO_INDEX);
+  const last = dotPosition(FIELD_SIZE - 1);
+  return { x: last.cx - hero.cx, y: last.cy - hero.cy };
 }
 
 export function StartFieldGrid({ className = "" }: { className?: string }) {
