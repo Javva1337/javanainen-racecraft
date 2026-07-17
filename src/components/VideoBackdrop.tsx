@@ -7,6 +7,8 @@ type Props = {
   imageAlt: string;
   soundOnLabel: string;
   soundOffLabel: string;
+  /** Hoppa över videon på mobil (≤768 px) — stillbilden tar över. */
+  deferVideoOnMobile?: boolean;
 };
 
 /**
@@ -21,6 +23,7 @@ export function VideoBackdrop({
   imageAlt,
   soundOnLabel,
   soundOffLabel,
+  deferVideoOnMobile,
 }: Props) {
   return (
     <>
@@ -34,9 +37,9 @@ export function VideoBackdrop({
       />
       <HeroVideo
         src={video}
-        poster={poster}
         soundOnLabel={soundOnLabel}
         soundOffLabel={soundOffLabel}
+        deferOnMobile={deferVideoOnMobile}
       />
     </>
   );
