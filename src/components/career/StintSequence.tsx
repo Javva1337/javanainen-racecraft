@@ -28,7 +28,7 @@ const COPY = {
     event: "Italien 2015",
     from: "Sist",
     label: "En stint. Från sist till först.",
-    note: "Laget gick i mål som femma totalt.",
+    note: "I en lagtävling räknas hela lagets körning ihop, så en stark stint lyfter laget men avgör inte ensam. Sverige gick i mål som femma totalt.",
   },
   en: {
     event: "Italy 2015",

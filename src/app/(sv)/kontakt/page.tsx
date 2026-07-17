@@ -35,7 +35,7 @@ export default function ContactPage() {
           <p className="mt-6 text-sm leading-relaxed text-mist">
             Pressmaterial (bilder i original, bio och faktablad) finns på{" "}
             <a href="/press" className="text-flagblue-bright underline underline-offset-4">
-              presssidan
+              press-sidan
             </a>
             .
           </p>

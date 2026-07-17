@@ -19,7 +19,7 @@ const FIELD_SIZE_2017 = STORY_FACTS.field2017;
 
 const COPY = {
   sv: {
-    bigLabel: "förare — största startfältet hittills.",
+    bigLabel: "förare, största startfältet hittills.",
     body: (field: number) => `VM i Spanien 2017: 12:e av ${field}. 5:a med Sverige i Nations Cup.`,
   },
   en: {

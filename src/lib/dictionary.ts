@@ -97,7 +97,7 @@ export const DICT = {
       empty: "Inga artiklar i den här kategorin ännu.",
     },
     home: {
-      countdownTo: "Nations Cup · Vandel, Danmark",
+      countdownTo: "Nations Cup, lagtävlingen · Vandel, Danmark",
       days: "dagar",
       hours: "tim",
       minutes: "min",

@@ -71,6 +71,12 @@ export function SportsEventJsonLd({ lang = "sv" }: { lang?: "sv" | "en" }) {
     subEvent: [
       {
         "@type": "SportsEvent",
+        name: "KWC Training 2026",
+        startDate: "2026-07-22",
+        endDate: "2026-07-24",
+      },
+      {
+        "@type": "SportsEvent",
         name: "KWC Nations Cup 2026",
         startDate: "2026-07-25",
         endDate: "2026-07-26",
@@ -85,8 +91,8 @@ export function SportsEventJsonLd({ lang = "sv" }: { lang?: "sv" | "en" }) {
     inLanguage: lang === "sv" ? "sv-SE" : "en",
     description:
       lang === "sv"
-        ? "20:e upplagan av hyrkart-VM. 180 förare. Nations Cup 25–26 juli, KWC Individual 28 juli–1 augusti."
-        : "The 20th edition of the rental kart World Championship. 180 drivers. Nations Cup 25–26 July, KWC Individual 28 July–1 August.",
+        ? "20:e upplagan av hyrkart-VM. 180 förare. Träning 22–24 juli, Nations Cup 25–26 juli, KWC Individual 28 juli–1 augusti."
+        : "The 20th edition of the rental kart World Championship. 180 drivers. Training 22–24 July, Nations Cup 25–26 July, KWC Individual 28 July–1 August.",
   };
   return (
     <script

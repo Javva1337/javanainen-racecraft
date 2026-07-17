@@ -26,7 +26,7 @@ const STRIPE_ITEMS: Record<Lang, StripeItem[]> = {
       kind: "stat",
       years: "SRKC · 2021",
       value: "6:a",
-      label: "totalt i finalen — näst bästa svensk.",
+      label: "totalt i finalen, näst bäst av svenskarna.",
     },
   ],
   en: [

@@ -36,7 +36,7 @@ export const RESULTS: ResultRow[] = [
     result: { sv: "3:e av 102", en: "3rd of 102" },
     podium: true,
     note: {
-      sv: "Vinst i finalen, brons totalt",
+      sv: "Vann finalracet, brons totalt på veckans poäng",
       en: "Won the final, bronze overall",
     },
   },
@@ -120,6 +120,6 @@ export const STATS = [
   },
   {
     value: 172,
-    label: { sv: "Störst slagna startfält", en: "Largest field raced" },
+    label: { sv: "Största startfält jag kört i", en: "Largest field raced" },
   },
 ] as const;
