@@ -24,7 +24,7 @@ export function ChapterVandel({
   latestTitle: string | null;
 }) {
   return (
-    <ChapterSection chapter={chapter} lede="Berättelsen slutar inte i historiken. Den fortsätter i Vandel.">
+    <ChapterSection chapter={chapter} lang="sv" lede="Berättelsen slutar inte i historiken. Den fortsätter i Vandel.">
       <div className="mt-12 grid gap-10 sm:mt-16 sm:grid-cols-[3fr_2fr] sm:gap-14">
         <div className="space-y-5 text-base leading-relaxed text-mist sm:text-lg" data-chapter-copy>
           <p>

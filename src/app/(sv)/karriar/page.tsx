@@ -45,7 +45,7 @@ export default function CareerPage() {
 
   return (
     <CareerStoryProvider>
-      <ChapterNav chapters={CHAPTERS} />
+      <ChapterNav chapters={CHAPTERS} lang="sv" />
 
       {/* Prolog: prispallsceremonin som video-loop, samma mönster som startsidan */}
       <section
@@ -80,7 +80,7 @@ export default function CareerPage() {
             som bevisar den — berättad i sex kapitel.
           </p>
           <div className="mt-10 flex justify-center">
-            <ScrollCue />
+            <ScrollCue lang="sv" />
           </div>
         </div>
       </section>

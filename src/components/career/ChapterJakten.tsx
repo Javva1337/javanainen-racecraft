@@ -33,6 +33,7 @@ export function ChapterJakten() {
   return (
     <ChapterSection
       chapter={chapter}
+      lang="sv"
       lede="Spanien, Göteborg, Polen. Jämnheten byggdes race för race."
     >
       {/* Spanien 2017 — det bärande talet */}

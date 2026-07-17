@@ -8,7 +8,7 @@ const chapter = CHAPTERS.find((c) => c.id === "dalarna")!;
 /** Kapitel 01 — Dalarna (2002–2006). Där det började: första gokarten, tio år gammal. */
 export function ChapterDalarna() {
   return (
-    <ChapterSection chapter={chapter} lede="Tio år gammal. Första gokarten.">
+    <ChapterSection chapter={chapter} lang="sv" lede="Tio år gammal. Första gokarten.">
       <BackdropYear year="2002" className="-right-8 top-4 sm:-right-16" />
 
       <div className="relative mt-12 grid gap-10 sm:mt-16 sm:grid-cols-[3fr_2fr] sm:gap-14">

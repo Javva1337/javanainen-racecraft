@@ -7,7 +7,7 @@ const chapter = CHAPTERS.find((c) => c.id === "banracing")!;
 /** Kapitel 02 — Banracing (2007–2011): Renault Junior Cup, JTCC, Ginetta G20 Cup. */
 export function ChapterBanracing() {
   return (
-    <ChapterSection chapter={chapter} lede="Ur gokarten, in i bilarna.">
+    <ChapterSection chapter={chapter} lang="sv" lede="Ur gokarten, in i bilarna.">
       <div className="mt-12 space-y-10 sm:mt-16">
         <ol className="space-y-6" data-chapter-copy>
           <li className="flex flex-col gap-1 border-b border-line/60 pb-6 sm:flex-row sm:items-baseline sm:gap-8">
