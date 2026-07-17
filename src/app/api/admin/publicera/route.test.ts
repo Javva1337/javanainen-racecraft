@@ -26,8 +26,13 @@ function req(body: unknown, password: string | null = LOSENORD): Request {
   });
 }
 
-/** Mockar hela Git Data-sekvensen: ref → commit → (blob) → tree → commit → ref-patch. */
-function githubMock() {
+/**
+ * Mockar hela Git Data-sekvensen: ref → commit → (contents-koll för
+ * .en.mdx) → (blob) → tree → commit → ref-patch.
+ * `enMdxExists` styr svaret från contents-anropet som avgör om en
+ * kvarvarande engelsk fil ska raderas vid ompublicering utan EN.
+ */
+function githubMock({ enMdxExists = false }: { enMdxExists?: boolean } = {}) {
   return vi.fn(async (url: string | URL, opts?: RequestInit) => {
     const u = String(url);
     const method = opts?.method ?? "GET";
@@ -38,6 +43,11 @@ function githubMock() {
     }
     if (u.includes("/git/commits/head-sha") && method === "GET") {
       return json({ tree: { sha: "base-tree-sha" } });
+    }
+    if (u.includes("/contents/content/nyheter/") && u.includes(".en.mdx") && method === "GET") {
+      return enMdxExists
+        ? json({ sha: "existing-en-sha" })
+        : json({ message: "Not Found" }, 404);
     }
     if (u.endsWith("/git/blobs") && method === "POST") {
       return json({ sha: "blob-sha" }, 201);
@@ -218,5 +228,132 @@ describe("POST /api/admin/publicera — publicering", () => {
     const json = await res.json();
     expect(res.status).toBe(502);
     expect(json.error).toMatch(/kunde inte publicera/i);
+  });
+});
+
+const engelskaFalt = {
+  titleEn: "Day 3: From P12 to P5 in the rain",
+  descriptionEn: "Two heats, one downpour.",
+  tomorrowEn: "Two more heats tomorrow.",
+  bodyEn: "The start in heat one was the best I have done all year.",
+};
+
+describe("POST /api/admin/publicera — engelsk version", () => {
+  test("delvis ifylld engelska → 400 med begripligt fel, inget GitHub-anrop", async () => {
+    const mock = githubMock();
+    vi.stubGlobal("fetch", mock);
+    const res = await POST(req({ ...giltigPayload, titleEn: "Day 3" }));
+    const json = await res.json();
+    expect(res.status).toBe(400);
+    expect(json.error).toMatch(/engelsk/i);
+    expect(mock).not.toHaveBeenCalled();
+  });
+
+  test("bara tomorrowEn ifyllt räknas också som delvis → 400", async () => {
+    vi.stubGlobal("fetch", githubMock());
+    const res = await POST(req({ ...giltigPayload, tomorrowEn: "Tomorrow ..." }));
+    expect(res.status).toBe(400);
+  });
+
+  test("för lång engelsk titel som enda EN-fält → 400, ingen tyst svensk publicering", async () => {
+    const mock = githubMock();
+    vi.stubGlobal("fetch", mock);
+    const res = await POST(req({ ...giltigPayload, titleEn: "x".repeat(250) }));
+    const json = await res.json();
+    expect(res.status).toBe(400);
+    expect(json.error).toMatch(/engelsk/i);
+    expect(mock).not.toHaveBeenCalled();
+  });
+
+  test("komplett engelska → .en.mdx som tredje tree-entry i samma commit", async () => {
+    const mock = githubMock();
+    vi.stubGlobal("fetch", mock);
+
+    const res = await POST(req({ ...giltigPayload, ...engelskaFalt }));
+    expect(res.status).toBe(200);
+
+    const [treeCall] = anrop(mock, "/git/trees", "POST");
+    const tree = JSON.parse((treeCall[1] as RequestInit).body as string);
+    const paths = tree.tree.map((e: { path: string }) => e.path);
+    expect(paths).toContain("content/nyheter/vm-dag-3-fran-p12-till-p5-i-regnet.mdx");
+    expect(paths).toContain("content/nyheter/vm-dag-3-fran-p12-till-p5-i-regnet.en.mdx");
+    expect(paths).toContain("content/vm-status.json");
+    expect(paths).toHaveLength(3);
+
+    const enEntry = tree.tree.find((e: { path: string }) => e.path.endsWith(".en.mdx"));
+    expect(enEntry.content).toContain("Day 3: From P12 to P5 in the rain");
+    expect(enEntry.content).toContain('standing: "P5"');
+
+    // Svenska filen är opåverkad av EN-fälten
+    const svEntry = tree.tree.find(
+      (e: { path: string }) => e.path.endsWith(".mdx") && !e.path.endsWith(".en.mdx"),
+    );
+    expect(svEntry.content).toContain("Dag 3: Från P12 till P5 i regnet");
+    expect(svEntry.content).not.toContain("Day 3:");
+
+    // Komplett engelska → ingen onödig existens-koll mot contents-API:t
+    expect(anrop(mock, "/contents/content/nyheter/", "GET")).toHaveLength(0);
+  });
+
+  test("engelska + bild → en.mdx innehåller samma bildsökväg", async () => {
+    const mock = githubMock();
+    vi.stubGlobal("fetch", mock);
+    const bild = Buffer.from("låtsas-jpeg").toString("base64");
+    const res = await POST(req({ ...giltigPayload, ...engelskaFalt, imageBase64: bild }));
+    expect(res.status).toBe(200);
+
+    const [treeCall] = anrop(mock, "/git/trees", "POST");
+    const tree = JSON.parse((treeCall[1] as RequestInit).body as string);
+    const enEntry = tree.tree.find((e: { path: string }) => e.path.endsWith(".en.mdx"));
+    expect(enEntry.content).toContain("/images/vm/vm-dag-3-fran-p12-till-p5-i-regnet.jpg");
+  });
+
+  test("bara tomorrowEn ifyllt när svenska tomorrow är tom → 200 utan engelsk fil", async () => {
+    const mock = githubMock();
+    vi.stubGlobal("fetch", mock);
+    const res = await POST(req({ ...giltigPayload, tomorrow: "", tomorrowEn: "Stale value" }));
+    expect(res.status).toBe(200);
+
+    const [treeCall] = anrop(mock, "/git/trees", "POST");
+    const tree = JSON.parse((treeCall[1] as RequestInit).body as string);
+    expect(tree.tree).toHaveLength(2);
+  });
+
+  test("komplett engelska + tomorrowEn men tom svensk tomorrow → en.mdx utan tomorrow", async () => {
+    const mock = githubMock();
+    vi.stubGlobal("fetch", mock);
+    const res = await POST(req({ ...giltigPayload, tomorrow: "", ...engelskaFalt }));
+    expect(res.status).toBe(200);
+
+    const [treeCall] = anrop(mock, "/git/trees", "POST");
+    const tree = JSON.parse((treeCall[1] as RequestInit).body as string);
+    const enEntry = tree.tree.find((e: { path: string }) => e.path.endsWith(".en.mdx"));
+    expect(enEntry.content).not.toContain("tomorrow:");
+  });
+
+  test("ompublicering utan EN raderar befintlig .en.mdx", async () => {
+    const mock = githubMock({ enMdxExists: true });
+    vi.stubGlobal("fetch", mock);
+    const res = await POST(req(giltigPayload));
+    expect(res.status).toBe(200);
+
+    const [treeCall] = anrop(mock, "/git/trees", "POST");
+    const tree = JSON.parse((treeCall[1] as RequestInit).body as string);
+    const enEntry = tree.tree.find((e: { path: string }) => e.path.endsWith(".en.mdx"));
+    expect(enEntry).toBeDefined();
+    expect(enEntry.sha).toBeNull();
+    expect(enEntry.content).toBeUndefined();
+    expect(tree.tree).toHaveLength(3);
+  });
+
+  test("ompublicering utan EN när ingen .en.mdx finns → ingen raderings-entry", async () => {
+    const mock = githubMock({ enMdxExists: false });
+    vi.stubGlobal("fetch", mock);
+    const res = await POST(req(giltigPayload));
+    expect(res.status).toBe(200);
+
+    const [treeCall] = anrop(mock, "/git/trees", "POST");
+    const tree = JSON.parse((treeCall[1] as RequestInit).body as string);
+    expect(tree.tree).toHaveLength(2);
   });
 });

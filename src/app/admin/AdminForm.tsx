@@ -28,6 +28,10 @@ type Utkast = {
   tomorrow: string;
   body: string;
   imageDataUrl: string | null;
+  titleEn: string;
+  descriptionEn: string;
+  tomorrowEn: string;
+  bodyEn: string;
 };
 
 type Status =
@@ -48,6 +52,10 @@ function tomtUtkast(): Utkast {
     tomorrow: "",
     body: "",
     imageDataUrl: null,
+    titleEn: "",
+    descriptionEn: "",
+    tomorrowEn: "",
+    bodyEn: "",
   };
 }
 
@@ -160,6 +168,23 @@ export function AdminForm() {
 
   async function publicera(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    const harEngelska = Boolean(
+      utkast.titleEn.trim() ||
+        utkast.descriptionEn.trim() ||
+        utkast.bodyEn.trim() ||
+        utkast.tomorrowEn.trim(),
+    );
+    if (
+      harEngelska &&
+      !(utkast.titleEn.trim() && utkast.descriptionEn.trim() && utkast.bodyEn.trim())
+    ) {
+      setStatus({
+        typ: "fel",
+        meddelande:
+          "Engelsk version: fyll i titel, beskrivning och brödtext — eller lämna alla engelska fält tomma.",
+      });
+      return;
+    }
     setStatus({ typ: "pending" });
     try {
       const res = await fetch("/api/admin/publicera", {
@@ -180,6 +205,11 @@ export function AdminForm() {
           tomorrow: utkast.tomorrow,
           body: utkast.body,
           imageBase64: utkast.imageDataUrl ?? undefined,
+          titleEn: utkast.titleEn.trim() || undefined,
+          descriptionEn: utkast.descriptionEn.trim() || undefined,
+          tomorrowEn:
+            utkast.tomorrow.trim() !== "" ? utkast.tomorrowEn.trim() || undefined : undefined,
+          bodyEn: utkast.bodyEn.trim() || undefined,
         }),
       });
       const svar = (await res.json()) as { ok: boolean; url?: string; error?: string };
@@ -388,9 +418,84 @@ export function AdminForm() {
           placeholder="Imorgon väntar två heat till på en torrare bana."
           className={faltKlass}
           value={utkast.tomorrow}
-          onChange={(e) => uppdatera("tomorrow", e.target.value)}
+          onChange={(e) => {
+            const varde = e.target.value;
+            // Rensa ev. kvarvarande engelsk "imorgon"-text när svenska
+            // fältet töms — annars ligger den kvar osynlig och kan
+            // stranda publiceringen eller läcka in i EN-artikeln.
+            setUtkast((aktuellt) => ({
+              ...aktuellt,
+              tomorrow: varde,
+              tomorrowEn: varde.trim() === "" ? "" : aktuellt.tomorrowEn,
+            }));
+          }}
         />
       </div>
+
+      <Rubrik>English version (valfri)</Rubrik>
+
+      <details className="border border-line bg-midnight-800">
+        <summary className="cursor-pointer px-4 py-3 text-sm text-mist">
+          Skriv en engelsk variant
+          {utkast.titleEn.trim() ||
+          utkast.descriptionEn.trim() ||
+          utkast.bodyEn.trim() ||
+          utkast.tomorrowEn.trim()
+            ? " — påbörjad"
+            : ""}{" "}
+          (lämna tomt så visas svenska med notis på /en)
+        </summary>
+        <div className="space-y-6 border-t border-line p-4">
+          <div>
+            <Etikett htmlFor="admin-title-en">Title — English</Etikett>
+            <input
+              id="admin-title-en"
+              maxLength={200}
+              placeholder={'E.g. "Day 3: From P12 to P5 in the rain"'}
+              className={faltKlass}
+              value={utkast.titleEn}
+              onChange={(e) => uppdatera("titleEn", e.target.value)}
+            />
+          </div>
+          <div>
+            <Etikett htmlFor="admin-description-en">Description — English</Etikett>
+            <textarea
+              id="admin-description-en"
+              rows={2}
+              maxLength={500}
+              placeholder="Sum up the day in one sentence — the number + the feeling."
+              className={faltKlass}
+              value={utkast.descriptionEn}
+              onChange={(e) => uppdatera("descriptionEn", e.target.value)}
+            />
+          </div>
+          <div>
+            <Etikett htmlFor="admin-body-en">Body — English</Etikett>
+            <textarea
+              id="admin-body-en"
+              rows={12}
+              maxLength={50000}
+              placeholder={"The same report in English.\n\nBlank line between paragraphs."}
+              className={faltKlass}
+              value={utkast.bodyEn}
+              onChange={(e) => uppdatera("bodyEn", e.target.value)}
+            />
+          </div>
+          {utkast.tomorrow.trim() !== "" && (
+            <div>
+              <Etikett htmlFor="admin-tomorrow-en">Tomorrow — English (valfri)</Etikett>
+              <input
+                id="admin-tomorrow-en"
+                maxLength={300}
+                placeholder="Two more heats on a drier track tomorrow."
+                className={faltKlass}
+                value={utkast.tomorrowEn}
+                onChange={(e) => uppdatera("tomorrowEn", e.target.value)}
+              />
+            </div>
+          )}
+        </div>
+      </details>
 
       <Rubrik>Bild (valfri)</Rubrik>
 

@@ -5,12 +5,44 @@ import Image from "next/image";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import type { Lang } from "@/lib/dictionary";
 import { STORY_FACTS } from "@/lib/results";
 import { ImageReveal } from "./ImageReveal";
 import { StartFieldGrid, heroTravelDelta } from "./StartFieldGrid";
 import { DESKTOP_MOTION, MOBILE_MOTION } from "./motion";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
+
+const COPY = {
+  sv: {
+    act1Kicker: "Finalen",
+    act1Event: "VM Italien 2016",
+    heading: "Vinst i finalen",
+    body: "Med samma kartar för alla avgörs finalen på det man själv gör bakom ratten. Den här gången räckte det hela vägen.",
+    imgAlt: "Prispallen i VM 2016 — Rickard Javanainen överst med svenska flaggan",
+    figcaption: "Italien, 2016",
+    fieldLabel: "Hela startfältet",
+    drivers: "förare",
+    result: "3:e",
+    of: "av",
+    medal: "VM-brons",
+    note: "Samma mästerskap: 5:a med Sverige i Nations Cup, där en miss i ett depåstopp kostade chansen till segern.",
+  },
+  en: {
+    act1Kicker: "The final",
+    act1Event: "Worlds, Italy 2016",
+    heading: "Won the final",
+    body: "With the same karts for everyone, the final comes down to what you do behind the wheel. This time it went all the way.",
+    imgAlt: "The 2016 Worlds podium — Rickard Javanainen on top with the Swedish flag",
+    figcaption: "Italy, 2016",
+    fieldLabel: "The full field",
+    drivers: "drivers",
+    result: "3rd",
+    of: "of",
+    medal: "Worlds bronze",
+    note: "The same championship: 5th with Sweden in the Nations Cup, where a pit-stop mistake cost the team a shot at the win.",
+  },
+} as const;
 
 /**
  * Berättelsens klimax i två akter.
@@ -21,7 +53,8 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
  *  Reduced motion/utan JS: båda akterna statiska och fullt läsbara (server-
  *  renderade slutlägen; alla startlägen sätts av JS inuti matchMedia).
  */
-export function BronzeSequence() {
+export function BronzeSequence({ lang }: { lang: Lang }) {
+  const t = COPY[lang];
   const rootRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
@@ -127,10 +160,10 @@ export function BronzeSequence() {
       <div data-bronze-act1 className="grid items-center gap-10 sm:grid-cols-2 sm:gap-14">
         <div>
           <p className="heading-caps text-xs tracking-[0.18em] text-mist-dim">
-            Finalen <span aria-hidden="true">·</span> VM Italien 2016
+            {t.act1Kicker} <span aria-hidden="true">·</span> {t.act1Event}
           </p>
           <h3 className="heading-caps mt-4 inline-block text-4xl font-extrabold leading-[0.95] text-snow sm:text-6xl">
-            Vinst i finalen
+            {t.heading}
             <span
               data-bronze-underline
               className="mt-3 block h-1 w-full bg-flagyellow"
@@ -138,15 +171,14 @@ export function BronzeSequence() {
             />
           </h3>
           <p className="mt-6 max-w-xl text-base leading-relaxed text-mist sm:text-lg">
-            Med samma kartar för alla avgörs finalen på det man själv gör bakom ratten. Den här
-            gången räckte det hela vägen.
+            {t.body}
           </p>
         </div>
         <figure>
           <ImageReveal className="aspect-[4/3] border border-line">
             <Image
               src="/images/gallery-3.jpg"
-              alt="Prispallen i VM 2016 — Rickard Javanainen överst med svenska flaggan"
+              alt={t.imgAlt}
               width={1230}
               height={816}
               sizes="(max-width: 640px) 92vw, 45vw"
@@ -154,7 +186,7 @@ export function BronzeSequence() {
             />
           </ImageReveal>
           <figcaption className="heading-caps mt-3 text-[0.65rem] tracking-[0.18em] text-mist-dim">
-            Italien, 2016
+            {t.figcaption}
           </figcaption>
         </figure>
       </div>
@@ -162,28 +194,27 @@ export function BronzeSequence() {
       {/* Akt 2 — startfältet och facit */}
       <div data-bronze-act2 className="mt-24 sm:mt-32">
         <p className="heading-caps text-xs tracking-[0.18em] text-mist-dim">
-          Hela startfältet <span aria-hidden="true">·</span> {STORY_FACTS.field2016} förare
+          {t.fieldLabel} <span aria-hidden="true">·</span> {STORY_FACTS.field2016} {t.drivers}
         </p>
-        <StartFieldGrid className="mt-8 w-full max-w-3xl" />
+        <StartFieldGrid lang={lang} className="mt-8 w-full max-w-3xl" />
 
         <p data-bronze-result className="mt-10 flex flex-wrap items-baseline gap-x-5">
           <span className="heading-caps tabular text-[clamp(4.5rem,15vw,10rem)] font-extrabold leading-none text-flagyellow">
-            3:e
+            {t.result}
           </span>
           <span className="heading-caps tabular text-2xl font-bold text-mist sm:text-4xl">
-            av {STORY_FACTS.field2016}
+            {t.of} {STORY_FACTS.field2016}
           </span>
         </p>
         <p
           data-bronze-medal
           className="heading-caps mt-3 text-xl font-bold tracking-[0.08em] text-snow sm:text-3xl"
         >
-          VM-brons
+          {t.medal}
         </p>
 
         <p className="mt-10 max-w-2xl text-sm leading-relaxed text-mist" data-bronze-note>
-          Samma mästerskap: 5:a med Sverige i Nations Cup, där en miss i ett depåstopp kostade
-          chansen till segern.
+          {t.note}
         </p>
       </div>
     </div>

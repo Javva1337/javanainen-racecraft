@@ -2,7 +2,25 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { ChapterDef } from "@/lib/career-story";
+import type { Lang } from "@/lib/dictionary";
 import { useLenis, useScrollToChapter } from "./CareerStoryProvider";
+
+const COPY = {
+  sv: {
+    progression: "Kapitelprogression",
+    chapterAria: (num: string, title: string) => `Kapitel ${num}: ${title}`,
+    button: "Kapitel",
+    choose: "Välj kapitel",
+    close: "Stäng",
+  },
+  en: {
+    progression: "Chapter progression",
+    chapterAria: (num: string, title: string) => `Chapter ${num}: ${title}`,
+    button: "Chapters",
+    choose: "Choose a chapter",
+    close: "Close",
+  },
+} as const;
 
 /**
  * Navigationslagret för berättelsen:
@@ -11,7 +29,8 @@ import { useLenis, useScrollToChapter } from "./CareerStoryProvider";
  *  - kapitelmeny som overlay ("Välj kapitel") med fokusfälla och Escape
  * Allt är progressiv förbättring — innehållet nås alltid via vanlig scroll.
  */
-export function ChapterNav({ chapters }: { chapters: ChapterDef[] }) {
+export function ChapterNav({ chapters, lang }: { chapters: ChapterDef[]; lang: Lang }) {
+  const t = COPY[lang];
   const [activeId, setActiveId] = useState(chapters[0]?.id ?? "");
   const [isOpen, setIsOpen] = useState(false);
   const railFillRef = useRef<HTMLDivElement>(null);
@@ -132,7 +151,7 @@ export function ChapterNav({ chapters }: { chapters: ChapterDef[] }) {
     <>
       {/* Rail — tunn progressionslinje med kapitelnoder */}
       <nav
-        aria-label="Kapitelprogression"
+        aria-label={t.progression}
         className="fixed right-2 top-1/2 z-40 -translate-y-1/2 sm:right-5"
       >
         <div className="relative flex flex-col items-center gap-3 py-2">
@@ -151,7 +170,9 @@ export function ChapterNav({ chapters }: { chapters: ChapterDef[] }) {
                 href={`#${chapter.id}`}
                 aria-current={isActive ? "true" : undefined}
                 aria-label={
-                  chapter.num ? `Kapitel ${chapter.num}: ${chapter.title}` : chapter.title
+                  chapter.num
+                    ? t.chapterAria(chapter.num, chapter.title[lang])
+                    : chapter.title[lang]
                 }
                 onClick={(event) => {
                   event.preventDefault();
@@ -171,7 +192,7 @@ export function ChapterNav({ chapters }: { chapters: ChapterDef[] }) {
                   className="heading-caps pointer-events-none absolute right-6 top-1/2 hidden -translate-y-1/2 whitespace-nowrap bg-midnight-800 px-2 py-1 text-[0.6rem] tracking-[0.14em] text-snow opacity-0 transition-opacity duration-150 group-hover:opacity-100 group-focus-visible:opacity-100 sm:block"
                   aria-hidden="true"
                 >
-                  {chapter.num ? `${chapter.num} · ${chapter.title}` : chapter.title}
+                  {chapter.num ? `${chapter.num} · ${chapter.title[lang]}` : chapter.title[lang]}
                 </span>
               </a>
             );
@@ -193,7 +214,7 @@ export function ChapterNav({ chapters }: { chapters: ChapterDef[] }) {
           <span className="block h-px w-4 bg-snow" />
           <span className="block h-px w-4 bg-snow" />
         </span>
-        Kapitel
+        {t.button}
       </button>
 
       {/* Kapitelmenyn — helskärmsoverlay */}
@@ -201,7 +222,7 @@ export function ChapterNav({ chapters }: { chapters: ChapterDef[] }) {
         ref={dialogRef}
         role="dialog"
         aria-modal="true"
-        aria-label="Välj kapitel"
+        aria-label={t.choose}
         className={`fixed inset-0 z-[60] flex flex-col bg-midnight/95 backdrop-blur-md ${
           isOpen
             ? "visible opacity-100 [transition:opacity_200ms]"
@@ -209,13 +230,13 @@ export function ChapterNav({ chapters }: { chapters: ChapterDef[] }) {
         }`}
       >
         <div className="flex items-center justify-between px-4 pb-2 pt-5 sm:px-8">
-          <p className="heading-caps text-xs tracking-[0.18em] text-mist-dim">Välj kapitel</p>
+          <p className="heading-caps text-xs tracking-[0.18em] text-mist-dim">{t.choose}</p>
           <button
             type="button"
             onClick={() => setIsOpen(false)}
             className="heading-caps border border-line px-3 py-2 text-xs tracking-[0.12em] text-snow transition-colors duration-150 hover:border-flagblue-bright"
           >
-            Stäng
+            {t.close}
           </button>
         </div>
         <ol className="flex flex-1 flex-col justify-center gap-1 overflow-y-auto px-4 py-6 sm:px-8">
@@ -241,7 +262,7 @@ export function ChapterNav({ chapters }: { chapters: ChapterDef[] }) {
                     {chapter.num ?? "—"}
                   </span>
                   <span className="heading-caps text-2xl font-extrabold leading-none sm:text-4xl">
-                    {chapter.title}
+                    {chapter.title[lang]}
                   </span>
                   {chapter.years && (
                     <span className="tabular ml-auto shrink-0 text-xs text-mist-dim sm:text-sm">

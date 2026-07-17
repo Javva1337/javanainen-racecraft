@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import type { Lang } from "@/lib/dictionary";
 import { STORY_FACTS } from "@/lib/results";
 import { counterTween, DESKTOP_MOTION, MOBILE_MOTION } from "./motion";
 
@@ -16,7 +17,23 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 const CLIMB_FROM = STORY_FACTS.climb2018.from;
 const CLIMB_TO = STORY_FACTS.climb2018.to;
 
-export function ClimbCounter() {
+const COPY = {
+  sv: {
+    kicker: "Finalracet",
+    event: "VM Polen 2018",
+    label: (from: number, to: number) => `Från ${from}:e till ${to}:e i finalracet.`,
+    note: "14:e av 131 i mästerskapet totalt. 6:a med Sverige i Nations Cup.",
+  },
+  en: {
+    kicker: "The final race",
+    event: "Worlds, Poland 2018",
+    label: (from: number, to: number) => `From ${from}th to ${to}th in the final race.`,
+    note: "14th of 131 in the championship overall. 6th with Sweden in the Nations Cup.",
+  },
+} as const;
+
+export function ClimbCounter({ lang }: { lang: Lang }) {
+  const t = COPY[lang];
   const rootRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
@@ -62,7 +79,7 @@ export function ClimbCounter() {
   return (
     <div ref={rootRef} className="border border-line bg-midnight-800 p-8 sm:p-12">
       <p className="heading-caps text-xs tracking-[0.18em] text-mist-dim">
-        Finalracet <span aria-hidden="true">·</span> VM Polen 2018
+        {t.kicker} <span aria-hidden="true">·</span> {t.event}
       </p>
       <div className="mt-6 flex flex-wrap items-baseline gap-x-6 gap-y-2">
         <span
@@ -72,12 +89,10 @@ export function ClimbCounter() {
           P{CLIMB_TO}
         </span>
         <span className="heading-caps text-sm tracking-[0.12em] text-mist sm:text-lg">
-          Från {CLIMB_FROM}:e till {CLIMB_TO}:e i finalracet.
+          {t.label(CLIMB_FROM, CLIMB_TO)}
         </span>
       </div>
-      <p className="mt-6 max-w-2xl text-sm leading-relaxed text-mist">
-        14:e av 131 i mästerskapet totalt. 6:a med Sverige i Nations Cup.
-      </p>
+      <p className="mt-6 max-w-2xl text-sm leading-relaxed text-mist">{t.note}</p>
     </div>
   );
 }

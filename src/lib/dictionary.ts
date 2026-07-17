@@ -1,5 +1,20 @@
 export type Lang = "sv" | "en";
 
+import type { Category } from "./content";
+
+/** Kategorinycklarna i frontmatter är svenska — bara visningen översätts. */
+const CATEGORY_LABELS_EN: Record<Category, string> = {
+  "VM 2026": "Worlds 2026",
+  SRKC: "SRKC",
+  Satsningen: "The campaign",
+  Partners: "Partners",
+};
+
+export function categoryLabel(category: string, lang: Lang): string {
+  if (lang === "sv") return category;
+  return CATEGORY_LABELS_EN[category as Category] ?? category;
+}
+
 /** All UI-copy för båda språken. Sidinnehåll ligger i respektive sida/MDX. */
 export const DICT = {
   sv: {
@@ -40,6 +55,19 @@ export const DICT = {
       nameAriaLabel: "Ditt namn",
       consent:
         "Genom att anmäla dig sparar vi ditt namn och din e-post för att skicka rapporten. Avanmäl när som helst genom att mejla",
+    },
+    contactForm: {
+      name: "Namn",
+      namePlaceholder: "Ditt namn",
+      email: "E-post",
+      emailPlaceholder: "din@epost.se",
+      message: "Meddelande",
+      messagePlaceholder: "Ditt meddelande...",
+      send: "Skicka",
+      pending: "Skickar …",
+      success: "Tack för ditt meddelande! Jag återkommer så snart jag kan.",
+      error: "Något gick fel. Prova igen, eller mejla",
+      mailtoSubject: (name: string) => `Kontakt från ${name}`,
     },
     article: {
       readingTime: (min: number) => `${min} min läsning`,
@@ -96,6 +124,11 @@ export const DICT = {
         { href: "/en", label: "Home" },
         { href: "/en/vm-2026", label: "Worlds 2026" },
         { href: "/en/news", label: "News" },
+        { href: "/en/career", label: "Career" },
+        { href: "/en/about", label: "About" },
+        { href: "/en/partners", label: "Partners" },
+        { href: "/en/media", label: "Media" },
+        { href: "/en/contact", label: "Contact" },
       ],
       openMenu: "Open menu",
       closeMenu: "Close menu",
@@ -122,6 +155,19 @@ export const DICT = {
       nameAriaLabel: "Your name",
       consent:
         "By signing up you let us store your name and email to send the report. Unsubscribe anytime by emailing",
+    },
+    contactForm: {
+      name: "Name",
+      namePlaceholder: "Your name",
+      email: "Email",
+      emailPlaceholder: "you@email.com",
+      message: "Message",
+      messagePlaceholder: "Your message...",
+      send: "Send",
+      pending: "Sending …",
+      success: "Thanks for your message! I'll get back to you as soon as I can.",
+      error: "Something went wrong. Try again, or email",
+      mailtoSubject: (name: string) => `Contact from ${name}`,
     },
     article: {
       readingTime: (min: number) => `${min} min read`,
@@ -177,20 +223,31 @@ export const DICT = {
 
 export type Dictionary = (typeof DICT)["sv"] | (typeof DICT)["en"];
 
+/** Statiska sidpar (sv ↔ en). Artikelsidor hanteras med regex nedan. */
+const PATH_MAP: ReadonlyArray<readonly [string, string]> = [
+  ["/", "/en"],
+  ["/vm-2026", "/en/vm-2026"],
+  ["/nyheter", "/en/news"],
+  ["/karriar", "/en/career"],
+  ["/om", "/en/about"],
+  ["/partners", "/en/partners"],
+  ["/media", "/en/media"],
+  ["/kontakt", "/en/contact"],
+  ["/press", "/en/press"],
+];
+
 /** Motsvarande sida på det andra språket (för språkväxlaren + hreflang). */
 export function altLangPath(pathname: string, target: Lang): string {
   const clean = pathname.replace(/\/+$/, "") || "/";
   if (target === "en") {
-    if (clean === "/") return "/en";
-    if (clean === "/vm-2026") return "/en/vm-2026";
-    if (clean === "/nyheter") return "/en/news";
+    const pair = PATH_MAP.find(([sv]) => sv === clean);
+    if (pair) return pair[1];
     const article = clean.match(/^\/nyheter\/([^/]+)$/);
     if (article) return `/en/news/${article[1]}`;
     return "/en";
   }
-  if (clean === "/en") return "/";
-  if (clean === "/en/vm-2026") return "/vm-2026";
-  if (clean === "/en/news") return "/nyheter";
+  const pair = PATH_MAP.find(([, en]) => en === clean);
+  if (pair) return pair[0];
   const article = clean.match(/^\/en\/news\/([^/]+)$/);
   if (article) return `/nyheter/${article[1]}`;
   return "/";

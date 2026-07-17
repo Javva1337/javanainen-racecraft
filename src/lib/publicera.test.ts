@@ -1,6 +1,13 @@
 import { describe, expect, test } from "vitest";
 import matter from "gray-matter";
-import { buildArticleMdx, buildSlug, buildVmStatus, type RapportFalt } from "./publicera";
+import {
+  buildArticleEnMdx,
+  buildArticleMdx,
+  buildSlug,
+  buildVmStatus,
+  type RapportFalt,
+  type RapportFaltEn,
+} from "./publicera";
 
 const falt: RapportFalt = {
   title: "Dag 3: Från P12 till P5 i regnet",
@@ -81,5 +88,37 @@ describe("buildVmStatus", () => {
       nationsCupPosition: "P3",
       updatedAt: "2026-07-24",
     });
+  });
+});
+
+const enFalt: RapportFaltEn = {
+  title: "Day 3: From P12 to P5 in the rain",
+  description: "Two heats, one downpour, and a feeling that things are turning.",
+  tomorrow: "Two more heats on a drier track tomorrow.",
+  body: "The start in heat one was the best I have done all year.\n\nSecond paragraph here.",
+};
+
+describe("buildArticleEnMdx", () => {
+  test("engelska fält ersätter svenska — datum, kategori och siffror delas", () => {
+    const { data, content } = matter(buildArticleEnMdx(falt, enFalt));
+    expect(data.title).toBe(enFalt.title);
+    expect(data.description).toBe(enFalt.description);
+    expect(data.tomorrow).toBe(enFalt.tomorrow);
+    expect(content.trim()).toBe(enFalt.body);
+    // Delat med svenska rapporten:
+    expect(data.date).toBe("2026-07-24");
+    expect(data.category).toBe("VM 2026");
+    expect(data.day).toBe(3);
+    expect(data.standing).toBe("P5");
+  });
+
+  test("tom engelsk tomorrow utelämnas", () => {
+    const { data } = matter(buildArticleEnMdx(falt, { ...enFalt, tomorrow: " " }));
+    expect(data.tomorrow).toBeUndefined();
+  });
+
+  test("bildsökvägen följer med när den finns i falt", () => {
+    const medBild = buildArticleEnMdx({ ...falt, imagePath: "/images/vm/vm-dag-3.jpg" }, enFalt);
+    expect(matter(medBild).data.image).toBe("/images/vm/vm-dag-3.jpg");
   });
 });

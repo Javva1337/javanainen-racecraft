@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArticleCard } from "@/components/ArticleCard";
 import { CATEGORIES, getAllArticles } from "@/lib/content";
-import { DICT } from "@/lib/dictionary";
+import { categoryLabel, DICT } from "@/lib/dictionary";
 
 export const metadata: Metadata = {
   title: "News — race reports and the road to the Worlds",
@@ -49,7 +49,7 @@ export default async function EnglishNewsPage({ searchParams }: Props) {
             href={`/en/news?category=${encodeURIComponent(cat)}`}
             className={filterLinkClass(activeCategory === cat)}
           >
-            {cat}
+            {categoryLabel(cat, "en")}
           </Link>
         ))}
       </nav>

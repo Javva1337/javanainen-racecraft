@@ -1,5 +1,11 @@
 import { Kurbits } from "@/components/Kurbits";
 import type { ChapterDef } from "@/lib/career-story";
+import type { Lang } from "@/lib/dictionary";
+
+const COPY = {
+  sv: { chapterLabel: "Kapitel" },
+  en: { chapterLabel: "Chapter" },
+} as const;
 
 /**
  * Server-renderat kapitelskal: sektion med rubrik, kapiteletikett och nod
@@ -8,16 +14,19 @@ import type { ChapterDef } from "@/lib/career-story";
  */
 export function ChapterSection({
   chapter,
+  lang,
   children,
   className = "",
   lede,
 }: {
   chapter: ChapterDef;
+  lang: Lang;
   children: React.ReactNode;
   className?: string;
   /** Kort ingress under rubriken */
   lede?: string;
 }) {
+  const t = COPY[lang];
   return (
     <section
       id={chapter.id}
@@ -46,13 +55,13 @@ export function ChapterSection({
         <div className="mx-auto max-w-4xl">
           <header data-chapter-header>
             <p className="heading-caps text-xs tracking-[0.18em] text-mist-dim">
-              Kapitel {chapter.num} <span aria-hidden="true">·</span> {chapter.years}
+              {t.chapterLabel} {chapter.num} <span aria-hidden="true">·</span> {chapter.years}
             </p>
             <h2
               id={`${chapter.id}-heading`}
               className="heading-caps mt-3 text-[clamp(1.75rem,8vw,2.25rem)] font-extrabold leading-[0.95] text-snow sm:text-6xl"
             >
-              {chapter.title}
+              {chapter.title[lang]}
             </h2>
             {lede && <p className="mt-5 max-w-2xl text-base text-mist sm:text-lg">{lede}</p>}
           </header>

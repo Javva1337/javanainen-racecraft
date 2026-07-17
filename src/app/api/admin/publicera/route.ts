@@ -1,6 +1,13 @@
 import { NextResponse } from "next/server";
 import { createHash, timingSafeEqual } from "node:crypto";
-import { buildArticleMdx, buildSlug, buildVmStatus, type RapportFalt } from "@/lib/publicera";
+import {
+  buildArticleEnMdx,
+  buildArticleMdx,
+  buildSlug,
+  buildVmStatus,
+  type RapportFalt,
+  type RapportFaltEn,
+} from "@/lib/publicera";
 
 /**
  * Publicerar en VM-rapport från /admin: en atomisk commit till GitHub med
@@ -13,7 +20,7 @@ const MAX_BODY_LEN = 50_000;
 
 const DEFAULT_REPO = "Javva1337/javanainen-racecraft";
 
-type Validerat = { falt: RapportFalt; imageBase64: string | null };
+type Validerat = { falt: RapportFalt; enFalt: RapportFaltEn | null; imageBase64: string | null };
 
 function fel(status: number, error: string): NextResponse {
   return NextResponse.json({ ok: false, error }, { status });
@@ -65,6 +72,14 @@ function validera(body: Record<string, unknown>): Validerat | { error: string } 
   const artikeltext = strang(body.body, MAX_BODY_LEN);
   if (!artikeltext) return { error: "Brödtext saknas eller är för lång." };
 
+  // EN-tomorrow visas bara om svenska tomorrow är ifyllt. Fältet kan ändå
+  // finnas kvar i klientens state/localStorage sedan tidigare — ignorera
+  // det helt (varken räkna det som ifyllt EN-input eller skicka med det)
+  // när svenska tomorrow är tomt, så det inte strandar publiceringen eller
+  // läcker in i EN-artikeln.
+  const tomorrowEnRatt =
+    tomorrow !== "" && typeof body.tomorrowEn === "string" ? body.tomorrowEn : "";
+
   let imageBase64: string | null = null;
   if (body.imageBase64 !== undefined && body.imageBase64 !== null && body.imageBase64 !== "") {
     if (typeof body.imageBase64 !== "string") return { error: "Ogiltig bild." };
@@ -74,6 +89,25 @@ function validera(body: Record<string, unknown>): Validerat | { error: string } 
       return { error: "Bilden är för stor även efter förminskning (max ca 4 MB)." };
     }
     if (!/^[A-Za-z0-9+/=\s]+$/.test(imageBase64)) return { error: "Ogiltig bild." };
+  }
+
+  const titleEn = strang(body.titleEn, 200);
+  const descriptionEn = strang(body.descriptionEn, 500);
+  const bodyEn = strang(body.bodyEn, MAX_BODY_LEN);
+  const tomorrowEn = tomorrowEnRatt.trim().slice(0, 300);
+  let enFalt: RapportFaltEn | null = null;
+  const harEngelskInput =
+    [body.titleEn, body.descriptionEn, body.bodyEn].some(
+      (varde) => typeof varde === "string" && varde.trim() !== "",
+    ) || tomorrowEnRatt.trim() !== "";
+  if (harEngelskInput) {
+    if (!titleEn || !descriptionEn || !bodyEn) {
+      return {
+        error:
+          "Engelsk version: fyll i titel, beskrivning och brödtext — eller lämna alla engelska fält tomma.",
+      };
+    }
+    enFalt = { title: titleEn, description: descriptionEn, tomorrow: tomorrowEn, body: bodyEn };
   }
 
   return {
@@ -89,6 +123,7 @@ function validera(body: Record<string, unknown>): Validerat | { error: string } 
       tomorrow,
       body: artikeltext,
     },
+    enFalt,
     imageBase64,
   };
 }
@@ -120,14 +155,39 @@ type TreeEntry = {
   mode: "100644";
   type: "blob";
   content?: string;
-  sha?: string;
+  /** `sha: null` raderar path (Git Trees API). */
+  sha?: string | null;
 };
+
+/**
+ * Kollar om `content/nyheter/<slug>.en.mdx` redan finns på branchen — utan
+ * att kasta på 404 (till skillnad från `gh()`, som förutsätter ok-svar).
+ * Rått fetch-anrop eftersom 404 här är ett giltigt, förväntat svar.
+ */
+async function enMdxFinns(
+  token: string,
+  repo: string,
+  branch: string,
+  slug: string,
+): Promise<boolean> {
+  const res = await fetch(
+    `https://api.github.com/repos/${repo}/contents/content/nyheter/${slug}.en.mdx?ref=${branch}`,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        Accept: "application/vnd.github+json",
+        "X-GitHub-Api-Version": "2022-11-28",
+      },
+    },
+  );
+  return res.ok;
+}
 
 /** En atomisk commit: MDX + ev. bild + vm-status.json → ref-uppdatering. */
 async function publiceraTillGitHub(
   token: string,
   slug: string,
-  { falt, imageBase64 }: Validerat,
+  { falt, enFalt, imageBase64 }: Validerat,
 ): Promise<void> {
   const repo = process.env.ADMIN_GITHUB_REPO ?? DEFAULT_REPO;
   // Utan explicit branch: committa till branchen som deployen byggdes från
@@ -165,6 +225,24 @@ async function publiceraTillGitHub(
     type: "blob",
     content: buildArticleMdx({ ...falt, imagePath }),
   });
+  if (enFalt) {
+    entries.push({
+      path: `content/nyheter/${slug}.en.mdx`,
+      mode: "100644",
+      type: "blob",
+      content: buildArticleEnMdx({ ...falt, imagePath }, enFalt),
+    });
+  } else if (await enMdxFinns(token, repo, branch, slug)) {
+    // Ompublicering utan engelsk version — radera en ev. kvarvarande
+    // .en.mdx från en tidigare publicering i samma atomiska commit, så
+    // inget föråldrat engelskt innehåll blir stående live.
+    entries.push({
+      path: `content/nyheter/${slug}.en.mdx`,
+      mode: "100644",
+      type: "blob",
+      sha: null,
+    });
+  }
   entries.push({
     path: "content/vm-status.json",
     mode: "100644",

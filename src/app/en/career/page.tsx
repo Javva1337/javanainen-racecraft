@@ -23,31 +23,31 @@ import { RESULTS, STATS } from "@/lib/results";
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: "Karriär — resultat och tidslinje 2002–2026",
+  title: "Career — results and timeline 2002–2026",
   description:
-    "Rickard Javanainens karriär i siffror: VM-brons 2016 (3:e av 102), två SRKC-titlar och vägen från gokart i Dalarna till hyrkart-VM i Vandel 2026.",
+    "Rickard Javanainen's career in numbers: Worlds bronze in 2016 (3rd of 102), two SRKC titles, and the road from karting in Dalarna to the rental kart World Championship in Vandel 2026.",
   alternates: {
-    canonical: "/karriar",
+    canonical: "/en/career",
     languages: { "sv-SE": "/karriar", en: "/en/career", "x-default": "/karriar" },
   },
+  openGraph: { locale: "en_US" },
 };
 
 /**
- * /karriar som scrolldriven berättelse i sex kapitel + prolog och epilog.
- * Allt innehåll server-renderas; GSAP/Lenis-lagret i career-komponenterna är
- * enbart progressiv förbättring ovanpå.
+ * /en/career som scrolldriven berättelse — spegel av /karriar med lang="en".
+ * Allt innehåll server-renderas; GSAP/Lenis-lagret är progressiv förbättring.
  */
-export default function CareerPage() {
+export default function EnglishCareerPage() {
   const mode = getSiteMode();
-  const articles = getAllArticles("sv");
+  const articles = getAllArticles("en");
   const latest = articles[0] ?? null;
-  const latestHref = latest ? `/nyheter/${latest.slug}` : "/nyheter";
+  const latestHref = latest ? `/en/news/${latest.slug}` : "/en/news";
 
   return (
     <CareerStoryProvider>
-      <ChapterNav chapters={CHAPTERS} lang="sv" />
+      <ChapterNav chapters={CHAPTERS} lang="en" />
 
-      {/* Prolog: prispallsceremonin som video-loop, samma mönster som startsidan */}
+      {/* Prologue: prispallsceremonin som video-loop, samma mönster som svenska sidan */}
       <section
         id="prolog"
         tabIndex={-1}
@@ -58,9 +58,9 @@ export default function CareerPage() {
         <VideoBackdrop
           video="/videos/karriar-podium.mp4"
           poster="/images/karriar-poster.jpg"
-          imageAlt="Prispallsceremoni — Rickard Javanainen i mitten på pallen"
-          soundOnLabel={DICT.sv.common.soundOn}
-          soundOffLabel={DICT.sv.common.soundOff}
+          imageAlt="Podium ceremony — Rickard Javanainen in the middle of the podium"
+          soundOnLabel={DICT.en.common.soundOn}
+          soundOffLabel={DICT.en.common.soundOff}
           deferVideoOnMobile
         />
         <div
@@ -73,14 +73,14 @@ export default function CareerPage() {
             id="prolog-heading"
             className="heading-caps text-4xl font-extrabold text-snow sm:text-5xl lg:text-6xl"
           >
-            Karriär
+            Career
           </h1>
           <p className="mt-3 max-w-2xl text-mist sm:text-lg">
-            Från gokart i Dalarna 2002 till hyrkart-VM i Vandel 2026. Hela vägen, med siffrorna
-            som bevisar den — berättad i sex kapitel.
+            From karting in Dalarna in 2002 to the rental kart Worlds in Vandel 2026. The whole
+            road, with the numbers to back it up — told in six chapters.
           </p>
           <div className="mt-10 flex justify-center">
-            <ScrollCue lang="sv" />
+            <ScrollCue lang="en" />
           </div>
         </div>
       </section>
@@ -97,21 +97,24 @@ export default function CareerPage() {
         />
         <RaceLine />
         <StoryEffects />
-        <ChapterDalarna lang="sv" />
-        <ChapterBanracing lang="sv" />
-        <ChapterGenombrottet lang="sv" />
-        <ChapterBronset lang="sv" />
-        <QuoteInterlude quote="Med samma material för alla finns inget att gömma sig bakom." lang="sv" />
-        <ChapterJakten lang="sv" />
+        <ChapterDalarna lang="en" />
+        <ChapterBanracing lang="en" />
+        <ChapterGenombrottet lang="en" />
+        <ChapterBronset lang="en" />
+        <QuoteInterlude
+          quote="With the same equipment for everyone, there is nothing to hide behind."
+          lang="en"
+        />
+        <ChapterJakten lang="en" />
         <ChapterVandel
           mode={mode}
           latestHref={latestHref}
           latestTitle={latest?.frontmatter.title ?? null}
-          lang="sv"
+          lang="en"
         />
       </div>
 
-      {/* Epilog — Facit: statistiken och samtliga resultat, trovärdighetsankaret */}
+      {/* Epilogue — The tally: statistiken och samtliga resultat */}
       <section
         id="facit"
         tabIndex={-1}
@@ -122,60 +125,60 @@ export default function CareerPage() {
         <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
           <header>
             <p className="heading-caps text-xs tracking-[0.18em] text-mist-dim">
-              Epilog <span aria-hidden="true">·</span> 2015–2026
+              Epilogue <span aria-hidden="true">·</span> 2015–2026
             </p>
             <h2
               id="facit-heading"
               className="heading-caps mt-3 text-4xl font-extrabold leading-[0.95] text-snow sm:text-6xl"
             >
-              Facit
+              The tally
             </h2>
             <p className="mt-5 max-w-2xl text-base text-mist sm:text-lg">
-              Siffrorna bakom berättelsen — tidslinjen 2002–2026 som statistik och samtliga
-              resultat.
+              The numbers behind the story — the 2002–2026 timeline as statistics, and every
+              result.
             </p>
           </header>
 
-          {/* Javanainen i siffror */}
+          {/* Javanainen in numbers */}
           <div className="mt-16" aria-labelledby="stats-heading" role="group">
             <h3 id="stats-heading" className="heading-caps mb-6 text-2xl font-bold text-snow">
-              Javanainen i siffror
+              Javanainen in numbers
             </h3>
             <div className="grid grid-cols-2 gap-px border border-line bg-line md:grid-cols-5">
               {STATS.map((stat) => (
-                <div key={stat.label.sv} className="flex flex-col gap-2 bg-midnight-800 p-6">
+                <div key={stat.label.en} className="flex flex-col gap-2 bg-midnight-800 p-6">
                   <CountUp
                     value={stat.value}
-                    suffix={"suffix" in stat ? stat.suffix.sv : ""}
+                    suffix={"suffix" in stat ? stat.suffix.en : ""}
                     className="heading-caps text-4xl font-bold text-flagyellow sm:text-5xl"
                   />
-                  <span className="text-xs leading-snug text-mist-dim">{stat.label.sv}</span>
+                  <span className="text-xs leading-snug text-mist-dim">{stat.label.en}</span>
                 </div>
               ))}
             </div>
             <p className="mt-4 text-xs text-mist-dim">
-              Invald i{" "}
+              Inducted into the{" "}
               <a
                 href="https://srkc.nu/results/hall-of-fame/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-flagblue-bright underline underline-offset-2"
               >
-                SRKC:s Hall of Fame
+                SRKC Hall of Fame
               </a>
-              , hittills som ende förare.
+              , so far as the only driver.
             </p>
           </div>
 
-          {/* Resultattabell — kanoniska värden ur lib/results.ts */}
+          {/* Results table — canonical values from lib/results.ts */}
           <div className="mt-16" aria-labelledby="results-heading" role="group">
             <h3 id="results-heading" className="heading-caps mb-6 text-2xl font-bold text-snow">
-              Resultat
+              Results
             </h3>
             <div className="overflow-x-auto border border-line">
               <table className="tabular w-full min-w-[640px] text-sm">
                 <caption className="sr-only">
-                  Tävlingsresultat för R. Javanainen (SWE), 2015–2026
+                  Race results for R. Javanainen (SWE), 2015–2026
                 </caption>
                 <thead>
                   <tr className="bg-midnight-800 text-left">
@@ -183,25 +186,25 @@ export default function CareerPage() {
                       scope="col"
                       className="heading-caps px-4 py-3 text-xs tracking-[0.12em] text-mist-dim"
                     >
-                      Tävling
+                      Event
                     </th>
                     <th
                       scope="col"
                       className="heading-caps px-4 py-3 text-xs tracking-[0.12em] text-mist-dim"
                     >
-                      Plats
+                      Location
                     </th>
                     <th
                       scope="col"
                       className="heading-caps px-4 py-3 text-xs tracking-[0.12em] text-mist-dim"
                     >
-                      År
+                      Year
                     </th>
                     <th
                       scope="col"
                       className="heading-caps px-4 py-3 text-xs tracking-[0.12em] text-mist-dim"
                     >
-                      Resultat
+                      Result
                     </th>
                   </tr>
                 </thead>
@@ -212,22 +215,22 @@ export default function CareerPage() {
                       className="border-t border-line transition-colors duration-150 hover:bg-midnight-800"
                     >
                       <td className="px-4 py-3 text-snow">{row.competition}</td>
-                      <td className="px-4 py-3 text-mist">{row.place.sv}</td>
+                      <td className="px-4 py-3 text-mist">{row.place.en}</td>
                       <td className="px-4 py-3 text-mist">{row.year}</td>
                       <td className="px-4 py-3">
                         <span className="flex items-center gap-2">
                           {row.podium && (
                             <span
                               className="h-2 w-2 shrink-0 rounded-full bg-flagyellow"
-                              title="Pallplats"
-                              aria-label="Pallplats"
+                              title="Podium"
+                              aria-label="Podium"
                             />
                           )}
                           <span className={row.podium ? "font-semibold text-snow" : "text-mist"}>
-                            {row.result.sv}
+                            {row.result.en}
                           </span>
                           {row.note && (
-                            <span className="text-xs text-mist-dim">— {row.note.sv}</span>
+                            <span className="text-xs text-mist-dim">— {row.note.en}</span>
                           )}
                         </span>
                       </td>
@@ -241,14 +244,14 @@ export default function CareerPage() {
                 className="mr-1.5 inline-block h-2 w-2 rounded-full bg-flagyellow"
                 aria-hidden="true"
               />
-              Pallplats · Officiella KWC-resultat finns hos{" "}
+              Podium · Official KWC results are available from the{" "}
               <a
                 href="https://kartworldchampionship.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-flagblue-bright underline underline-offset-2"
               >
-                arrangören
+                organiser
               </a>
             </p>
           </div>

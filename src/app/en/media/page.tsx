@@ -4,24 +4,25 @@ import { Reveal } from "@/components/Reveal";
 import { MEDIA_ITEMS } from "@/lib/media";
 
 export const metadata: Metadata = {
-  title: "Media — bilder från banan",
+  title: "Media — images from the track",
   description:
-    "Bilder från SRKC och hyrkart-VM: action, podium och förberedelser. Pressbilder i original finns på presssidan.",
+    "Images from the SRKC and the rental kart Worlds: action, podiums and preparation. Original press images are on the press page.",
   alternates: {
-    canonical: "/media",
+    canonical: "/en/media",
     languages: { "sv-SE": "/media", en: "/en/media", "x-default": "/media" },
   },
+  openGraph: { locale: "en_US" },
 };
 
-export default function MediaPage() {
+export default function EnglishMediaPage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
       <header className="mb-10">
         <h1 className="heading-caps text-4xl font-extrabold text-snow sm:text-5xl">Media</h1>
         <p className="mt-3 max-w-2xl text-mist">
-          Från banan, depån och prispallen. Högupplösta pressbilder finns på{" "}
-          <a href="/press" className="text-flagblue-bright underline underline-offset-4">
-            presssidan
+          From the track, the paddock and the podium. High-resolution press images are on the{" "}
+          <a href="/en/press" className="text-flagblue-bright underline underline-offset-4">
+            press page
           </a>
           .
         </p>
@@ -33,13 +34,13 @@ export default function MediaPage() {
             <figure className="group relative aspect-square h-full w-full overflow-hidden border border-line">
               <Image
                 src={item.src}
-                alt={item.alt.sv}
+                alt={item.alt.en}
                 fill
                 sizes="(max-width: 768px) 50vw, 25vw"
                 className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
               />
               <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-midnight/90 to-transparent px-3 pb-2 pt-8 text-xs text-snow">
-                {item.caption.sv}
+                {item.caption.en}
               </figcaption>
             </figure>
           </Reveal>

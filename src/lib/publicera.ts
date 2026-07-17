@@ -70,3 +70,24 @@ export function buildVmStatus(falt: RapportFalt): VmStatus {
     updatedAt: falt.date,
   };
 }
+
+export type RapportFaltEn = {
+  title: string;
+  description: string;
+  tomorrow: string;
+  body: string;
+};
+
+/**
+ * Engelska parallellfilen `<slug>.en.mdx`: samma datum, kategori, dag,
+ * siffror och ev. bild som svenska rapporten — bara texten byts.
+ */
+export function buildArticleEnMdx(falt: RapportFalt, en: RapportFaltEn): string {
+  return buildArticleMdx({
+    ...falt,
+    title: en.title,
+    description: en.description,
+    tomorrow: en.tomorrow,
+    body: en.body,
+  });
+}

@@ -21,9 +21,15 @@ const BILINGUAL_PAIRS: Array<[sv: string, en: string]> = [
   ["", "/en"],
   ["/vm-2026", "/en/vm-2026"],
   ["/nyheter", "/en/news"],
+  ["/karriar", "/en/career"],
+  ["/om", "/en/about"],
+  ["/partners", "/en/partners"],
+  ["/media", "/en/media"],
+  ["/kontakt", "/en/contact"],
+  ["/press", "/en/press"],
 ];
 
-const SV_ONLY_PAGES = ["/karriar", "/om", "/partners", "/media", "/kontakt", "/press"];
+const SV_ONLY_PAGES: string[] = [];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const bilingualPages = BILINGUAL_PAIRS.flatMap(([sv, en]) =>

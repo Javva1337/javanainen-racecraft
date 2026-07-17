@@ -4,47 +4,48 @@ import { BIO_LONG_EN, BIO_LONG_SV, BIO_SHORT_EN, BIO_SHORT_SV, PRESS_IMAGES } fr
 import { CONTACT_EMAIL, KWC, SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Press — bilder, bio och faktablad",
+  title: "Press — images, bio and fact sheet",
   description:
-    "Pressmaterial om Rickard Javanainen: nedladdningsbara högupplösta bilder, kort och lång bio på svenska och engelska samt faktablad inför hyrkart-VM 2026.",
+    "Press material for Rickard Javanainen: downloadable high-resolution images, short and long bios in English and Swedish, and a fact sheet for the 2026 Kart World Championship.",
   alternates: {
-    canonical: "/press",
+    canonical: "/en/press",
     languages: { "sv-SE": "/press", en: "/en/press", "x-default": "/press" },
   },
+  openGraph: { locale: "en_US" },
 };
 
 const FACTS = [
-  ["Namn", "Rickard Javanainen"],
-  ["Nationalitet", "Svensk (SWE)"],
-  ["Uppvuxen i", "Dalarna"],
-  ["Bästa VM-resultat", "3:e av 102 (Italien 2016, vinst i finalen)"],
-  ["VM-starter", "5 (2015, 2016, 2017, 2018, 2026)"],
-  ["SRKC-titlar", "2 (Linköping 2015, Göteborg 2018)"],
-  ["Nästa tävling", `Kart World Championship 2026 · ${KWC.venue}, Danmark · ${KWC.datesLabel.sv}`],
-  ["Tävlar i", "KWC Individual + Nations Cup (Sverige)"],
-  ["Partners", "Primab (sedan starten av satsningen), Labatus (ny 2026)"],
-  ["Kontakt", CONTACT_EMAIL],
-  ["Webb", SITE_URL.replace("https://", "")],
+  ["Name", "Rickard Javanainen"],
+  ["Nationality", "Swedish (SWE)"],
+  ["Grew up in", "Dalarna"],
+  ["Best Worlds result", "3rd of 102 (Italy 2016, won the final)"],
+  ["Worlds starts", "5 (2015, 2016, 2017, 2018, 2026)"],
+  ["SRKC titles", "2 (Linköping 2015, Gothenburg 2018)"],
+  ["Next event", `Kart World Championship 2026 · ${KWC.venue}, Denmark · ${KWC.datesLabel.en}`],
+  ["Competing in", "KWC Individual + Nations Cup (Sweden)"],
+  ["Partners", "Primab (since the start of the campaign), Labatus (new for 2026)"],
+  ["Contact", CONTACT_EMAIL],
+  ["Web", SITE_URL.replace("https://", "")],
 ];
 
-export default function PressPage() {
+export default function EnglishPressPage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
       <header className="mb-10">
         <h1 className="heading-caps text-4xl font-extrabold text-snow sm:text-5xl">Press</h1>
         <p className="mt-3 max-w-2xl text-mist">
-          Bilder i original, bio på svenska och engelska samt faktablad. Materialet får
-          användas fritt i redaktionella sammanhang med fotobyline där sådan anges. Frågor:{" "}
+          Original images, bios in English and Swedish, and a fact sheet. The material may be used
+          freely in editorial contexts, with photo credit where stated. Questions:{" "}
           <a href={`mailto:${CONTACT_EMAIL}`} className="text-flagblue-bright underline underline-offset-4">
             {CONTACT_EMAIL}
           </a>
         </p>
       </header>
 
-      {/* Pressbilder */}
-      <section className="mb-16" aria-labelledby="bilder-heading">
-        <h2 id="bilder-heading" className="heading-caps mb-6 text-2xl font-bold text-snow">
-          Pressbilder
+      {/* Press images */}
+      <section className="mb-16" aria-labelledby="images-heading">
+        <h2 id="images-heading" className="heading-caps mb-6 text-2xl font-bold text-snow">
+          Press images
         </h2>
         <div className="grid gap-4 sm:grid-cols-3">
           {PRESS_IMAGES.map((image) => (
@@ -52,20 +53,20 @@ export default function PressPage() {
               <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
                   src={image.src}
-                  alt={image.label.sv}
+                  alt={image.label.en}
                   fill
                   sizes="(max-width: 640px) 100vw, 33vw"
                   className="object-cover"
                 />
               </div>
               <figcaption className="flex items-center justify-between gap-2 px-4 py-3">
-                <span className="text-xs text-mist">{image.label.sv}</span>
+                <span className="text-xs text-mist">{image.label.en}</span>
                 <a
                   href={image.src}
                   download={image.filename}
                   className="heading-caps shrink-0 text-[0.65rem] tracking-[0.12em] text-flagblue-bright transition-colors duration-200 hover:text-snow"
                 >
-                  Ladda ner ↓
+                  Download ↓
                 </a>
               </figcaption>
             </figure>
@@ -77,26 +78,26 @@ export default function PressPage() {
       <section className="mb-16 grid gap-10 lg:grid-cols-2" aria-labelledby="bio-heading">
         <div>
           <h2 id="bio-heading" className="heading-caps mb-4 text-2xl font-bold text-snow">
-            Bio — svenska
+            Bio — English
           </h2>
-          <h3 className="heading-caps mb-2 text-xs tracking-[0.14em] text-mist-dim">Kort</h3>
-          <p className="mb-6 text-sm leading-relaxed text-mist">{BIO_SHORT_SV}</p>
-          <h3 className="heading-caps mb-2 text-xs tracking-[0.14em] text-mist-dim">Lång</h3>
-          <p className="text-sm leading-relaxed text-mist">{BIO_LONG_SV}</p>
-        </div>
-        <div>
-          <h2 className="heading-caps mb-4 text-2xl font-bold text-snow">Bio — English</h2>
           <h3 className="heading-caps mb-2 text-xs tracking-[0.14em] text-mist-dim">Short</h3>
           <p className="mb-6 text-sm leading-relaxed text-mist">{BIO_SHORT_EN}</p>
           <h3 className="heading-caps mb-2 text-xs tracking-[0.14em] text-mist-dim">Long</h3>
           <p className="text-sm leading-relaxed text-mist">{BIO_LONG_EN}</p>
         </div>
+        <div>
+          <h2 className="heading-caps mb-4 text-2xl font-bold text-snow">Bio — Swedish</h2>
+          <h3 className="heading-caps mb-2 text-xs tracking-[0.14em] text-mist-dim">Short</h3>
+          <p className="mb-6 text-sm leading-relaxed text-mist">{BIO_SHORT_SV}</p>
+          <h3 className="heading-caps mb-2 text-xs tracking-[0.14em] text-mist-dim">Long</h3>
+          <p className="text-sm leading-relaxed text-mist">{BIO_LONG_SV}</p>
+        </div>
       </section>
 
-      {/* Faktablad */}
-      <section aria-labelledby="fakta-heading">
-        <h2 id="fakta-heading" className="heading-caps mb-6 text-2xl font-bold text-snow">
-          Faktablad
+      {/* Fact sheet */}
+      <section aria-labelledby="facts-heading">
+        <h2 id="facts-heading" className="heading-caps mb-6 text-2xl font-bold text-snow">
+          Fact sheet
         </h2>
         <dl className="divide-y divide-line border border-line">
           {FACTS.map(([label, value]) => (

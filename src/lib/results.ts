@@ -1,5 +1,5 @@
 /**
- * Kanoniska resultat. Tidslinjen på /karriar och resultattabellen läser BÅDA
+ * Kanoniska resultat. Resultattabellen på /karriar och /en/career läser
  * härifrån — siffrorna kan aldrig glida isär.
  */
 
@@ -79,116 +79,6 @@ export const RESULTS: ResultRow[] = [
     year: 2026,
     result: { sv: "3:e bästa svensk", en: "3rd-best Swede" },
     podium: false,
-  },
-];
-
-export type TimelineEntry = {
-  years: string;
-  title: { sv: string; en: string };
-  description: { sv: string; en: string };
-  highlight: boolean;
-};
-
-/** Tidslinje 2002–2026 — VM-/SRKC-siffrorna är identiska med RESULTS ovan. */
-export const TIMELINE: TimelineEntry[] = [
-  {
-    years: "2002",
-    title: { sv: "Gokart", en: "Karting" },
-    description: {
-      sv: "Första steget in i motorsport. 10 år gammal.",
-      en: "First step into motorsport. 10 years old.",
-    },
-    highlight: false,
-  },
-  {
-    years: "2002–2006",
-    title: { sv: "Gokart — olika klasser", en: "Karting — multiple classes" },
-    description: {
-      sv: "Flera år av utveckling genom olika gokartklasser, med flertalet vinster och pallplatser.",
-      en: "Years of development through karting classes, with multiple wins and podiums.",
-    },
-    highlight: false,
-  },
-  {
-    years: "2007",
-    title: { sv: "Renault Junior Cup", en: "Renault Junior Cup" },
-    description: {
-      sv: "2:a plats totalt i Renault Junior Cup.",
-      en: "2nd overall in the Renault Junior Cup.",
-    },
-    highlight: false,
-  },
-  {
-    years: "2008–2010",
-    title: { sv: "JTCC", en: "JTCC" },
-    description: {
-      sv: "Junior Touring Car Championship. Flertalet pallplatser.",
-      en: "Junior Touring Car Championship. Multiple podiums.",
-    },
-    highlight: false,
-  },
-  {
-    years: "2011",
-    title: { sv: "Ginetta G20 Cup", en: "Ginetta G20 Cup" },
-    description: {
-      sv: "Inhopp mitt i säsongen, vann 2 av 6 race. 8:a av 22 förare totalt med bara hälften av racen körda.",
-      en: "Mid-season stand-in who won 2 of 6 races. 8th of 22 drivers overall despite racing only half the season.",
-    },
-    highlight: false,
-  },
-  {
-    years: "2015",
-    title: { sv: "SRKC-vinst & VM Italien", en: "SRKC win & Worlds in Italy" },
-    description: {
-      sv: "Vinnare av första upplagan av SRKC Linköping. 11:e av 127 individuellt i VM. I Nations Cup körde jag en stint från sist till först innan laget gick i mål som femma totalt.",
-      en: "Won the inaugural SRKC Linköping. 11th of 127 individually at the Worlds. In the Nations Cup, drove a stint from last to first before the team finished fifth overall.",
-    },
-    highlight: true,
-  },
-  {
-    years: "2016",
-    title: { sv: "VM Italien — brons", en: "Worlds in Italy — bronze" },
-    description: {
-      sv: "Vinst i finalen. 3:e av 102 totalt i världsmästerskapet. 5:a med Sverige i Nations Cup, där en miss i ett depåstopp kostade chansen till segern.",
-      en: "Won the final. 3rd of 102 overall in the World Championship. 5th with Sweden in the Nations Cup, where a pit-stop mistake cost the team a shot at the win.",
-    },
-    highlight: true,
-  },
-  {
-    years: "2017",
-    title: { sv: "VM Spanien", en: "Worlds in Spain" },
-    description: {
-      sv: "12:e av 172 i världsmästerskapet, största startfältet hittills. 5:a med Sverige i Nations Cup.",
-      en: "12th of 172 in the World Championship, the largest field to date. 5th with Sweden in the Nations Cup.",
-    },
-    highlight: false,
-  },
-  {
-    years: "2018",
-    title: { sv: "SRKC-vinst & VM Polen", en: "SRKC win & Worlds in Poland" },
-    description: {
-      sv: "Vann SRKC Göteborg. 14:e av 131 i VM, från 16:e till 9:e i finalracet. 6:a med Sverige i Nations Cup.",
-      en: "Won SRKC Gothenburg. 14th of 131 at the Worlds, climbing from 16th to 9th in the final race. 6th with Sweden in the Nations Cup.",
-    },
-    highlight: true,
-  },
-  {
-    years: "2021",
-    title: { sv: "SRKC-final", en: "SRKC final" },
-    description: {
-      sv: "6:a totalt. Näst bästa svensk.",
-      en: "6th overall. Second-best Swede.",
-    },
-    highlight: false,
-  },
-  {
-    years: "2026",
-    title: { sv: "VM Vandel, Danmark", en: "Worlds at Vandel, Denmark" },
-    description: {
-      sv: "3:e bästa svensk i SRKC. Klar för hyrkart-VM på Vandel Kart 22 juli–1 augusti: KWC Individual och Nations Cup för Sverige.",
-      en: "3rd-best Swede in the SRKC. Set for the Kart World Championship at Vandel Kart, 22 July–1 August: KWC Individual and Nations Cup for Sweden.",
-    },
-    highlight: true,
   },
 ];
 
