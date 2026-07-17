@@ -6,7 +6,7 @@ import { MEDIA_ITEMS } from "@/lib/media";
 export const metadata: Metadata = {
   title: "Media — bilder från banan",
   description:
-    "Bilder från SRKC och hyrkart-VM: action, podium och förberedelser. Pressbilder i original finns på press-sidan.",
+    "Bilder från SRKC och hyrkart-VM: action, prispall och förberedelser. Pressbilder i original finns på pressidan.",
   alternates: {
     canonical: "/media",
     languages: { "sv-SE": "/media", en: "/en/media", "x-default": "/media" },
@@ -21,7 +21,7 @@ export default function MediaPage() {
         <p className="mt-3 max-w-2xl text-mist">
           Från banan, depån och prispallen. Högupplösta pressbilder finns på{" "}
           <a href="/press" className="text-flagblue-bright underline underline-offset-4">
-            press-sidan
+            pressidan
           </a>
           .
         </p>

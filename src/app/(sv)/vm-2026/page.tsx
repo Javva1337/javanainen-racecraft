@@ -172,10 +172,10 @@ export default function VmPage() {
         </div>
         <div className="max-w-3xl space-y-4 leading-relaxed text-mist">
           <p>
-            Alla kör likvärdigt material i samma viktklass, kartarna lottas mellan heaten och
-            startordningen sätts av ett varvs tidskval före varje heat.
-            Varje förare kör <strong className="text-snow">8 kvalheat</strong>, ett resultat
-            räknas bort, innan semifinalen avgör vilka{" "}
+            Alla kör likvärdigt material i samma viktklass. Kartarna lottas mellan heaten, och
+            startordningen avgörs av ett tidskval på ett varv före varje heat.
+            Varje förare kör <strong className="text-snow">8 kvalheat</strong> där det sämsta
+            resultatet räknas bort, innan semifinalen avgör vilka{" "}
             <strong className="text-snow">18 förare</strong> som gör upp i finalen.
           </p>
           <p>
@@ -210,7 +210,7 @@ export default function VmPage() {
             <p className="text-sm leading-relaxed text-mist">
               Lagtävlingen där förarna representerar sitt land, {KWC.nationsCupLabel.sv}. Varje
               resultat bidrar till nationens totala placering. Rickard har kört Nations Cup i alla
-              sina VM: femma 2015–2017 och sexa 2018. I år är målet pallen, för Sverige.
+              sina VM: femma 2015–2017 och sexa 2018. I år är målet att ta Sverige till pallen.
             </p>
           </div>
         </div>
