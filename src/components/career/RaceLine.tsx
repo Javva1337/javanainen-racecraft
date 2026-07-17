@@ -7,7 +7,14 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
-type Geometry = { d: string; width: number; height: number };
+type Geometry = {
+  d: string;
+  width: number;
+  height: number;
+  /** Första/sista nodens y — scrubben synkas till nodspannet */
+  startY: number;
+  endY: number;
+};
 
 /**
  * Racinglinjen — sidans signatur. En SVG-linje som slingrar sig genom alla
@@ -48,10 +55,11 @@ export function RaceLine() {
       // Racinglinjens utsväng: begränsad så den aldrig lämnar rännan
       const amplitude = Math.min(28, railX * 0.6);
 
-      let d = `M ${railX} 0`;
-      const targets = [...points, { x: railX, y: height }];
-      let previousY = 0;
-      targets.forEach(({ y }, index) => {
+      // Linjen löper nod-till-nod (kapitel 01 → 06) — ingen lös kurva som
+      // hänger ovanför första kapitlet; guidelinjen bär resten av spåret
+      let d = `M ${railX} ${points[0].y}`;
+      let previousY = points[0].y;
+      points.slice(1).forEach(({ y }, index) => {
         const bulge = railX + (index % 2 === 0 ? amplitude : -amplitude);
         const span = y - previousY;
         d += ` C ${bulge} ${previousY + span * 0.35}, ${bulge} ${y - span * 0.35}, ${railX} ${y}`;
@@ -63,7 +71,7 @@ export function RaceLine() {
       const key = `${d}|${width}|${height}`;
       if (key === lastGeometryKeyRef.current) return;
       lastGeometryKeyRef.current = key;
-      setGeometry({ d, width, height });
+      setGeometry({ d, width, height, startY: points[0].y, endY: previousY });
     };
 
     const scheduleMeasure = () => {
@@ -101,8 +109,10 @@ export function RaceLine() {
           ease: "none",
           scrollTrigger: {
             trigger: container,
-            start: "top 70%",
-            end: "bottom 70%",
+            // Synkat till nodspannet: ritningen börjar när nod 01 kommer in
+            // och avslutas när nod 06 passerar mitten av viewporten
+            start: `top+=${geometry.startY} 80%`,
+            end: `top+=${geometry.endY} 55%`,
             scrub: 0.6,
           },
         });

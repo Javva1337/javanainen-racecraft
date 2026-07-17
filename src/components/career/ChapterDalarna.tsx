@@ -23,15 +23,22 @@ export function ChapterDalarna() {
           </p>
         </div>
 
-        {/* Inga arkivbilder från åren finns bevarade — grafisk platta med kurbitslinje */}
+        {/* Inga arkivbilder från åren finns bevarade — grafisk platta med kurbitslinje,
+            komponerad som en bokplatta: speglade kurbitsar ramar in plats och år */}
         <figure
-          className="flex aspect-[4/5] flex-col items-center justify-center gap-6 border border-line bg-midnight-800 p-8"
+          className="flex aspect-square flex-col items-center justify-center gap-8 border border-line bg-midnight-800 p-8"
           data-chapter-plate
         >
-          <Kurbits className="w-40 text-flagblue" />
-          <figcaption className="heading-caps text-center text-[0.65rem] tracking-[0.18em] text-mist-dim">
-            Där det började <span aria-hidden="true">·</span> Dalarna, 2002
+          <Kurbits className="w-44 max-w-full text-flagblue" />
+          <figcaption className="flex flex-col items-center gap-2 text-center">
+            <span className="heading-caps text-[0.65rem] tracking-[0.22em] text-mist-dim">
+              Där det började
+            </span>
+            <span className="heading-caps tabular text-2xl font-bold text-snow">
+              Dalarna <span aria-hidden="true">·</span> 2002
+            </span>
           </figcaption>
+          <Kurbits className="w-44 max-w-full rotate-180 text-flagblue" />
         </figure>
       </div>
     </ChapterSection>

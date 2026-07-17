@@ -2,10 +2,12 @@
  * Stort bakgrundsårtal bakom kapitelinnehållet. Ren dekor (aria-hidden).
  * Parallaxen (glider långsammare än scrollen) läggs på av animationslagret
  * via data-backdrop-year; utan JS står siffran stilla.
+ * -z-10 kräver isolate på kapitelsektionen (ChapterSection) — annars målas
+ * det absolut positionerade lagret ÖVER rubriker och brödtext.
  */
 export function BackdropYear({ year, className = "" }: { year: string; className?: string }) {
   return (
-    <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+    <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden" aria-hidden="true">
       <span
         data-backdrop-year
         className={`heading-caps tabular absolute select-none font-extrabold leading-none text-midnight-700 ${className}`}
