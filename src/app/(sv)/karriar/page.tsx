@@ -84,7 +84,7 @@ export default function CareerPage() {
       {/* Berättelsen — kapitel 01–06 längs racinglinjen */}
       <div
         data-story
-        className="relative mx-auto max-w-6xl [--rail-x:1.25rem] sm:[--rail-x:3rem]"
+        className="relative mx-auto max-w-6xl overflow-x-clip [--rail-x:1.25rem] sm:[--rail-x:3rem]"
       >
         {/* Statisk guidelinje — finns alltid, även utan JS */}
         <div

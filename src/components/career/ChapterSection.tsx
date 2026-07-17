@@ -50,7 +50,7 @@ export function ChapterSection({
             </p>
             <h2
               id={`${chapter.id}-heading`}
-              className="heading-caps mt-3 text-4xl font-extrabold leading-[0.95] text-snow sm:text-6xl"
+              className="heading-caps mt-3 text-[clamp(1.75rem,8vw,2.25rem)] font-extrabold leading-[0.95] text-snow sm:text-6xl"
             >
               {chapter.title}
             </h2>

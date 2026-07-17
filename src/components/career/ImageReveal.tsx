@@ -31,7 +31,9 @@ export function ImageReveal({
       },
       { threshold: 0.2, rootMargin: "0px 0px -60px 0px" },
     );
-    observer.observe(element);
+    // OBS: observera föräldern — elementets egen clip-path (inset 100%) ger
+    // annars intersection ratio 0 och revealen skulle aldrig triggas.
+    observer.observe(element.parentElement ?? element);
     return () => observer.disconnect();
   }, []);
 
