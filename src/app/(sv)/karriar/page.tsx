@@ -100,8 +100,8 @@ export default function CareerPage() {
         <ChapterDalarna lang="sv" />
         <ChapterBanracing lang="sv" />
         <ChapterGenombrottet lang="sv" />
-        <ChapterBronset />
-        <QuoteInterlude quote="Med samma material för alla finns inget att gömma sig bakom." />
+        <ChapterBronset lang="sv" />
+        <QuoteInterlude quote="Med samma material för alla finns inget att gömma sig bakom." lang="sv" />
         <ChapterJakten />
         <ChapterVandel
           mode={mode}

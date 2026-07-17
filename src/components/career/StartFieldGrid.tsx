@@ -1,5 +1,6 @@
 "use client";
 
+import type { Lang } from "@/lib/dictionary";
 import { STORY_FACTS } from "@/lib/results";
 
 /**
@@ -15,6 +16,11 @@ const DOT_RADIUS = 3;
 
 /** P3 = tredje rutan i första raden (radordnat startfält) */
 const HERO_INDEX = 2;
+
+const ARIA = {
+  sv: (drivers: number) => `Startfältet i VM 2016: ${drivers} förare, tredjeplatsen markerad`,
+  en: (drivers: number) => `The 2016 Worlds field: ${drivers} drivers, third place highlighted`,
+} as const;
 
 function dotPosition(index: number) {
   const col = index % FIELD_COLS;
@@ -33,7 +39,7 @@ export function heroTravelDelta() {
   return { x: last.cx - hero.cx, y: last.cy - hero.cy };
 }
 
-export function StartFieldGrid({ className = "" }: { className?: string }) {
+export function StartFieldGrid({ lang, className = "" }: { lang: Lang; className?: string }) {
   const hero = heroDotPosition();
   const rows = Array.from({ length: FIELD_ROWS }, (_, row) =>
     Array.from({ length: FIELD_COLS }, (_, col) => row * FIELD_COLS + col).filter(
@@ -46,7 +52,7 @@ export function StartFieldGrid({ className = "" }: { className?: string }) {
       viewBox={`0 0 ${FIELD_COLS * SPACING} ${FIELD_ROWS * SPACING}`}
       className={className}
       role="img"
-      aria-label={`Startfältet i VM 2016: ${FIELD_SIZE} förare, tredjeplatsen markerad`}
+      aria-label={ARIA[lang](FIELD_SIZE)}
     >
       {rows.map((cols, row) => (
         <g key={row} data-field-row>
