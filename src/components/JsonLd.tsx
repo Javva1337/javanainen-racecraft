@@ -1,6 +1,6 @@
 import { SITE_URL, SOCIAL } from "@/lib/site";
 
-/** Globalt schema.org Person (athlete). */
+/** Globalt schema.org Person (athlete). Meriter hämtas ur kanoniska fakta. */
 export function PersonJsonLd() {
   const data = {
     "@context": "https://schema.org",
@@ -15,6 +15,13 @@ export function PersonJsonLd() {
       "Svensk hyrkartförare. Brons i Kart World Championship 2016. Tävlar för Sverige i KWC 2026 i Vandel, Danmark.",
     sameAs: [SOCIAL.instagram, SOCIAL.facebook],
     knowsAbout: ["Rental karting", "Kart World Championship", "Motorsport"],
+    knowsLanguage: ["sv", "en"],
+    award: [
+      "Brons, Kart World Championship 2016 (3:e av 102, vinst i finalen)",
+      "VM-finalist 2015, 2016, 2017 och 2018",
+      "Vinnare SRKC Linköping 2015",
+      "Vinnare SRKC Göteborg 2018",
+    ],
   };
   return (
     <script
@@ -24,13 +31,34 @@ export function PersonJsonLd() {
   );
 }
 
-/** SportsEvent för /vm-2026. */
-export function SportsEventJsonLd() {
+/** Globalt schema.org WebSite — kopplar sajten till personen. */
+export function WebSiteJsonLd() {
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${SITE_URL}/#website`,
+    name: "Rickard Javanainen",
+    url: SITE_URL,
+    inLanguage: ["sv-SE", "en"],
+    publisher: { "@id": `${SITE_URL}/#person` },
+    about: { "@id": `${SITE_URL}/#person` },
+  };
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+}
+
+/** SportsEvent för /vm-2026, med Nations Cup och Individual som subEvents. */
+export function SportsEventJsonLd({ lang = "sv" }: { lang?: "sv" | "en" }) {
   const data = {
     "@context": "https://schema.org",
     "@type": "SportsEvent",
     name: "Kart World Championship 2026",
     alternateName: "Hyrkart-VM 2026",
+    sport: "Rental karting",
     startDate: "2026-07-22",
     endDate: "2026-08-01",
     eventStatus: "https://schema.org/EventScheduled",
@@ -40,8 +68,25 @@ export function SportsEventJsonLd() {
       address: { "@type": "PostalAddress", addressLocality: "Vandel", addressCountry: "DK" },
     },
     competitor: { "@id": `${SITE_URL}/#person` },
+    subEvent: [
+      {
+        "@type": "SportsEvent",
+        name: "KWC Nations Cup 2026",
+        startDate: "2026-07-25",
+        endDate: "2026-07-26",
+      },
+      {
+        "@type": "SportsEvent",
+        name: "KWC Individual 2026",
+        startDate: "2026-07-28",
+        endDate: "2026-08-01",
+      },
+    ],
+    inLanguage: lang === "sv" ? "sv-SE" : "en",
     description:
-      "20:e upplagan av hyrkart-VM. 180 förare. Nations Cup 25–26 juli, KWC Individual 28 juli–1 augusti.",
+      lang === "sv"
+        ? "20:e upplagan av hyrkart-VM. 180 förare. Nations Cup 25–26 juli, KWC Individual 28 juli–1 augusti."
+        : "The 20th edition of the rental kart World Championship. 180 drivers. Nations Cup 25–26 July, KWC Individual 28 July–1 August.",
   };
   return (
     <script
@@ -58,12 +103,14 @@ export function NewsArticleJsonLd({
   date,
   url,
   image,
+  lang,
 }: {
   title: string;
   description: string;
   date: string;
   url: string;
   image: string;
+  lang: "sv" | "en";
 }) {
   const data = {
     "@context": "https://schema.org",
@@ -71,11 +118,32 @@ export function NewsArticleJsonLd({
     headline: title,
     description,
     datePublished: date,
+    dateModified: date,
+    inLanguage: lang === "sv" ? "sv-SE" : "en",
     url,
     image: [image],
     author: { "@id": `${SITE_URL}/#person` },
     publisher: { "@id": `${SITE_URL}/#person` },
     mainEntityOfPage: url,
+  };
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+}
+
+/** FAQPage-schema — frågorna måste vara samma text som syns på sidan. */
+export function FaqJsonLd({ items }: { items: Array<{ q: string; a: string }> }) {
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
   };
   return (
     <script

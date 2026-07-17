@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArticleCard } from "@/components/ArticleCard";
 import { Countdown } from "@/components/Countdown";
 import { CountUp } from "@/components/CountUp";
-import { SportsEventJsonLd } from "@/components/JsonLd";
+import { FaqJsonLd, SportsEventJsonLd } from "@/components/JsonLd";
 import { KurbitsDivider } from "@/components/Kurbits";
 import { LiveStanding } from "@/components/LiveStanding";
 import { NationBadge } from "@/components/NationBadge";
@@ -18,7 +18,7 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: "VM 2026 — hyrkart-VM i Vandel, Danmark",
   description:
-    "Allt om Kart World Championship 2026: schema, format och dagliga rapporter. Nations Cup 25–26 juli, KWC Individual 28 juli–1 augusti. 180 förare, 20:e upplagan. Rickard Javanainen kör för Sverige.",
+    "Schema, format och dagliga rapporter från hyrkart-VM 2026 på Vandel Kart i Danmark. Nations Cup 25–26 juli, individuella VM 28 juli–1 augusti. 180 förare.",
   alternates: {
     canonical: "/vm-2026",
     languages: { "sv-SE": "/vm-2026", en: "/en/vm-2026", "x-default": "/vm-2026" },
@@ -35,6 +35,26 @@ const FORMAT_STATS = [
   { value: 8, label: "kvalheat" },
   { value: 1, label: "semifinal" },
   { value: 18, label: "finalister" },
+];
+
+/** Samma text i synlig FAQ och FAQPage-schema — de får aldrig glida isär. */
+const FAQ_ITEMS = [
+  {
+    q: "Vad är hyrkart-VM?",
+    a: "Kart World Championship (KWC) är världsmästerskapet i hyrkart. Alla kör likvärdiga kartar som arrangören ställer upp med, så det är körningen som avgör, inte materialet. 2026 körs den 20:e upplagan med 180 förare.",
+  },
+  {
+    q: "När och var körs hyrkart-VM 2026?",
+    a: "VM körs 22 juli till 1 augusti 2026 på Vandel Kart i Billund-området på Jylland i Danmark. Nations Cup körs 25–26 juli och det individuella mästerskapet 28 juli–1 augusti.",
+  },
+  {
+    q: "Hur funkar VM-formatet?",
+    a: "Varje förare kör 8 kvalheat där ett resultat räknas bort. Kartarna lottas mellan heaten och startordningen sätts av ett varvs tidskval före varje heat. Semifinalen avgör vilka 18 förare som gör upp i finalen.",
+  },
+  {
+    q: "Hur följer jag Rickard under VM?",
+    a: "Varje tävlingsdag publiceras en rapport här på sajten, samma kväll. Rapporterna finns också som RSS-flöde och nyhetsbrev, och mellan rapporterna kommer klipp och bilder på Instagram.",
+  },
 ];
 
 export default function VmPage() {
@@ -256,6 +276,21 @@ export default function VmPage() {
         </ul>
       </section>
 
+      {/* Vanliga frågor */}
+      <section className="mb-16" aria-labelledby="faq-heading">
+        <h2 id="faq-heading" className="heading-caps mb-6 text-2xl font-bold text-snow">
+          Vanliga frågor
+        </h2>
+        <dl className="max-w-3xl space-y-4">
+          {FAQ_ITEMS.map((item) => (
+            <div key={item.q} className="border border-line bg-midnight-800 p-6">
+              <dt className="heading-caps mb-2 text-lg text-snow">{item.q}</dt>
+              <dd className="text-sm leading-relaxed text-mist">{item.a}</dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+
       {/* Förhandsartiklar före VM */}
       {mode === "before" && vmArticles.length > 0 && (
         <section aria-label="Inför VM">
@@ -269,6 +304,7 @@ export default function VmPage() {
       )}
 
       <SportsEventJsonLd />
+      <FaqJsonLd items={FAQ_ITEMS} />
     </div>
   );
 }
