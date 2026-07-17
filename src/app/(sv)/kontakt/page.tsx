@@ -18,7 +18,8 @@ export default function ContactPage() {
       <header className="mb-10">
         <h1 className="heading-caps text-4xl font-extrabold text-snow sm:text-5xl">Kontakt</h1>
         <p className="mt-3 max-w-2xl text-mist">
-          Partnerskap, press eller något annat? Hör av dig, jag svarar personligen.
+          Partnerskap, pressförfrågningar eller frågor om VM-satsningen? Hör av dig, jag svarar
+          personligen.
         </p>
       </header>
 
@@ -33,7 +34,7 @@ export default function ContactPage() {
             {CONTACT_EMAIL}
           </a>
           <p className="mt-6 text-sm leading-relaxed text-mist">
-            Pressmaterial (bilder i original, bio och faktablad) finns på{" "}
+            Pressmaterial (bilder i originalformat, biografi och faktablad) finns på{" "}
             <a href="/press" className="text-flagblue-bright underline underline-offset-4">
               pressidan
             </a>

@@ -7,6 +7,6 @@ export const alt = "Nyheter — Rickard Javanainen";
 export default async function Image() {
   return buildOgImage({
     title: "Nyheter",
-    subtitle: "Race-rapporter, satsningen och vägen till hyrkart-VM 2026 — skrivna av föraren själv",
+    subtitle: "Racerapporter, satsningen och vägen till hyrkart-VM 2026 — skrivna av föraren själv",
   });
 }

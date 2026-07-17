@@ -5,7 +5,7 @@ import { CATEGORIES, getAllArticles } from "@/lib/content";
 import { DICT } from "@/lib/dictionary";
 
 export const metadata: Metadata = {
-  title: "Nyheter — race-rapporter och vägen till VM",
+  title: "Nyheter — racerapporter och vägen till VM",
   description: DICT.sv.news.description,
   alternates: {
     canonical: "/nyheter",

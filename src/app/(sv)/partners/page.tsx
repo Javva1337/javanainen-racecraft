@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 const PARTNER_INTROS: Record<string, string> = {
   Primab:
-    "Primab har varit partner genom alla år av den här satsningen, från de första VM-åren till comebacken. Ett stöd vi är väldigt tacksamma för.",
+    "Primab har stöttat satsningen sedan de första VM-åren, hela vägen till comebacken. Ett stöd jag är mycket tacksam för.",
   Labatus:
     "Labatus är ny partner för 2026 och följer med hela vägen mot VM i Danmark. Stort tack för förtroendet.",
 };
@@ -25,7 +25,7 @@ const PARTNER_INTROS: Record<string, string> = {
 const PACKAGES = [
   {
     title: "Racingoverall",
-    text: "Logotyp på overallen, synlig i varje foto och varje TV-bild från depå till prispall.",
+    text: "Logotyp på overallen, synlig i bilder, klipp och eventuell sändning från depå, bana och prispall.",
   },
   {
     title: "Digitala kanaler",
@@ -33,7 +33,7 @@ const PACKAGES = [
   },
   {
     title: "Takbox",
-    text: "Takboxen på bilen som tar oss till och från tävlingarna. Rullande exponering genom hela Europa.",
+    text: "Logotyp på takboxen på bilen som tar teamet till och från tävlingarna, med rullande exponering genom Europa.",
   },
   {
     title: "Hjälmlackering",
@@ -47,8 +47,7 @@ export default function PartnersPage() {
       <header className="mb-14">
         <h1 className="heading-caps text-4xl font-extrabold text-snow sm:text-5xl">Partners</h1>
         <p className="mt-3 max-w-2xl text-mist">
-          Syns tillsammans med en svensk VM-satsning i hyrkart, före, under och efter
-          tävlingsveckan.
+          Syns i en svensk VM-satsning i hyrkart, före, under och efter tävlingsveckan.
         </p>
       </header>
 
@@ -113,14 +112,15 @@ export default function PartnersPage() {
       {/* CTA */}
       <section className="border border-line bg-midnight-800 p-10 text-center" aria-labelledby="cta-heading">
         <h2 id="cta-heading" className="heading-caps mb-3 text-2xl font-bold text-snow">
-          Vill du synas här?
+          Vill ditt företag synas i VM-satsningen?
         </h2>
         <p className="mx-auto mb-6 max-w-xl text-mist">
-          Bli en del av satsningen tillsammans med Primab och Labatus. Din logotyp, ditt
-          varumärke, synligt vid varje tävling och i alla kanaler.
+          Din logotyp och ditt varumärke syns vid tävlingar, i digitala kanaler och i
+          rapporteringen från satsningen, tillsammans med Primab och Labatus. Hör av dig så tar
+          vi fram ett konkret förslag.
         </p>
         <Link href="/kontakt" className="btn btn-primary">
-          Bli partner
+          Be om partnerförslag
         </Link>
       </section>
     </div>

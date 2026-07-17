@@ -19,7 +19,7 @@ const GINETTA = STORY_FACTS.ginetta2011;
 
 const COPY = {
   sv: {
-    intro: "Inhoppare mitt i säsongen, utan ett enda försäsongstest att köra in mig på.",
+    intro: "Jag hoppade in mitt i säsongen, utan ett enda försäsongstest.",
     placeSuffix: ":a",
     wins: "vinster",
     races: "race",
