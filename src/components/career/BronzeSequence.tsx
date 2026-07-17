@@ -26,7 +26,7 @@ const COPY = {
     result: "3:e",
     of: "av",
     medal: "VM-brons",
-    note: "Samma mästerskap: 5:a med Sverige i Nations Cup, där en miss i ett depåstopp kostade chansen till segern.",
+    note: "VM avgörs på hela veckans sammanlagda poäng, så trots vinsten i finalracet räckte det till tredje totalt. Samma vecka: 5:a med Sverige i lagtävlingen Nations Cup, där en miss vid ett förarbyte i depån kostade chansen till segern.",
   },
   en: {
     act1Kicker: "The final",

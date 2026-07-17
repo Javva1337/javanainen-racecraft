@@ -45,6 +45,8 @@ export const KWC = {
   datesLabel: { sv: "22 juli–1 augusti 2026", en: "22 July–1 August 2026" },
   nationsCupLabel: { sv: "25–26 juli", en: "25–26 July" },
   individualLabel: { sv: "28 juli–1 augusti", en: "28 July–1 August" },
+  trainingLabel: { sv: "22–24 juli", en: "22–24 July" },
+  restDayLabel: { sv: "27 juli", en: "27 July" },
   /** 22 juli 2026 00:00 CEST */
   vmStart: Date.UTC(2026, 6, 21, 22, 0, 0),
   /** 25 juli 2026 00:00 CEST — countdown-mål (Nations Cup) */
@@ -54,16 +56,16 @@ export const KWC = {
 } as const;
 
 export const TAGLINE = {
-  sv: "För Sverige i hyrkart-VM · Vandel, Danmark · 22 juli–1 augusti 2026",
+  sv: "Kör hyrkart-VM för Sverige · Vandel, Danmark · 22 juli–1 augusti 2026",
   en: "Racing for Sweden at the Kart World Championship · Vandel, Denmark · 22 July–1 August 2026",
 } as const;
 
 export const DEFAULT_TITLE = {
-  sv: "Rickard Javanainen — Sveriges VM-förare i hyrkart | KWC 2026",
+  sv: "Rickard Javanainen — svensk förare i hyrkart-VM | KWC 2026",
   en: "Rickard Javanainen — Sweden's Rental Kart World Championship Driver | KWC 2026",
 } as const;
 
 export const DEFAULT_DESCRIPTION = {
-  sv: "Rickard Javanainen, VM-brons 2016, tävlar för Sverige i hyrkart-VM (KWC) på Vandel Kart i Danmark 22 juli–1 augusti 2026. Dagliga race-rapporter direkt från banan.",
+  sv: "Rickard Javanainen tog VM-brons 2016 och kör hyrkart-VM (KWC) för Sverige på Vandel Kart i Danmark, 22 juli–1 augusti 2026. En race-rapport per dag under VM-veckan.",
   en: "Rickard Javanainen, 2016 World Championship bronze medalist, races for Sweden at the Kart World Championship at Vandel Kart, Denmark, 22 July–1 August 2026. Daily race reports straight from the track.",
 } as const;

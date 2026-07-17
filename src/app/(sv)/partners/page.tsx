@@ -47,7 +47,7 @@ export default function PartnersPage() {
       <header className="mb-14">
         <h1 className="heading-caps text-4xl font-extrabold text-snow sm:text-5xl">Partners</h1>
         <p className="mt-3 max-w-2xl text-mist">
-          Samarbeten byggda på synlighet, trovärdighet och gemensamt värde.
+          Samarbeten som bygger på synlighet och gemensam nytta.
         </p>
       </header>
 

@@ -77,7 +77,7 @@ export default function CareerPage() {
           </h1>
           <p className="mt-3 max-w-2xl text-mist sm:text-lg">
             Från gokart i Dalarna 2002 till hyrkart-VM i Vandel 2026. Hela vägen, med siffrorna
-            som bevisar den — berättad i sex kapitel.
+            som bevisar den, berättad i sex kapitel.
           </p>
           <div className="mt-10 flex justify-center">
             <ScrollCue lang="sv" />
@@ -131,7 +131,7 @@ export default function CareerPage() {
               Facit
             </h2>
             <p className="mt-5 max-w-2xl text-base text-mist sm:text-lg">
-              Siffrorna bakom berättelsen — tidslinjen 2002–2026 som statistik och samtliga
+              Siffrorna bakom berättelsen: tidslinjen 2002–2026 som statistik och samtliga
               resultat.
             </p>
           </header>
@@ -227,7 +227,7 @@ export default function CareerPage() {
                             {row.result.sv}
                           </span>
                           {row.note && (
-                            <span className="text-xs text-mist-dim">— {row.note.sv}</span>
+                            <span className="text-xs text-mist-dim">· {row.note.sv}</span>
                           )}
                         </span>
                       </td>

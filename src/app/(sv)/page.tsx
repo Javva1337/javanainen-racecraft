@@ -22,18 +22,18 @@ export const metadata: Metadata = {
 
 const MERITS = [
   {
-    title: "Top 3 i VM",
-    text: "Bronsmedaljör i VM 2016. Vinst i finalen, 3:e av 102. Finalist i VM 2015, 2017 och 2018.",
+    title: "VM-brons 2016",
+    text: "I hyrkart-VM kör alla lika kartar, så bara föraren avgör. 2016 vann jag finalracet, och eftersom titeln räknas på hela veckans poäng räckte det till tredje av 102 totalt: VM-brons. Även final 2015, 2017 och 2018.",
     highlight: true,
   },
   {
-    title: "Strategisk racecraft",
-    text: "Stark i taktiska beslut under race, konsekvent när det räknas. I ett format som premierar jämnhet är det avgörande.",
+    title: "Läser racet",
+    text: "Racet avgörs lika mycket på huvudet som på gasen. Rätt beslut i rätt läge, race efter race. När alla har lika kartar är det ofta det som skiljer.",
     highlight: false,
   },
   {
     title: "VM Vandel 2026",
-    text: "Kart World Championship, Vandel Kart, Danmark. 22 juli–1 augusti 2026 · Nations Cup 25–26 juli · 180 förare.",
+    text: "Kart World Championship (KWC), Vandel Kart i Danmark, 22 juli–1 augusti 2026. Nations Cup 25–26 juli. 180 förare.",
     highlight: false,
   },
 ];

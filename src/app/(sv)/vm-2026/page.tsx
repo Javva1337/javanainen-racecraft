@@ -26,9 +26,10 @@ export const metadata: Metadata = {
 };
 
 const SCHEDULE = [
-  { dates: "22 juli", label: "VM-veckan börjar", detail: "20:e upplagan av Kart World Championship öppnar på Vandel Kart" },
-  { dates: "25–26 juli", label: "Nations Cup", detail: "Lagtävlingen, Rickard kör för Sverige", highlight: true },
-  { dates: "28 juli–1 augusti", label: "KWC Individual", detail: "Det individuella världsmästerskapet: kvalheat, semifinal och final", highlight: true },
+  { dates: KWC.trainingLabel.sv, label: "Träning", detail: "Fri och officiell träning på Vandel Kart inför tävlingsdagarna" },
+  { dates: KWC.nationsCupLabel.sv, label: "Nations Cup", detail: "Lagtävlingen, där Rickard kör för Sverige tillsammans med tre lagkamrater", highlight: true },
+  { dates: KWC.restDayLabel.sv, label: "Vilodag", detail: "Paus mellan lagtävlingen och det individuella mästerskapet" },
+  { dates: KWC.individualLabel.sv, label: "KWC Individual", detail: "Det individuella världsmästerskapet: kvalheat, semifinal och final", highlight: true },
 ];
 
 const FORMAT_STATS = [
@@ -45,7 +46,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "När och var körs hyrkart-VM 2026?",
-    a: "VM körs 22 juli till 1 augusti 2026 på Vandel Kart i Billund-området på Jylland i Danmark. Nations Cup körs 25–26 juli och det individuella mästerskapet 28 juli–1 augusti.",
+    a: "VM körs 22 juli till 1 augusti 2026 på Vandel Kart i Billund-området på Jylland i Danmark. Veckan börjar med träning 22–24 juli, sedan kör Sverige Nations Cup 25–26 juli, 27 juli är vilodag, och det individuella mästerskapet avgörs 28 juli–1 augusti.",
   },
   {
     q: "Hur funkar VM-formatet?",

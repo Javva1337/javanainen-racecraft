@@ -28,7 +28,7 @@ const CHAPTERS = [
     title: "Racinggymnasiet",
     text: [
       "Racinggymnasiet i Mjölby blev nästa steg. 2007 slutade jag 2:a totalt i Renault Junior Cup, och 2008–2010 körde jag JTCC (Junior Touring Car Championship) med flertalet pallplatser.",
-      "Det var också under de här åren som hyrkarten tog över på allvar. Det som började som träning mellan racehelgerna visade sig vara racing i sin renaste form.",
+      "Det var också under de här åren som hyrkarten tog över på allvar. Hyrkart är racing där alla kör likvärdiga kartar som arrangören ställer upp med, så bara föraren avgör. Det som började som träning mellan racehelgerna visade sig vara racing i sin renaste form.",
     ],
   },
   {
@@ -42,8 +42,8 @@ const CHAPTERS = [
     label: "Hyrkart",
     title: "Den renaste formen av racing",
     text: [
-      "I hyrkart är materialet utjämnat och kartarna lottas. Ingen budget i världen gör dig snabbare, bara föraren räknas. 2015 vann jag första upplagan av SRKC i Linköping, och samma år kom VM-debuten i Italien: 11:e plats av 127 individuellt, semifinalplacering med pallplats, vidare till final. I Nations Cup körde jag en stint från sist till först innan laget gick i mål som femma totalt.",
-      "2016 i Italien: vinst i finalen och 3:e plats totalt, VM-brons. 2017 i Spanien: 12:e av 172, det största startfältet hittills. 2018 vann jag SRKC i Göteborg efter en jämn final mot Max Sjölander, och i VM i Polen samma år gick jag från 16:e till 9:e i finalracet, 14:e av 131 totalt.",
+      "I hyrkart är materialet utjämnat och kartarna lottas. Ingen budget i världen gör dig snabbare, bara föraren räknas. 2015 vann jag första upplagan av SRKC i Linköping, den svenska serien som också är uttagning till VM, och samma år kom VM-debuten i Italien: 11:e plats av 127 individuellt, semifinalplacering med pallplats, vidare till final. I Nations Cup, lagtävlingen där man kör för sitt land i stafett, körde jag min del av racet från sist till först innan laget gick i mål som femma totalt.",
+      "2016 i Italien vann jag finalracet. VM avgörs på sammanlagda poäng från hela veckan, så det räckte till 3:e plats totalt: VM-brons. 2017 i Spanien blev det 12:e av 172, det största startfältet hittills. 2018 vann jag SRKC i Göteborg efter en jämn final mot Max Sjölander, och i VM i Polen samma år gick jag från 16:e till 9:e i finalracet, 14:e av 131 totalt.",
     ],
   },
   {
@@ -51,7 +51,7 @@ const CHAPTERS = [
     title: "Tillbaka på allvar",
     text: [
       "Efter VM i Polen 2018 tog livet över på det finaste sättet: 2020 föddes vår första son, och 2024 kom hans lillebror. Däremellan satte pandemin stopp för det mesta av tävlandet, så det dröjde några år innan jag var tillbaka på riktigt. Men suget försvann aldrig.",
-      "2021 tog jag 6:e platsen totalt i SRKC-finalen, näst bästa svensk, och 2026 blev det 3:e bästa svensk. SRKC, kvalet till hyrkart-VM, har tagit in mig i sin Hall of Fame, hittills som ende förare. Ett fint kvitto på åren som gått. Nu känner jag mig redo att plocka upp drömmen om VM-titeln igen, och det är formen i Danmark som gäller.",
+      "2021 tog jag 6:e platsen totalt i SRKC-finalen, näst bäst av svenskarna, och 2026 blev det 3:e bästa svensk. SRKC, kvalet till hyrkart-VM, har tagit in mig i sin Hall of Fame, seriens hedersgalleri, hittills som ende förare. Ett fint kvitto på åren som gått. Nu känner jag mig redo att plocka upp drömmen om VM-titeln igen, och det är formen i Danmark som gäller.",
     ],
   },
   {

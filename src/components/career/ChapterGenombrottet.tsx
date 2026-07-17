@@ -8,9 +8,9 @@ const chapter = CHAPTERS.find((c) => c.id === "genombrottet")!;
 const COPY = {
   sv: {
     lede: "Tillbaka i karten — och allt föll på plats.",
-    p1Highlight: "Vinnare av första upplagan av SRKC Linköping.",
-    p1Rest: " Samma år: VM-debut i Italien, 11:e av 127 individuellt.",
-    p2: "Men det var i Nations Cup som stinten kom att definiera året.",
+    p1Highlight: "Vinnare av första upplagan av SRKC Linköping",
+    p1Rest: ", den svenska serien som också är uttagning till VM. Samma år: VM-debut i Italien, 11:e av 127 individuellt.",
+    p2: "Men det var i Nations Cup, lagtävlingen där man kör för sitt land i stafett, som min stint kom att definiera året. Stinten är den del av racet jag körde innan nästa i laget tog över.",
   },
   en: {
     lede: "Back in the kart — and everything fell into place.",
