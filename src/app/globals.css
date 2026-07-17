@@ -62,6 +62,13 @@
     outline: 2px solid var(--color-flagblue-bright);
     outline-offset: 2px;
   }
+
+  /* Tailwind v4:s preflight sätter inte längre cursor: pointer på knappar —
+     återställ affordansen för allt klickbart (ej inaktiverat) */
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]) {
+    cursor: pointer;
+  }
 }
 
 /* Rubrikstil: Archivo expanderad, versaler, generös spärrning */
