@@ -94,6 +94,7 @@ export function ArticleView({ article, lang }: { article: Article; lang: Lang })
         date={frontmatter.date}
         url={url}
         image={`${url}/opengraph-image`}
+        lang={lang}
       />
     </article>
   );

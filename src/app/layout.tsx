@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { archivo, inter } from "@/lib/fonts";
 import { DEFAULT_DESCRIPTION, DEFAULT_TITLE, SITE_URL } from "@/lib/site";
-import { PersonJsonLd } from "@/components/JsonLd";
+import { PersonJsonLd, WebSiteJsonLd } from "@/components/JsonLd";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -38,6 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         {children}
         <PersonJsonLd />
+        <WebSiteJsonLd />
         <Analytics />
       </body>
     </html>

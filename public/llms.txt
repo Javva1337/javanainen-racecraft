@@ -1,0 +1,32 @@
+# Rickard Javanainen
+
+> Officiell sajt för Rickard Javanainen, svensk hyrkartförare. Brons i Kart World Championship 2016 (3:e av 102, vinst i finalen). Tävlar för Sverige i hyrkart-VM (KWC) på Vandel Kart i Danmark 22 juli–1 augusti 2026. Under VM publiceras en race-rapport per tävlingsdag, samma kväll.
+
+Sajten är på svenska med engelska versioner av startsidan, VM-sidan och nyheterna under /en.
+
+## Nyckelfakta
+
+- Förare: Rickard Javanainen, Sverige. Uppvuxen i Dalarna, började i gokart 2002.
+- Bästa VM-resultat: 3:e av 102 i KWC 2016, med vinst i finalracet.
+- VM-finalist 2015, 2016, 2017 och 2018. Vinnare av SRKC Linköping 2015 och SRKC Göteborg 2018.
+- KWC 2026: 20:e upplagan, 180 förare, Vandel Kart i Billund-området, Danmark.
+- Nations Cup körs 25–26 juli 2026, det individuella VM:et 28 juli–1 augusti 2026.
+- Format: 8 kvalheat per förare (ett resultat räknas bort), semifinal, final med 18 förare. Kartarna lottas mellan heaten och startordningen sätts av ett varvs tidskval före varje heat.
+- Partners: Primab (med genom alla år) och Labatus (ny 2026).
+
+## Huvudsidor
+
+- [Startsida](https://rickardjavanainen.se/): vem Rickard är och det senaste från banan
+- [VM 2026](https://rickardjavanainen.se/vm-2026): schema, format, banfakta och vanliga frågor om hyrkart-VM
+- [Nyheter](https://rickardjavanainen.se/nyheter): race-rapporter och vägen till VM, även som [RSS](https://rickardjavanainen.se/feed.xml)
+- [Karriär](https://rickardjavanainen.se/karriar): resultat och tidslinje 2002–2026
+- [Om Rickard](https://rickardjavanainen.se/om): storyn från gokart i Dalarna till VM-brons
+- [Partners](https://rickardjavanainen.se/partners): samarbeten inför VM 2026
+- [Press](https://rickardjavanainen.se/press): bilder, bio och faktablad
+- [Kontakt](https://rickardjavanainen.se/kontakt): rickard@rickardjavanainen.se
+
+## In English
+
+- [Home](https://rickardjavanainen.se/en): Rickard Javanainen, Sweden's rental kart World Championship driver
+- [Worlds 2026](https://rickardjavanainen.se/en/vm-2026): schedule, format and FAQ for the 2026 Kart World Championship
+- [News](https://rickardjavanainen.se/en/news): race reports in English
