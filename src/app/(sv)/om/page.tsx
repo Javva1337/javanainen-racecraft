@@ -8,7 +8,10 @@ export const metadata: Metadata = {
   title: "Om Rickard — från Dalarna till världstoppen",
   description:
     "Storyn i kapitel: gokart i Dalarna vid 10 års ålder, Racinggymnasiet i Mjölby, banracing i Ginetta, och vägen till VM-brons i hyrkart och comebacken mot Vandel 2026.",
-  alternates: { canonical: "/om" },
+  alternates: {
+    canonical: "/om",
+    languages: { "sv-SE": "/om", en: "/en/about", "x-default": "/om" },
+  },
 };
 
 /** Storyn i kapitelform (à la Leclerc). Text baserad på legacy-copy + kanoniska fakta. */
