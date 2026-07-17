@@ -26,8 +26,13 @@ function req(body: unknown, password: string | null = LOSENORD): Request {
   });
 }
 
-/** Mockar hela Git Data-sekvensen: ref → commit → (blob) → tree → commit → ref-patch. */
-function githubMock() {
+/**
+ * Mockar hela Git Data-sekvensen: ref → commit → (contents-koll för
+ * .en.mdx) → (blob) → tree → commit → ref-patch.
+ * `enMdxExists` styr svaret från contents-anropet som avgör om en
+ * kvarvarande engelsk fil ska raderas vid ompublicering utan EN.
+ */
+function githubMock({ enMdxExists = false }: { enMdxExists?: boolean } = {}) {
   return vi.fn(async (url: string | URL, opts?: RequestInit) => {
     const u = String(url);
     const method = opts?.method ?? "GET";
@@ -38,6 +43,11 @@ function githubMock() {
     }
     if (u.includes("/git/commits/head-sha") && method === "GET") {
       return json({ tree: { sha: "base-tree-sha" } });
+    }
+    if (u.includes("/contents/content/nyheter/") && u.includes(".en.mdx") && method === "GET") {
+      return enMdxExists
+        ? json({ sha: "existing-en-sha" })
+        : json({ message: "Not Found" }, 404);
     }
     if (u.endsWith("/git/blobs") && method === "POST") {
       return json({ sha: "blob-sha" }, 201);
@@ -280,6 +290,9 @@ describe("POST /api/admin/publicera — engelsk version", () => {
     );
     expect(svEntry.content).toContain("Dag 3: Från P12 till P5 i regnet");
     expect(svEntry.content).not.toContain("Day 3:");
+
+    // Komplett engelska → ingen onödig existens-koll mot contents-API:t
+    expect(anrop(mock, "/contents/content/nyheter/", "GET")).toHaveLength(0);
   });
 
   test("engelska + bild → en.mdx innehåller samma bildsökväg", async () => {
@@ -293,5 +306,54 @@ describe("POST /api/admin/publicera — engelsk version", () => {
     const tree = JSON.parse((treeCall[1] as RequestInit).body as string);
     const enEntry = tree.tree.find((e: { path: string }) => e.path.endsWith(".en.mdx"));
     expect(enEntry.content).toContain("/images/vm/vm-dag-3-fran-p12-till-p5-i-regnet.jpg");
+  });
+
+  test("bara tomorrowEn ifyllt när svenska tomorrow är tom → 200 utan engelsk fil", async () => {
+    const mock = githubMock();
+    vi.stubGlobal("fetch", mock);
+    const res = await POST(req({ ...giltigPayload, tomorrow: "", tomorrowEn: "Stale value" }));
+    expect(res.status).toBe(200);
+
+    const [treeCall] = anrop(mock, "/git/trees", "POST");
+    const tree = JSON.parse((treeCall[1] as RequestInit).body as string);
+    expect(tree.tree).toHaveLength(2);
+  });
+
+  test("komplett engelska + tomorrowEn men tom svensk tomorrow → en.mdx utan tomorrow", async () => {
+    const mock = githubMock();
+    vi.stubGlobal("fetch", mock);
+    const res = await POST(req({ ...giltigPayload, tomorrow: "", ...engelskaFalt }));
+    expect(res.status).toBe(200);
+
+    const [treeCall] = anrop(mock, "/git/trees", "POST");
+    const tree = JSON.parse((treeCall[1] as RequestInit).body as string);
+    const enEntry = tree.tree.find((e: { path: string }) => e.path.endsWith(".en.mdx"));
+    expect(enEntry.content).not.toContain("tomorrow:");
+  });
+
+  test("ompublicering utan EN raderar befintlig .en.mdx", async () => {
+    const mock = githubMock({ enMdxExists: true });
+    vi.stubGlobal("fetch", mock);
+    const res = await POST(req(giltigPayload));
+    expect(res.status).toBe(200);
+
+    const [treeCall] = anrop(mock, "/git/trees", "POST");
+    const tree = JSON.parse((treeCall[1] as RequestInit).body as string);
+    const enEntry = tree.tree.find((e: { path: string }) => e.path.endsWith(".en.mdx"));
+    expect(enEntry).toBeDefined();
+    expect(enEntry.sha).toBeNull();
+    expect(enEntry.content).toBeUndefined();
+    expect(tree.tree).toHaveLength(3);
+  });
+
+  test("ompublicering utan EN när ingen .en.mdx finns → ingen raderings-entry", async () => {
+    const mock = githubMock({ enMdxExists: false });
+    vi.stubGlobal("fetch", mock);
+    const res = await POST(req(giltigPayload));
+    expect(res.status).toBe(200);
+
+    const [treeCall] = anrop(mock, "/git/trees", "POST");
+    const tree = JSON.parse((treeCall[1] as RequestInit).body as string);
+    expect(tree.tree).toHaveLength(2);
   });
 });

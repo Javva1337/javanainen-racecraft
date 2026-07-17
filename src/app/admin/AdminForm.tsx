@@ -207,7 +207,8 @@ export function AdminForm() {
           imageBase64: utkast.imageDataUrl ?? undefined,
           titleEn: utkast.titleEn.trim() || undefined,
           descriptionEn: utkast.descriptionEn.trim() || undefined,
-          tomorrowEn: utkast.tomorrowEn.trim() || undefined,
+          tomorrowEn:
+            utkast.tomorrow.trim() !== "" ? utkast.tomorrowEn.trim() || undefined : undefined,
           bodyEn: utkast.bodyEn.trim() || undefined,
         }),
       });
@@ -417,7 +418,17 @@ export function AdminForm() {
           placeholder="Imorgon väntar två heat till på en torrare bana."
           className={faltKlass}
           value={utkast.tomorrow}
-          onChange={(e) => uppdatera("tomorrow", e.target.value)}
+          onChange={(e) => {
+            const varde = e.target.value;
+            // Rensa ev. kvarvarande engelsk "imorgon"-text när svenska
+            // fältet töms — annars ligger den kvar osynlig och kan
+            // stranda publiceringen eller läcka in i EN-artikeln.
+            setUtkast((aktuellt) => ({
+              ...aktuellt,
+              tomorrow: varde,
+              tomorrowEn: varde.trim() === "" ? "" : aktuellt.tomorrowEn,
+            }));
+          }}
         />
       </div>
 
