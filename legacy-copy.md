@@ -115,7 +115,7 @@ Mästerskapet vinns av den förare som samlar flest poäng över hela tävlingen
 
 Krav:
 - Stabil prestation över flera dagar
-- Hantera olika startpositioner
+- Prestera på ett varvs tidskval före varje heat (sätter startordningen)
 - Beslutsfattande i trafik
 - Anpassning till olika karts
 

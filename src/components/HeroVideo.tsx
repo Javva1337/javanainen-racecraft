@@ -1,14 +1,18 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const VOLUME_RAMP_MS = 500;
 
 type Props = {
   src: string;
-  poster: string;
   soundOnLabel: string;
   soundOffLabel: string;
+  /**
+   * Ladda videon först efter mount och bara på ≥769 px — mobil får stillbilden
+   * i stället (sparar ~4 MB och LCP-bandbredd). Opt-in per sida.
+   */
+  deferOnMobile?: boolean;
 };
 
 /**
@@ -16,11 +20,19 @@ type Props = {
  * reglerna kräver det); klicket på knappen räknas som user gesture och får
  * unmuta. Volymen rampas upp mjukt i stället för att slå på tvärt.
  * Vid prefers-reduced-motion döljs både video och knapp — stillbilden
- * under (renderas av Hero) tar över.
+ * under (renderas av Hero) tar över. OBS: inget poster-attribut på videon —
+ * den optimerade stillbilden ligger redan under, och attributet skulle
+ * ladda ned rå-JPEG:en en gång till.
  */
-export function HeroVideo({ src, poster, soundOnLabel, soundOffLabel }: Props) {
+export function HeroVideo({ src, soundOnLabel, soundOffLabel, deferOnMobile }: Props) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isSoundOn, setIsSoundOn] = useState(false);
+  const [isDeferredOff, setIsDeferredOff] = useState(deferOnMobile === true);
+
+  useEffect(() => {
+    if (!deferOnMobile) return;
+    if (window.matchMedia("(min-width: 769px)").matches) setIsDeferredOff(false);
+  }, [deferOnMobile]);
 
   const toggleSound = () => {
     const video = videoRef.current;
@@ -47,12 +59,13 @@ export function HeroVideo({ src, poster, soundOnLabel, soundOffLabel }: Props) {
     setIsSoundOn(true);
   };
 
+  if (isDeferredOff) return null;
+
   return (
     <>
       <video
         ref={videoRef}
         src={src}
-        poster={poster}
         autoPlay
         muted
         loop

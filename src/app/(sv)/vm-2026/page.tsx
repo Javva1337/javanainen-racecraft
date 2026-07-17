@@ -151,7 +151,8 @@ export default function VmPage() {
         </div>
         <div className="max-w-3xl space-y-4 leading-relaxed text-mist">
           <p>
-            Alla kör likvärdigt material i samma viktklass, och kartarna lottas mellan heaten.
+            Alla kör likvärdigt material i samma viktklass, kartarna lottas mellan heaten och
+            startordningen sätts av ett varvs tidskval före varje heat.
             Varje förare kör <strong className="text-snow">8 kvalheat</strong>, ett resultat
             räknas bort, innan semifinalen avgör vilka{" "}
             <strong className="text-snow">18 förare</strong> som gör upp i finalen.
