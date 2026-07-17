@@ -58,6 +58,7 @@ export default function CareerPage() {
           imageAlt="Prispallsceremoni — Rickard Javanainen i mitten på pallen"
           soundOnLabel={DICT.sv.common.soundOn}
           soundOffLabel={DICT.sv.common.soundOff}
+          deferVideoOnMobile
         />
         <div
           className="absolute inset-0 bg-gradient-to-t from-midnight via-midnight/70 to-midnight/20"
