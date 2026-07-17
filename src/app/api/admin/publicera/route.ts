@@ -12,7 +12,6 @@ const MAX_IMAGE_BASE64_LEN = 5_600_000;
 const MAX_BODY_LEN = 50_000;
 
 const DEFAULT_REPO = "Javva1337/javanainen-racecraft";
-const DEFAULT_BRANCH = "main";
 
 type Validerat = { falt: RapportFalt; imageBase64: string | null };
 
@@ -131,7 +130,11 @@ async function publiceraTillGitHub(
   { falt, imageBase64 }: Validerat,
 ): Promise<void> {
   const repo = process.env.ADMIN_GITHUB_REPO ?? DEFAULT_REPO;
-  const branch = process.env.ADMIN_GITHUB_BRANCH ?? DEFAULT_BRANCH;
+  // Utan explicit branch: committa till branchen som deployen byggdes från
+  // (VERCEL_GIT_COMMIT_REF) så publiceringen alltid träffar den branch
+  // produktionen faktiskt serverar.
+  const branch =
+    process.env.ADMIN_GITHUB_BRANCH ?? process.env.VERCEL_GIT_COMMIT_REF ?? "main";
   const bas = `/repos/${repo}`;
 
   const ref = await gh(token, "GET", `${bas}/git/ref/heads/${branch}`);

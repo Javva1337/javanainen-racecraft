@@ -129,14 +129,18 @@ export function AdminForm() {
     setLaddad(true);
   }, []);
 
-  // Autospara utkastet vid varje ändring.
+  // Autospara utkastet — debouncat så att stora utkast (bild som data-URL)
+  // inte serialiseras på varje tangenttryckning.
   useEffect(() => {
     if (!laddad) return;
-    try {
-      localStorage.setItem(UTKAST_KEY, JSON.stringify(utkast));
-    } catch {
-      // Fullt/blockerat lagringsutrymme — publicering påverkas inte.
-    }
+    const timer = setTimeout(() => {
+      try {
+        localStorage.setItem(UTKAST_KEY, JSON.stringify(utkast));
+      } catch {
+        // Fullt/blockerat lagringsutrymme — publicering påverkas inte.
+      }
+    }, 400);
+    return () => clearTimeout(timer);
   }, [utkast, laddad]);
 
   function uppdatera<K extends keyof Utkast>(falt: K, varde: Utkast[K]) {
@@ -223,7 +227,7 @@ export function AdminForm() {
           type="button"
           className="btn btn-secondary mt-6"
           onClick={() => {
-            setUtkast(tomtUtkast());
+            setUtkast({ ...tomtUtkast(), day: String(getVmDay() ?? "") });
             setStatus({ typ: "idle" });
           }}
         >
