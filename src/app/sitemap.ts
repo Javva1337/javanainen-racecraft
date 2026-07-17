@@ -16,6 +16,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/en",
     "/en/vm-2026",
     "/en/news",
+    "/en/career",
+    "/en/about",
+    "/en/partners",
+    "/en/media",
+    "/en/contact",
+    "/en/press",
   ].map((route) => ({
     url: `${SITE_URL}${route}`,
     changeFrequency: "weekly" as const,
