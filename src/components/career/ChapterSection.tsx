@@ -24,7 +24,7 @@ export function ChapterSection({
       tabIndex={-1}
       aria-labelledby={`${chapter.id}-heading`}
       data-chapter={chapter.id}
-      className={`relative scroll-mt-20 py-24 outline-none sm:py-36 ${className}`}
+      className={`relative isolate scroll-mt-20 py-24 outline-none sm:py-36 ${className}`}
     >
       {/* Nod på racinglinjen — gul punkt, kapitelnummer, kurbits vid pallplatsår */}
       <div
