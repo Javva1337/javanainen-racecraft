@@ -131,8 +131,8 @@ export const DICT = {
       /** Banteasern på startsidan — layouterna med onboard-varven */
       tracksHeading: "Så ser årets VM-banor ut",
       tracksIntro:
-        "Vandel Gokart körs i två layouter under VM-veckan — hela Nations Cup körs på VG Classic, medan VG New 23 används i det individuella mästerskapet. Följ med runt ett varv på vardera.",
-      tracksOnboard: "Se ett varv onboard →",
+        "Vandel Gokart körs i två layouter under VM-veckan — hela Nations Cup körs på VG Classic, medan VG New 23 används i det individuella mästerskapet. Följ med på ett träningspass på vardera, inklusive layouternas specialare: depåstoppet på Classic och genvägen på New 23.",
+      tracksOnboard: "Följ med på ett träningspass →",
       tracksMore: "Mer om banan och layouterna →",
     },
     common: {
@@ -261,8 +261,8 @@ export const DICT = {
       heroNc: "Nations Cup · 25–26 July",
       tracksHeading: "This year's Worlds track layouts",
       tracksIntro:
-        "Vandel Gokart runs two layouts during the Worlds week — the entire Nations Cup is raced on VG Classic, while VG New 23 is used in the individual championship. Ride along for a lap of each.",
-      tracksOnboard: "Watch an onboard lap →",
+        "Vandel Gokart runs two layouts during the Worlds week — the entire Nations Cup is raced on VG Classic, while VG New 23 is used in the individual championship. Ride along for a training session on each, including each layout's special feature: the pit stop on Classic and the shortcut on New 23.",
+      tracksOnboard: "Ride along for a training session →",
       tracksMore: "More about the track and layouts →",
     },
     common: {

@@ -282,7 +282,7 @@ export default async function NationsCupPage({ searchParams }: Props) {
               </a>
             ) : (
               <p className="heading-caps shrink-0 border border-line px-5 py-3 text-xs tracking-[0.12em] text-mist-dim">
-                Varvfilm kommer — ett varv med Rickard på {activeLayout.name}
+                Träningsfilm kommer — ett pass med Rickard på {activeLayout.name}
               </p>
             )}
           </div>
