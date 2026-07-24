@@ -5,6 +5,8 @@
  * lokal tid (CEST).
  */
 
+import { KWC } from "./site";
+
 export type NcScheduleRow = {
   /** "09:30" eller "15:45–17:45" — renderas med .tabular */
   time: string;
@@ -126,6 +128,23 @@ export const LAP_DELTA_NOTE =
 export const NC_DRAW = {
   result: null as "A" | "B" | null,
 };
+
+export const SEMIFINAL_START: Record<"A" | "B", string> = {
+  A: "15:45",
+  B: "18:10",
+};
+
+/**
+ * Lottningens tre lägen: före lottningen, efter utan känt resultat,
+ * efter med resultat. `result` är injicerbar för testbarhet.
+ */
+export function drawState(
+  now: number,
+  result: "A" | "B" | null = NC_DRAW.result,
+): "before" | "pending" | "done" {
+  if (now < KWC.nationsCupDraw) return "before";
+  return result === null ? "pending" : "done";
+}
 
 /** Rad som ska gulmarkeras, givet lottningsresultatet. */
 export function isSwedenRow(row: NcScheduleRow, result: "A" | "B" | null): boolean {

@@ -8,12 +8,14 @@ import { KurbitsDivider } from "@/components/Kurbits";
 import { NationBadge } from "@/components/NationBadge";
 import { Reveal } from "@/components/Reveal";
 import {
+  drawState,
   isSwedenRow,
   LAP_DELTA_NOTE,
   NC_DRAW,
   NC_FACTS,
   NC_FAQ,
   NC_SCHEDULE,
+  SEMIFINAL_START,
   SWEDEN_TEAM,
   TRACK_LAYOUTS,
 } from "@/lib/nations-cup";
@@ -33,17 +35,6 @@ const FORMAT_STATS = [
   { value: NC_FACTS.totalHours, label: "timmar racing per lag" },
   { value: NC_FACTS.mandatoryStops, label: "depåstopp per race" },
 ];
-
-/** Lottningsrutans tre lägen: före lottningen, efter utan resultat, efter med resultat. */
-function drawState(now: number): "before" | "pending" | "done" {
-  if (now < KWC.nationsCupDraw) return "before";
-  return NC_DRAW.result === null ? "pending" : "done";
-}
-
-const SEMIFINAL_START: Record<"A" | "B", string> = {
-  A: "15:45",
-  B: "18:10",
-};
 
 type Props = { searchParams: Promise<{ bana?: string }> };
 

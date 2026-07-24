@@ -32,6 +32,13 @@ export const DICT = {
       openMenu: "Öppna menyn",
       closeMenu: "Stäng menyn",
       switchTo: "English",
+      /** Headerns tävlings-chip — etiketten följer sajtläget */
+      cta: {
+        before: "Nations Cup",
+        during: "VM pågår",
+        after: "Så gick VM",
+        ariaLabel: "Aktuell tävling: Nations Cup",
+      },
     },
     footer: {
       builtIn: "Byggd i Sverige. Tävlar för Sverige.",
@@ -109,6 +116,18 @@ export const DICT = {
       followVm: "Följ VM-rapporterna",
       becomePartner: "Se möjligheter som partner",
       seeCareer: "Se karriären",
+      /** "Just nu"-teasern för aktuell tävling, direkt under hjälten */
+      nowKicker: "Just nu",
+      nowTitle: "Nations Cup — lagtävlingen i VM",
+      nowDrawBefore:
+        "Lottningen av grupp A och B sker lördag 25 juli kl 09:30 — den avgör om Sverige kör sin semifinal 15:45 eller 18:10.",
+      nowDrawPending:
+        "Lottningen är genomförd — resultatet uppdateras här inom kort.",
+      nowDrawDone: (result: string, start: string) =>
+        `Lottningen är klar: Sverige kör semifinal ${result} med start ${start} på lördagen.`,
+      nowAfter: "Nations Cup är avgjord — så gick det för Sverige.",
+      nowCta: "Tidsschema, format och Sveriges lag →",
+      heroNc: "Nations Cup · 25–26 juli",
     },
     common: {
       readMore: "Läs mer",
@@ -133,6 +152,12 @@ export const DICT = {
       openMenu: "Open menu",
       closeMenu: "Close menu",
       switchTo: "Svenska",
+      cta: {
+        before: "Nations Cup",
+        during: "Worlds live",
+        after: "How it went",
+        ariaLabel: "Current competition: Nations Cup",
+      },
     },
     footer: {
       builtIn: "Built in Sweden. Racing for Sweden.",
@@ -210,6 +235,16 @@ export const DICT = {
       followVm: "Follow the Worlds",
       becomePartner: "Become a partner",
       seeCareer: "See the career",
+      nowKicker: "Right now",
+      nowTitle: "Nations Cup — the Worlds team event",
+      nowDrawBefore:
+        "The group A/B draw takes place Saturday 25 July at 09:30 — it decides whether Sweden races its semifinal at 15:45 or 18:10.",
+      nowDrawPending: "The draw is done — the result will be posted here shortly.",
+      nowDrawDone: (result: string, start: string) =>
+        `The draw is done: Sweden races semifinal ${result}, starting ${start} on Saturday.`,
+      nowAfter: "The Nations Cup is decided — here's how it went for Sweden.",
+      nowCta: "Follow the Nations Cup →",
+      heroNc: "Nations Cup · 25–26 July",
     },
     common: {
       readMore: "Read more",

@@ -1,11 +1,15 @@
 import { describe, expect, it } from "vitest";
 import {
+  drawState,
   isSwedenRow,
+  NC_DRAW,
   NC_FAQ,
   NC_SCHEDULE,
+  SEMIFINAL_START,
   TRACK_LAYOUTS,
   type NcScheduleRow,
 } from "./nations-cup";
+import { KWC } from "./site";
 
 describe("TRACK_LAYOUTS", () => {
   it("har unika id:n och bildvägar under /images/banor/", () => {
@@ -61,6 +65,32 @@ describe("isSwedenRow", () => {
     expect(isSwedenRow(draw, null)).toBe(true);
     expect(isSwedenRow(draw, "A")).toBe(true);
     expect(isSwedenRow(briefing, null)).toBe(false);
+  });
+});
+
+describe("drawState", () => {
+  it("är 'before' fram till lottningsögonblicket", () => {
+    expect(drawState(KWC.nationsCupDraw - 1, null)).toBe("before");
+    expect(drawState(KWC.nationsCupDraw - 1, "A")).toBe("before");
+  });
+
+  it("är 'pending' efter lottningen tills resultatet är satt", () => {
+    expect(drawState(KWC.nationsCupDraw, null)).toBe("pending");
+  });
+
+  it("är 'done' efter lottningen när resultatet är satt", () => {
+    expect(drawState(KWC.nationsCupDraw, "A")).toBe("done");
+    expect(drawState(KWC.nationsCupDraw, "B")).toBe("done");
+  });
+
+  it("läser NC_DRAW.result som standard", () => {
+    const expected = NC_DRAW.result === null ? "pending" : "done";
+    expect(drawState(KWC.nationsCupDraw)).toBe(expected);
+  });
+
+  it("har starttider för båda semifinalerna", () => {
+    expect(SEMIFINAL_START.A).toBe("15:45");
+    expect(SEMIFINAL_START.B).toBe("18:10");
   });
 });
 

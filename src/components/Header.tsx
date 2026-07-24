@@ -4,12 +4,16 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { altLangPath, DICT, type Lang } from "@/lib/dictionary";
+import type { SiteMode } from "@/lib/mode";
+import { HeaderCta } from "./HeaderCta";
 
 type Props = {
   lang: Lang;
+  /** SSR-läget från layouten — HeaderCta håller det färskt på klienten */
+  mode: SiteMode;
 };
 
-export function Header({ lang }: Props) {
+export function Header({ lang, mode }: Props) {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -51,7 +55,7 @@ export function Header({ lang }: Props) {
         </Link>
 
         <nav aria-label={lang === "sv" ? "Huvudmeny" : "Main navigation"} className="hidden lg:block">
-          <ul className="flex items-center gap-6">
+          <ul className="flex items-center gap-5 xl:gap-6">
             {t.items.map((item) => (
               <li key={item.href}>
                 <Link
@@ -71,6 +75,7 @@ export function Header({ lang }: Props) {
         </nav>
 
         <div className="flex items-center gap-4">
+          <HeaderCta lang={lang} initialMode={mode} variant="bar" />
           <Link
             href={switchHref}
             className="heading-caps text-xs tracking-[0.14em] text-mist transition-colors duration-200 hover:text-snow"
@@ -105,6 +110,9 @@ export function Header({ lang }: Props) {
           aria-label={lang === "sv" ? "Mobilmeny" : "Mobile navigation"}
           className="border-t border-line bg-midnight/95 backdrop-blur-md lg:hidden"
         >
+          <div className="mx-auto max-w-6xl px-4 pt-4 sm:hidden sm:px-6">
+            <HeaderCta lang={lang} initialMode={mode} variant="menu" />
+          </div>
           <ul className="mx-auto max-w-6xl px-4 py-4 sm:px-6">
             {t.items.map((item) => (
               <li key={item.href}>

@@ -53,6 +53,8 @@ export const KWC = {
   nationsCupStart: Date.UTC(2026, 6, 24, 22, 0, 0),
   /** 25 juli 2026 09:30 CEST — lottning av grupp A/B i Nations Cup */
   nationsCupDraw: Date.UTC(2026, 6, 25, 7, 30, 0),
+  /** 26 juli 2026 20:10 CEST — final A i mål, Nations Cup avgjord */
+  nationsCupEnd: Date.UTC(2026, 6, 26, 18, 10, 0),
   /** 1 augusti 2026 24:00 CEST — VM slut */
   vmEnd: Date.UTC(2026, 7, 1, 22, 0, 0),
 } as const;

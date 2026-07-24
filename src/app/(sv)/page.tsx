@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArticleCard } from "@/components/ArticleCard";
+import { CurrentCompetition } from "@/components/CurrentCompetition";
 import { Hero } from "@/components/Hero";
 import { KurbitsDivider } from "@/components/Kurbits";
 import { Reveal } from "@/components/Reveal";
@@ -47,31 +48,8 @@ export default function HomePage() {
     <>
       <Hero lang="sv" mode={mode} latestArticle={latest} />
 
-      {/* Meritkort */}
-      <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6" aria-label="Meriter">
-        <div className="grid gap-4 md:grid-cols-3">
-          {MERITS.map((merit, index) => (
-            <Reveal key={merit.title} delayMs={index * 60}>
-              <div
-                className={`h-full border bg-midnight-800 p-6 transition-colors duration-200 hover:border-flagblue ${
-                  merit.highlight ? "border-flagyellow/40" : "border-line"
-                }`}
-              >
-                <h2
-                  className={`heading-caps mb-3 text-lg ${
-                    merit.highlight ? "text-flagyellow" : "text-snow"
-                  }`}
-                >
-                  {merit.title}
-                </h2>
-                <p className="text-sm leading-relaxed text-mist">{merit.text}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
-      <KurbitsDivider className="mx-auto max-w-6xl px-4 sm:px-6" />
+      {/* Aktuell tävling — direkt under hjälten */}
+      <CurrentCompetition lang="sv" mode={mode} />
 
       {/* Senaste nytt */}
       <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6" aria-label="Senaste nytt">
@@ -95,6 +73,32 @@ export default function HomePage() {
         ) : (
           <p className="text-mist">Första rapporten publiceras inom kort.</p>
         )}
+      </section>
+
+      <KurbitsDivider className="mx-auto max-w-6xl px-4 sm:px-6" />
+
+      {/* Meritkort */}
+      <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6" aria-label="Meriter">
+        <div className="grid gap-4 md:grid-cols-3">
+          {MERITS.map((merit, index) => (
+            <Reveal key={merit.title} delayMs={index * 60}>
+              <div
+                className={`h-full border bg-midnight-800 p-6 transition-colors duration-200 hover:border-flagblue ${
+                  merit.highlight ? "border-flagyellow/40" : "border-line"
+                }`}
+              >
+                <h2
+                  className={`heading-caps mb-3 text-lg ${
+                    merit.highlight ? "text-flagyellow" : "text-snow"
+                  }`}
+                >
+                  {merit.title}
+                </h2>
+                <p className="text-sm leading-relaxed text-mist">{merit.text}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
       </section>
 
       <KurbitsDivider className="mx-auto max-w-6xl px-4 sm:px-6" />

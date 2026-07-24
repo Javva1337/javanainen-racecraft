@@ -85,26 +85,37 @@ export function Hero({
                 <Countdown target={KWC.nationsCupStart} lang={lang} />
               </div>
               <div className="flex flex-wrap gap-3">
-                <Link href={vmHref} className="btn btn-primary">
-                  {t.followVm}
-                </Link>
                 <Link
-                  href={lang === "sv" ? "/partners" : "/en/partners"}
-                  className="btn btn-secondary"
+                  href={lang === "sv" ? "/vm-2026/nations-cup" : vmHref}
+                  className="btn btn-primary"
                 >
-                  {t.becomePartner}
+                  {t.heroNc}
                 </Link>
+                {lang === "sv" ? (
+                  <Link href={vmHref} className="btn btn-secondary">
+                    {t.followVm}
+                  </Link>
+                ) : (
+                  <Link href="/en/partners" className="btn btn-secondary">
+                    {t.becomePartner}
+                  </Link>
+                )}
               </div>
             </div>
           )}
 
           {mode === "during" && (
-            <Link
-              href={latestHref}
-              className="btn btn-primary text-base"
-            >
-              {t.liveBanner}
-            </Link>
+            <div className="flex flex-wrap gap-3">
+              <Link href={latestHref} className="btn btn-primary text-base">
+                {t.liveBanner}
+              </Link>
+              <Link
+                href={lang === "sv" ? "/vm-2026/nations-cup" : vmHref}
+                className="btn btn-secondary text-base"
+              >
+                {t.heroNc}
+              </Link>
+            </div>
           )}
 
           {mode === "after" && (
