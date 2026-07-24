@@ -6,6 +6,7 @@ import { CurrentCompetition } from "@/components/CurrentCompetition";
 import { Hero } from "@/components/Hero";
 import { KurbitsDivider } from "@/components/Kurbits";
 import { Reveal } from "@/components/Reveal";
+import { TrackLayoutsTeaser } from "@/components/TrackLayoutsTeaser";
 import { getAllArticles } from "@/lib/content";
 import { getSiteMode } from "@/lib/mode";
 import { DEFAULT_DESCRIPTION, DEFAULT_TITLE, PARTNERS } from "@/lib/site";
@@ -73,6 +74,8 @@ export default function EnglishHomePage() {
           <p className="text-mist">The first report is coming shortly.</p>
         )}
       </section>
+
+      <TrackLayoutsTeaser lang="en" />
 
       <KurbitsDivider className="mx-auto max-w-6xl px-4 sm:px-6" />
 

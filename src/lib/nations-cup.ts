@@ -87,6 +87,8 @@ export type TrackLayout = {
   youtubeLabel: string;
   lapNote: string;
   tacticalElement: string;
+  /** Var under VM-veckan layouten används */
+  usage: string;
 };
 
 export const TRACK_LAYOUTS: TrackLayout[] = [
@@ -98,10 +100,12 @@ export const TRACK_LAYOUTS: TrackLayout[] = [
     height: 586,
     alt: "Bankarta över VG Classic-layouten på Vandel Gokart, med kurvorna numrerade 1–10",
     youtubeUrl: "https://youtu.be/VORmLu4uhAs",
-    youtubeLabel: "Se Rickard köra ett varv på VG Classic",
+    youtubeLabel: "Följ med på ett träningspass på VG Classic",
     lapNote: "Ungefär två sekunder långsammare per varv än VG New 23.",
     tacticalElement:
-      "Här används depåstoppet som taktiskt element — när på varvet stoppet tas kan avgöra positioner.",
+      "Classic-layoutens specialare är depåstoppet: ett obligatoriskt stopp genom depån där stoppmaskinens knapp ska tryckas och grönt ljus inväntas innan färden fortsätter. När stoppet läggs kan avgöra positioner — och i träningspasset i filmen testas det också.",
+    usage:
+      "Hela Nations Cup körs på den här layouten — semifinal och final, alla sex timmar. I det individuella VM:t körs den dessutom dag 1 och 3.",
   },
   {
     id: "vg-new-23",
@@ -111,10 +115,12 @@ export const TRACK_LAYOUTS: TrackLayout[] = [
     height: 591,
     alt: "Bankarta över VG New 23-layouten på Vandel Gokart, med kurvorna numrerade 1–9",
     youtubeUrl: "https://youtu.be/GlXN--bT2xI",
-    youtubeLabel: "Se Rickard köra ett varv på VG New 23",
+    youtubeLabel: "Följ med på ett träningspass på VG New 23",
     lapNote: "Ungefär två sekunder snabbare per varv än VG Classic.",
     tacticalElement:
-      "Här används en genvägschikan som taktiskt element — den öppnar för andra linjeval än på Classic.",
+      "New 23-layoutens specialare är genvägen: en chikan som får tas som taktiskt element och öppnar helt andra linjeval än på Classic. I träningspasset i filmen testas även genvägen.",
+    usage:
+      "Används inte i Nations Cup. I det individuella VM:t körs den dag 2 och 4, och inför semifinal och final lottas layouten på tävlingsdagen.",
   },
 ];
 
@@ -195,8 +201,8 @@ export const NC_FAQ: Array<{ q: string; a: string }> = [
     a: "Vid varje depåstopp byter laget både förare och kart, och den nya karten lottas fram på plats bland två alternativ. Ingen kan alltså bygga sitt race på en enskild bra kart — tanken är att körningen ska avgöra, inte materialet. Tre stopp är obligatoriska i både semifinal och final.",
   },
   {
-    q: "Vilka banlayouter körs i Nations Cup 2026?",
-    a: "Vandel Gokart körs i två varianter, VG Classic och VG New 23, båda medurs. Olika race körs på olika layouter, så förarna behöver lära sig båda. VG New 23 är nästan exakt två sekunder snabbare per varv än VG Classic.",
+    q: "Vilken banlayout körs i Nations Cup 2026?",
+    a: "Hela Nations Cup — semifinal och final, totalt sex timmar per lag — körs på VG Classic-layouten. I det individuella mästerskapet senare under VM-veckan alternerar layouterna dag för dag: VG Classic dag 1 och 3, VG New 23 dag 2 och 4, och inför semifinal och final lottas layouten på tävlingsdagen. VG New 23 är nästan exakt två sekunder snabbare per varv, så förarna behöver behärska båda under veckan.",
   },
   {
     q: "Vilka kör för Sverige i Nations Cup 2026?",
