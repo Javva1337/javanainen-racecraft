@@ -228,10 +228,11 @@ export default async function NationsCupPage({ searchParams }: Props) {
             <strong className="text-snow">
               Hela Nations Cup körs på VG Classic
             </strong>{" "}
-            — semifinal och final, alla sex timmar. VG New 23 används i det individuella
-            mästerskapet senare i veckan, så förarna behöver ändå behärska båda varianterna
-            — samtidigt som karten byts vid varje depåstopp. Den ständiga anpassningen till
-            ny kart är en stor del av tävlingen.
+            — semifinal och final, alla sex timmar. I det individuella mästerskapet senare
+            i veckan alternerar layouterna dag för dag: Classic dag 1 och 3, New 23 dag 2
+            och 4, och inför semifinal och final lottas layouten på tävlingsdagen. Förarna
+            behöver alltså behärska båda varianterna — samtidigt som karten byts vid varje
+            depåstopp. Den ständiga anpassningen till ny kart är en stor del av tävlingen.
           </p>
           <p>
             {LAP_DELTA_NOTE} Det låter lite, men över ett race på flera hundra varv är det
