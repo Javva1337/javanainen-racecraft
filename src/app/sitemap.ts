@@ -29,7 +29,7 @@ const BILINGUAL_PAIRS: Array<[sv: string, en: string]> = [
   ["/press", "/en/press"],
 ];
 
-const SV_ONLY_PAGES: string[] = [];
+const SV_ONLY_PAGES: string[] = ["/vm-2026/nations-cup"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const bilingualPages = BILINGUAL_PAIRS.flatMap(([sv, en]) =>

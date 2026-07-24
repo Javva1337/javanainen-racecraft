@@ -52,6 +52,37 @@ describe("categoryLabel", () => {
   });
 });
 
+describe("aktuell tävling-copy", () => {
+  test("båda språken har alla nycklar för header-chip och startsideteaser", () => {
+    for (const lang of ["sv", "en"] as const) {
+      const nav = DICT[lang].nav.cta;
+      expect(nav.before).toBeTruthy();
+      expect(nav.during).toBeTruthy();
+      expect(nav.after).toBeTruthy();
+      expect(nav.ariaLabel).toBeTruthy();
+
+      const home = DICT[lang].home;
+      expect(home.nowKicker).toBeTruthy();
+      expect(home.nowTitle).toBeTruthy();
+      expect(home.nowDrawBefore).toBeTruthy();
+      expect(home.nowDrawPending).toBeTruthy();
+      expect(home.nowAfter).toBeTruthy();
+      expect(home.nowCta).toBeTruthy();
+      expect(home.heroNc).toBeTruthy();
+      const done = home.nowDrawDone("A", "15:45");
+      expect(done).toContain("A");
+      expect(done).toContain("15:45");
+
+      const live = DICT[lang].live;
+      expect(live.heading).toBeTruthy();
+      expect(live.timingLabel).toBeTruthy();
+      expect(live.timingDesc).toBeTruthy();
+      expect(live.broadcastLabel).toBeTruthy();
+      expect(live.broadcastDesc).toBeTruthy();
+    }
+  });
+});
+
 describe("contactForm-copy", () => {
   test("båda språken har alla nycklar", () => {
     for (const lang of ["sv", "en"] as const) {

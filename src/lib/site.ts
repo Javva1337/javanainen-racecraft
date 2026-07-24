@@ -14,6 +14,13 @@ export const SOCIAL = {
   facebook: "https://www.facebook.com/rickardjavanainen",
 } as const;
 
+/** Officiella livelänkar under VM-veckan — banans tidtagning och arrangörens sändning. */
+export const LIVE = {
+  timing:
+    "https://modules.sms-timing.com/livetiming/?key=dmFuZGVsZ29rYXJ0OjM4M2ZiYzQ4LTdhNzMtNDJmZi1hN2FjLTBkODIzMTBiNDI1Ng%3d%3d",
+  broadcast: "https://www.youtube.com/playlist?list=PLK9DNQIa52qg&si=64iWrII4nxaZ7x2s",
+} as const;
+
 /** Primab först — partner genom alla år av satsningen. Labatus ny för 2026. */
 export const PARTNERS = [
   {
@@ -51,6 +58,10 @@ export const KWC = {
   vmStart: Date.UTC(2026, 6, 21, 22, 0, 0),
   /** 25 juli 2026 00:00 CEST — countdown-mål (Nations Cup) */
   nationsCupStart: Date.UTC(2026, 6, 24, 22, 0, 0),
+  /** 25 juli 2026 09:30 CEST — lottning av grupp A/B i Nations Cup */
+  nationsCupDraw: Date.UTC(2026, 6, 25, 7, 30, 0),
+  /** 26 juli 2026 20:10 CEST — final A i mål, Nations Cup avgjord */
+  nationsCupEnd: Date.UTC(2026, 6, 26, 18, 10, 0),
   /** 1 augusti 2026 24:00 CEST — VM slut */
   vmEnd: Date.UTC(2026, 7, 1, 22, 0, 0),
 } as const;

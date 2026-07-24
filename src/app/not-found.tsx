@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Kurbits } from "@/components/Kurbits";
+import { getSiteMode } from "@/lib/mode";
 
 export const metadata: Metadata = {
   title: "Bredsladd — sidan finns inte",
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
 export default function NotFound() {
   return (
     <>
-      <Header lang="sv" />
+      <Header lang="sv" mode={getSiteMode()} />
       <main className="flex min-h-[70vh] flex-col items-center justify-center px-4 pt-16 text-center">
         <p className="heading-caps tabular mb-4 text-7xl font-bold text-flagblue sm:text-8xl">
           404

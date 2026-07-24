@@ -5,6 +5,7 @@ import { Countdown } from "@/components/Countdown";
 import { CountUp } from "@/components/CountUp";
 import { FaqJsonLd, SportsEventJsonLd } from "@/components/JsonLd";
 import { KurbitsDivider } from "@/components/Kurbits";
+import { LiveLinks } from "@/components/LiveLinks";
 import { LiveStanding } from "@/components/LiveStanding";
 import { NationBadge } from "@/components/NationBadge";
 import { NewsletterForm } from "@/components/NewsletterForm";
@@ -213,6 +214,14 @@ export default function VmPage() {
               resultat bidrar till nationens totala placering. Rickard har kört Nations Cup i alla
               sina VM: femma 2015–2017 och sexa 2018. I år är målet att ta Sverige till pallen.
             </p>
+            <p className="mt-3 text-sm">
+              <Link
+                href="/vm-2026/nations-cup"
+                className="text-flagblue-bright underline underline-offset-4 transition-colors duration-200 hover:text-snow"
+              >
+                Tidsschema, format och banlayouter →
+              </Link>
+            </p>
           </div>
         </div>
       </section>
@@ -236,6 +245,7 @@ export default function VmPage() {
         <h2 id="folj-heading" className="heading-caps mb-6 text-2xl font-bold text-snow">
           Så följer du VM
         </h2>
+        <LiveLinks lang="sv" className="mb-8 max-w-3xl" />
         <ul className="max-w-3xl space-y-3 text-mist">
           <li className="flex gap-3">
             <span className="text-flagyellow" aria-hidden="true">→</span>

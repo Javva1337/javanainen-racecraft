@@ -32,6 +32,13 @@ export const DICT = {
       openMenu: "Öppna menyn",
       closeMenu: "Stäng menyn",
       switchTo: "English",
+      /** Headerns tävlings-chip — etiketten följer sajtläget. Kort, en rad. */
+      cta: {
+        before: "Nations Cup",
+        during: "Live",
+        after: "Så gick VM",
+        ariaLabel: "Aktuell tävling: Nations Cup",
+      },
     },
     footer: {
       builtIn: "Byggd i Sverige. Tävlar för Sverige.",
@@ -109,6 +116,18 @@ export const DICT = {
       followVm: "Följ VM-rapporterna",
       becomePartner: "Se möjligheter som partner",
       seeCareer: "Se karriären",
+      /** "Just nu"-teasern för aktuell tävling, direkt under hjälten */
+      nowKicker: "Just nu",
+      nowTitle: "Nations Cup — lagtävlingen i VM",
+      nowDrawBefore:
+        "Lottningen av grupp A och B sker lördag 25 juli kl 09:30 — den avgör om Sverige kör sin semifinal 15:45 eller 18:10.",
+      nowDrawPending:
+        "Lottningen är genomförd — resultatet uppdateras här inom kort.",
+      nowDrawDone: (result: string, start: string) =>
+        `Lottningen är klar: Sverige kör semifinal ${result} med start ${start} på lördagen.`,
+      nowAfter: "Nations Cup är avgjord — så gick det för Sverige.",
+      nowCta: "Tidsschema, format och Sveriges lag →",
+      heroNc: "Nations Cup · 25–26 juli",
     },
     common: {
       readMore: "Läs mer",
@@ -116,6 +135,14 @@ export const DICT = {
       partnersLine: "VM-satsningen möjliggörs av Primab och Labatus",
       soundOn: "Slå på ljud",
       soundOff: "Stäng av ljud",
+    },
+    /** Livelänkarna — det läsarna letar efter under tävlingsdagarna */
+    live: {
+      heading: "Följ racen live",
+      timingLabel: "Live-timing",
+      timingDesc: "Varvtider och positioner i realtid, direkt från banans tidtagning",
+      broadcastLabel: "Livesändning",
+      broadcastDesc: "Racen direkt på arrangörens YouTube-kanal",
     },
   },
   en: {
@@ -133,6 +160,12 @@ export const DICT = {
       openMenu: "Open menu",
       closeMenu: "Close menu",
       switchTo: "Svenska",
+      cta: {
+        before: "Nations Cup",
+        during: "Live",
+        after: "How it went",
+        ariaLabel: "Current competition: Nations Cup",
+      },
     },
     footer: {
       builtIn: "Built in Sweden. Racing for Sweden.",
@@ -210,6 +243,16 @@ export const DICT = {
       followVm: "Follow the Worlds",
       becomePartner: "Become a partner",
       seeCareer: "See the career",
+      nowKicker: "Right now",
+      nowTitle: "Nations Cup — the Worlds team event",
+      nowDrawBefore:
+        "The group A/B draw takes place Saturday 25 July at 09:30 — it decides whether Sweden races its semifinal at 15:45 or 18:10.",
+      nowDrawPending: "The draw is done — the result will be posted here shortly.",
+      nowDrawDone: (result: string, start: string) =>
+        `The draw is done: Sweden races semifinal ${result}, starting ${start} on Saturday.`,
+      nowAfter: "The Nations Cup is decided — here's how it went for Sweden.",
+      nowCta: "Follow the Nations Cup →",
+      heroNc: "Nations Cup · 25–26 July",
     },
     common: {
       readMore: "Read more",
@@ -217,6 +260,13 @@ export const DICT = {
       partnersLine: "The Worlds campaign is made possible by Primab and Labatus",
       soundOn: "Turn sound on",
       soundOff: "Turn sound off",
+    },
+    live: {
+      heading: "Follow the racing live",
+      timingLabel: "Live timing",
+      timingDesc: "Lap times and positions in real time, straight from the track",
+      broadcastLabel: "Live stream",
+      broadcastDesc: "The races live on the organiser's YouTube channel",
     },
   },
 } as const;
@@ -227,6 +277,9 @@ export type Dictionary = (typeof DICT)["sv"] | (typeof DICT)["en"];
 const PATH_MAP: ReadonlyArray<readonly [string, string]> = [
   ["/", "/en"],
   ["/vm-2026", "/en/vm-2026"],
+  /** SV-only-sida — språkväxlaren landar på närmaste engelska motsvarighet.
+      Måste ligga EFTER /vm-2026-paret: en→sv-uppslaget tar första träffen. */
+  ["/vm-2026/nations-cup", "/en/vm-2026"],
   ["/nyheter", "/en/news"],
   ["/karriar", "/en/career"],
   ["/om", "/en/about"],
