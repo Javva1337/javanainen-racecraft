@@ -20,6 +20,7 @@ describe("TRACK_LAYOUTS", () => {
       expect(layout.alt.length).toBeGreaterThan(0);
       expect(layout.width).toBeGreaterThan(0);
       expect(layout.height).toBeGreaterThan(0);
+      expect(layout.usage.length).toBeGreaterThan(0);
     }
   });
 });

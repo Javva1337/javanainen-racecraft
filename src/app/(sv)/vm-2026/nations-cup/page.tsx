@@ -115,7 +115,8 @@ export default async function NationsCupPage({ searchParams }: Props) {
           Tidsschema
         </h2>
         <p className="mb-6 max-w-2xl text-sm text-mist">
-          Alla tider i dansk lokal tid, enligt arrangörens officiella regler.
+          Alla tider i dansk lokal tid, enligt arrangörens officiella regler. Samtliga race
+          körs på VG Classic-layouten.
         </p>
         <div className="space-y-8">
           {NC_SCHEDULE.map((day) => (
@@ -183,7 +184,8 @@ export default async function NationsCupPage({ searchParams }: Props) {
             lagen från varje semifinal går till final A, som körs på söndagen över{" "}
             <strong className="text-snow">fyra timmar</strong> och avgör vilken nation som
             blir världsmästare. Lagen som slutar nia till sextonde kör final B tidigare
-            samma dag. Varje lag får alltså sex timmars racing under helgen.
+            samma dag. Varje lag får alltså sex timmars racing under helgen, och alla sex
+            timmarna körs på banans <strong className="text-snow">Classic-layout</strong>.
           </p>
           <p>
             Varje race börjar med fem minuters kval som sätter startordningen, och föraren
@@ -203,14 +205,6 @@ export default async function NationsCupPage({ searchParams }: Props) {
             finalen {NC_FACTS.pitWindows.final.join(", ")} minuter in.
           </p>
           <p>
-            Regelbrott ger tidsstraff i tre nivåer — {NC_FACTS.penalties.light},{" "}
-            {NC_FACTS.penalties.medium} eller {NC_FACTS.penalties.hard} stopp — som
-            avtjänas i en straffzon på banan, med {NC_FACTS.penaltyExtraSeconds} sekunders
-            påslag eftersom zonen genar banan. De tre bästa lagen i final A får pokaler och
-            vinnarlaget kör nästa års Nations Cup gratis; de tre bästa i final B får
-            medaljer.
-          </p>
-          <p>
             <Link
               href="/nyheter/sa-funkar-hyrkart-vm"
               className="text-flagblue-bright underline underline-offset-4 transition-colors duration-200 hover:text-snow"
@@ -228,13 +222,16 @@ export default async function NationsCupPage({ searchParams }: Props) {
         </h2>
         <div className="mb-8 max-w-3xl space-y-4 leading-relaxed text-mist">
           <p>
-            Vandel Gokart körs i två varianter under VM:{" "}
+            Vandel Gokart körs i två varianter under VM-veckan:{" "}
             <strong className="text-snow">VG Classic</strong> och{" "}
-            <strong className="text-snow">VG New 23</strong>, båda medurs. Olika race körs
-            på olika layouter, så som förare räcker det inte att lära sig en bana — det är
-            två varianter som ska sitta, samtidigt som karten byts vid varje depåstopp.
-            Kombinationen att ständigt anpassa sig till ny kart och rätt layout är en stor
-            del av tävlingen.
+            <strong className="text-snow">VG New 23</strong>, båda medurs.{" "}
+            <strong className="text-snow">
+              Hela Nations Cup körs på VG Classic
+            </strong>{" "}
+            — semifinal och final, alla sex timmar. VG New 23 används i det individuella
+            mästerskapet senare i veckan, så förarna behöver ändå behärska båda varianterna
+            — samtidigt som karten byts vid varje depåstopp. Den ständiga anpassningen till
+            ny kart är en stor del av tävlingen.
           </p>
           <p>
             {LAP_DELTA_NOTE} Det låter lite, men över ett race på flera hundra varv är det
@@ -268,6 +265,7 @@ export default async function NationsCupPage({ searchParams }: Props) {
           <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
             <div className="max-w-xl">
               <h3 className="heading-caps mb-2 text-lg text-snow">{activeLayout.name}</h3>
+              <p className="mb-2 text-sm leading-relaxed text-snow">{activeLayout.usage}</p>
               <p className="text-sm leading-relaxed text-mist">{activeLayout.tacticalElement}</p>
               <p className="mt-2 text-sm text-mist">
                 <span className="text-flagyellow">{activeLayout.lapNote}</span>

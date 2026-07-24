@@ -128,6 +128,12 @@ export const DICT = {
       nowAfter: "Nations Cup är avgjord — så gick det för Sverige.",
       nowCta: "Tidsschema, format och Sveriges lag →",
       heroNc: "Nations Cup · 25–26 juli",
+      /** Banteasern på startsidan — layouterna med onboard-varven */
+      tracksHeading: "Så ser årets VM-banor ut",
+      tracksIntro:
+        "Vandel Gokart körs i två layouter under VM-veckan — hela Nations Cup körs på VG Classic, medan VG New 23 används i det individuella mästerskapet. Följ med runt ett varv på vardera.",
+      tracksOnboard: "Se ett varv onboard →",
+      tracksMore: "Mer om banan och layouterna →",
     },
     common: {
       readMore: "Läs mer",
@@ -253,6 +259,11 @@ export const DICT = {
       nowAfter: "The Nations Cup is decided — here's how it went for Sweden.",
       nowCta: "Follow the Nations Cup →",
       heroNc: "Nations Cup · 25–26 July",
+      tracksHeading: "This year's Worlds track layouts",
+      tracksIntro:
+        "Vandel Gokart runs two layouts during the Worlds week — the entire Nations Cup is raced on VG Classic, while VG New 23 is used in the individual championship. Ride along for a lap of each.",
+      tracksOnboard: "Watch an onboard lap →",
+      tracksMore: "More about the track and layouts →",
     },
     common: {
       readMore: "Read more",

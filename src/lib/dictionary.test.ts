@@ -73,6 +73,11 @@ describe("aktuell tävling-copy", () => {
       expect(done).toContain("A");
       expect(done).toContain("15:45");
 
+      expect(home.tracksHeading).toBeTruthy();
+      expect(home.tracksIntro).toBeTruthy();
+      expect(home.tracksOnboard).toBeTruthy();
+      expect(home.tracksMore).toBeTruthy();
+
       const live = DICT[lang].live;
       expect(live.heading).toBeTruthy();
       expect(live.timingLabel).toBeTruthy();

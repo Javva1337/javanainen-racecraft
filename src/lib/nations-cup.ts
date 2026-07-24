@@ -87,6 +87,8 @@ export type TrackLayout = {
   youtubeLabel: string;
   lapNote: string;
   tacticalElement: string;
+  /** Var under VM-veckan layouten används */
+  usage: string;
 };
 
 export const TRACK_LAYOUTS: TrackLayout[] = [
@@ -102,6 +104,8 @@ export const TRACK_LAYOUTS: TrackLayout[] = [
     lapNote: "Ungefär två sekunder långsammare per varv än VG New 23.",
     tacticalElement:
       "Här används depåstoppet som taktiskt element — när på varvet stoppet tas kan avgöra positioner.",
+    usage:
+      "Hela Nations Cup körs på den här layouten — semifinal och final, alla sex timmar.",
   },
   {
     id: "vg-new-23",
@@ -115,6 +119,8 @@ export const TRACK_LAYOUTS: TrackLayout[] = [
     lapNote: "Ungefär två sekunder snabbare per varv än VG Classic.",
     tacticalElement:
       "Här används en genvägschikan som taktiskt element — den öppnar för andra linjeval än på Classic.",
+    usage:
+      "Används inte i Nations Cup — den här layouten körs under VM-veckans individuella mästerskap.",
   },
 ];
 
@@ -195,8 +201,8 @@ export const NC_FAQ: Array<{ q: string; a: string }> = [
     a: "Vid varje depåstopp byter laget både förare och kart, och den nya karten lottas fram på plats bland två alternativ. Ingen kan alltså bygga sitt race på en enskild bra kart — tanken är att körningen ska avgöra, inte materialet. Tre stopp är obligatoriska i både semifinal och final.",
   },
   {
-    q: "Vilka banlayouter körs i Nations Cup 2026?",
-    a: "Vandel Gokart körs i två varianter, VG Classic och VG New 23, båda medurs. Olika race körs på olika layouter, så förarna behöver lära sig båda. VG New 23 är nästan exakt två sekunder snabbare per varv än VG Classic.",
+    q: "Vilken banlayout körs i Nations Cup 2026?",
+    a: "Hela Nations Cup — semifinal och final, totalt sex timmar per lag — körs på VG Classic-layouten. Vandel Gokart har också en andra variant, VG New 23, som används i det individuella mästerskapet senare under VM-veckan. VG New 23 är nästan exakt två sekunder snabbare per varv än VG Classic, så förarna behöver behärska båda under veckan.",
   },
   {
     q: "Vilka kör för Sverige i Nations Cup 2026?",
