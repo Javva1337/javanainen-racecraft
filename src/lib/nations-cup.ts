@@ -82,7 +82,7 @@ export type TrackLayout = {
   width: number;
   height: number;
   alt: string;
-  /** Fyll i när klippet är uppladdat — null visar "Varvfilm kommer". Enda stället att ändra. */
+  /** null visar "Varvfilm kommer"-läget i stället för YouTube-knappen */
   youtubeUrl: string | null;
   youtubeLabel: string;
   lapNote: string;
@@ -97,7 +97,7 @@ export const TRACK_LAYOUTS: TrackLayout[] = [
     width: 1064,
     height: 586,
     alt: "Bankarta över VG Classic-layouten på Vandel Gokart, med kurvorna numrerade 1–10",
-    youtubeUrl: null,
+    youtubeUrl: "https://youtu.be/VORmLu4uhAs",
     youtubeLabel: "Se Rickard köra ett varv på VG Classic",
     lapNote: "Ungefär två sekunder långsammare per varv än VG New 23.",
     tacticalElement:
@@ -110,7 +110,7 @@ export const TRACK_LAYOUTS: TrackLayout[] = [
     width: 1049,
     height: 591,
     alt: "Bankarta över VG New 23-layouten på Vandel Gokart, med kurvorna numrerade 1–9",
-    youtubeUrl: null,
+    youtubeUrl: "https://youtu.be/GlXN--bT2xI",
     youtubeLabel: "Se Rickard köra ett varv på VG New 23",
     lapNote: "Ungefär två sekunder snabbare per varv än VG Classic.",
     tacticalElement:
