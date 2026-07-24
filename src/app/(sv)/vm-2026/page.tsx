@@ -213,6 +213,14 @@ export default function VmPage() {
               resultat bidrar till nationens totala placering. Rickard har kört Nations Cup i alla
               sina VM: femma 2015–2017 och sexa 2018. I år är målet att ta Sverige till pallen.
             </p>
+            <p className="mt-3 text-sm">
+              <Link
+                href="/vm-2026/nations-cup"
+                className="text-flagblue-bright underline underline-offset-4 transition-colors duration-200 hover:text-snow"
+              >
+                Tidsschema, format och banlayouter →
+              </Link>
+            </p>
           </div>
         </div>
       </section>

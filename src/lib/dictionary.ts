@@ -227,6 +227,9 @@ export type Dictionary = (typeof DICT)["sv"] | (typeof DICT)["en"];
 const PATH_MAP: ReadonlyArray<readonly [string, string]> = [
   ["/", "/en"],
   ["/vm-2026", "/en/vm-2026"],
+  /** SV-only-sida — språkväxlaren landar på närmaste engelska motsvarighet.
+      Måste ligga EFTER /vm-2026-paret: en→sv-uppslaget tar första träffen. */
+  ["/vm-2026/nations-cup", "/en/vm-2026"],
   ["/nyheter", "/en/news"],
   ["/karriar", "/en/career"],
   ["/om", "/en/about"],

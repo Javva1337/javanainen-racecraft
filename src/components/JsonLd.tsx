@@ -102,6 +102,73 @@ export function SportsEventJsonLd({ lang = "sv" }: { lang?: "sv" | "en" }) {
   );
 }
 
+/** SportsEvent för /vm-2026/nations-cup, med semifinaler och finaler som subEvents. */
+export function NationsCupJsonLd() {
+  const location = {
+    "@type": "Place",
+    name: "Vandel Kart",
+    address: { "@type": "PostalAddress", addressLocality: "Vandel", addressCountry: "DK" },
+  };
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "SportsEvent",
+    name: "KWC Nations Cup 2026",
+    alternateName: "Nations Cup — lagtävlingen i hyrkart-VM 2026",
+    sport: "Rental karting",
+    startDate: "2026-07-25",
+    endDate: "2026-07-26",
+    eventStatus: "https://schema.org/EventScheduled",
+    location,
+    competitor: { "@id": `${SITE_URL}/#person` },
+    superEvent: {
+      "@type": "SportsEvent",
+      name: "Kart World Championship 2026",
+      startDate: "2026-07-22",
+      endDate: "2026-08-01",
+      location,
+    },
+    subEvent: [
+      {
+        "@type": "SportsEvent",
+        name: "Nations Cup semifinal A",
+        startDate: "2026-07-25T15:45:00+02:00",
+        endDate: "2026-07-25T17:45:00+02:00",
+        location,
+      },
+      {
+        "@type": "SportsEvent",
+        name: "Nations Cup semifinal B",
+        startDate: "2026-07-25T18:10:00+02:00",
+        endDate: "2026-07-25T20:10:00+02:00",
+        location,
+      },
+      {
+        "@type": "SportsEvent",
+        name: "Nations Cup final B",
+        startDate: "2026-07-26T11:45:00+02:00",
+        endDate: "2026-07-26T15:45:00+02:00",
+        location,
+      },
+      {
+        "@type": "SportsEvent",
+        name: "Nations Cup final A",
+        startDate: "2026-07-26T16:10:00+02:00",
+        endDate: "2026-07-26T20:10:00+02:00",
+        location,
+      },
+    ],
+    inLanguage: "sv-SE",
+    description:
+      "Lagtävlingen i hyrkart-VM 2026. Semifinaler 25 juli, finaler 26 juli på Vandel Kart i Danmark. Sverige kör med fyra förare — vilken semifinal avgörs av lottningen 25 juli kl 09:30.",
+  };
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+}
+
 /** NewsArticle per artikel. */
 export function NewsArticleJsonLd({
   title,
