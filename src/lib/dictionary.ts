@@ -32,10 +32,10 @@ export const DICT = {
       openMenu: "Öppna menyn",
       closeMenu: "Stäng menyn",
       switchTo: "English",
-      /** Headerns tävlings-chip — etiketten följer sajtläget */
+      /** Headerns tävlings-chip — etiketten följer sajtläget. Kort, en rad. */
       cta: {
         before: "Nations Cup",
-        during: "VM pågår",
+        during: "Live",
         after: "Så gick VM",
         ariaLabel: "Aktuell tävling: Nations Cup",
       },
@@ -136,6 +136,14 @@ export const DICT = {
       soundOn: "Slå på ljud",
       soundOff: "Stäng av ljud",
     },
+    /** Livelänkarna — det läsarna letar efter under tävlingsdagarna */
+    live: {
+      heading: "Följ racen live",
+      timingLabel: "Live-timing",
+      timingDesc: "Varvtider och positioner i realtid, direkt från banans tidtagning",
+      broadcastLabel: "Livesändning",
+      broadcastDesc: "Racen direkt på arrangörens YouTube-kanal",
+    },
   },
   en: {
     nav: {
@@ -154,7 +162,7 @@ export const DICT = {
       switchTo: "Svenska",
       cta: {
         before: "Nations Cup",
-        during: "Worlds live",
+        during: "Live",
         after: "How it went",
         ariaLabel: "Current competition: Nations Cup",
       },
@@ -252,6 +260,13 @@ export const DICT = {
       partnersLine: "The Worlds campaign is made possible by Primab and Labatus",
       soundOn: "Turn sound on",
       soundOff: "Turn sound off",
+    },
+    live: {
+      heading: "Follow the racing live",
+      timingLabel: "Live timing",
+      timingDesc: "Lap times and positions in real time, straight from the track",
+      broadcastLabel: "Live stream",
+      broadcastDesc: "The races live on the organiser's YouTube channel",
     },
   },
 } as const;

@@ -5,6 +5,7 @@ import { Countdown } from "@/components/Countdown";
 import { CountUp } from "@/components/CountUp";
 import { FaqJsonLd, SportsEventJsonLd } from "@/components/JsonLd";
 import { KurbitsDivider } from "@/components/Kurbits";
+import { LiveLinks } from "@/components/LiveLinks";
 import { LiveStanding } from "@/components/LiveStanding";
 import { NationBadge } from "@/components/NationBadge";
 import { NewsletterForm } from "@/components/NewsletterForm";
@@ -244,6 +245,7 @@ export default function VmPage() {
         <h2 id="folj-heading" className="heading-caps mb-6 text-2xl font-bold text-snow">
           Så följer du VM
         </h2>
+        <LiveLinks lang="sv" className="mb-8 max-w-3xl" />
         <ul className="max-w-3xl space-y-3 text-mist">
           <li className="flex gap-3">
             <span className="text-flagyellow" aria-hidden="true">→</span>

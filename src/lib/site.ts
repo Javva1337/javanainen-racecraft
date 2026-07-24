@@ -14,6 +14,13 @@ export const SOCIAL = {
   facebook: "https://www.facebook.com/rickardjavanainen",
 } as const;
 
+/** Officiella livelänkar under VM-veckan — banans tidtagning och arrangörens sändning. */
+export const LIVE = {
+  timing:
+    "https://modules.sms-timing.com/livetiming/?key=dmFuZGVsZ29rYXJ0OjM4M2ZiYzQ4LTdhNzMtNDJmZi1hN2FjLTBkODIzMTBiNDI1Ng%3d%3d",
+  broadcast: "https://www.youtube.com/playlist?list=PLK9DNQIa52qg&si=64iWrII4nxaZ7x2s",
+} as const;
+
 /** Primab först — partner genom alla år av satsningen. Labatus ny för 2026. */
 export const PARTNERS = [
   {

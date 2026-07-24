@@ -72,6 +72,13 @@ describe("aktuell tävling-copy", () => {
       const done = home.nowDrawDone("A", "15:45");
       expect(done).toContain("A");
       expect(done).toContain("15:45");
+
+      const live = DICT[lang].live;
+      expect(live.heading).toBeTruthy();
+      expect(live.timingLabel).toBeTruthy();
+      expect(live.timingDesc).toBeTruthy();
+      expect(live.broadcastLabel).toBeTruthy();
+      expect(live.broadcastDesc).toBeTruthy();
     }
   });
 });

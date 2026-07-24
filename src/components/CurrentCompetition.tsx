@@ -3,6 +3,7 @@ import { DICT, type Lang } from "@/lib/dictionary";
 import type { SiteMode } from "@/lib/mode";
 import { drawState, NC_DRAW, SEMIFINAL_START } from "@/lib/nations-cup";
 import { KWC } from "@/lib/site";
+import { LiveLinks } from "./LiveLinks";
 
 /**
  * "Just nu"-teasern på startsidan: aktuell tävling direkt under hjälten.
@@ -43,6 +44,7 @@ export function CurrentCompetition({ lang, mode }: { lang: Lang; mode: SiteMode 
           <span className="tabular">{KWC.nationsCupLabel[lang]}</span>
         </p>
         <p className="mt-4 max-w-2xl leading-relaxed text-mist">{status}</p>
+        <LiveLinks lang={lang} className="mt-6 max-w-3xl" />
         <div className="mt-6">
           <Link href={href} className="btn btn-secondary">
             {t.nowCta}

@@ -49,18 +49,18 @@ export function Header({ lang, mode }: Props) {
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
         <Link
           href={lang === "sv" ? "/" : "/en"}
-          className="heading-caps text-sm font-bold tracking-[0.18em] text-snow"
+          className="heading-caps whitespace-nowrap text-xs font-bold tracking-[0.18em] text-snow xl:text-sm"
         >
           Rickard Javanainen
         </Link>
 
         <nav aria-label={lang === "sv" ? "Huvudmeny" : "Main navigation"} className="hidden lg:block">
-          <ul className="flex items-center gap-5 xl:gap-6">
+          <ul className="flex items-center gap-3 xl:gap-6">
             {t.items.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className={`heading-caps relative py-2 text-xs tracking-[0.12em] transition-colors duration-200 ${
+                  className={`heading-caps relative whitespace-nowrap py-2 text-xs tracking-[0.12em] transition-colors duration-200 ${
                     isActive(item.href) ? "text-snow" : "text-mist hover:text-snow"
                   }`}
                 >
@@ -74,11 +74,11 @@ export function Header({ lang, mode }: Props) {
           </ul>
         </nav>
 
-        <div className="flex items-center gap-4">
+        <div className="flex shrink-0 items-center gap-3 xl:gap-4">
           <HeaderCta lang={lang} initialMode={mode} variant="bar" />
           <Link
             href={switchHref}
-            className="heading-caps text-xs tracking-[0.14em] text-mist transition-colors duration-200 hover:text-snow"
+            className="heading-caps whitespace-nowrap text-xs tracking-[0.14em] text-mist transition-colors duration-200 hover:text-snow"
             aria-label={t.switchTo}
           >
             <span className={lang === "sv" ? "text-snow" : ""}>SV</span>

@@ -5,6 +5,7 @@ import { Countdown } from "@/components/Countdown";
 import { CountUp } from "@/components/CountUp";
 import { FaqJsonLd, NationsCupJsonLd } from "@/components/JsonLd";
 import { KurbitsDivider } from "@/components/Kurbits";
+import { LiveLinks } from "@/components/LiveLinks";
 import { NationBadge } from "@/components/NationBadge";
 import { Reveal } from "@/components/Reveal";
 import {
@@ -98,6 +99,14 @@ export default async function NationsCupPage({ searchParams }: Props) {
             juli.
           </p>
         )}
+      </section>
+
+      {/* Följ live */}
+      <section className="mb-16" aria-labelledby="live-heading">
+        <h2 id="live-heading" className="heading-caps mb-6 text-2xl font-bold text-snow">
+          Följ racen live
+        </h2>
+        <LiveLinks lang="sv" className="max-w-3xl" />
       </section>
 
       {/* Tidsschema */}
