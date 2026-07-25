@@ -231,8 +231,11 @@ export default async function NationsCupPage({ searchParams }: Props) {
             — semifinal och final, alla sex timmar. I det individuella mästerskapet senare
             i veckan alternerar layouterna dag för dag: Classic dag 1 och 3, New 23 dag 2
             och 4, och inför semifinal och final lottas layouten på tävlingsdagen. Förarna
-            behöver alltså behärska båda varianterna — samtidigt som karten byts vid varje
-            depåstopp. Den ständiga anpassningen till ny kart är en stor del av tävlingen.
+            behöver alltså behärska båda varianterna under veckan. Kartbytena skiljer sig
+            däremot åt mellan tävlingarna: i Nations Cup byts kart vid varje depåstopp,
+            medan varje förare i det individuella mästerskapet lottar en ny kart inför
+            varje heat och kör hela heatet i den. Att snabbt hitta tempot i en ny kart är
+            en stor del av båda tävlingarna.
           </p>
           <p>
             {LAP_DELTA_NOTE} Det låter lite, men över ett race på flera hundra varv är det
