@@ -132,7 +132,7 @@ export const LAP_DELTA_NOTE =
  * Detta är den enda raden som behöver ändras efter lottningen.
  */
 export const NC_DRAW = {
-  result: null as "A" | "B" | null,
+  result: "B" as "A" | "B" | null,
 };
 
 export const SEMIFINAL_START: Record<"A" | "B", string> = {
