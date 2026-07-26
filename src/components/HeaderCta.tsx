@@ -24,7 +24,10 @@ type Props = {
 export function HeaderCta({ lang, initialMode, variant }: Props) {
   const [mode, setMode] = useState<SiteMode>(initialMode);
   const t = DICT[lang].nav.cta;
-  const href = lang === "sv" ? "/vm-2026/nations-cup" : "/en/vm-2026";
+  /* Efter Nations Cup-finalen pekar chippen på VM-hubben i stället.
+     Båda sidor av hydreringen räknar mot samma fasta tidsstämpel. */
+  const ncOver = Date.now() > KWC.nationsCupEnd;
+  const href = lang === "sv" ? (ncOver ? "/vm-2026" : "/vm-2026/nations-cup") : "/en/vm-2026";
 
   useEffect(() => {
     const update = () => setMode(getSiteMode());

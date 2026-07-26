@@ -73,6 +73,11 @@ describe("aktuell tävling-copy", () => {
       expect(done).toContain("A");
       expect(done).toContain("15:45");
 
+      expect(home.nowTitleInd).toBeTruthy();
+      expect(home.nowAfterInd).toBeTruthy();
+      expect(home.nowCtaInd).toBeTruthy();
+      expect(home.nowReport).toBeTruthy();
+      expect(home.heroInd).toBeTruthy();
       expect(home.tracksHeading).toBeTruthy();
       expect(home.tracksIntro).toBeTruthy();
       expect(home.tracksOnboard).toBeTruthy();

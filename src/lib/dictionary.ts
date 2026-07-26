@@ -128,6 +128,13 @@ export const DICT = {
       nowAfter: "Nations Cup är avgjord — så gick det för Sverige.",
       nowCta: "Tidsschema, format och Sveriges lag →",
       heroNc: "Nations Cup · 25–26 juli",
+      /** Efter Nations Cup flyttas teaserns fokus till individuella VM */
+      nowTitleInd: "KWC Individual — individuella VM",
+      nowAfterInd:
+        "Nations Cup är avgjord — Sverige slutade 14:e av 32 nationer. Från tisdag 28 juli väntar det individuella mästerskapet, där Rickard kör åtta kvalheat innan semifinal och final.",
+      nowCtaInd: "Följ det individuella VM:t →",
+      nowReport: "Läs finalrapporten från Nations Cup →",
+      heroInd: "Individuella VM · 28 juli–1 augusti",
       /** Banteasern på startsidan — layouterna med onboard-varven */
       tracksHeading: "Så ser årets VM-banor ut",
       tracksIntro:
@@ -259,6 +266,12 @@ export const DICT = {
       nowAfter: "The Nations Cup is decided — here's how it went for Sweden.",
       nowCta: "Follow the Nations Cup →",
       heroNc: "Nations Cup · 25–26 July",
+      nowTitleInd: "KWC Individual — the individual Worlds",
+      nowAfterInd:
+        "The Nations Cup is decided — Sweden finished 14th of 32 nations. From Tuesday 28 July the individual championship takes over, with Rickard racing eight qualifying heats before the semifinal and final.",
+      nowCtaInd: "Follow the individual Worlds →",
+      nowReport: "Read the Nations Cup final report →",
+      heroInd: "Individual Worlds · 28 July–1 August",
       tracksHeading: "This year's Worlds track layouts",
       tracksIntro:
         "Vandel Gokart runs two layouts during the Worlds week. The entire Nations Cup is raced on VG Classic, while the individual championship alternates between the two — Classic on days 1 and 3, New 23 on days 2 and 4, with the semifinal and final layout drawn on the day. Ride along for a training session on each, including each layout's special feature: the pit stop on Classic and the shortcut on New 23.",

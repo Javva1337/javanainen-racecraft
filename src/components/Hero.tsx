@@ -109,12 +109,18 @@ export function Hero({
               <Link href={latestHref} className="btn btn-primary text-base">
                 {t.liveBanner}
               </Link>
-              <Link
-                href={lang === "sv" ? "/vm-2026/nations-cup" : vmHref}
-                className="btn btn-secondary text-base"
-              >
-                {t.heroNc}
-              </Link>
+              {Date.now() > KWC.nationsCupEnd ? (
+                <Link href={vmHref} className="btn btn-secondary text-base">
+                  {t.heroInd}
+                </Link>
+              ) : (
+                <Link
+                  href={lang === "sv" ? "/vm-2026/nations-cup" : vmHref}
+                  className="btn btn-secondary text-base"
+                >
+                  {t.heroNc}
+                </Link>
+              )}
             </div>
           )}
 
