@@ -4,12 +4,14 @@ import { ArticleCard } from "@/components/ArticleCard";
 import { Countdown } from "@/components/Countdown";
 import { CountUp } from "@/components/CountUp";
 import { FaqJsonLd, SportsEventJsonLd } from "@/components/JsonLd";
+import { HeatSchedule } from "@/components/HeatSchedule";
 import { KurbitsDivider } from "@/components/Kurbits";
 import { LiveLinks } from "@/components/LiveLinks";
 import { LiveStanding } from "@/components/LiveStanding";
 import { NationBadge } from "@/components/NationBadge";
 import { Reveal } from "@/components/Reveal";
 import { getAllArticles } from "@/lib/content";
+import { HEAT_FAQ } from "@/lib/heats";
 import { getSiteMode } from "@/lib/mode";
 import { KWC, SOCIAL } from "@/lib/site";
 import { getVmStatus } from "@/lib/vm-status";
@@ -19,7 +21,7 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: "Worlds 2026 — Kart World Championship at Vandel, Denmark",
   description:
-    "Schedule, format and daily reports from the 2026 Kart World Championship at Vandel Kart, Denmark. Nations Cup 25–26 July, KWC Individual 28 July–1 August.",
+    "Schedule, format and daily reports from the 2026 Kart World Championship at Vandel Kart, Denmark. Rickard's eight qualifying heats day by day, 28–31 July, with times and track layouts.",
   alternates: {
     canonical: "/en/vm-2026",
     languages: { "sv-SE": "/vm-2026", en: "/en/vm-2026", "x-default": "/vm-2026" },
@@ -53,6 +55,7 @@ const FAQ_ITEMS = [
     q: "How does the championship format work?",
     a: "Each driver races 8 qualifying heats, with one result dropped. Karts are drawn by lot between heats and the starting order is set by a one-lap time qualifying before each heat. The semifinal decides which 18 drivers race the final.",
   },
+  HEAT_FAQ.en,
   {
     q: "How do I follow Rickard during the Worlds?",
     a: "A report is published here every race day, the same evening. The reports are also available as an RSS feed and newsletter, and between reports there are clips and photos on Instagram.",
@@ -102,6 +105,14 @@ export default function EnglishVmPage() {
           </p>
         </section>
       )}
+
+      {/* Rickard's heats in the individual championship */}
+      <section id="rickards-heats" className="mb-16" aria-labelledby="heat-heading">
+        <h2 id="heat-heading" className="heading-caps mb-4 text-2xl font-bold text-snow">
+          When does Rickard race?
+        </h2>
+        <HeatSchedule lang="en" />
+      </section>
 
       {dayReports.length > 0 && (
         <section className="mb-16" aria-label="Race reports">

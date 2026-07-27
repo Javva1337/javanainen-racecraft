@@ -4,6 +4,7 @@ import { ArticleCard } from "@/components/ArticleCard";
 import { Countdown } from "@/components/Countdown";
 import { CountUp } from "@/components/CountUp";
 import { FaqJsonLd, SportsEventJsonLd } from "@/components/JsonLd";
+import { HeatSchedule } from "@/components/HeatSchedule";
 import { KurbitsDivider } from "@/components/Kurbits";
 import { LiveLinks } from "@/components/LiveLinks";
 import { LiveStanding } from "@/components/LiveStanding";
@@ -11,6 +12,7 @@ import { NationBadge } from "@/components/NationBadge";
 import { NewsletterForm } from "@/components/NewsletterForm";
 import { Reveal } from "@/components/Reveal";
 import { getAllArticles } from "@/lib/content";
+import { HEAT_FAQ } from "@/lib/heats";
 import { getSiteMode } from "@/lib/mode";
 import { KWC, SOCIAL } from "@/lib/site";
 import { getVmStatus } from "@/lib/vm-status";
@@ -20,7 +22,7 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: "VM 2026 — hyrkart-VM i Vandel, Danmark",
   description:
-    "Schema, format och dagliga rapporter från hyrkart-VM 2026 på Vandel Kart i Danmark. Nations Cup 25–26 juli, individuella VM 28 juli–1 augusti. 180 förare.",
+    "Schema, format och dagliga rapporter från hyrkart-VM 2026 på Vandel Kart i Danmark. Rickards åtta kvalheat dag för dag, 28–31 juli, med tider och banlayout. 180 förare.",
   alternates: {
     canonical: "/vm-2026",
     languages: { "sv-SE": "/vm-2026", en: "/en/vm-2026", "x-default": "/vm-2026" },
@@ -54,6 +56,7 @@ const FAQ_ITEMS = [
     q: "Hur fungerar VM-formatet?",
     a: "Varje förare kör 8 kvalheat där ett resultat räknas bort. Kartarna lottas mellan heaten och startordningen avgörs av ett tidskval på ett varv före varje heat. Semifinalen avgör vilka 18 förare som gör upp i finalen.",
   },
+  HEAT_FAQ.sv,
   {
     q: "Hur följer jag Rickard under VM?",
     a: "Varje tävlingsdag publiceras en rapport här på sajten, samma kväll. Rapporterna finns också som RSS-flöde och nyhetsbrev, och mellan rapporterna kommer klipp och bilder på Instagram.",
@@ -105,6 +108,14 @@ export default function VmPage() {
           </p>
         </section>
       )}
+
+      {/* Rickards heat i det individuella mästerskapet */}
+      <section id="rickards-heat" className="mb-16" aria-labelledby="heat-heading">
+        <h2 id="heat-heading" className="heading-caps mb-4 text-2xl font-bold text-snow">
+          När kör Rickard?
+        </h2>
+        <HeatSchedule lang="sv" />
+      </section>
 
       {/* Dagens/alla rapporter under och efter VM */}
       {dayReports.length > 0 && (
