@@ -9,8 +9,8 @@ import {
   heatState,
 } from "./heats";
 
-/** 12:50 dansk tid 28 juli = 10:50 UTC */
-const HEAT_1_START = Date.UTC(2026, 6, 28, 10, 50);
+/** 13:20 dansk tid 28 juli = 11:20 UTC */
+const HEAT_1_START = Date.UTC(2026, 6, 28, 11, 20);
 
 describe("HEAT_DAYS", () => {
   it("innehåller åtta heat över fyra dagar, två per dag", () => {

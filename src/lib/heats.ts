@@ -2,11 +2,11 @@
  * Rickards kvalheat i KWC Individual 2026 — enda sanningskällan för
  * "När kör Rickard?"-sektionen på /vm-2026.
  *
- * Heatbokstäverna kommer från arrangörens förarlista (Races: R.Javanainen),
- * starttiderna från det officiella körschemat (Chrono.xlsx) för respektive
- * heatbokstav. OBS: förarlistans app visade tisdagens tidsmall även för
- * onsdag–fredag (racen återupptas 14:40 efter lunch, inte 14:15, dag 2–4).
- * Därför gäller chronots tider: 4G = 17:15, 6E och 8E = 16:20.
+ * Heatbokstäver och starttider kommer från arrangörens förarlista
+ * (Races: R.Javanainen på brasilkart.com.br), senast uppdaterad kvällen
+ * före första tävlingsdagen (27 juli 22:53) — hela schemat flyttades då
+ * +30 minuter mot det först publicerade. Vid ny ändring: uppdatera tiderna
+ * här (och bara här), visningstid och tidsstämpel testas mot varandra.
  * Alla tider i dansk lokal tid (CEST = UTC+2).
  */
 
@@ -47,8 +47,8 @@ export const HEAT_DAYS: HeatDay[] = [
     date: { sv: "Tisdag 28 juli", en: "Tuesday 28 July" },
     layout: "classic",
     heats: [
-      { no: 1, round: "1I", time: "12:50", start: Date.UTC(2026, 6, 28, 10, 50) },
-      { no: 2, round: "2F", time: "16:25", start: Date.UTC(2026, 6, 28, 14, 25) },
+      { no: 1, round: "1I", time: "13:20", start: Date.UTC(2026, 6, 28, 11, 20) },
+      { no: 2, round: "2F", time: "16:55", start: Date.UTC(2026, 6, 28, 14, 55) },
     ],
   },
   {
@@ -56,8 +56,8 @@ export const HEAT_DAYS: HeatDay[] = [
     date: { sv: "Onsdag 29 juli", en: "Wednesday 29 July" },
     layout: "new23",
     heats: [
-      { no: 3, round: "3C", time: "10:15", start: Date.UTC(2026, 6, 29, 8, 15) },
-      { no: 4, round: "4G", time: "17:15", start: Date.UTC(2026, 6, 29, 15, 15) },
+      { no: 3, round: "3C", time: "10:45", start: Date.UTC(2026, 6, 29, 8, 45) },
+      { no: 4, round: "4G", time: "17:20", start: Date.UTC(2026, 6, 29, 15, 20) },
     ],
   },
   {
@@ -65,8 +65,8 @@ export const HEAT_DAYS: HeatDay[] = [
     date: { sv: "Torsdag 30 juli", en: "Thursday 30 July" },
     layout: "classic",
     heats: [
-      { no: 5, round: "5H", time: "12:25", start: Date.UTC(2026, 6, 30, 10, 25) },
-      { no: 6, round: "6E", time: "16:20", start: Date.UTC(2026, 6, 30, 14, 20) },
+      { no: 5, round: "5H", time: "12:55", start: Date.UTC(2026, 6, 30, 10, 55) },
+      { no: 6, round: "6E", time: "16:25", start: Date.UTC(2026, 6, 30, 14, 25) },
     ],
   },
   {
@@ -74,8 +74,8 @@ export const HEAT_DAYS: HeatDay[] = [
     date: { sv: "Fredag 31 juli", en: "Friday 31 July" },
     layout: "new23",
     heats: [
-      { no: 7, round: "7A", time: "09:25", start: Date.UTC(2026, 6, 31, 7, 25) },
-      { no: 8, round: "8E", time: "16:20", start: Date.UTC(2026, 6, 31, 14, 20) },
+      { no: 7, round: "7A", time: "09:55", start: Date.UTC(2026, 6, 31, 7, 55) },
+      { no: 8, round: "8E", time: "16:25", start: Date.UTC(2026, 6, 31, 14, 25) },
     ],
   },
 ];
