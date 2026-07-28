@@ -16,6 +16,13 @@ knapptext m.m.) ska följande skills ALLTID köras, i den här ordningen:
 
 Detta gäller även små textändringar. Hoppa inte över stegen för att texten "är kort".
 
+### Om skillsen saknas i miljön
+Skill-kedjan ligger incheckad i `.claude/skills/` (med `copy-editing` som bonus)
+så att den alltid finns — även i molnsessioner. Saknas någon av skillsen ändå:
+installera dem FÖRST, innan något textarbete påbörjas, enligt
+`.claude/skills/README.md`. Hoppa aldrig över kedjan med hänvisning till att
+skillsen inte finns.
+
 ### Ton (kopplat till minnet)
 Rickard vill aldrig låta kaxig — ödmjuk ton. `humanizer` + `copy-editing` vid
 omskrivningar. Se minnesfilen `ton-odmjuk-copy.md`.
