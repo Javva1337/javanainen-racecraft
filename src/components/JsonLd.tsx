@@ -1,4 +1,49 @@
-import { SITE_URL, SOCIAL } from "@/lib/site";
+import { LIVE, SITE_URL, SOCIAL } from "@/lib/site";
+
+/** Delade byggstenar för KWC-eventen — Search Console vill ha fälten på varje eventnod. */
+const KWC_PLACE = {
+  "@type": "Place",
+  name: "Vandel Kart",
+  address: { "@type": "PostalAddress", addressLocality: "Vandel", addressCountry: "DK" },
+};
+
+const KWC_ORGANIZER = {
+  "@type": "Organization",
+  name: "Kart World Championship",
+  url: "https://kartworldchampionship.com",
+};
+
+/** Fullt Person-objekt (inte bara @id) så att Googles parser hittar namnet i varje block. */
+const KWC_PERFORMER = {
+  "@type": "Person",
+  "@id": `${SITE_URL}/#person`,
+  name: "Rickard Javanainen",
+};
+
+/**
+ * Fält som Google kräver (location) eller rekommenderar (eventStatus, organizer,
+ * image, offers, eventAttendanceMode) på varje Event — subEvents räknas som egna
+ * eventnoder i Search Console. Eventet går att följa på plats eller via arrangörens
+ * gratis livesändning, därav MixedEventAttendanceMode och ett 0-priserbjudande.
+ */
+function kwcEventFields(lang: "sv" | "en") {
+  return {
+    location: [KWC_PLACE, { "@type": "VirtualLocation", url: LIVE.broadcast }],
+    eventAttendanceMode: "https://schema.org/MixedEventAttendanceMode",
+    eventStatus: "https://schema.org/EventScheduled",
+    organizer: KWC_ORGANIZER,
+    image: [`${SITE_URL}/images/hero-poster.jpg`, `${SITE_URL}/images/portrait.jpg`],
+    offers: {
+      "@type": "Offer",
+      name: lang === "sv" ? "Gratis livesändning på YouTube" : "Free live stream on YouTube",
+      url: LIVE.broadcast,
+      price: "0",
+      priceCurrency: "DKK",
+      availability: "https://schema.org/InStock",
+      validFrom: "2026-07-22",
+    },
+  };
+}
 
 /** Globalt schema.org Person (athlete). Meriter hämtas ur kanoniska fakta. */
 export function PersonJsonLd() {
@@ -53,6 +98,7 @@ export function WebSiteJsonLd() {
 
 /** SportsEvent för /vm-2026, med Nations Cup och Individual som subEvents. */
 export function SportsEventJsonLd({ lang = "sv" }: { lang?: "sv" | "en" }) {
+  const shared = kwcEventFields(lang);
   const data = {
     "@context": "https://schema.org",
     "@type": "SportsEvent",
@@ -61,31 +107,33 @@ export function SportsEventJsonLd({ lang = "sv" }: { lang?: "sv" | "en" }) {
     sport: "Rental karting",
     startDate: "2026-07-22",
     endDate: "2026-08-01",
-    eventStatus: "https://schema.org/EventScheduled",
-    location: {
-      "@type": "Place",
-      name: "Vandel Kart",
-      address: { "@type": "PostalAddress", addressLocality: "Vandel", addressCountry: "DK" },
-    },
-    competitor: { "@id": `${SITE_URL}/#person` },
+    ...shared,
+    competitor: KWC_PERFORMER,
+    performer: KWC_PERFORMER,
     subEvent: [
       {
         "@type": "SportsEvent",
         name: "KWC Training 2026",
         startDate: "2026-07-22",
         endDate: "2026-07-24",
+        ...shared,
+        performer: KWC_PERFORMER,
       },
       {
         "@type": "SportsEvent",
         name: "KWC Nations Cup 2026",
         startDate: "2026-07-25",
         endDate: "2026-07-26",
+        ...shared,
+        performer: KWC_PERFORMER,
       },
       {
         "@type": "SportsEvent",
         name: "KWC Individual 2026",
         startDate: "2026-07-28",
         endDate: "2026-08-01",
+        ...shared,
+        performer: KWC_PERFORMER,
       },
     ],
     inLanguage: lang === "sv" ? "sv-SE" : "en",
@@ -104,11 +152,7 @@ export function SportsEventJsonLd({ lang = "sv" }: { lang?: "sv" | "en" }) {
 
 /** SportsEvent för /vm-2026/nations-cup, med semifinaler och finaler som subEvents. */
 export function NationsCupJsonLd() {
-  const location = {
-    "@type": "Place",
-    name: "Vandel Kart",
-    address: { "@type": "PostalAddress", addressLocality: "Vandel", addressCountry: "DK" },
-  };
+  const shared = kwcEventFields("sv");
   const data = {
     "@context": "https://schema.org",
     "@type": "SportsEvent",
@@ -117,44 +161,49 @@ export function NationsCupJsonLd() {
     sport: "Rental karting",
     startDate: "2026-07-25",
     endDate: "2026-07-26",
-    eventStatus: "https://schema.org/EventScheduled",
-    location,
-    competitor: { "@id": `${SITE_URL}/#person` },
+    ...shared,
+    competitor: KWC_PERFORMER,
+    performer: KWC_PERFORMER,
     superEvent: {
       "@type": "SportsEvent",
       name: "Kart World Championship 2026",
       startDate: "2026-07-22",
       endDate: "2026-08-01",
-      location,
+      ...shared,
+      performer: KWC_PERFORMER,
     },
+    // Sverige körde semifinal B och gick vidare till final A — performer sätts
+    // bara på de delmoment där laget faktiskt ställde upp.
     subEvent: [
       {
         "@type": "SportsEvent",
         name: "Nations Cup semifinal A",
         startDate: "2026-07-25T15:45:00+02:00",
         endDate: "2026-07-25T17:45:00+02:00",
-        location,
+        ...shared,
       },
       {
         "@type": "SportsEvent",
         name: "Nations Cup semifinal B",
         startDate: "2026-07-25T18:10:00+02:00",
         endDate: "2026-07-25T20:10:00+02:00",
-        location,
+        ...shared,
+        performer: KWC_PERFORMER,
       },
       {
         "@type": "SportsEvent",
         name: "Nations Cup final B",
         startDate: "2026-07-26T11:45:00+02:00",
         endDate: "2026-07-26T15:45:00+02:00",
-        location,
+        ...shared,
       },
       {
         "@type": "SportsEvent",
         name: "Nations Cup final A",
         startDate: "2026-07-26T16:10:00+02:00",
         endDate: "2026-07-26T20:10:00+02:00",
-        location,
+        ...shared,
+        performer: KWC_PERFORMER,
       },
     ],
     inLanguage: "sv-SE",
