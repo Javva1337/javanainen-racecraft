@@ -15,7 +15,7 @@ export function FactBox({
   const t = DICT[lang].article.factBox;
   const facts = [
     { label: t.heatsRaced, value: frontmatter.heatsRaced },
-    { label: t.bestFinish, value: frontmatter.bestFinish },
+    { label: t.bestFinishToday, value: frontmatter.bestFinish },
     { label: t.standing, value: frontmatter.standing },
     { label: t.nationsCup, value: frontmatter.nationsCup },
   ].filter((fact) => fact.value !== undefined && fact.value !== "");
