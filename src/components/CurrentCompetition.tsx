@@ -17,8 +17,15 @@ export function CurrentCompetition({ lang, mode }: { lang: Lang; mode: SiteMode 
   const ncOver = mode === "after" || now > KWC.nationsCupEnd;
 
   const href = lang === "sv" ? (ncOver ? "/vm-2026" : "/vm-2026/nations-cup") : "/en/vm-2026";
+  /* Efter VM pekar rapportlänken på slutrapporten, dessförinnan på Nations Cup-finalen */
   const reportHref =
-    lang === "sv" ? "/nyheter/nations-cup-finalen" : "/en/news/nations-cup-finalen";
+    mode === "after"
+      ? lang === "sv"
+        ? `/nyheter/${KWC.finalReportSlug}`
+        : `/en/news/${KWC.finalReportSlug}`
+      : lang === "sv"
+        ? "/nyheter/nations-cup-finalen"
+        : "/en/news/nations-cup-finalen";
   const title = ncOver ? t.nowTitleInd : t.nowTitle;
   const dates = ncOver ? KWC.individualLabel[lang] : KWC.nationsCupLabel[lang];
 
@@ -62,7 +69,7 @@ export function CurrentCompetition({ lang, mode }: { lang: Lang; mode: SiteMode 
               href={reportHref}
               className="text-flagblue-bright underline underline-offset-4 transition-colors duration-200 hover:text-snow"
             >
-              {t.nowReport}
+              {mode === "after" ? t.nowReportFinal : t.nowReport}
             </Link>
           )}
         </div>

@@ -35,7 +35,7 @@ const MERITS = [
   },
   {
     title: "VM i Vandel 2026",
-    text: "Kart World Championship (KWC) körs på Vandel Kart i Danmark 22 juli–1 augusti 2026. Nations Cup avgörs 25–26 juli, och startfältet omfattar 180 förare.",
+    text: "Kart World Championship (KWC) kördes på Vandel Kart i Danmark 22 juli–1 augusti 2026, med 180 förare i startfältet. Jag tog tre pallplatser i kvalheaten, nådde semifinal och slutade 41:a totalt.",
     highlight: false,
   },
 ];

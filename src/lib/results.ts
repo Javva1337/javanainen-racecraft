@@ -80,6 +80,17 @@ export const RESULTS: ResultRow[] = [
     result: { sv: "3:e bästa svensk", en: "3rd-best Swede" },
     podium: false,
   },
+  {
+    competition: "KWC — VM",
+    place: { sv: "Danmark", en: "Denmark" },
+    year: 2026,
+    result: { sv: "41:a av 180", en: "41st of 180" },
+    podium: false,
+    note: {
+      sv: "Semifinal, tre pallplatser i kvalheaten",
+      en: "Semifinal, three podiums in the qualifying heats",
+    },
+  },
 ];
 
 /**
@@ -101,10 +112,10 @@ export const STORY_FACTS = {
 /** "Javanainen i siffror" */
 export const STATS = [
   {
-    value: 4,
+    value: 5,
     label: {
-      sv: "Genomförda VM-starter · uttagen till VM 2026",
-      en: "World Championship starts · qualified for 2026",
+      sv: "Genomförda VM-starter",
+      en: "World Championship starts",
     },
   },
   {
@@ -122,7 +133,8 @@ export const STATS = [
     label: { sv: "SRKC-titlar", en: "SRKC titles" },
   },
   {
-    value: 172,
+    /** VM Danmark 2026 — 180 förare i startfältet */
+    value: 180,
     label: { sv: "Största startfält jag kört i", en: "Largest field raced" },
   },
 ] as const;

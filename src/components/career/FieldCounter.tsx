@@ -19,11 +19,11 @@ const FIELD_SIZE_2017 = STORY_FACTS.field2017;
 
 const COPY = {
   sv: {
-    bigLabel: "förare, största startfältet hittills.",
+    bigLabel: "förare, det då största startfältet.",
     body: (field: number) => `VM i Spanien 2017: 12:e av ${field}. 5:a med Sverige i Nations Cup.`,
   },
   en: {
-    bigLabel: "drivers — the largest field to date.",
+    bigLabel: "drivers — the largest field at the time.",
     body: (field: number) =>
       `The Worlds in Spain 2017: 12th of ${field}. 5th with Sweden in the Nations Cup.`,
   },
