@@ -126,7 +126,8 @@ export const DICT = {
         "Lottningen är genomförd — resultatet uppdateras här inom kort.",
       nowDrawDone: (result: string, start: string) =>
         `Lottningen är klar: Sverige kör semifinal ${result} med start ${start} på lördagen.`,
-      nowAfter: "Nations Cup är avgjord — så gick det för Sverige.",
+      nowAfter:
+        "VM 2026 är avslutat. Rickard tog sig till semifinal och slutade 41:a av 180 förare. Tack till alla som följt rapporterna under veckan — alla finns kvar att läsa.",
       nowCta: "Tidsschema, format och Sveriges lag →",
       heroNc: "Nations Cup · 25–26 juli",
       /** Efter Nations Cup flyttas teaserns fokus till individuella VM */
@@ -135,6 +136,7 @@ export const DICT = {
         "Nations Cup är avgjord — Sverige slutade 14:e av 32 nationer. Från tisdag 28 juli väntar det individuella mästerskapet, där Rickard kör åtta kvalheat innan semifinal och final.",
       nowCtaInd: "Följ det individuella VM:t →",
       nowReport: "Läs finalrapporten från Nations Cup →",
+      nowReportFinal: "Läs slutrapporten från VM →",
       heroInd: "Individuella VM · 28 juli–1 augusti",
       /** Banteasern på startsidan — layouterna med onboard-varven */
       tracksHeading: "Så ser årets VM-banor ut",
@@ -265,7 +267,8 @@ export const DICT = {
       nowDrawPending: "The draw is done — the result will be posted here shortly.",
       nowDrawDone: (result: string, start: string) =>
         `The draw is done: Sweden races semifinal ${result}, starting ${start} on Saturday.`,
-      nowAfter: "The Nations Cup is decided — here's how it went for Sweden.",
+      nowAfter:
+        "The 2026 Worlds are over. Rickard reached the semifinal and finished 41st of 180 drivers. Thank you to everyone who followed the reports during the week — they are all still here to read.",
       nowCta: "Follow the Nations Cup →",
       heroNc: "Nations Cup · 25–26 July",
       nowTitleInd: "KWC Individual — the individual Worlds",
@@ -273,6 +276,7 @@ export const DICT = {
         "The Nations Cup is decided — Sweden finished 14th of 32 nations. From Tuesday 28 July the individual championship takes over, with Rickard racing eight qualifying heats before the semifinal and final.",
       nowCtaInd: "Follow the individual Worlds →",
       nowReport: "Read the Nations Cup final report →",
+      nowReportFinal: "Read the final report from the Worlds →",
       heroInd: "Individual Worlds · 28 July–1 August",
       tracksHeading: "This year's Worlds track layouts",
       tracksIntro:

@@ -12,38 +12,42 @@ const chapter = CHAPTERS.find((c) => c.id === "vandel")!;
 
 const COPY = {
   sv: {
-    lede: "Historien slutar inte här. Nästa kapitel körs i Vandel.",
+    lede: "Historien slutar inte här. Det senaste kapitlet kördes i Vandel.",
     p1Highlight: "3:e bästa svensk i SRKC 2026.",
     p1Rest: (venue: string, dates: string) =>
-      ` Klar för hyrkart-VM på ${venue}, ${dates}: KWC Individual och Nations Cup för Sverige.`,
+      ` Sedan väntade hyrkart-VM på ${venue}, ${dates}: KWC Individual och Nations Cup för Sverige.`,
     p2Pre: "Samma år kom också beskedet om en plats i ",
     p2Link: "SRKC:s Hall of Fame",
     p2Post: ", seriens hedersgalleri, hittills som den enda förare som valts in.",
     figcaption: "Sverige, 2026",
     during: (title: string | null) =>
       `VM pågår just nu${title ? `. Senaste rapporten: ${title}` : ""}.`,
-    after: "VM 2026 är avgjort. Resultaten finns i Facit nedan.",
+    after: "VM 2026 är avslutat: semifinal och en 41:a plats av 180 förare. Hela resultatet finns i Facit nedan.",
     cont: (label: string) => `Fortsättning följer. Nations Cup ${label}.`,
+    contAfter: "Tack till alla som följde veckan. Alla rapporter finns kvar under Nyheter.",
     followVm: "Följ VM 2026",
+    vmAfter: "Så gick VM 2026",
     latestNews: "Senaste nyheten",
     allNews: "Alla nyheter",
     vmHref: "/vm-2026",
     imgAlt: "Rickard Javanainens hjälm i närbild",
   },
   en: {
-    lede: "The story doesn't end in the archive. It continues in Vandel.",
+    lede: "The story doesn't end in the archive. Its latest chapter was raced in Vandel.",
     p1Highlight: "3rd-best Swede in the 2026 SRKC.",
     p1Rest: (venue: string, dates: string) =>
-      ` Set for the rental kart Worlds at ${venue}, ${dates}: KWC Individual and the Nations Cup for Sweden.`,
+      ` Then came the rental kart Worlds at ${venue}, ${dates}: KWC Individual and the Nations Cup for Sweden.`,
     p2Pre: "The same year also brought a place in the ",
     p2Link: "SRKC Hall of Fame",
     p2Post: " — so far as the only driver inducted.",
     figcaption: "Sweden, 2026",
     during: (title: string | null) =>
       `The Worlds are on right now${title ? ` — latest report: ${title}` : ""}.`,
-    after: "Worlds 2026 is decided — the results are in The tally below.",
+    after: "Worlds 2026 is done: a semifinal and 41st place of 180 drivers. The full result is in The tally below.",
     cont: (label: string) => `To be continued. Nations Cup ${label}.`,
+    contAfter: "Thank you to everyone who followed the week. All reports remain under News.",
     followVm: "Follow the Worlds",
+    vmAfter: "Worlds 2026 — how it went",
     latestNews: "Latest news",
     allNews: "All news",
     vmHref: "/en/vm-2026",
@@ -125,11 +129,11 @@ export function ChapterVandel({
         )}
 
         <p className="mt-8 text-base text-mist sm:text-lg">
-          {t.cont(KWC.nationsCupLabel[lang])}
+          {mode === "after" ? t.contAfter : t.cont(KWC.nationsCupLabel[lang])}
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
           <Link href={t.vmHref} className="btn btn-primary">
-            {t.followVm}
+            {mode === "after" ? t.vmAfter : t.followVm}
           </Link>
           <Link href={latestHref} className="btn btn-secondary">
             {latestTitle ? t.latestNews : t.allNews}

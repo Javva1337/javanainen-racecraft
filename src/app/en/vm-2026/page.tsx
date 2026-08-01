@@ -21,7 +21,7 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: "Worlds 2026 — Kart World Championship at Vandel, Denmark",
   description:
-    "Schedule, format and daily reports from the 2026 Kart World Championship at Vandel Kart, Denmark. Rickard's eight qualifying heats day by day, 28–31 July, with times and track layouts.",
+    "How the 2026 Kart World Championship at Vandel Kart, Denmark went: Rickard reached the semifinal and finished 41st of 180 drivers. All daily reports, schedule and format collected here.",
   alternates: {
     canonical: "/en/vm-2026",
     languages: { "sv-SE": "/vm-2026", en: "/en/vm-2026", "x-default": "/vm-2026" },
@@ -44,12 +44,16 @@ const FORMAT_STATS = [
 /** Same text in the visible FAQ and the FAQPage schema — they must never drift apart. */
 const FAQ_ITEMS = [
   {
-    q: "What is the rental kart World Championship?",
-    a: "The Kart World Championship (KWC) is the world championship of rental karting. Everyone races equal karts supplied by the organiser, so the driving decides the result, not the equipment. The 2026 edition is the 20th, with 180 drivers.",
+    q: "How did the 2026 Kart World Championship go for Rickard Javanainen?",
+    a: "Rickard finished 41st of 180 drivers at the 2026 Kart World Championship at Vandel Kart, Denmark. He took three podiums in the qualifying heats and reached the semifinal, but missed the final for the first time — he had reached it every previous year he entered (2015–2018).",
   },
   {
-    q: "When and where is the 2026 Worlds held?",
-    a: "From 22 July to 1 August 2026 at Vandel Kart in the Billund area of Jutland, Denmark. The Nations Cup runs 25–26 July and the individual championship 28 July–1 August.",
+    q: "What is the rental kart World Championship?",
+    a: "The Kart World Championship (KWC) is the world championship of rental karting. Everyone races equal karts supplied by the organiser, so the driving decides the result, not the equipment. The 2026 edition was the 20th, with 180 drivers.",
+  },
+  {
+    q: "When and where was the 2026 Worlds held?",
+    a: "From 22 July to 1 August 2026 at Vandel Kart in the Billund area of Jutland, Denmark. The Nations Cup ran 25–26 July and the individual championship 28 July–1 August.",
   },
   {
     q: "How does the championship format work?",
@@ -57,8 +61,8 @@ const FAQ_ITEMS = [
   },
   HEAT_FAQ.en,
   {
-    q: "How do I follow Rickard during the Worlds?",
-    a: "A report is published here every race day, the same evening. The reports are also available as an RSS feed and newsletter, and between reports there are clips and photos on Instagram.",
+    q: "Where can I read the reports from the 2026 Worlds?",
+    a: "A report was published here every race day, the same evening. All reports remain available under News and as an RSS feed, and there are clips and photos from the week on Instagram.",
   },
 ];
 
@@ -100,8 +104,17 @@ export default function EnglishVmPage() {
         <section className="mb-16 border border-line bg-midnight-800 p-8">
           <h2 className="heading-caps mb-3 text-2xl font-bold text-snow">Worlds 2026 — how it went</h2>
           <p className="max-w-2xl text-mist">
-            Championship week is over. All daily reports are collected below, and the full summary
-            is published under News.
+            Championship week is over. Rickard reached the semifinal and finished{" "}
+            <strong className="text-snow tabular">{KWC.result2026.en}</strong> drivers, with three
+            podiums in the qualifying heats along the way. All daily reports are collected below.
+          </p>
+          <p className="mt-4">
+            <Link
+              href={`/en/news/${KWC.finalReportSlug}`}
+              className="text-flagblue-bright underline underline-offset-4 transition-colors duration-200 hover:text-snow"
+            >
+              Read the final report from the Worlds →
+            </Link>
           </p>
         </section>
       )}

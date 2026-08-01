@@ -43,7 +43,7 @@ const CHAPTERS = [
     title: "Den renaste formen av racing",
     text: [
       "I hyrkart är materialet utjämnat och kartarna lottas. Ingen budget i världen gör dig snabbare. Det är föraren som räknas. 2015 vann jag första upplagan av SRKC i Linköping, den svenska serien som också är uttagning till VM, och samma år kom VM-debuten i Italien: 11:e plats av 127 individuellt, en pallplats i semifinalen och en plats i finalen. I Nations Cup, lagtävlingen där man kör för sitt land i stafett, körde jag min del av racet från sist till först innan laget gick i mål som femma totalt.",
-      "2016 i Italien vann jag finalracet. VM avgörs på sammanlagda poäng från hela veckan, så det räckte till 3:e plats totalt: VM-brons. 2017 i Spanien blev det 12:e av 172, det största startfältet hittills. 2018 vann jag SRKC i Göteborg efter en jämn final mot Max Sjölander, och i VM i Polen samma år gick jag från 16:e till 9:e i finalracet, 14:e av 131 totalt.",
+      "2016 i Italien vann jag finalracet. VM avgörs på sammanlagda poäng från hela veckan, så det räckte till 3:e plats totalt: VM-brons. 2017 i Spanien blev det 12:e av 172, det då största startfältet. 2018 vann jag SRKC i Göteborg efter en jämn final mot Max Sjölander, och i VM i Polen samma år gick jag från 16:e till 9:e i finalracet, 14:e av 131 totalt.",
     ],
   },
   {
@@ -51,14 +51,14 @@ const CHAPTERS = [
     title: "Tillbaka på allvar",
     text: [
       "Efter VM i Polen 2018 tog livet över på det finaste sättet: 2020 föddes vår första son, och 2024 kom hans lillebror. Däremellan satte pandemin stopp för det mesta av tävlandet, så det dröjde några år innan jag var tillbaka på riktigt. Men suget försvann aldrig.",
-      "2021 tog jag 6:e platsen totalt i SRKC-finalen, näst bäst av svenskarna, och 2026 blev jag 3:e bästa svensk. SRKC, kvalet till hyrkart-VM, har tagit in mig i sin Hall of Fame, seriens hedersgalleri, hittills som den enda förare som valts in. Ett fint kvitto på åren som gått. Nu känner jag mig redo att ta upp jakten på VM-titeln igen. I Danmark är det formen här och nu som avgör.",
+      "2021 tog jag 6:e platsen totalt i SRKC-finalen, näst bäst av svenskarna, och 2026 blev jag 3:e bästa svensk. SRKC, kvalet till hyrkart-VM, har tagit in mig i sin Hall of Fame, seriens hedersgalleri, hittills som den enda förare som valts in. Ett fint kvitto på åren som gått — och med det i ryggen tog jag upp jakten på VM-titeln igen.",
     ],
   },
   {
     label: "Vandel",
     title: "VM 2026",
     text: [
-      "Nu väntar hyrkart-VM på Vandel Kart i Danmark, 22 juli–1 augusti 2026. Jag kör både KWC Individual och Nations Cup för Sverige, och rapporterar varje kväll här på sajten.",
+      "Sommaren 2026 kördes hyrkart-VM på Vandel Kart i Danmark, 22 juli–1 augusti. Jag körde både KWC Individual och Nations Cup för Sverige, och rapporterade varje kväll här på sajten. Det slutade med semifinal och en 41:a plats av 180 förare, med tre pallplatser i kvalheaten på vägen. Alla rapporter från veckan finns kvar under Nyheter.",
     ],
   },
 ];

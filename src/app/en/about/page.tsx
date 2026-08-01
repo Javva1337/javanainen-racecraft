@@ -44,7 +44,7 @@ const CHAPTERS = [
     title: "The purest form of racing",
     text: [
       "In rental karting the equipment is equalised and the karts are drawn by lot. No budget in the world makes you faster — only the driver counts. In 2015 I won the inaugural SRKC in Linköping, and the same year came my Worlds debut in Italy: 11th of 127 individually, a semifinal podium, and a place in the final. In the Nations Cup I drove a stint from last to first before the team finished fifth overall.",
-      "2016 in Italy: a win in the final and 3rd place overall — a Worlds bronze. 2017 in Spain: 12th of 172, the biggest field to date. In 2018 I won the SRKC in Gothenburg after a close final against Max Sjölander, and at the Worlds in Poland that year I went from 16th to 9th in the final race, 14th of 131 overall.",
+      "2016 in Italy: a win in the final and 3rd place overall — a Worlds bronze. 2017 in Spain: 12th of 172, the biggest field at the time. In 2018 I won the SRKC in Gothenburg after a close final against Max Sjölander, and at the Worlds in Poland that year I went from 16th to 9th in the final race, 14th of 131 overall.",
     ],
   },
   {
@@ -52,14 +52,14 @@ const CHAPTERS = [
     title: "Back for real",
     text: [
       "After the Worlds in Poland 2018, life took over in the best possible way: our first son was born in 2020, and his little brother arrived in 2024. In between, the pandemic put a stop to most of the racing, so it took a few years before I was properly back. But the itch never went away.",
-      "In 2021 I finished 6th overall in the SRKC final, second-best Swede, and in 2026 I was the 3rd-best Swede. The SRKC, the qualifier for the rental kart Worlds, has inducted me into its Hall of Fame, so far as the only driver. A fine receipt for the years gone by. Now I feel ready to pick up the dream of the world title again, and what counts is the form in Denmark.",
+      "In 2021 I finished 6th overall in the SRKC final, second-best Swede, and in 2026 I was the 3rd-best Swede. The SRKC, the qualifier for the rental kart Worlds, has inducted me into its Hall of Fame, so far as the only driver. A fine receipt for the years gone by — and with that behind me, I picked up the chase for the world title again.",
     ],
   },
   {
     label: "Vandel",
     title: "Worlds 2026",
     text: [
-      "Next up is the rental kart World Championship at Vandel Kart in Denmark, 22 July–1 August 2026. I race both the KWC Individual championship and the Nations Cup for Sweden, and I report here on the site every evening.",
+      "In the summer of 2026 the rental kart World Championship was held at Vandel Kart in Denmark, 22 July–1 August. I raced both the KWC Individual championship and the Nations Cup for Sweden, reporting here on the site every evening. It ended with a semifinal and 41st place of 180 drivers, with three podiums in the qualifying heats along the way. All reports from the week remain under News.",
     ],
   },
 ];

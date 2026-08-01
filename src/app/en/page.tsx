@@ -36,7 +36,7 @@ const MERITS = [
   },
   {
     title: "Worlds — Vandel 2026",
-    text: "Kart World Championship, Vandel Kart, Denmark. 22 July–1 August 2026 · Nations Cup 25–26 July · 180 drivers.",
+    text: "Kart World Championship, Vandel Kart, Denmark, 22 July–1 August 2026, with a field of 180 drivers. Three podiums in the qualifying heats, a semifinal, and 41st overall.",
     highlight: false,
   },
 ];

@@ -121,16 +121,16 @@ function faqTimes(lang: Lang): string {
 
 export const HEAT_FAQ: Record<Lang, { q: string; a: string }> = {
   sv: {
-    q: "När kör Rickard sina heat i VM 2026?",
-    a: `Rickard kör två kvalheat per dag i det individuella mästerskapet, alla tider i dansk lokal tid: ${faqTimes(
+    q: "När körde Rickard sina heat i VM 2026?",
+    a: `Rickard körde två kvalheat per dag i det individuella mästerskapet, alla tider i dansk lokal tid: ${faqTimes(
       "sv",
-    )}. Banlayouten växlar dag för dag: VG Classic tisdag och torsdag, VG New 23 onsdag och fredag. Semifinal och final körs lördag 1 augusti, och där lottas layouten på tävlingsdagen.`,
+    )}. Banlayouten växlade dag för dag: VG Classic tisdag och torsdag, VG New 23 onsdag och fredag. Semifinal och final kördes lördag 1 augusti, och där lottades layouten på tävlingsdagen.`,
   },
   en: {
-    q: "When does Rickard race his heats at the 2026 Worlds?",
-    a: `Rickard races two qualifying heats per day in the individual championship, all times Danish local time: ${faqTimes(
+    q: "When did Rickard race his heats at the 2026 Worlds?",
+    a: `Rickard raced two qualifying heats per day in the individual championship, all times Danish local time: ${faqTimes(
       "en",
-    )}. The track layout alternates day by day: VG Classic on Tuesday and Thursday, VG New 23 on Wednesday and Friday. The semifinal and final are held on Saturday 1 August, where the layout is drawn on race day.`,
+    )}. The track layout alternated day by day: VG Classic on Tuesday and Thursday, VG New 23 on Wednesday and Friday. The semifinal and final were held on Saturday 1 August, where the layout was drawn on race day.`,
   },
 };
 
@@ -156,37 +156,39 @@ export const HEAT_COPY: Record<
   sv: {
     heading: "När kör Rickard?",
     intro:
-      "Åtta kvalheat på fyra dagar, två per dag. Kartarna lottas inför varje heat och startordningen sätts av ett tidskval på ett varv strax före start.",
+      "Åtta kvalheat på fyra dagar, två per dag. Kartarna lottades inför varje heat och startordningen sattes av ett tidskval på ett varv strax före start.",
     heatLabel: (no) => `Heat ${no} av 8`,
     heatRow: (no) => `Heat ${no}`,
     dayLabel: (day) => `Dag ${day}`,
     nextHeat: "Nästa heat",
     liveNow: "Pågår nu",
     done: "Kört",
-    allDone: "Alla åtta kvalheaten är körda — nu väntar semifinal och final.",
+    allDone:
+      "Alla race är körda — VM 2026 är avslutat. Rickard tog sig till semifinal och slutade 41:a av 180 förare.",
     finale: "Semifinal & final",
     finaleDetail:
-      "Semifinalen avgör vilka 18 förare som gör upp i finalen. Banlayouten lottas på tävlingsdagen.",
+      "Semifinalen avgjorde vilka 18 förare som gjorde upp i finalen. Banlayouten lottades på tävlingsdagen.",
     footnote:
-      "Tider enligt arrangörens körschema, i dansk lokal tid. Schemat kan justeras under dagen — säkraste källan i realtid är banans",
+      "Tider enligt arrangörens körschema, i dansk lokal tid. Resultat och varvtider finns kvar i banans",
     timingLink: "livetiming",
   },
   en: {
     heading: "When does Rickard race?",
     intro:
-      "Eight qualifying heats across four days, two per day. Karts are drawn by lot before every heat and the starting order is set by a one-lap time qualifying just before the start.",
+      "Eight qualifying heats across four days, two per day. Karts were drawn by lot before every heat and the starting order was set by a one-lap time qualifying just before the start.",
     heatLabel: (no) => `Heat ${no} of 8`,
     heatRow: (no) => `Heat ${no}`,
     dayLabel: (day) => `Day ${day}`,
     nextHeat: "Next heat",
     liveNow: "On track now",
     done: "Raced",
-    allDone: "All eight qualifying heats are done — next up: semifinal and final.",
+    allDone:
+      "All races are done — the 2026 Worlds are over. Rickard reached the semifinal and finished 41st of 180 drivers.",
     finale: "Semifinal & final",
     finaleDetail:
-      "The semifinal decides which 18 drivers contest the final. The track layout is drawn on race day.",
+      "The semifinal decided which 18 drivers contested the final. The track layout was drawn on race day.",
     footnote:
-      "Times from the organiser's schedule, Danish local time. The schedule can shift during the day — the most reliable real-time source is the track's",
+      "Times from the organiser's schedule, Danish local time. Results and lap times remain available in the track's",
     timingLink: "live timing",
   },
 };

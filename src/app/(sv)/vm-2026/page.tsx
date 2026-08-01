@@ -22,7 +22,7 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: "VM 2026 — hyrkart-VM i Vandel, Danmark",
   description:
-    "Schema, format och dagliga rapporter från hyrkart-VM 2026 på Vandel Kart i Danmark. Rickards åtta kvalheat dag för dag, 28–31 juli, med tider och banlayout. 180 förare.",
+    "Så gick hyrkart-VM 2026 på Vandel Kart i Danmark: Rickard tog sig till semifinal och slutade 41:a av 180 förare. Alla dagsrapporter, schema och format samlade här.",
   alternates: {
     canonical: "/vm-2026",
     languages: { "sv-SE": "/vm-2026", en: "/en/vm-2026", "x-default": "/vm-2026" },
@@ -45,12 +45,16 @@ const FORMAT_STATS = [
 /** Samma text i synlig FAQ och FAQPage-schema — de får aldrig glida isär. */
 const FAQ_ITEMS = [
   {
-    q: "Vad är hyrkart-VM?",
-    a: "Kart World Championship (KWC) är världsmästerskapet i hyrkart. Alla kör likvärdiga kartar som arrangören ställer upp med, så det är körningen som avgör, inte materialet. 2026 körs den 20:e upplagan med 180 förare.",
+    q: "Hur gick hyrkart-VM 2026 för Rickard Javanainen?",
+    a: "Rickard slutade 41:a av 180 förare i hyrkart-VM 2026 på Vandel Kart i Danmark. Han tog tre pallplatser i kvalheaten och gick till semifinal, men missade finalen för första gången — alla tidigare år han deltagit (2015–2018) har han nått final.",
   },
   {
-    q: "När och var körs hyrkart-VM 2026?",
-    a: "VM körs 22 juli till 1 augusti 2026 på Vandel Kart i Billund-området på Jylland i Danmark. Veckan börjar med träning 22–24 juli, sedan kör Sverige Nations Cup 25–26 juli, 27 juli är vilodag, och det individuella mästerskapet avgörs 28 juli–1 augusti.",
+    q: "Vad är hyrkart-VM?",
+    a: "Kart World Championship (KWC) är världsmästerskapet i hyrkart. Alla kör likvärdiga kartar som arrangören ställer upp med, så det är körningen som avgör, inte materialet. 2026 kördes den 20:e upplagan med 180 förare.",
+  },
+  {
+    q: "När och var kördes hyrkart-VM 2026?",
+    a: "VM kördes 22 juli till 1 augusti 2026 på Vandel Kart i Billund-området på Jylland i Danmark. Veckan började med träning 22–24 juli, sedan körde Sverige Nations Cup 25–26 juli, 27 juli var vilodag, och det individuella mästerskapet avgjordes 28 juli–1 augusti.",
   },
   {
     q: "Hur fungerar VM-formatet?",
@@ -58,8 +62,8 @@ const FAQ_ITEMS = [
   },
   HEAT_FAQ.sv,
   {
-    q: "Hur följer jag Rickard under VM?",
-    a: "Varje tävlingsdag publiceras en rapport här på sajten, samma kväll. Rapporterna finns också som RSS-flöde och nyhetsbrev, och mellan rapporterna kommer klipp och bilder på Instagram.",
+    q: "Var kan jag läsa rapporterna från VM 2026?",
+    a: "Varje tävlingsdag publicerades en rapport här på sajten, samma kväll. Alla rapporter finns kvar under Nyheter och som RSS-flöde, och på Instagram finns klipp och bilder från veckan.",
   },
 ];
 
@@ -103,8 +107,17 @@ export default function VmPage() {
         <section className="mb-16 border border-line bg-midnight-800 p-8">
           <h2 className="heading-caps mb-3 text-2xl font-bold text-snow">VM 2026 — så gick det</h2>
           <p className="max-w-2xl text-mist">
-            Tävlingsveckan är avslutad. Alla dagsrapporter finns samlade nedan, summeringen
-            publiceras under Nyheter.
+            Tävlingsveckan är avslutad. Rickard tog sig till semifinal och slutade{" "}
+            <strong className="text-snow tabular">{KWC.result2026.sv}</strong> förare — tre
+            pallplatser i kvalheaten på vägen. Alla dagsrapporter finns samlade nedan.
+          </p>
+          <p className="mt-4">
+            <Link
+              href={`/nyheter/${KWC.finalReportSlug}`}
+              className="text-flagblue-bright underline underline-offset-4 transition-colors duration-200 hover:text-snow"
+            >
+              Läs slutrapporten från VM →
+            </Link>
           </p>
         </section>
       )}

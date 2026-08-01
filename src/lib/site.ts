@@ -64,11 +64,15 @@ export const KWC = {
   nationsCupEnd: Date.UTC(2026, 6, 26, 18, 10, 0),
   /** 1 augusti 2026 24:00 CEST — VM slut */
   vmEnd: Date.UTC(2026, 7, 1, 22, 0, 0),
+  /** Slutresultat KWC Individual 2026 — semifinal, missade finalen */
+  result2026: { sv: "41:a av 180", en: "41st of 180" },
+  /** Slug för slutrapporten — länkas från after-lägets ytor */
+  finalReportSlug: "vm-dag-11-vm-over-41a-av-180",
 } as const;
 
 export const TAGLINE = {
-  sv: "Kör hyrkart-VM för Sverige · Vandel, Danmark · 22 juli–1 augusti 2026",
-  en: "Racing for Sweden at the Kart World Championship · Vandel, Denmark · 22 July–1 August 2026",
+  sv: "Körde hyrkart-VM 2026 för Sverige — 41:a av 180 · Vandel, Danmark",
+  en: "Raced for Sweden at the 2026 Kart World Championship — 41st of 180 · Vandel, Denmark",
 } as const;
 
 export const DEFAULT_TITLE = {
@@ -77,6 +81,6 @@ export const DEFAULT_TITLE = {
 } as const;
 
 export const DEFAULT_DESCRIPTION = {
-  sv: "Rickard Javanainen tog VM-brons 2016 och kör hyrkart-VM (KWC) för Sverige på Vandel Kart i Danmark, 22 juli–1 augusti 2026. En racerapport per dag under VM-veckan.",
-  en: "Rickard Javanainen, 2016 World Championship bronze medalist, races for Sweden at the Kart World Championship at Vandel Kart, Denmark, 22 July–1 August 2026. Daily race reports straight from the track.",
+  sv: "Rickard Javanainen tog VM-brons 2016 och slutade 41:a av 180 förare i hyrkart-VM (KWC) 2026 på Vandel Kart i Danmark. Alla racerapporter från VM-veckan finns här.",
+  en: "Rickard Javanainen, 2016 World Championship bronze medalist, finished 41st of 180 at the 2026 Kart World Championship at Vandel Kart, Denmark. All daily race reports from the week are here.",
 } as const;
