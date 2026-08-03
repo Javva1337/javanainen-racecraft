@@ -11,6 +11,7 @@ import { LiveStanding } from "@/components/LiveStanding";
 import { NationBadge } from "@/components/NationBadge";
 import { NewsletterForm } from "@/components/NewsletterForm";
 import { Reveal } from "@/components/Reveal";
+import { VmRecap } from "@/components/vm-recap/VmRecap";
 import { getAllArticles } from "@/lib/content";
 import { HEAT_FAQ } from "@/lib/heats";
 import { getSiteMode } from "@/lib/mode";
@@ -103,29 +104,12 @@ export default function VmPage() {
         </div>
       )}
 
-      {mode === "after" && (
-        <section className="mb-16 border border-line bg-midnight-800 p-8">
-          <h2 className="heading-caps mb-3 text-2xl font-bold text-snow">VM 2026 — så gick det</h2>
-          <p className="max-w-2xl text-mist">
-            Tävlingsveckan är avslutad. Rickard tog sig till semifinal och slutade{" "}
-            <strong className="text-snow tabular">{KWC.result2026.sv}</strong> förare — tre
-            pallplatser i kvalheaten på vägen. Alla dagsrapporter finns samlade nedan.
-          </p>
-          <p className="mt-4">
-            <Link
-              href={`/nyheter/${KWC.finalReportSlug}`}
-              className="text-flagblue-bright underline underline-offset-4 transition-colors duration-200 hover:text-snow"
-            >
-              Läs slutrapporten från VM →
-            </Link>
-          </p>
-        </section>
-      )}
+      {mode === "after" && <VmRecap lang="sv" />}
 
       {/* Rickards heat i det individuella mästerskapet */}
       <section id="rickards-heat" className="mb-16" aria-labelledby="heat-heading">
         <h2 id="heat-heading" className="heading-caps mb-4 text-2xl font-bold text-snow">
-          När kör Rickard?
+          När körde Rickard?
         </h2>
         <HeatSchedule lang="sv" />
       </section>
@@ -236,7 +220,7 @@ export default function VmPage() {
             <p className="text-sm leading-relaxed text-mist">
               Lagtävlingen där förarna representerar sitt land, {KWC.nationsCupLabel.sv}. Varje
               resultat bidrar till nationens totala placering. Rickard har kört Nations Cup i alla
-              sina VM: femma 2015–2017 och sexa 2018. I år är målet att ta Sverige till pallen.
+              sina VM: femma 2015–2017 och sexa 2018, och {KWC.nationsCupResult2026.sv} 2026.
             </p>
             <p className="mt-3 text-sm">
               <Link
@@ -256,9 +240,17 @@ export default function VmPage() {
           Banan: Vandel Kart
         </h2>
         <p className="max-w-3xl leading-relaxed text-mist">
-          {KWC.venue} ligger i {KWC.area.sv} på Jylland i Danmark och är värd för den 20:e
-          upplagan av Kart World Championship. Banfakta och förarkommentarer kurva för kurva
-          publiceras här efter träningsdagarna, direkt från depån.
+          {KWC.venue} ligger i {KWC.area.sv} på Jylland i Danmark och var värd för den 20:e
+          upplagan av Kart World Championship. Banlayouterna VG Classic och VG New 23, med
+          onboard-varv och kommentarer kurva för kurva, finns att se på Nations Cup-sidan.
+        </p>
+        <p className="mt-3 max-w-3xl text-sm">
+          <Link
+            href="/vm-2026/nations-cup"
+            className="text-flagblue-bright underline underline-offset-4 transition-colors duration-200 hover:text-snow"
+          >
+            Se banlayouterna och onboard-varven →
+          </Link>
         </p>
       </section>
 

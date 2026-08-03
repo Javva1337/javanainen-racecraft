@@ -6,7 +6,7 @@ import { CONTACT_EMAIL, KWC, SITE_URL } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Press — bilder, biografi och faktablad",
   description:
-    "Pressmaterial om Rickard Javanainen: nedladdningsbara högupplösta bilder, kort och lång biografi på svenska och engelska samt faktablad inför hyrkart-VM 2026.",
+    "Pressmaterial om Rickard Javanainen: nedladdningsbara högupplösta bilder, kort och lång biografi på svenska och engelska samt faktablad om hyrkart-VM 2026.",
   alternates: {
     canonical: "/press",
     languages: { "sv-SE": "/press", en: "/en/press", "x-default": "/press" },
@@ -18,10 +18,13 @@ const FACTS = [
   ["Nationalitet", "Svensk (SWE)"],
   ["Uppvuxen i", "Dalarna"],
   ["Bästa VM-resultat", "3:e av 102 (Italien 2016, vinst i finalen)"],
-  ["VM-starter", "4 genomförda (2015, 2016, 2017, 2018) · uttagen till VM 2026"],
+  ["VM-starter", "5 genomförda (2015, 2016, 2017, 2018, 2026)"],
   ["SRKC-titlar", "2 (Linköping 2015, Göteborg 2018)"],
-  ["Nästa tävling", `Kart World Championship 2026 · ${KWC.venue}, Danmark · ${KWC.datesLabel.sv}`],
-  ["Tävlar i", "KWC Individual + Nations Cup (Sverige)"],
+  [
+    "Senaste tävling",
+    `Kart World Championship 2026 · ${KWC.venue}, Danmark · ${KWC.datesLabel.sv} · ${KWC.result2026.sv}`,
+  ],
+  ["Tävlade i", "KWC Individual + Nations Cup (Sverige)"],
   ["Partners", "Primab (sedan starten av satsningen), Labatus (ny 2026)"],
   ["Kontakt", CONTACT_EMAIL],
   ["Webb", SITE_URL.replace("https://", "")],

@@ -1,4 +1,4 @@
-import { LIVE, SITE_URL, SOCIAL } from "@/lib/site";
+import { KWC, SITE_URL, SOCIAL } from "@/lib/site";
 
 /** Delade byggstenar för KWC-eventen — Search Console vill ha fälten på varje eventnod. */
 const KWC_PLACE = {
@@ -22,26 +22,19 @@ const KWC_PERFORMER = {
 
 /**
  * Fält som Google kräver (location) eller rekommenderar (eventStatus, organizer,
- * image, offers, eventAttendanceMode) på varje Event — subEvents räknas som egna
- * eventnoder i Search Console. Eventet går att följa på plats eller via arrangörens
- * gratis livesändning, därav MixedEventAttendanceMode och ett 0-priserbjudande.
+ * image, eventAttendanceMode) på varje Event — subEvents räknas som egna
+ * eventnoder i Search Console. Eventet är avslutat: schema.org saknar ett
+ * "genomfört"-status, så EventScheduled + passerade datum är den etablerade
+ * signalen. Livesändningserbjudandet och VirtualLocation togs bort efter VM —
+ * en sändning som inte längre pågår ska inte marknadsföras som tillgänglig.
  */
-function kwcEventFields(lang: "sv" | "en") {
+function kwcEventFields(_lang: "sv" | "en") {
   return {
-    location: [KWC_PLACE, { "@type": "VirtualLocation", url: LIVE.broadcast }],
-    eventAttendanceMode: "https://schema.org/MixedEventAttendanceMode",
+    location: KWC_PLACE,
+    eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
     eventStatus: "https://schema.org/EventScheduled",
     organizer: KWC_ORGANIZER,
     image: [`${SITE_URL}/images/hero-poster.jpg`, `${SITE_URL}/images/portrait.jpg`],
-    offers: {
-      "@type": "Offer",
-      name: lang === "sv" ? "Gratis livesändning på YouTube" : "Free live stream on YouTube",
-      url: LIVE.broadcast,
-      price: "0",
-      priceCurrency: "DKK",
-      availability: "https://schema.org/InStock",
-      validFrom: "2026-07-22",
-    },
   };
 }
 
@@ -57,7 +50,7 @@ export function PersonJsonLd() {
     nationality: { "@type": "Country", name: "Sverige" },
     jobTitle: "Racingförare — hyrkart",
     description:
-      "Svensk hyrkartförare. Brons i Kart World Championship 2016. Tävlar för Sverige i KWC 2026 i Vandel, Danmark.",
+      `Svensk hyrkartförare. Brons i Kart World Championship 2016. Tävlade för Sverige i KWC 2026 i Vandel, Danmark — ${KWC.result2026.sv}.`,
     sameAs: [SOCIAL.instagram, SOCIAL.facebook],
     knowsAbout: ["Rental karting", "Kart World Championship", "Motorsport"],
     knowsLanguage: ["sv", "en"],
@@ -208,7 +201,7 @@ export function NationsCupJsonLd() {
     ],
     inLanguage: "sv-SE",
     description:
-      "Lagtävlingen i hyrkart-VM 2026. Semifinaler 25 juli, finaler 26 juli på Vandel Kart i Danmark. Sverige kör med fyra förare — vilken semifinal avgörs av lottningen 25 juli kl 09:30.",
+      `Lagtävlingen i hyrkart-VM 2026. Semifinaler 25 juli, finaler 26 juli på Vandel Kart i Danmark. Sverige körde med fyra förare, lottades till semifinal B och slutade ${KWC.nationsCupResult2026.sv}.`,
   };
   return (
     <script

@@ -48,7 +48,7 @@ export function HeaderCta({ lang, initialMode, variant }: Props) {
     return (
       <Link
         href={href}
-        aria-label={t.ariaLabel}
+        aria-label={t.ariaLabel[mode]}
         className="heading-caps mb-2 flex items-center justify-between whitespace-nowrap border border-flagyellow/60 px-4 py-3 text-sm tracking-[0.12em] text-flagyellow transition-colors duration-200 hover:border-flagyellow hover:bg-flagyellow/10"
       >
         <span className="flex items-center gap-2">
@@ -64,7 +64,7 @@ export function HeaderCta({ lang, initialMode, variant }: Props) {
   return (
     <Link
       href={href}
-      aria-label={t.ariaLabel}
+      aria-label={t.ariaLabel[mode]}
       className="heading-caps hidden shrink-0 items-center gap-2 whitespace-nowrap border border-flagyellow/60 px-2.5 py-1 text-xs tracking-[0.12em] text-flagyellow transition-colors duration-200 hover:border-flagyellow hover:bg-flagyellow/10 sm:inline-flex"
     >
       {marker}

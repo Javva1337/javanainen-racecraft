@@ -6,9 +6,9 @@ import { Reveal } from "@/components/Reveal";
 import { PARTNERS } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Partners — var med på vägen mot VM-titeln",
+  title: "Partners — möjliggjorde vägen till VM 2026",
   description:
-    "Primab och Labatus möjliggör VM-satsningen. Exponering på overall, digitala kanaler, takbox och hjälmlackering.",
+    "Primab och Labatus möjliggjorde VM-satsningen 2026. Exponering på overall, digitala kanaler, takbox och hjälmlackering.",
   alternates: {
     canonical: "/partners",
     languages: { "sv-SE": "/partners", en: "/en/partners", "x-default": "/partners" },
@@ -19,7 +19,7 @@ const PARTNER_INTROS: Record<string, string> = {
   Primab:
     "Primab har stöttat satsningen sedan de första VM-åren, hela vägen till comebacken. Ett stöd jag är mycket tacksam för.",
   Labatus:
-    "Labatus är ny partner för 2026 och följer med hela vägen mot VM i Danmark. Stort tack för förtroendet.",
+    "Labatus klev in som ny partner för 2026 och följde med hela vägen till VM i Danmark. Stort tack för förtroendet.",
 };
 
 const PACKAGES = [

@@ -21,8 +21,11 @@ const FACTS = [
   ["Best Worlds result", "3rd of 102 (Italy 2016, won the final)"],
   ["Worlds starts", "5 (2015, 2016, 2017, 2018, 2026)"],
   ["SRKC titles", "2 (Linköping 2015, Gothenburg 2018)"],
-  ["Next event", `Kart World Championship 2026 · ${KWC.venue}, Denmark · ${KWC.datesLabel.en}`],
-  ["Competing in", "KWC Individual + Nations Cup (Sweden)"],
+  [
+    "Latest event",
+    `Kart World Championship 2026 · ${KWC.venue}, Denmark · ${KWC.datesLabel.en} · ${KWC.result2026.en}`,
+  ],
+  ["Competed in", "KWC Individual + Nations Cup (Sweden)"],
   ["Partners", "Primab (since the start of the campaign), Labatus (new for 2026)"],
   ["Contact", CONTACT_EMAIL],
   ["Web", SITE_URL.replace("https://", "")],

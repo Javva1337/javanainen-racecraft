@@ -10,6 +10,7 @@ import { LiveLinks } from "@/components/LiveLinks";
 import { LiveStanding } from "@/components/LiveStanding";
 import { NationBadge } from "@/components/NationBadge";
 import { Reveal } from "@/components/Reveal";
+import { VmRecap } from "@/components/vm-recap/VmRecap";
 import { getAllArticles } from "@/lib/content";
 import { HEAT_FAQ } from "@/lib/heats";
 import { getSiteMode } from "@/lib/mode";
@@ -100,29 +101,12 @@ export default function EnglishVmPage() {
         </div>
       )}
 
-      {mode === "after" && (
-        <section className="mb-16 border border-line bg-midnight-800 p-8">
-          <h2 className="heading-caps mb-3 text-2xl font-bold text-snow">Worlds 2026 — how it went</h2>
-          <p className="max-w-2xl text-mist">
-            Championship week is over. Rickard reached the semifinal and finished{" "}
-            <strong className="text-snow tabular">{KWC.result2026.en}</strong> drivers, with three
-            podiums in the qualifying heats along the way. All daily reports are collected below.
-          </p>
-          <p className="mt-4">
-            <Link
-              href={`/en/news/${KWC.finalReportSlug}`}
-              className="text-flagblue-bright underline underline-offset-4 transition-colors duration-200 hover:text-snow"
-            >
-              Read the final report from the Worlds →
-            </Link>
-          </p>
-        </section>
-      )}
+      {mode === "after" && <VmRecap lang="en" />}
 
       {/* Rickard's heats in the individual championship */}
       <section id="rickards-heats" className="mb-16" aria-labelledby="heat-heading">
         <h2 id="heat-heading" className="heading-caps mb-4 text-2xl font-bold text-snow">
-          When does Rickard race?
+          When did Rickard race?
         </h2>
         <HeatSchedule lang="en" />
       </section>
@@ -222,8 +206,8 @@ export default function EnglishVmPage() {
             <p className="text-sm leading-relaxed text-mist">
               The team event where drivers represent their country, {KWC.nationsCupLabel.en}.
               Every result counts toward the nation's total. Rickard has raced the Nations Cup at
-              every Worlds he has entered: fifth in 2015–2017 and sixth in 2018. This year the
-              goal is the podium, for Sweden.
+              every Worlds he has entered: fifth in 2015–2017 and sixth in 2018, and{" "}
+              {KWC.nationsCupResult2026.en} in 2026.
             </p>
           </div>
         </div>
@@ -234,9 +218,9 @@ export default function EnglishVmPage() {
           The track: Vandel Kart
         </h2>
         <p className="max-w-3xl leading-relaxed text-mist">
-          {KWC.venue} is located in the {KWC.area.en} in Jutland, Denmark, and hosts the 20th
-          edition of the Kart World Championship. Track facts and corner-by-corner driver notes
-          will be published here after the practice days, straight from the paddock.
+          {KWC.venue} is located in the {KWC.area.en} in Jutland, Denmark, and hosted the 20th
+          edition of the Kart World Championship. Racing alternated between two track layouts,
+          VG Classic and VG New 23, across the week.
         </p>
       </section>
 

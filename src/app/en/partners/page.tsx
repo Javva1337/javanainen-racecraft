@@ -6,9 +6,9 @@ import { Reveal } from "@/components/Reveal";
 import { PARTNERS } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Partners — join the road to the Worlds",
+  title: "Partners — behind the road to the 2026 Worlds",
   description:
-    "Primab and Labatus make the Worlds campaign possible. Exposure on the race suit, digital channels, the roof box and helmet livery.",
+    "Primab and Labatus made the 2026 Worlds campaign possible. Exposure on the race suit, digital channels, the roof box and helmet livery.",
   alternates: {
     canonical: "/en/partners",
     languages: { "sv-SE": "/partners", en: "/en/partners", "x-default": "/partners" },
@@ -20,7 +20,7 @@ const PARTNER_INTROS: Record<string, string> = {
   Primab:
     "Primab has been a partner through every year of this campaign, from the first Worlds seasons to the comeback. Support we are very grateful for.",
   Labatus:
-    "Labatus is a new partner this year, on board all the way to the 2026 Worlds. Thank you for the trust.",
+    "Labatus came on board as a new partner for 2026 and stayed on all the way to the Worlds in Denmark. Thank you for the trust.",
 };
 
 const PACKAGES = [

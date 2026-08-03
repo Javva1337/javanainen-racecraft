@@ -1,6 +1,7 @@
 export type Lang = "sv" | "en";
 
 import type { Category } from "./content";
+import { KWC } from "./site";
 
 /** Kategorinycklarna i frontmatter är svenska — bara visningen översätts. */
 const CATEGORY_LABELS_EN: Record<Category, string> = {
@@ -37,7 +38,12 @@ export const DICT = {
         before: "Nations Cup",
         during: "Live",
         after: "Så gick VM",
-        ariaLabel: "Aktuell tävling: Nations Cup",
+        /** Läges-styrd: after-läget ska inte påstå att en tävling pågår */
+        ariaLabel: {
+          before: "Aktuell tävling: Nations Cup",
+          during: "Aktuell tävling: VM 2026",
+          after: "VM 2026 — så gick det",
+        } as Record<import("./mode").SiteMode, string>,
       },
     },
     footer: {
@@ -46,9 +52,9 @@ export const DICT = {
       partnersHeading: "Partners",
       navHeading: "Sajten",
       press: "Press",
-      newsletterHeading: "Få rapporterna från VM",
+      newsletterHeading: "Nyhetsbrevet",
       newsletterText:
-        "En rapport per dag under VM-veckan, direkt i inkorgen.",
+        "Nya racerapporter och nyheter om satsningen, direkt i inkorgen.",
     },
     newsletter: {
       placeholder: "din@epost.se",
@@ -56,7 +62,7 @@ export const DICT = {
       button: "Få rapporterna direkt i mejlen",
       pending: "Skickar …",
       success:
-        "Tack, du är anmäld! Racerapporten kommer direkt i inkorgen under VM-veckan.",
+        "Tack, du är anmäld! Nya racerapporter kommer direkt i inkorgen.",
       error: "Något gick fel. Prova igen, eller mejla",
       ariaLabel: "E-postadress för nyhetsbrevet",
       nameAriaLabel: "Ditt namn",
@@ -100,7 +106,7 @@ export const DICT = {
     news: {
       title: "Nyheter",
       description:
-        "Racerapporter och berättelser från vägen till hyrkart-VM 2026, skrivna av föraren själv. Under VM publiceras en ny rapport varje tävlingskväll.",
+        "Racerapporter och berättelser från vägen till hyrkart-VM 2026, skrivna av föraren själv. Under VM publicerades en ny rapport varje tävlingskväll.",
       all: "Alla nyheter",
       empty: "Inga artiklar i den här kategorin ännu.",
     },
@@ -133,7 +139,7 @@ export const DICT = {
       /** Efter Nations Cup flyttas teaserns fokus till individuella VM */
       nowTitleInd: "KWC Individual — individuella VM",
       nowAfterInd:
-        "Nations Cup är avgjord — Sverige slutade 14:e av 32 nationer. Från tisdag 28 juli väntar det individuella mästerskapet, där Rickard kör åtta kvalheat innan semifinal och final.",
+        `Nations Cup är avgjord — Sverige slutade ${KWC.nationsCupResult2026.sv}. Från tisdag 28 juli väntar det individuella mästerskapet, där Rickard kör åtta kvalheat innan semifinal och final.`,
       nowCtaInd: "Följ det individuella VM:t →",
       nowReport: "Läs finalrapporten från Nations Cup →",
       nowReportFinal: "Läs slutrapporten från VM →",
@@ -145,10 +151,32 @@ export const DICT = {
       tracksOnboard: "Följ med på ett träningspass →",
       tracksMore: "Mer om banan och layouterna →",
     },
+    /** "Efter VM"-recapen — teaser på startsidan + full sektion på /vm-2026 */
+    recap: {
+      kicker: "VM 2026 · Vandel, Danmark",
+      teaserHeading: "Så gick VM",
+      teaserCta: "Se hela VM-resan →",
+      heading: "VM 2026 — så gick det",
+      intro: (result: string) =>
+        `Rickard gick till semifinal och slutade ${result} förare. Här är veckan i siffror — varje punkt i kurvan länkar till den dagens rapport.`,
+      statFinal: "Slutplacering",
+      statHeats: "Körda heat",
+      statPodiums: "Pallplatser i kvalheaten",
+      statSemi: "Så långt räckte det",
+      statSemiValue: "Semifinal",
+      journeyHeading: "Resan genom veckan",
+      journeyIntro:
+        "Placering i totalen efter varje tävlingsdag i det individuella mästerskapet.",
+      ncLabel: (position: string) => `Nations Cup · ${position}`,
+      chartAria: "Kurva över totalplaceringen dag för dag under VM-veckan",
+      dayAria: (day: number, standing: number) =>
+        `Dag ${day}: plats ${standing} i totalen — läs dagsrapporten`,
+      finalReportCta: "Läs slutrapporten från VM →",
+    },
     common: {
       readMore: "Läs mer",
       contact: "Kontakt",
-      partnersLine: "VM-satsningen möjliggörs av Primab och Labatus",
+      partnersLine: "VM-satsningen möjliggjordes av Primab och Labatus",
       soundOn: "Slå på ljud",
       soundOff: "Stäng av ljud",
     },
@@ -180,7 +208,12 @@ export const DICT = {
         before: "Nations Cup",
         during: "Live",
         after: "How it went",
-        ariaLabel: "Current competition: Nations Cup",
+        /** Läges-styrd: after-läget ska inte påstå att en tävling pågår */
+        ariaLabel: {
+          before: "Current competition: Nations Cup",
+          during: "Current competition: Worlds 2026",
+          after: "Worlds 2026 — how it went",
+        } as Record<import("./mode").SiteMode, string>,
       },
     },
     footer: {
@@ -189,8 +222,8 @@ export const DICT = {
       partnersHeading: "Partners",
       navHeading: "Site",
       press: "Press",
-      newsletterHeading: "Follow the road to the Worlds",
-      newsletterText: "One report per day during championship week, straight to your inbox.",
+      newsletterHeading: "The newsletter",
+      newsletterText: "New race reports and campaign news, straight to your inbox.",
     },
     newsletter: {
       placeholder: "you@email.com",
@@ -198,7 +231,7 @@ export const DICT = {
       button: "Subscribe",
       pending: "Sending …",
       success:
-        "Thanks, you're signed up! The race report lands in your inbox during championship week.",
+        "Thanks, you're signed up! New race reports will land in your inbox.",
       error: "Something went wrong. Try again, or email",
       ariaLabel: "Email address for the newsletter",
       nameAriaLabel: "Your name",
@@ -273,7 +306,7 @@ export const DICT = {
       heroNc: "Nations Cup · 25–26 July",
       nowTitleInd: "KWC Individual — the individual Worlds",
       nowAfterInd:
-        "The Nations Cup is decided — Sweden finished 14th of 32 nations. From Tuesday 28 July the individual championship takes over, with Rickard racing eight qualifying heats before the semifinal and final.",
+        `The Nations Cup is decided — Sweden finished ${KWC.nationsCupResult2026.en}. From Tuesday 28 July the individual championship takes over, with Rickard racing eight qualifying heats before the semifinal and final.`,
       nowCtaInd: "Follow the individual Worlds →",
       nowReport: "Read the Nations Cup final report →",
       nowReportFinal: "Read the final report from the Worlds →",
@@ -284,10 +317,32 @@ export const DICT = {
       tracksOnboard: "Ride along for a training session →",
       tracksMore: "More about the track and layouts →",
     },
+    /** Post-Worlds recap — home teaser + full section on /en/vm-2026 */
+    recap: {
+      kicker: "Worlds 2026 · Vandel, Denmark",
+      teaserHeading: "How the Worlds went",
+      teaserCta: "See the full Worlds journey →",
+      heading: "Worlds 2026 — how it went",
+      intro: (result: string) =>
+        `Rickard reached the semifinal and finished ${result} drivers. Here is the week in numbers — every point on the curve links to that day's report.`,
+      statFinal: "Final standing",
+      statHeats: "Heats raced",
+      statPodiums: "Podiums in the qualifying heats",
+      statSemi: "How far it went",
+      statSemiValue: "Semifinal",
+      journeyHeading: "The journey through the week",
+      journeyIntro:
+        "Overall standing after each race day of the individual championship.",
+      ncLabel: (position: string) => `Nations Cup · ${position}`,
+      chartAria: "Chart of the overall standing day by day during the Worlds week",
+      dayAria: (day: number, standing: number) =>
+        `Day ${day}: place ${standing} overall — read the daily report`,
+      finalReportCta: "Read the final report from the Worlds →",
+    },
     common: {
       readMore: "Read more",
       contact: "Contact",
-      partnersLine: "The Worlds campaign is made possible by Primab and Labatus",
+      partnersLine: "The Worlds campaign was made possible by Primab and Labatus",
       soundOn: "Turn sound on",
       soundOff: "Turn sound off",
     },
