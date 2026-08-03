@@ -6,7 +6,7 @@ import { CONTACT_EMAIL, KWC, SITE_URL } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Press — bilder, biografi och faktablad",
   description:
-    "Pressmaterial om Rickard Javanainen: nedladdningsbara högupplösta bilder, kort och lång biografi på svenska och engelska samt faktablad inför hyrkart-VM 2026.",
+    "Pressmaterial om Rickard Javanainen: nedladdningsbara högupplösta bilder, kort och lång biografi på svenska och engelska samt faktablad om hyrkart-VM 2026.",
   alternates: {
     canonical: "/press",
     languages: { "sv-SE": "/press", en: "/en/press", "x-default": "/press" },

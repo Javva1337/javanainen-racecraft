@@ -208,7 +208,7 @@ export function NationsCupJsonLd() {
     ],
     inLanguage: "sv-SE",
     description:
-      `Lagtävlingen i hyrkart-VM 2026. Semifinaler 25 juli, finaler 26 juli på Vandel Kart i Danmark. Sverige körde med fyra förare, gick till semifinal B och slutade ${KWC.nationsCupResult2026.sv}.`,
+      `Lagtävlingen i hyrkart-VM 2026. Semifinaler 25 juli, finaler 26 juli på Vandel Kart i Danmark. Sverige körde med fyra förare, lottades till semifinal B och slutade ${KWC.nationsCupResult2026.sv}.`,
   };
   return (
     <script

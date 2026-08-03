@@ -240,9 +240,17 @@ export default function VmPage() {
           Banan: Vandel Kart
         </h2>
         <p className="max-w-3xl leading-relaxed text-mist">
-          {KWC.venue} ligger i {KWC.area.sv} på Jylland i Danmark och är värd för den 20:e
-          upplagan av Kart World Championship. Banfakta och förarkommentarer kurva för kurva
-          publiceras här efter träningsdagarna, direkt från depån.
+          {KWC.venue} ligger i {KWC.area.sv} på Jylland i Danmark och var värd för den 20:e
+          upplagan av Kart World Championship. Banlayouterna VG Classic och VG New 23, med
+          onboard-varv och kommentarer kurva för kurva, finns att se på Nations Cup-sidan.
+        </p>
+        <p className="mt-3 max-w-3xl text-sm">
+          <Link
+            href="/vm-2026/nations-cup"
+            className="text-flagblue-bright underline underline-offset-4 transition-colors duration-200 hover:text-snow"
+          >
+            Se banlayouterna och onboard-varven →
+          </Link>
         </p>
       </section>
 

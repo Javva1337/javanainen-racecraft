@@ -218,9 +218,9 @@ export default function EnglishVmPage() {
           The track: Vandel Kart
         </h2>
         <p className="max-w-3xl leading-relaxed text-mist">
-          {KWC.venue} is located in the {KWC.area.en} in Jutland, Denmark, and hosts the 20th
-          edition of the Kart World Championship. Track facts and corner-by-corner driver notes
-          will be published here after the practice days, straight from the paddock.
+          {KWC.venue} is located in the {KWC.area.en} in Jutland, Denmark, and hosted the 20th
+          edition of the Kart World Championship. Racing alternated between two track layouts,
+          VG Classic and VG New 23, across the week.
         </p>
       </section>
 

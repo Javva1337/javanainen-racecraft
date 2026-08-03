@@ -3,11 +3,12 @@ import Image from "next/image";
 import { KurbitsDivider } from "@/components/Kurbits";
 import { NationBadge } from "@/components/NationBadge";
 import { Reveal } from "@/components/Reveal";
+import { KWC } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About Rickard — from Dalarna to the world stage",
   description:
-    "The story in chapters: karting in Dalarna at the age of ten, racing school in Mjölby, circuit racing in Ginetta, a Worlds bronze in rental karting and the comeback aiming for Vandel 2026.",
+    `The story in chapters: karting in Dalarna at the age of ten, racing school in Mjölby, circuit racing in Ginetta, a Worlds bronze in rental karting, and the comeback that finished ${KWC.result2026.en} at Vandel 2026.`,
   alternates: {
     canonical: "/en/about",
     languages: { "sv-SE": "/om", en: "/en/about", "x-default": "/om" },

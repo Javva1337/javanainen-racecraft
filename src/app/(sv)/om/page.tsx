@@ -3,11 +3,12 @@ import Image from "next/image";
 import { KurbitsDivider } from "@/components/Kurbits";
 import { NationBadge } from "@/components/NationBadge";
 import { Reveal } from "@/components/Reveal";
+import { KWC } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Om Rickard — från Dalarna till världstoppen",
   description:
-    "Berättelsen i kapitel: gokart i Dalarna vid 10 års ålder, Racinggymnasiet i Mjölby, banracing i Ginetta, och vägen till VM-brons i hyrkart och comebacken mot Vandel 2026.",
+    `Berättelsen i kapitel: gokart i Dalarna vid 10 års ålder, Racinggymnasiet i Mjölby, banracing i Ginetta, vägen till VM-brons i hyrkart, och comebacken som slutade som ${KWC.result2026.sv} i Vandel 2026.`,
   alternates: {
     canonical: "/om",
     languages: { "sv-SE": "/om", en: "/en/about", "x-default": "/om" },
