@@ -8,7 +8,7 @@ import { PARTNERS } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Partners — möjliggjorde vägen till VM 2026",
   description:
-    "Primab och Labatus möjliggör VM-satsningen. Exponering på overall, digitala kanaler, takbox och hjälmlackering.",
+    "Primab och Labatus möjliggjorde VM-satsningen 2026. Exponering på overall, digitala kanaler, takbox och hjälmlackering.",
   alternates: {
     canonical: "/partners",
     languages: { "sv-SE": "/partners", en: "/en/partners", "x-default": "/partners" },

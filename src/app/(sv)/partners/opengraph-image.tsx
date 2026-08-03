@@ -7,7 +7,7 @@ export const alt = "Partners — Rickard Javanainen";
 export default async function Image() {
   return buildOgImage({
     title: "Partners",
-    subtitle: "Möjliggjorde vägen till VM 2026 tillsammans med Primab och Labatus",
+    subtitle: "Primab och Labatus möjliggjorde vägen till VM 2026",
     showPartners: true,
   });
 }

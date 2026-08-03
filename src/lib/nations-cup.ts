@@ -205,7 +205,7 @@ export const NC_FAQ: Array<{ q: string; a: string }> = [
     a: "Hela Nations Cup — semifinal och final, totalt sex timmar per lag — körs på VG Classic-layouten. I det individuella mästerskapet senare under VM-veckan alternerar layouterna dag för dag: VG Classic dag 1 och 3, VG New 23 dag 2 och 4, och inför semifinal och final lottas layouten på tävlingsdagen. VG New 23 är nästan exakt två sekunder snabbare per varv, så förarna behöver behärska båda under veckan.",
   },
   {
-    q: "Vilka kör för Sverige i Nations Cup 2026?",
-    a: `Sveriges lag 2026 var Rickard Javanainen, Robin Fredriksson, Daniel Fredriksson och Philip Karlsson. Sverige slutade femma 2015–2017 och sexa 2018 — 2026 blev det ${KWC.nationsCupResult2026.sv}.`,
+    q: "Vilka körde för Sverige i Nations Cup 2026?",
+    a: `Sveriges lag 2026 var Rickard Javanainen, Robin Fredriksson, Daniel Fredriksson och Philip Karlsson. Sverige slutade femma 2015–2017 och sexa 2018 — 2026 blev placeringen ${KWC.nationsCupResult2026.sv}.`,
   },
 ];

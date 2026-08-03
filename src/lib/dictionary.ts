@@ -148,12 +148,12 @@ export const DICT = {
     },
     /** "Efter VM"-recapen — teaser på startsidan + full sektion på /vm-2026 */
     recap: {
-      kicker: "VM 2026 är avgjort",
+      kicker: "VM 2026 · Vandel, Danmark",
       teaserHeading: "Så gick VM",
       teaserCta: "Se hela VM-resan →",
       heading: "VM 2026 — så gick det",
-      intro:
-        "Tävlingsveckan är avslutad. Här är resan genom veckan i siffror — varje punkt länkar till dagens rapport.",
+      intro: (result: string) =>
+        `Rickard gick till semifinal och slutade ${result} förare. Här är veckan i siffror — varje punkt i kurvan länkar till den dagens rapport.`,
       statFinal: "Slutplacering",
       statHeats: "Körda heat",
       statPodiums: "Pallplatser i kvalheaten",
@@ -171,7 +171,7 @@ export const DICT = {
     common: {
       readMore: "Läs mer",
       contact: "Kontakt",
-      partnersLine: "VM-satsningen möjliggörs av Primab och Labatus",
+      partnersLine: "VM-satsningen möjliggjordes av Primab och Labatus",
       soundOn: "Slå på ljud",
       soundOff: "Stäng av ljud",
     },
@@ -309,12 +309,12 @@ export const DICT = {
     },
     /** Post-Worlds recap — home teaser + full section on /en/vm-2026 */
     recap: {
-      kicker: "Worlds 2026 is decided",
+      kicker: "Worlds 2026 · Vandel, Denmark",
       teaserHeading: "How the Worlds went",
       teaserCta: "See the full Worlds journey →",
       heading: "Worlds 2026 — how it went",
-      intro:
-        "The race week is over. Here is the journey through the week in numbers — every point links to that day's report.",
+      intro: (result: string) =>
+        `Rickard reached the semifinal and finished ${result} drivers. Here is the week in numbers — every point on the curve links to that day's report.`,
       statFinal: "Final standing",
       statHeats: "Heats raced",
       statPodiums: "Podiums in the qualifying heats",
@@ -335,7 +335,7 @@ export const DICT = {
     common: {
       readMore: "Read more",
       contact: "Contact",
-      partnersLine: "The Worlds campaign is made possible by Primab and Labatus",
+      partnersLine: "The Worlds campaign was made possible by Primab and Labatus",
       soundOn: "Turn sound on",
       soundOff: "Turn sound off",
     },

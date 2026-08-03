@@ -309,7 +309,7 @@ export default async function NationsCupPage({ searchParams }: Props) {
         </div>
         <p className="max-w-3xl leading-relaxed text-mist">
           Sverige har legat strax utanför pallen flera år i rad — femma 2015–2017 och sexa
-          2018. 2026 blev det {KWC.nationsCupResult2026.sv}.{" "}
+          2018. 2026 slutade laget {KWC.nationsCupResult2026.sv}.{" "}
           <Link
             href="/nyheter/sveriges-lag-i-nations-cup"
             className="text-flagblue-bright underline underline-offset-4 transition-colors duration-200 hover:text-snow"

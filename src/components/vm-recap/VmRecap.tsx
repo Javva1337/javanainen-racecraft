@@ -33,7 +33,7 @@ export function VmRecap({ lang }: { lang: Lang }) {
       <h2 id="recap-heading" className="heading-caps mb-3 text-2xl font-bold text-snow">
         {t.heading}
       </h2>
-      <p className="mb-8 max-w-2xl text-mist">{t.intro}</p>
+      <p className="mb-8 max-w-2xl text-mist">{t.intro(KWC.result2026[lang])}</p>
 
       <RecapStats items={stats} />
 

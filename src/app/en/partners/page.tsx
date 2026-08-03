@@ -8,7 +8,7 @@ import { PARTNERS } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Partners — behind the road to the 2026 Worlds",
   description:
-    "Primab and Labatus make the Worlds campaign possible. Exposure on the race suit, digital channels, the roof box and helmet livery.",
+    "Primab and Labatus made the 2026 Worlds campaign possible. Exposure on the race suit, digital channels, the roof box and helmet livery.",
   alternates: {
     canonical: "/en/partners",
     languages: { "sv-SE": "/partners", en: "/en/partners", "x-default": "/partners" },

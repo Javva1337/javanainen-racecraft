@@ -24,7 +24,7 @@ const FACTS = [
     "Senaste tävling",
     `Kart World Championship 2026 · ${KWC.venue}, Danmark · ${KWC.datesLabel.sv} · ${KWC.result2026.sv}`,
   ],
-  ["Tävlar i", "KWC Individual + Nations Cup (Sverige)"],
+  ["Tävlade i", "KWC Individual + Nations Cup (Sverige)"],
   ["Partners", "Primab (sedan starten av satsningen), Labatus (ny 2026)"],
   ["Kontakt", CONTACT_EMAIL],
   ["Webb", SITE_URL.replace("https://", "")],

@@ -112,7 +112,7 @@ export default function EnglishHomePage() {
       <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6" aria-label="Partners">
         <div className="flex flex-col items-center gap-8 text-center">
           <p className="heading-caps text-xs tracking-[0.16em] text-mist-dim">
-            The Worlds campaign is made possible by
+            The Worlds campaign was made possible by
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             {PARTNERS.map((partner) => (
