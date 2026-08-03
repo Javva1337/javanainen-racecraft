@@ -47,16 +47,23 @@ export function RecapStats({ items }: { items: RecapStatItem[] }) {
         <motion.li
           key={stat.label}
           variants={reduceMotion ? undefined : item}
-          className="bg-midnight-800 p-5 sm:p-6"
+          className="min-w-0 bg-midnight-800 p-5 sm:p-6"
         >
           <p className="heading-caps text-3xl font-extrabold text-snow sm:text-4xl">
             {typeof stat.value === "number" ? (
               <NumberTicker value={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
             ) : (
-              stat.value
+              /* Ordvärden ("Semifinal") kan inte radbrytas — mindre grad på
+                 mobil så kortet aldrig spränger tvåkolumnsgriden */
+              <span className="text-xl sm:text-4xl">{stat.value}</span>
             )}
             {stat.detail && (
-              <span className="ml-1 text-base font-bold text-mist-dim">{stat.detail}</span>
+              /* Riktigt mellanslag före spannet — annars blir copy/paste
+                 och skärmläsare "41:aav 180" (ml-1 syns men läses inte) */
+              <>
+                {" "}
+                <span className="text-base font-bold text-mist-dim">{stat.detail}</span>
+              </>
             )}
           </p>
           <p className="mt-2 text-xs uppercase tracking-[0.14em] text-mist-dim">

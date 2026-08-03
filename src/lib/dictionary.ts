@@ -38,7 +38,12 @@ export const DICT = {
         before: "Nations Cup",
         during: "Live",
         after: "Så gick VM",
-        ariaLabel: "Aktuell tävling: Nations Cup",
+        /** Läges-styrd: after-läget ska inte påstå att en tävling pågår */
+        ariaLabel: {
+          before: "Aktuell tävling: Nations Cup",
+          during: "Aktuell tävling: VM 2026",
+          after: "VM 2026 — så gick det",
+        } as Record<import("./mode").SiteMode, string>,
       },
     },
     footer: {
@@ -203,7 +208,12 @@ export const DICT = {
         before: "Nations Cup",
         during: "Live",
         after: "How it went",
-        ariaLabel: "Current competition: Nations Cup",
+        /** Läges-styrd: after-läget ska inte påstå att en tävling pågår */
+        ariaLabel: {
+          before: "Current competition: Nations Cup",
+          during: "Current competition: Worlds 2026",
+          after: "Worlds 2026 — how it went",
+        } as Record<import("./mode").SiteMode, string>,
       },
     },
     footer: {
