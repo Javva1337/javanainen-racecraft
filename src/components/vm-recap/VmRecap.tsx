@@ -45,7 +45,9 @@ export function VmRecap({ lang }: { lang: Lang }) {
           nationsCup={recap.nationsCup}
           lang={lang}
           labels={{
-            ncLabel: t.ncLabel(recap.nationsCup.position),
+            /* KWC-konstanten är tvåspråkig — vm-status.json:s position är
+               bara svensk och får aldrig maskinöversättas */
+            ncLabel: t.ncLabel(KWC.nationsCupResult2026[lang]),
             chartAria: t.chartAria,
             // Förberäknad per dag — funktioner går inte över RSC-gränsen
             // till klientkomponenten RecapChart.

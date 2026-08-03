@@ -106,7 +106,7 @@ export default function EnglishVmPage() {
       {/* Rickard's heats in the individual championship */}
       <section id="rickards-heats" className="mb-16" aria-labelledby="heat-heading">
         <h2 id="heat-heading" className="heading-caps mb-4 text-2xl font-bold text-snow">
-          When does Rickard race?
+          When did Rickard race?
         </h2>
         <HeatSchedule lang="en" />
       </section>

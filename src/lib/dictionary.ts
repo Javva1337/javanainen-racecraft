@@ -333,13 +333,10 @@ export const DICT = {
       journeyHeading: "The journey through the week",
       journeyIntro:
         "Overall standing after each race day of the individual championship.",
-      // Fungerar för svenska ordningstal på formen "-:e" (t.ex. "14:e av 32" → "14th of 32").
-      // Bryts formatet fångas det av dictionary-testet.
-      ncLabel: (position: string) =>
-        `Nations Cup · ${position.replace(":e av", "th of")}`,
+      ncLabel: (position: string) => `Nations Cup · ${position}`,
       chartAria: "Chart of the overall standing day by day during the Worlds week",
       dayAria: (day: number, standing: number) =>
-        `Day ${day}: ${standing} overall — read the daily report`,
+        `Day ${day}: place ${standing} overall — read the daily report`,
       finalReportCta: "Read the final report from the Worlds →",
     },
     common: {

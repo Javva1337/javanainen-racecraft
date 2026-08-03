@@ -111,7 +111,7 @@ describe("recap-strängar", () => {
       Object.keys(DICT.sv.recap).sort(),
     );
   });
-  test("en.ncLabel konverterar svensk positionstext", () => {
-    expect(DICT.en.recap.ncLabel("14:e av 32")).toBe("Nations Cup · 14th of 32");
+  test("en.ncLabel bygger etiketten av den engelska KWC-konstanten", () => {
+    expect(DICT.en.recap.ncLabel("14th of 32 nations")).toBe("Nations Cup · 14th of 32 nations");
   });
 });

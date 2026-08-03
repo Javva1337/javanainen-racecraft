@@ -109,7 +109,7 @@ export default function VmPage() {
       {/* Rickards heat i det individuella mästerskapet */}
       <section id="rickards-heat" className="mb-16" aria-labelledby="heat-heading">
         <h2 id="heat-heading" className="heading-caps mb-4 text-2xl font-bold text-snow">
-          När kör Rickard?
+          När körde Rickard?
         </h2>
         <HeatSchedule lang="sv" />
       </section>
