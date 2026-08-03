@@ -66,6 +66,8 @@ export const KWC = {
   vmEnd: Date.UTC(2026, 7, 1, 22, 0, 0),
   /** Slutresultat KWC Individual 2026 — semifinal, missade finalen */
   result2026: { sv: "41:a av 180", en: "41st of 180" },
+  /** Nations Cup 2026 — Sveriges slutresultat i lagtävlingen (semifinal B, 14:e av 32) */
+  nationsCupResult2026: { sv: "14:e av 32 nationer", en: "14th of 32 nations" },
   /** Slug för slutrapporten — länkas från after-lägets ytor */
   finalReportSlug: "vm-dag-11-vm-over-41a-av-180",
 } as const;

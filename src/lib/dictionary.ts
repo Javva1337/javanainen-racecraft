@@ -1,6 +1,7 @@
 export type Lang = "sv" | "en";
 
 import type { Category } from "./content";
+import { KWC } from "./site";
 
 /** Kategorinycklarna i frontmatter är svenska — bara visningen översätts. */
 const CATEGORY_LABELS_EN: Record<Category, string> = {
@@ -46,9 +47,9 @@ export const DICT = {
       partnersHeading: "Partners",
       navHeading: "Sajten",
       press: "Press",
-      newsletterHeading: "Få rapporterna från VM",
+      newsletterHeading: "Nyhetsbrevet",
       newsletterText:
-        "En rapport per dag under VM-veckan, direkt i inkorgen.",
+        "Nya racerapporter och nyheter om satsningen, direkt i inkorgen.",
     },
     newsletter: {
       placeholder: "din@epost.se",
@@ -56,7 +57,7 @@ export const DICT = {
       button: "Få rapporterna direkt i mejlen",
       pending: "Skickar …",
       success:
-        "Tack, du är anmäld! Racerapporten kommer direkt i inkorgen under VM-veckan.",
+        "Tack, du är anmäld! Nya racerapporter kommer direkt i inkorgen.",
       error: "Något gick fel. Prova igen, eller mejla",
       ariaLabel: "E-postadress för nyhetsbrevet",
       nameAriaLabel: "Ditt namn",
@@ -100,7 +101,7 @@ export const DICT = {
     news: {
       title: "Nyheter",
       description:
-        "Racerapporter och berättelser från vägen till hyrkart-VM 2026, skrivna av föraren själv. Under VM publiceras en ny rapport varje tävlingskväll.",
+        "Racerapporter och berättelser från vägen till hyrkart-VM 2026, skrivna av föraren själv. Under VM publicerades en ny rapport varje tävlingskväll.",
       all: "Alla nyheter",
       empty: "Inga artiklar i den här kategorin ännu.",
     },
@@ -133,7 +134,7 @@ export const DICT = {
       /** Efter Nations Cup flyttas teaserns fokus till individuella VM */
       nowTitleInd: "KWC Individual — individuella VM",
       nowAfterInd:
-        "Nations Cup är avgjord — Sverige slutade 14:e av 32 nationer. Från tisdag 28 juli väntar det individuella mästerskapet, där Rickard kör åtta kvalheat innan semifinal och final.",
+        `Nations Cup är avgjord — Sverige slutade ${KWC.nationsCupResult2026.sv}. Från tisdag 28 juli väntar det individuella mästerskapet, där Rickard kör åtta kvalheat innan semifinal och final.`,
       nowCtaInd: "Följ det individuella VM:t →",
       nowReport: "Läs finalrapporten från Nations Cup →",
       nowReportFinal: "Läs slutrapporten från VM →",
@@ -211,8 +212,8 @@ export const DICT = {
       partnersHeading: "Partners",
       navHeading: "Site",
       press: "Press",
-      newsletterHeading: "Follow the road to the Worlds",
-      newsletterText: "One report per day during championship week, straight to your inbox.",
+      newsletterHeading: "The newsletter",
+      newsletterText: "New race reports and campaign news, straight to your inbox.",
     },
     newsletter: {
       placeholder: "you@email.com",
@@ -220,7 +221,7 @@ export const DICT = {
       button: "Subscribe",
       pending: "Sending …",
       success:
-        "Thanks, you're signed up! The race report lands in your inbox during championship week.",
+        "Thanks, you're signed up! New race reports will land in your inbox.",
       error: "Something went wrong. Try again, or email",
       ariaLabel: "Email address for the newsletter",
       nameAriaLabel: "Your name",
@@ -295,7 +296,7 @@ export const DICT = {
       heroNc: "Nations Cup · 25–26 July",
       nowTitleInd: "KWC Individual — the individual Worlds",
       nowAfterInd:
-        "The Nations Cup is decided — Sweden finished 14th of 32 nations. From Tuesday 28 July the individual championship takes over, with Rickard racing eight qualifying heats before the semifinal and final.",
+        `The Nations Cup is decided — Sweden finished ${KWC.nationsCupResult2026.en}. From Tuesday 28 July the individual championship takes over, with Rickard racing eight qualifying heats before the semifinal and final.`,
       nowCtaInd: "Follow the individual Worlds →",
       nowReport: "Read the Nations Cup final report →",
       nowReportFinal: "Read the final report from the Worlds →",

@@ -1,4 +1,4 @@
-import { LIVE, SITE_URL, SOCIAL } from "@/lib/site";
+import { KWC, LIVE, SITE_URL, SOCIAL } from "@/lib/site";
 
 /** Delade byggstenar för KWC-eventen — Search Console vill ha fälten på varje eventnod. */
 const KWC_PLACE = {
@@ -57,7 +57,7 @@ export function PersonJsonLd() {
     nationality: { "@type": "Country", name: "Sverige" },
     jobTitle: "Racingförare — hyrkart",
     description:
-      "Svensk hyrkartförare. Brons i Kart World Championship 2016. Tävlar för Sverige i KWC 2026 i Vandel, Danmark.",
+      `Svensk hyrkartförare. Brons i Kart World Championship 2016. Tävlade för Sverige i KWC 2026 i Vandel, Danmark — ${KWC.result2026.sv}.`,
     sameAs: [SOCIAL.instagram, SOCIAL.facebook],
     knowsAbout: ["Rental karting", "Kart World Championship", "Motorsport"],
     knowsLanguage: ["sv", "en"],
@@ -208,7 +208,7 @@ export function NationsCupJsonLd() {
     ],
     inLanguage: "sv-SE",
     description:
-      "Lagtävlingen i hyrkart-VM 2026. Semifinaler 25 juli, finaler 26 juli på Vandel Kart i Danmark. Sverige kör med fyra förare — vilken semifinal avgörs av lottningen 25 juli kl 09:30.",
+      `Lagtävlingen i hyrkart-VM 2026. Semifinaler 25 juli, finaler 26 juli på Vandel Kart i Danmark. Sverige körde med fyra förare, gick till semifinal B och slutade ${KWC.nationsCupResult2026.sv}.`,
   };
   return (
     <script

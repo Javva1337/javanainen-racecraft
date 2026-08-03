@@ -206,8 +206,8 @@ export default function EnglishVmPage() {
             <p className="text-sm leading-relaxed text-mist">
               The team event where drivers represent their country, {KWC.nationsCupLabel.en}.
               Every result counts toward the nation's total. Rickard has raced the Nations Cup at
-              every Worlds he has entered: fifth in 2015–2017 and sixth in 2018. This year the
-              goal is the podium, for Sweden.
+              every Worlds he has entered: fifth in 2015–2017 and sixth in 2018, and{" "}
+              {KWC.nationsCupResult2026.en} in 2026.
             </p>
           </div>
         </div>

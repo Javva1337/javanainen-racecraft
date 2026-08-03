@@ -206,6 +206,6 @@ export const NC_FAQ: Array<{ q: string; a: string }> = [
   },
   {
     q: "Vilka kör för Sverige i Nations Cup 2026?",
-    a: "Sveriges lag 2026 är Rickard Javanainen, Robin Fredriksson, Daniel Fredriksson och Philip Karlsson. Sverige slutade femma 2015–2017 och sexa 2018 — i år är målet att nå pallen.",
+    a: `Sveriges lag 2026 var Rickard Javanainen, Robin Fredriksson, Daniel Fredriksson och Philip Karlsson. Sverige slutade femma 2015–2017 och sexa 2018 — 2026 blev det ${KWC.nationsCupResult2026.sv}.`,
   },
 ];

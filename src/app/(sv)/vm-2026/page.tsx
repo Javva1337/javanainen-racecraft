@@ -220,7 +220,7 @@ export default function VmPage() {
             <p className="text-sm leading-relaxed text-mist">
               Lagtävlingen där förarna representerar sitt land, {KWC.nationsCupLabel.sv}. Varje
               resultat bidrar till nationens totala placering. Rickard har kört Nations Cup i alla
-              sina VM: femma 2015–2017 och sexa 2018. I år är målet att ta Sverige till pallen.
+              sina VM: femma 2015–2017 och sexa 2018, och {KWC.nationsCupResult2026.sv} 2026.
             </p>
             <p className="mt-3 text-sm">
               <Link
