@@ -40,6 +40,14 @@ export function RecapChart({
   const pointDelay = (i: number) =>
     reduceMotion ? 0 : PATH_DURATION * 0.55 + i * POINT_STAGGER;
 
+  // Kantmedveten förankring: nära vänster-/högerkanten centrerar vi inte
+  // tooltipen (klipps annars av containern), utan förankrar mot punkten.
+  const tooltipAnchorClass = (x: number) => {
+    if (x < 25) return "left-0";
+    if (x > 75) return "right-0";
+    return "left-1/2 -translate-x-1/2";
+  };
+
   return (
     <figure aria-label={labels.chartAria}>
       {/* Grafytan — höjd i CSS, koordinater i procent av ytan */}
@@ -95,7 +103,8 @@ export function RecapChart({
             aria-label={labels.ncLabel}
           >
             <span className="block h-2.5 w-2.5 rounded-full border border-mist-dim bg-midnight transition-transform duration-150 group-hover:scale-125 group-focus-visible:scale-125" />
-            <span className="heading-caps absolute left-1/2 top-full mt-1 -translate-x-1/4 whitespace-nowrap text-[10px] tracking-[0.12em] text-mist-dim transition-colors group-hover:text-snow">
+            {/* Vänsterförankrad (punkten ligger vid 2 %) — annars klipps etiketten av containerkanten */}
+            <span className="heading-caps absolute left-0 top-full mt-1 whitespace-nowrap text-[10px] tracking-[0.12em] text-mist-dim transition-colors group-hover:text-snow">
               {labels.ncLabel}
             </span>
           </Link>
@@ -121,6 +130,7 @@ export function RecapChart({
               href={`${newsBase}/${p.day.slug}`}
               className="group block p-2"
               aria-label={labels.dayAria(p.day.day, p.day.standing)}
+              aria-describedby={`recap-tip-${p.day.day}`}
             >
               <span
                 className={`block h-3 w-3 rounded-full transition-transform duration-150 group-hover:scale-125 group-focus-visible:scale-125 ${
@@ -137,10 +147,11 @@ export function RecapChart({
               <span className="tabular absolute left-1/2 top-full mt-1 -translate-x-1/2 text-[10px] text-mist-dim transition-colors group-hover:text-snow">
                 P{p.day.standing}
               </span>
-              {/* Tooltip med dagens rubrik */}
+              {/* Tooltip med dagens rubrik — kantmedveten förankring + smalare på mobil */}
               <span
+                id={`recap-tip-${p.day.day}`}
                 role="tooltip"
-                className="pointer-events-none absolute bottom-full left-1/2 z-10 mb-6 w-56 -translate-x-1/2 border border-line bg-midnight px-3 py-2 text-xs leading-snug text-mist opacity-0 transition-opacity duration-150 group-hover:opacity-100 group-focus-visible:opacity-100"
+                className={`pointer-events-none absolute bottom-full z-10 mb-6 w-44 sm:w-56 border border-line bg-midnight px-3 py-2 text-xs leading-snug text-mist opacity-0 transition-opacity duration-150 group-hover:opacity-100 group-focus-visible:opacity-100 ${tooltipAnchorClass(p.x)}`}
               >
                 {p.day.title}
               </span>
