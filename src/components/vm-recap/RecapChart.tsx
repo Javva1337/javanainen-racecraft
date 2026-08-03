@@ -6,11 +6,17 @@ import type { ChartPoint } from "@/lib/chart-geometry";
 import { chartPathD } from "@/lib/chart-geometry";
 
 /**
- * "Resan genom veckan": standing-kurvan ritas med pathLength när sektionen
- * scrollas i vy, därefter poppar dagspunkterna in i tur och ordning.
+ * "Resan genom veckan": standing-kurvan avtäcks vänster→höger med en
+ * clip-path-svepning när sektionen scrollas i vy, därefter poppar
+ * dagspunkterna in i tur och ordning. (Inte pathLength: i kombination med
+ * non-scaling-stroke räknar WebKit dash-mönstret mot kurvans geometriska
+ * längd i stället för pathLength-attributet, så kurvan blev streckad med
+ * saknade segment i Safari.)
  * Pallplatsdagar får gul punkt — samma språk som resultattabellen på
  * /karriar. Nations Cup är en egen startpunkt med streckad anslutning
- * (annan skala: nationer, inte förare — därför utanför kurvan).
+ * (annan skala: nationer, inte förare — därför utanför kurvan); etiketten
+ * ligger som egen rad under grafytan eftersom punkten delar y med första
+ * dagspunkten och en etikett under punkten krockar med dagens P-etikett.
  * Skärmläsare och no-JS får en sr-only-lista med hela resan.
  */
 const PATH_DURATION = 1.3;
@@ -58,46 +64,63 @@ export function RecapChart({
 
   return (
     <figure aria-label={labels.chartAria}>
-      {/* Grafytan — höjd i CSS, koordinater i procent av ytan */}
-      <div className="relative h-56 sm:h-72">
-        <svg
-          className="absolute inset-0 h-full w-full overflow-visible text-flagblue-bright"
-          viewBox="0 0 100 100"
-          preserveAspectRatio="none"
-          aria-hidden="true"
-        >
-          {/* Streckad anslutning från NC-startpunkten till första kurvpunkten */}
-          <motion.line
-            x1={2}
-            y1={first.y}
-            x2={first.x}
-            y2={first.y}
-            stroke="currentColor"
-            strokeOpacity={0.35}
-            strokeDasharray="2 3"
-            vectorEffect="non-scaling-stroke"
-            initial={reduceMotion ? false : { opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.5 }}
-          />
-          <motion.path
-            d={chartPathD(points)}
-            fill="none"
-            stroke="currentColor"
-            strokeWidth={2}
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            vectorEffect="non-scaling-stroke"
-            initial={reduceMotion ? false : { pathLength: 0 }}
-            whileInView={{ pathLength: 1 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: reduceMotion ? 0 : PATH_DURATION, ease: "easeInOut" }}
-          />
-        </svg>
-
-        {/* NC-startpunkten — egen skala (nationer), därför utanför kurvan */}
+      {/* Grafytan — höjd i CSS, koordinater i procent av ytan. Vyn
+          observeras här och inte på det klippta lagret: i startläget är
+          klipprutan tom, så en IntersectionObserver på lagret självt ser
+          aldrig något synligt och svepningen skulle aldrig starta */}
+      <motion.div
+        className="relative h-56 sm:h-72"
+        initial={reduceMotion ? false : "hidden"}
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.5 }}
+      >
+        {/* Svepningen ligger på en HTML-wrapper (procenten avser hela
+            grafytan — motion animerar inte clip-path på svg-element) och
+            avtäcker både anslutningen och kurvan i x-led — kurvan är
+            monoton i x, så det läses som att den ritas */}
         <motion.div
+          className="absolute inset-0"
+          variants={{
+            hidden: { clipPath: "inset(0 100% 0 0)" },
+            visible: { clipPath: "inset(0 0% 0 0)" },
+          }}
+          transition={{ duration: reduceMotion ? 0 : PATH_DURATION, ease: "easeInOut" }}
+        >
+          <svg
+            className="absolute inset-0 h-full w-full overflow-visible text-flagblue-bright"
+            viewBox="0 0 100 100"
+            preserveAspectRatio="none"
+            aria-hidden="true"
+          >
+            {/* Streckad anslutning från NC-startpunkten till första kurvpunkten */}
+            <line
+              x1={2}
+              y1={first.y}
+              x2={first.x}
+              y2={first.y}
+              stroke="currentColor"
+              strokeOpacity={0.35}
+              strokeDasharray="2 3"
+              vectorEffect="non-scaling-stroke"
+            />
+            <path
+              d={chartPathD(points)}
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={2}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              vectorEffect="non-scaling-stroke"
+            />
+          </svg>
+        </motion.div>
+
+        {/* NC-startpunkten — egen skala (nationer), därför utanför kurvan.
+            Dekorativ: länken och etiketten bor på raden under grafytan, där
+            de varken krockar med första dagens P-etikett eller blir ett
+            10-pixligt tapmål */}
+        <motion.div
+          aria-hidden="true"
           className="absolute -translate-x-1/2 -translate-y-1/2"
           style={{ left: "2%", top: `${first.y}%` }}
           initial={reduceMotion ? false : { opacity: 0, scale: 0.7 }}
@@ -105,17 +128,7 @@ export function RecapChart({
           viewport={{ once: true, amount: 0.5 }}
           transition={{ type: "spring", stiffness: 320, damping: 22 }}
         >
-          <Link
-            href={`${newsBase}/${nationsCup.slug}`}
-            className="group block p-2"
-            aria-label={labels.ncLabel}
-          >
-            <span className="block h-2.5 w-2.5 rounded-full border border-mist-dim bg-midnight transition-transform duration-150 group-hover:scale-125 group-focus-visible:scale-125" />
-            {/* Vänsterförankrad (punkten ligger vid 2 %) — annars klipps etiketten av containerkanten */}
-            <span className="heading-caps absolute left-0 top-full mt-1 whitespace-nowrap text-[10px] tracking-[0.12em] text-mist-dim transition-colors group-hover:text-snow">
-              {labels.ncLabel}
-            </span>
-          </Link>
+          <span className="block h-2.5 w-2.5 rounded-full border border-mist-dim bg-midnight" />
         </motion.div>
 
         {/* Dagspunkterna — poppar in efter att kurvan ritats */}
@@ -166,7 +179,24 @@ export function RecapChart({
             </Link>
           </motion.div>
         ))}
-      </div>
+      </motion.div>
+
+      {/* NC-etiketten på egen rad under grafytan — under själva punkten
+          krockade den med första dagens standing-etikett (samma y) */}
+      <motion.p
+        className="mt-2"
+        initial={reduceMotion ? false : { opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.5 }}
+      >
+        <Link
+          href={`${newsBase}/${nationsCup.slug}`}
+          className="heading-caps text-[10px] tracking-[0.12em] text-mist-dim transition-colors hover:text-snow focus-visible:text-snow"
+        >
+          {labels.ncLabel}
+        </Link>
+      </motion.p>
 
       {/* Hela resan i text — skärmläsare och utan JS */}
       <figcaption className="sr-only">
