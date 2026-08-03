@@ -11,6 +11,7 @@ import { LiveStanding } from "@/components/LiveStanding";
 import { NationBadge } from "@/components/NationBadge";
 import { NewsletterForm } from "@/components/NewsletterForm";
 import { Reveal } from "@/components/Reveal";
+import { VmRecap } from "@/components/vm-recap/VmRecap";
 import { getAllArticles } from "@/lib/content";
 import { HEAT_FAQ } from "@/lib/heats";
 import { getSiteMode } from "@/lib/mode";
@@ -103,24 +104,7 @@ export default function VmPage() {
         </div>
       )}
 
-      {mode === "after" && (
-        <section className="mb-16 border border-line bg-midnight-800 p-8">
-          <h2 className="heading-caps mb-3 text-2xl font-bold text-snow">VM 2026 — så gick det</h2>
-          <p className="max-w-2xl text-mist">
-            Tävlingsveckan är avslutad. Rickard tog sig till semifinal och slutade{" "}
-            <strong className="text-snow tabular">{KWC.result2026.sv}</strong> förare — tre
-            pallplatser i kvalheaten på vägen. Alla dagsrapporter finns samlade nedan.
-          </p>
-          <p className="mt-4">
-            <Link
-              href={`/nyheter/${KWC.finalReportSlug}`}
-              className="text-flagblue-bright underline underline-offset-4 transition-colors duration-200 hover:text-snow"
-            >
-              Läs slutrapporten från VM →
-            </Link>
-          </p>
-        </section>
-      )}
+      {mode === "after" && <VmRecap lang="sv" />}
 
       {/* Rickards heat i det individuella mästerskapet */}
       <section id="rickards-heat" className="mb-16" aria-labelledby="heat-heading">

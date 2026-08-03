@@ -10,6 +10,7 @@ import { LiveLinks } from "@/components/LiveLinks";
 import { LiveStanding } from "@/components/LiveStanding";
 import { NationBadge } from "@/components/NationBadge";
 import { Reveal } from "@/components/Reveal";
+import { VmRecap } from "@/components/vm-recap/VmRecap";
 import { getAllArticles } from "@/lib/content";
 import { HEAT_FAQ } from "@/lib/heats";
 import { getSiteMode } from "@/lib/mode";
@@ -100,24 +101,7 @@ export default function EnglishVmPage() {
         </div>
       )}
 
-      {mode === "after" && (
-        <section className="mb-16 border border-line bg-midnight-800 p-8">
-          <h2 className="heading-caps mb-3 text-2xl font-bold text-snow">Worlds 2026 — how it went</h2>
-          <p className="max-w-2xl text-mist">
-            Championship week is over. Rickard reached the semifinal and finished{" "}
-            <strong className="text-snow tabular">{KWC.result2026.en}</strong> drivers, with three
-            podiums in the qualifying heats along the way. All daily reports are collected below.
-          </p>
-          <p className="mt-4">
-            <Link
-              href={`/en/news/${KWC.finalReportSlug}`}
-              className="text-flagblue-bright underline underline-offset-4 transition-colors duration-200 hover:text-snow"
-            >
-              Read the final report from the Worlds →
-            </Link>
-          </p>
-        </section>
-      )}
+      {mode === "after" && <VmRecap lang="en" />}
 
       {/* Rickard's heats in the individual championship */}
       <section id="rickards-heats" className="mb-16" aria-labelledby="heat-heading">

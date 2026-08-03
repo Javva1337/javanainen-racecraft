@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { motion, useReducedMotion } from "motion/react";
-import type { ChartPoint } from "@/lib/vm-recap";
-import { chartPathD } from "@/lib/vm-recap";
+import type { ChartPoint } from "@/lib/chart-geometry";
+import { chartPathD } from "@/lib/chart-geometry";
 
 /**
  * "Resan genom veckan": standing-kurvan ritas med pathLength när sektionen
@@ -28,7 +28,12 @@ export function RecapChart({
   labels: {
     ncLabel: string;
     chartAria: string;
-    dayAria: (day: number, standing: number) => string;
+    /**
+     * Färdigrenderad aria-text per dag (dag → sträng), inte en funktion —
+     * Server Components får inte skicka funktioner till klientkomponenter
+     * över RSC-gränsen, så VmRecap (server) förberäknar texterna här.
+     */
+    dayAria: Record<number, string>;
   };
 }) {
   const reduceMotion = useReducedMotion();
@@ -129,7 +134,7 @@ export function RecapChart({
             <Link
               href={`${newsBase}/${p.day.slug}`}
               className="group block p-2"
-              aria-label={labels.dayAria(p.day.day, p.day.standing)}
+              aria-label={labels.dayAria[p.day.day]}
               aria-describedby={`recap-tip-${p.day.day}`}
             >
               <span
@@ -165,7 +170,7 @@ export function RecapChart({
         <ol>
           <li>{labels.ncLabel}</li>
           {points.map((p) => (
-            <li key={p.day.day}>{labels.dayAria(p.day.day, p.day.standing)}</li>
+            <li key={p.day.day}>{labels.dayAria[p.day.day]}</li>
           ))}
         </ol>
       </figcaption>

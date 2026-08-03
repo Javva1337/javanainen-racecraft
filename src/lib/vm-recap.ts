@@ -2,6 +2,7 @@ import { getAllArticles, type Article } from "./content";
 import type { Lang } from "./dictionary";
 import { KWC } from "./site";
 import { getVmStatus, type VmStatus } from "./vm-status";
+import type { RecapDay, VmRecapData } from "./vm-recap-types";
 
 /**
  * Härleder "efter VM"-recapens data ur dagsrapporternas frontmatter,
@@ -9,31 +10,21 @@ import { getVmStatus, type VmStatus } from "./vm-status";
  * Dag 1–6 är träning + Nations Cup; individuella mästerskapet (kurvan)
  * börjar VM-dag 7 (28 juli). Dag 4-rapportens standing är ett NC-heat
  * och hör inte hemma i totalkurvan.
+ *
+ * Typerna (RecapDay/VmRecapData) och grafgeometrin (ChartPoint/chartPoints/
+ * chartPathD) bor i egna node:fs-fria filer (vm-recap-types.ts,
+ * chart-geometry.ts) så att klientkomponenten RecapChart kan importera dem
+ * utan att dra in getAllArticles/getVmStatus (fs-läsning) i klientbunteln.
+ * Re-exporteras härifrån för bakåtkompatibilitet.
  */
 const INDIVIDUAL_FIRST_DAY = 7;
 
 /** Slutrapporten från Nations Cup — grafens startpunkt länkar hit. */
 const NC_REPORT_SLUG = "nations-cup-finalen";
 
-export type RecapDay = {
-  day: number;
-  slug: string;
-  title: string;
-  bestFinish: string | null;
-  standing: number;
-  podium: boolean;
-};
-
-export type VmRecapData = {
-  nationsCup: { position: string; slug: string };
-  days: RecapDay[];
-  stats: {
-    finalStanding: number;
-    fieldSize: number;
-    heatsRaced: number;
-    podiums: number;
-  };
-};
+export type { RecapDay, VmRecapData };
+export type { ChartPoint } from "./chart-geometry";
+export { chartPoints, chartPathD } from "./chart-geometry";
 
 /** "P67" → 67, "41" → 41. Allt annat (t.ex. "semifinal") → null. */
 export function parsePlacement(p: string): number | null {
@@ -85,37 +76,4 @@ export function buildVmRecap(
 /** Serverkomponenternas ingång: läser rapporter + status från disk. */
 export function getVmRecap(lang: Lang): VmRecapData | null {
   return buildVmRecap(getAllArticles(lang), getVmStatus());
-}
-
-/**
- * Grafgeometri. Koordinater i procent (0–100) av en viewBox med
- * preserveAspectRatio="none" — samma tal används för SVG-pathen och för
- * HTML-punkternas left/top, så linje och punkter aldrig glider isär.
- * Marginalerna lämnar plats för badges ovanför och etiketter under.
- */
-const CHART = { left: 8, right: 96, top: 14, bottom: 86 } as const;
-
-export type ChartPoint = { x: number; y: number; day: RecapDay };
-
-export function chartPoints(days: RecapDay[]): ChartPoint[] {
-  if (days.length === 0) return [];
-  const standings = days.map((d) => d.standing);
-  const best = Math.min(...standings);
-  const worst = Math.max(...standings);
-  const span = worst - best;
-  const xStep = days.length === 1 ? 0 : (CHART.right - CHART.left) / (days.length - 1);
-  return days.map((day, i) => ({
-    x: CHART.left + xStep * i,
-    y:
-      span === 0
-        ? (CHART.top + CHART.bottom) / 2
-        : CHART.top + ((day.standing - best) / span) * (CHART.bottom - CHART.top),
-    day,
-  }));
-}
-
-export function chartPathD(points: ChartPoint[]): string {
-  return points
-    .map((p, i) => `${i === 0 ? "M" : "L"} ${p.x},${p.y}`)
-    .join(" ");
 }
