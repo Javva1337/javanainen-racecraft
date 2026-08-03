@@ -13,7 +13,10 @@ rättar kvarvarande före/under-VM-framing.
 
 **Kontext som styr ambitionsnivån:** sajten dubblar som referenssajt för Rickards
 webbyrå. Polish-nivån är en del av leveransen, inte grädde. Därför Framer Motion
-(paketet `motion`) i stället för sajtens egna motion-verktyg — medvetet "overkill".
+(paketet `motion`) — medvetet "overkill". OBS: GSAP finns redan i projektet och
+driver karriärsidan; Rickard valde medvetet (2026-08-03, efter avstämning) att ändå
+ta in Framer Motion för recapen, för att portfolion ska visa bredd i båda
+biblioteken. Recapen är alltså sajtens Framer Motion-yta, karriärsidan förblir GSAP.
 
 ## Beslut (fattade i brainstormingen)
 
