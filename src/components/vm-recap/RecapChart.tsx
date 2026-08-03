@@ -14,7 +14,8 @@ import { chartPathD } from "@/lib/chart-geometry";
  * Skärmläsare och no-JS får en sr-only-lista med hela resan.
  */
 const PATH_DURATION = 1.3;
-const POINT_STAGGER = 0.12;
+/* 30–80 ms mellan syskon — längre stagger gör slutet av sekvensen segt */
+const POINT_STAGGER = 0.08;
 
 export function RecapChart({
   points,
@@ -42,8 +43,10 @@ export function RecapChart({
 
   if (!first) return null;
 
+  /* 0.5 × ritningstiden: punkterna börjar landa medan kurvan ännu ritas,
+     så rörelsen läses som en helhet i stället för två separata steg */
   const pointDelay = (i: number) =>
-    reduceMotion ? 0 : PATH_DURATION * 0.55 + i * POINT_STAGGER;
+    reduceMotion ? 0 : PATH_DURATION * 0.5 + i * POINT_STAGGER;
 
   // Kantmedveten förankring: nära vänster-/högerkanten centrerar vi inte
   // tooltipen (klipps annars av containern), utan förankrar mot punkten.
@@ -97,7 +100,7 @@ export function RecapChart({
         <motion.div
           className="absolute -translate-x-1/2 -translate-y-1/2"
           style={{ left: "2%", top: `${first.y}%` }}
-          initial={reduceMotion ? false : { opacity: 0, scale: 0.5 }}
+          initial={reduceMotion ? false : { opacity: 0, scale: 0.7 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={{ type: "spring", stiffness: 320, damping: 22 }}
@@ -121,7 +124,7 @@ export function RecapChart({
             key={p.day.day}
             className="absolute -translate-x-1/2 -translate-y-1/2"
             style={{ left: `${p.x}%`, top: `${p.y}%` }}
-            initial={reduceMotion ? false : { opacity: 0, scale: 0.4 }}
+            initial={reduceMotion ? false : { opacity: 0, scale: 0.6 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, amount: 0.5 }}
             transition={{

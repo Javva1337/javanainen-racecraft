@@ -18,7 +18,7 @@ export type RecapStatItem = {
  */
 const container = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.09 } },
+  show: { transition: { staggerChildren: 0.07 } },
 };
 
 const item = {
