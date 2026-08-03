@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import type { Article } from "./content";
 import type { VmStatus } from "./vm-status";
-import { buildVmRecap, parsePlacement } from "./vm-recap";
+import { buildVmRecap, parsePlacement, chartPathD, chartPoints } from "./vm-recap";
 
 /** Minsta möjliga artikel — bara fälten recapen läser. */
 function article(fm: {
@@ -91,5 +91,40 @@ describe("buildVmRecap", () => {
   it("returnerar null utan status eller utan dagar", () => {
     expect(buildVmRecap(WEEK, null)).toBeNull();
     expect(buildVmRecap([], STATUS)).toBeNull();
+  });
+});
+
+describe("chartPoints", () => {
+  const recap = buildVmRecap(WEEK, STATUS);
+  const points = chartPoints(recap?.days ?? []);
+
+  it("sprider dagarna jämnt på x mellan marginalerna", () => {
+    expect(points).toHaveLength(5);
+    expect(points[0].x).toBe(8);
+    expect(points[4].x).toBe(96);
+    // jämna steg: (96-8)/4 = 22
+    expect(points[1].x).toBeCloseTo(30, 5);
+  });
+  it("bäst placering (lägst tal) hamnar högst upp (lägst y)", () => {
+    const p37 = points[2]; // standing 37 — delad bästa
+    const p67 = points[0]; // standing 67 — sämst
+    expect(p37.y).toBeLessThan(p67.y);
+    expect(p37.y).toBe(14);  // toppmarginal
+    expect(p67.y).toBe(86);  // bottenmarginal
+  });
+  it("tål en ensam punkt utan division med noll", () => {
+    const single = chartPoints([(recap?.days ?? [])[0]]);
+    expect(single[0].y).toBe(50);
+    expect(Number.isFinite(single[0].x)).toBe(true);
+  });
+});
+
+describe("chartPathD", () => {
+  it("bygger en M/L-path av punkterna", () => {
+    const d = chartPathD([
+      { x: 8, y: 86, day: {} as never },
+      { x: 30, y: 50, day: {} as never },
+    ]);
+    expect(d).toBe("M 8,86 L 30,50");
   });
 });
