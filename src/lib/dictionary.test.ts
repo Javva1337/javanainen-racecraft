@@ -104,3 +104,14 @@ describe("contactForm-copy", () => {
     }
   });
 });
+
+describe("recap-strängar", () => {
+  test("sv och en har samma recap-nycklar", () => {
+    expect(Object.keys(DICT.en.recap).sort()).toEqual(
+      Object.keys(DICT.sv.recap).sort(),
+    );
+  });
+  test("en.ncLabel konverterar svensk positionstext", () => {
+    expect(DICT.en.recap.ncLabel("14:e av 32")).toBe("Nations Cup · 14th of 32");
+  });
+});

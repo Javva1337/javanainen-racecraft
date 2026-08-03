@@ -145,6 +145,28 @@ export const DICT = {
       tracksOnboard: "Följ med på ett träningspass →",
       tracksMore: "Mer om banan och layouterna →",
     },
+    /** "Efter VM"-recapen — teaser på startsidan + full sektion på /vm-2026 */
+    recap: {
+      kicker: "VM 2026 är avgjort",
+      teaserHeading: "Så gick VM",
+      teaserCta: "Se hela VM-resan →",
+      heading: "VM 2026 — så gick det",
+      intro:
+        "Tävlingsveckan är avslutad. Här är resan genom veckan i siffror — varje punkt länkar till dagens rapport.",
+      statFinal: "Slutplacering",
+      statHeats: "Körda heat",
+      statPodiums: "Pallplatser i kvalheaten",
+      statSemi: "Så långt räckte det",
+      statSemiValue: "Semifinal",
+      journeyHeading: "Resan genom veckan",
+      journeyIntro:
+        "Placering i totalen efter varje tävlingsdag i det individuella mästerskapet.",
+      ncLabel: (position: string) => `Nations Cup · ${position}`,
+      chartAria: "Kurva över totalplaceringen dag för dag under VM-veckan",
+      dayAria: (day: number, standing: number) =>
+        `Dag ${day}: plats ${standing} i totalen — läs dagsrapporten`,
+      finalReportCta: "Läs slutrapporten från VM →",
+    },
     common: {
       readMore: "Läs mer",
       contact: "Kontakt",
@@ -283,6 +305,31 @@ export const DICT = {
         "Vandel Gokart runs two layouts during the Worlds week. The entire Nations Cup is raced on VG Classic, while the individual championship alternates between the two — Classic on days 1 and 3, New 23 on days 2 and 4, with the semifinal and final layout drawn on the day. Ride along for a training session on each, including each layout's special feature: the pit stop on Classic and the shortcut on New 23.",
       tracksOnboard: "Ride along for a training session →",
       tracksMore: "More about the track and layouts →",
+    },
+    /** Post-Worlds recap — home teaser + full section on /en/vm-2026 */
+    recap: {
+      kicker: "Worlds 2026 is decided",
+      teaserHeading: "How the Worlds went",
+      teaserCta: "See the full Worlds journey →",
+      heading: "Worlds 2026 — how it went",
+      intro:
+        "The race week is over. Here is the journey through the week in numbers — every point links to that day's report.",
+      statFinal: "Final standing",
+      statHeats: "Heats raced",
+      statPodiums: "Podiums in the qualifying heats",
+      statSemi: "How far it went",
+      statSemiValue: "Semifinal",
+      journeyHeading: "The journey through the week",
+      journeyIntro:
+        "Overall standing after each race day of the individual championship.",
+      // Fungerar för svenska ordningstal på formen "-:e" (t.ex. "14:e av 32" → "14th of 32").
+      // Bryts formatet fångas det av dictionary-testet.
+      ncLabel: (position: string) =>
+        `Nations Cup · ${position.replace(":e av", "th of")}`,
+      chartAria: "Chart of the overall standing day by day during the Worlds week",
+      dayAria: (day: number, standing: number) =>
+        `Day ${day}: ${standing} overall — read the daily report`,
+      finalReportCta: "Read the final report from the Worlds →",
     },
     common: {
       readMore: "Read more",
