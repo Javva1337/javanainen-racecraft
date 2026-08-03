@@ -35,7 +35,9 @@ export function RecapStats({ items }: { items: RecapStatItem[] }) {
 
   return (
     <motion.ul
-      className="grid grid-cols-2 gap-px border border-line bg-line lg:grid-cols-4"
+      className={`grid grid-cols-2 gap-px border border-line bg-line ${
+        items.length === 3 ? "sm:grid-cols-3" : "lg:grid-cols-4"
+      }`}
       variants={container}
       initial={reduceMotion ? false : "hidden"}
       whileInView="show"

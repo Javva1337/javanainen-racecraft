@@ -7,6 +7,7 @@ import { Hero } from "@/components/Hero";
 import { KurbitsDivider } from "@/components/Kurbits";
 import { Reveal } from "@/components/Reveal";
 import { TrackLayoutsTeaser } from "@/components/TrackLayoutsTeaser";
+import { VmRecapTeaser } from "@/components/vm-recap/VmRecapTeaser";
 import { getAllArticles } from "@/lib/content";
 import { getSiteMode } from "@/lib/mode";
 import { DEFAULT_DESCRIPTION, DEFAULT_TITLE, PARTNERS } from "@/lib/site";
@@ -50,7 +51,11 @@ export default function EnglishHomePage() {
     <>
       <Hero lang="en" mode={mode} latestArticle={latest} />
 
-      <CurrentCompetition lang="en" mode={mode} />
+      {mode === "after" ? (
+        <VmRecapTeaser lang="en" />
+      ) : (
+        <CurrentCompetition lang="en" mode={mode} />
+      )}
 
       <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6" aria-label="Latest news">
         <div className="mb-8 flex items-end justify-between">
