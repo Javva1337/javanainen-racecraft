@@ -1,4 +1,4 @@
-import { KWC, SITE_URL, SOCIAL } from "@/lib/site";
+import { KWC, SITE_URL, SOCIAL, STUDIO } from "@/lib/site";
 
 /** Delade byggstenar för KWC-eventen — Search Console vill ha fälten på varje eventnod. */
 const KWC_PLACE = {
@@ -11,6 +11,18 @@ const KWC_ORGANIZER = {
   "@type": "Organization",
   name: "Kart World Championship",
   url: "https://kartworldchampionship.com",
+};
+
+/**
+ * Studion som byggt sajten. Samma @id som studiojavanainen.se deklarerar i sin
+ * egen JSON-LD, så att båda sajternas grafer pekar på en och samma entitet.
+ */
+const STUDIO_NODE = {
+  "@type": "ProfessionalService",
+  "@id": STUDIO.id,
+  name: STUDIO.name,
+  url: STUDIO.url,
+  address: { "@type": "PostalAddress", addressLocality: STUDIO.city, addressCountry: "SE" },
 };
 
 /** Fullt Person-objekt (inte bara @id) så att Googles parser hittar namnet i varje block. */
@@ -51,7 +63,9 @@ export function PersonJsonLd() {
     jobTitle: "Racingförare — hyrkart",
     description:
       `Svensk hyrkartförare. Brons i Kart World Championship 2016. Tävlade för Sverige i KWC 2026 i Vandel, Danmark — ${KWC.result2026.sv}.`,
-    sameAs: [SOCIAL.instagram, SOCIAL.facebook],
+    // Studions Om-sida handlar om samma person — knyter ihop förare och företagare.
+    sameAs: [SOCIAL.instagram, SOCIAL.facebook, STUDIO.aboutUrl],
+    worksFor: STUDIO_NODE,
     knowsAbout: ["Rental karting", "Kart World Championship", "Motorsport"],
     knowsLanguage: ["sv", "en"],
     award: [
@@ -69,7 +83,7 @@ export function PersonJsonLd() {
   );
 }
 
-/** Globalt schema.org WebSite — kopplar sajten till personen. */
+/** Globalt schema.org WebSite — kopplar sajten till personen och till studion som byggt den. */
 export function WebSiteJsonLd() {
   const data = {
     "@context": "https://schema.org",
@@ -80,6 +94,7 @@ export function WebSiteJsonLd() {
     inLanguage: ["sv-SE", "en"],
     publisher: { "@id": `${SITE_URL}/#person` },
     about: { "@id": `${SITE_URL}/#person` },
+    creator: STUDIO_NODE,
   };
   return (
     <script

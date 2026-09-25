@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { archivo, inter } from "@/lib/fonts";
-import { DEFAULT_DESCRIPTION, DEFAULT_TITLE, SITE_URL } from "@/lib/site";
+import { DEFAULT_DESCRIPTION, DEFAULT_TITLE, SITE_URL, STUDIO } from "@/lib/site";
 import { PersonJsonLd, WebSiteJsonLd } from "@/components/JsonLd";
 import "./globals.css";
 
@@ -12,6 +12,7 @@ export const metadata: Metadata = {
     template: "%s · Rickard Javanainen",
   },
   description: DEFAULT_DESCRIPTION.sv,
+  creator: STUDIO.name,
   openGraph: {
     siteName: "Rickard Javanainen",
     type: "website",

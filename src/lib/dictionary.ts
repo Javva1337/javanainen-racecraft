@@ -48,6 +48,8 @@ export const DICT = {
     },
     footer: {
       builtIn: "Byggd i Sverige. Tävlar för Sverige.",
+      builtByPrefix: "Sajten är byggd av",
+      builtBySuffix: ", min webbyrå i Mjölby.",
       rights: "Alla rättigheter förbehållna.",
       partnersHeading: "Partners",
       navHeading: "Sajten",
@@ -218,6 +220,8 @@ export const DICT = {
     },
     footer: {
       builtIn: "Built in Sweden. Racing for Sweden.",
+      builtByPrefix: "Site built by",
+      builtBySuffix: ", my web studio in Mjölby, Sweden.",
       rights: "All rights reserved.",
       partnersHeading: "Partners",
       navHeading: "Site",

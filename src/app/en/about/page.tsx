@@ -3,7 +3,7 @@ import Image from "next/image";
 import { KurbitsDivider } from "@/components/Kurbits";
 import { NationBadge } from "@/components/NationBadge";
 import { Reveal } from "@/components/Reveal";
-import { KWC } from "@/lib/site";
+import { KWC, STUDIO } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About Rickard — from Dalarna to the world stage",
@@ -128,6 +128,34 @@ export default function EnglishAboutPage() {
                 Rickard Javanainen
               </cite>
             </blockquote>
+          </Reveal>
+
+          {/* Om sajten — kontextuell länk till studion som byggt den */}
+          <Reveal>
+            <section aria-labelledby="about-this-site" className="border-t border-line pt-8">
+              <p className="heading-caps mb-1 text-xs tracking-[0.16em] text-flagblue-bright">
+                About this site
+              </p>
+              <h2 id="about-this-site" className="heading-caps mb-3 text-2xl text-snow">
+                Built in Mjölby
+              </h2>
+              <p className="mb-3 leading-relaxed text-mist">
+                Alongside racing, I build websites for businesses and athletes. I built this site
+                through my own web studio,{" "}
+                <a
+                  href={STUDIO.url}
+                  target="_blank"
+                  rel="noopener"
+                  className="font-medium text-snow underline decoration-flagblue-bright underline-offset-4 transition-colors duration-200 hover:decoration-flagyellow"
+                >
+                  {STUDIO.name}
+                </a>
+                , based in Mjölby, the same town where I went to racing school.
+              </p>
+              <p className="leading-relaxed text-mist">
+                If you&apos;re thinking about a website of your own, I&apos;m happy to help.
+              </p>
+            </section>
           </Reveal>
         </div>
       </div>
