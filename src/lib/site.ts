@@ -14,6 +14,20 @@ export const SOCIAL = {
   facebook: "https://www.facebook.com/rickardjavanainen",
 } as const;
 
+/**
+ * Studio Javanainen — Rickards webbyrå, som byggt sajten.
+ * `id` är exakt samma @id som studiojavanainen.se använder i sin egen JSON-LD,
+ * så att Google och AI-tjänster kopplar ihop de två sajternas entitetsgrafer.
+ * www-varianten är studions kanoniska adress — länka alltid dit, inte till apex.
+ */
+export const STUDIO = {
+  name: "Studio Javanainen",
+  url: "https://www.studiojavanainen.se",
+  aboutUrl: "https://www.studiojavanainen.se/om-mig",
+  id: "https://www.studiojavanainen.se/#business",
+  city: "Mjölby",
+} as const;
+
 /** Officiella livelänkar under VM-veckan — banans tidtagning och arrangörens sändning. */
 export const LIVE = {
   timing:

@@ -3,7 +3,7 @@ import Image from "next/image";
 import { KurbitsDivider } from "@/components/Kurbits";
 import { NationBadge } from "@/components/NationBadge";
 import { Reveal } from "@/components/Reveal";
-import { KWC } from "@/lib/site";
+import { KWC, STUDIO } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Om Rickard — från Dalarna till världstoppen",
@@ -125,6 +125,34 @@ export default function AboutPage() {
                 Rickard Javanainen
               </cite>
             </blockquote>
+          </Reveal>
+
+          {/* Om sajten — kontextuell länk till studion som byggt den */}
+          <Reveal>
+            <section aria-labelledby="om-sajten" className="border-t border-line pt-8">
+              <p className="heading-caps mb-1 text-xs tracking-[0.16em] text-flagblue-bright">
+                Om sajten
+              </p>
+              <h2 id="om-sajten" className="heading-caps mb-3 text-2xl text-snow">
+                Byggd i Mjölby
+              </h2>
+              <p className="mb-3 leading-relaxed text-mist">
+                Vid sidan av racingen bygger jag hemsidor åt företag och idrottare. Den här sajten
+                har jag byggt i min egen webbyrå,{" "}
+                <a
+                  href={STUDIO.url}
+                  target="_blank"
+                  rel="noopener"
+                  className="font-medium text-snow underline decoration-flagblue-bright underline-offset-4 transition-colors duration-200 hover:decoration-flagyellow"
+                >
+                  {STUDIO.name}
+                </a>
+                , som ligger i Mjölby. Det är samma stad där jag gick Racinggymnasiet.
+              </p>
+              <p className="leading-relaxed text-mist">
+                Funderar du på en egen hemsida hjälper jag gärna till.
+              </p>
+            </section>
           </Reveal>
         </div>
       </div>

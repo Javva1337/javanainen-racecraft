@@ -1,0 +1,11 @@
+/* TEAM */
+Förare och sajtägare: Rickard Javanainen
+Kontakt: rickard [at] rickardjavanainen.se
+Instagram: @javva13
+
+/* SAJTEN */
+Design och utveckling: Studio Javanainen
+Webb: https://www.studiojavanainen.se
+Ort: Mjölby, Sverige
+Språk: svenska, engelska
+Teknik: Next.js, React, TypeScript, Tailwind CSS, MDX, Vercel

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { DICT, type Lang } from "@/lib/dictionary";
-import { PARTNERS, SOCIAL, TAGLINE } from "@/lib/site";
+import { PARTNERS, SOCIAL, STUDIO, TAGLINE } from "@/lib/site";
 import { Kurbits } from "./Kurbits";
 import { NationBadge } from "./NationBadge";
 import { NewsletterForm } from "./NewsletterForm";
@@ -113,6 +113,21 @@ export function Footer({ lang }: { lang: Lang }) {
             </a>
           </div>
         </div>
+
+        {/* Credit till studion som byggt sajten. Följd länk med varumärket som
+            ankartext; ingen noreferrer så att besöken syns i studions statistik. */}
+        <p className="mt-6 text-center text-xs text-mist-dim">
+          {t.builtByPrefix}{" "}
+          <a
+            href={STUDIO.url}
+            target="_blank"
+            rel="noopener"
+            className="font-medium text-mist underline decoration-mist-dim underline-offset-4 transition-colors duration-200 hover:text-snow hover:decoration-flagyellow"
+          >
+            {STUDIO.name}
+          </a>
+          {t.builtBySuffix}
+        </p>
       </div>
     </footer>
   );

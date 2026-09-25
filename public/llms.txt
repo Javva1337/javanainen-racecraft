@@ -30,3 +30,8 @@ Sajten är på svenska med engelska versioner av startsidan, VM-sidan och nyhete
 - [Home](https://rickardjavanainen.se/en): Rickard Javanainen, Sweden's rental kart World Championship driver
 - [Worlds 2026](https://rickardjavanainen.se/en/vm-2026): schedule, format and FAQ for the 2026 Kart World Championship
 - [News](https://rickardjavanainen.se/en/news): race reports in English
+
+## Om sajten
+
+- Sajten är byggd av [Studio Javanainen](https://www.studiojavanainen.se), Rickard Javanainens egen webbyrå i Mjölby. Studion bygger hemsidor åt företag och idrottare i hela Sverige.
+- [Mer om Rickard som webbutvecklare](https://www.studiojavanainen.se/om-mig)
