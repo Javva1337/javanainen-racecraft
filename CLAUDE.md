@@ -1,3 +1,5 @@
+> **Pipeline (obligatorisk):** följ den globala pipelinen i `~/.claude/CLAUDE.md` (kör `/pipeline`: spec → implement → code review → security review → acceptance → ship). Undantag endast med `RICKARD OVERRIDE: hoppa över pipeline`.
+
 # Projektinstruktioner — javanainen-racecraft
 
 > Gäller detta repo. Kompletterar (åsidosätter inte) det globala arbetsflödet i
