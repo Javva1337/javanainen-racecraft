@@ -32,3 +32,9 @@ omskrivningar. Se minnesfilen `ton-odmjuk-copy.md`.
 ### Undantag
 Ren kod, kommentarer, commit-meddelanden, config och intern dokumentation räknas
 INTE som användarvänd text och kräver inte skill-kedjan ovan.
+
+## Commit-författare (fast regel)
+
+- Alla commits från Claude Code skrivs med Rickard Javanainen som författare, med samma namn och e-post som hans övriga commits i det här repot (se `git log`). Sätt `user.name`/`user.email` lokalt om git config saknas.
+- Ingen Claude-trailer: ingen `Co-Authored-By: Claude` och ingen "Generated with Claude Code", varken i commit-meddelanden eller PR-texter.
+- Skriv aldrig om redan pushad historik och force-pusha inte.
