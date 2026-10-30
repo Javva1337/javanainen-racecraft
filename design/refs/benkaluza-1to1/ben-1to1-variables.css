@@ -1,0 +1,136 @@
+:root {
+  /* Colors — Primary */
+  --color-primary: #faf600;
+  --color-secondary: #b3261e;
+
+  /* Ramp — primary (base is 100) */
+  --color-primary-50: #fcfc99;
+  --color-primary-100: #faf600;
+  --color-primary-200: #e2e15d;
+  --color-primary-300: #cbc804;
+  --color-primary-400: #aca600;
+  --color-primary-500: #8f8700;
+  --color-primary-600: #797000;
+  --color-primary-700: #625a00;
+  --color-primary-800: #514900;
+  --color-primary-900: #423b00;
+  --color-primary-950: #252000;
+
+  /* Ramp — secondary (base is 600) */
+  --color-secondary-50: #ffdbcd;
+  --color-secondary-100: #ffccbd;
+  --color-secondary-200: #ffb7a7;
+  --color-secondary-300: #ff9787;
+  --color-secondary-400: #f86f5f;
+  --color-secondary-500: #d84c3f;
+  --color-secondary-600: #b3261e;
+  --color-secondary-700: #9b241c;
+  --color-secondary-800: #831711;
+  --color-secondary-900: #6d0c09;
+  --color-secondary-950: #420101;
+
+  /* Ramp — neutral (base is 100) */
+  --color-neutral-50: #f6f6f3;
+  --color-neutral-100: #e2e2dd;
+  --color-neutral-200: #d9d9d6;
+  --color-neutral-300: #c0c0bc;
+  --color-neutral-400: #a0a09b;
+  --color-neutral-500: #82827e;
+  --color-neutral-600: #6c6c68;
+  --color-neutral-700: #575753;
+  --color-neutral-800: #474744;
+  --color-neutral-900: #393936;
+  --color-neutral-950: #1f1f1d;
+
+  /* Colors — Neutrals */
+  --color-neutral-50: #0b0b0b;
+  --color-neutral-100: #f2f2f2;
+  --color-neutral-200: #e2e2dd;
+  --color-neutral-300: #8a8a85;
+  --color-neutral-400: #cfcfca;
+  --color-neutral-500: #000000;
+  --color-neutral-600: #5e5e5a;
+  --color-neutral-700: #6e6e6a;
+  --color-neutral-800: #ffffff;
+  --color-neutral-900: #bdbdb8;
+
+  /* Colors — Backgrounds */
+  --color-bg: #0b0b0b;
+  --color-bg-1: #141413;
+
+  /* Colors — Text */
+  --color-text: #000000;
+  --color-text-1: #f2f2f2;
+  --color-text-2: #ffffff;
+  --color-text-3: #6e6e6a;
+  --color-text-4: #8a8a85;
+
+  /* Semantic pairs */
+  --surface-page-bg: #0b0b0b;
+  --surface-page-fg: #ffffff; /* 19.68:1 AAA */
+  --surface-raised-bg: #141413;
+  --surface-raised-fg: #ffffff; /* 18.43:1 AAA */
+  --action-primary-bg: #faf600;
+  --action-primary-fg: #000000; /* 18.25:1 AAA */
+  --action-secondary-bg: #b3261e;
+  --action-secondary-fg: #ffffff; /* 6.54:1 AA */
+
+  /* Typography — Families */
+  --font-sans: 'Archivo', sans-serif;
+  --font-font-1: 'Geist', sans-serif;
+  --font-mono: 'Geist Mono', sans-serif;
+
+  /* Typography — Named scale */
+  --font-size-h2: 92.16px;
+  --font-size-h3: 63.2158px;
+  --font-size-title-1: 53.2px;
+  --font-size-title-2: 48.64px;
+  --font-size-title-3: 40.96px;
+  --font-size-title-4: 35.84px;
+  --font-size-title-5: 30.9px;
+  --font-size-title-6: 25.6px;
+  --font-size-title-7: 19.2px;
+  --font-size-title-8: 17px;
+  --font-size-title-9: 16px;
+  --font-size-title-10: 15px;
+  --font-size-title-11: 14px;
+  --font-size-title-12: 13px;
+
+  /* Spacing */
+  --spacing-2: 2px;
+  --spacing-38: 38px;
+  --spacing-51: 51px;
+  --spacing-58: 58px;
+  --spacing-71: 71px;
+  --spacing-76: 76px;
+  --spacing-90: 90px;
+  --spacing-96: 96px;
+  --spacing-101: 101px;
+  --spacing-110: 110px;
+  --spacing-154: 154px;
+  --spacing-427: 427px;
+  --spacing-444: 444px;
+
+  /* Border Radius */
+  --radius-md: 6px;
+  --radius-md: 10px;
+
+  /* Original Site Variables */
+  /* — other — */
+  --studio: #F8F8F6;
+  --ink: #0B0B0B;
+  --paper: #F2F2F2;
+  --soft: #8A8A85;
+  --inset: max(clamp(28px, 4.5vw, 72px), env(safe-area-inset-left, 0px));
+  --line: #262624;
+  --signal: #FAF600;
+  --display: "Archivo", "Arial Narrow", system-ui, sans-serif;
+  --sans: "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  /* — semantic — */
+  success: [object Object];
+  warning: [object Object];
+  error: [object Object];
+  info: [object Object];
+
+}
