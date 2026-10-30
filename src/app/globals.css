@@ -2,21 +2,31 @@
 
 /*
  * Designtokens — "Skandinavisk minimalism möter motorsport".
- * Flaggult (#FECC02) används ENDAST för prestation och handling:
- * pallplatser, CTA-knappar, tidslinjenoder, aktiv countdown-siffra.
- * Gult får aldrig ligga på ljus botten (WCAG).
+ * Flaggult (#FECC02) används ENDAST för prestation (pallplatser, tidslinjenoder).
+ * CTA och accent = --signal. --timing sparsamt (live/varvtid). Gult aldrig på ljus botten.
  */
 @theme {
-  --color-midnight: #0a1628;
-  --color-midnight-800: #0d1b2e;
-  --color-midnight-700: #14263f;
-  --color-line: #223752;
-  --color-flagblue: #006aa7;
-  --color-flagblue-bright: #3d9bd1;
+  /* Asphalt Signal R01 */
+  --color-void: #07080a;
+  --color-asphalt: #101318;
+  --color-carbon: #1a1e26;
+  --color-line: #2a3140;
+  --color-snow: #f4f1ea;
+  --color-mist: #9aa3b2;
+  --color-mist-dim: #7f8898;
+  --color-signal: #ff3b2e;
+  --color-signal-dim: #c42e24;
+  --color-timing: #3dffb0;
+  --color-paper: #ede8df;
+  --color-ink: #0c0e12;
+
+  /* Äldre namn pekar nu på Asphalt Signal så undersidor följer med */
+  --color-midnight: var(--color-void);
+  --color-midnight-800: var(--color-asphalt);
+  --color-midnight-700: var(--color-carbon);
+  --color-flagblue: var(--color-signal);
+  --color-flagblue-bright: var(--color-signal);
   --color-flagyellow: #fecc02;
-  --color-snow: #f7f5f0;
-  --color-mist: #a9b9cc;
-  --color-mist-dim: #7e90a8;
 
   --font-display: var(--font-archivo), "Archivo", "Arial Narrow", sans-serif;
   --font-sans: var(--font-inter), "Inter", system-ui, sans-serif;
@@ -54,8 +64,8 @@
   }
 
   ::selection {
-    background: var(--color-flagyellow);
-    color: var(--color-midnight);
+    background: var(--color-signal);
+    color: var(--color-ink);
   }
 
   :focus-visible {
@@ -108,15 +118,17 @@
     transform: scale(0.97);
   }
 
-  /* CTA = handling = flaggult på mörk botten */
+  /* CTA = handling = --signal, hård kant, ingen mjuk skugga */
   .btn-primary {
-    background-color: var(--color-flagyellow);
-    color: var(--color-midnight);
+    background-color: var(--color-signal);
+    color: var(--color-ink);
   }
 
   .btn-primary:hover {
-    background-color: #ffd83d;
+    background-color: #ff5a4f;
   }
+
+
 
   .btn-secondary {
     border: 1px solid var(--color-line);
@@ -269,7 +281,20 @@
   }
 }
 
-/* Lenis smooth scroll (aktiv endast på /karriar) — standardrecept från lenis-docs */
+/* Ljus kapiteltoning: scopar om tokens så befintliga komponenter ärver rätt kontrast */
+.tone-paper {
+  --color-snow: var(--color-ink);
+  --color-mist: #3b4352;
+  --color-mist-dim: #566072;
+  --color-midnight-800: #f7f4ee;
+  --color-line: #c9c2b4;
+  --color-signal: #c42e24;
+  --color-flagyellow: #8a5a00;
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+}
+
+/* Lenis smooth scroll (aktiv på /karriar och startsidan) — standardrecept från lenis-docs */
 html.lenis,
 html.lenis body {
   height: auto;
@@ -299,5 +324,113 @@ html.lenis body {
 
   html {
     scroll-behavior: auto;
+  }
+}
+
+/* ===== Hero: cyborg-reveal (HUD) ===== */
+.hero-fg {
+  color: var(--color-ink);
+}
+
+html[data-tone="void"] .hero-fg {
+  color: var(--color-snow);
+}
+
+/* Header över ljus hero-yta (utan JS är tonen "paper" tills StickyField sätter den) */
+html:has([data-sticky-field]):not([data-tone="void"]) header[data-site-header] {
+  --color-snow: var(--color-ink);
+  --color-mist: #3b4352;
+  --color-midnight: var(--color-paper);
+  --color-signal: var(--color-signal-dim);
+}
+
+.hud-corner {
+  font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.hud-cue-touch {
+  display: none;
+}
+
+@media (hover: none) {
+  .hud-cue-pointer {
+    display: none;
+  }
+  .hud-cue-touch {
+    display: inline;
+  }
+}
+
+.hud-bracket {
+  --c: rgba(244, 241, 234, 0.8);
+  position: absolute;
+  width: var(--w);
+  aspect-ratio: 1.15;
+  transform: translate(-50%, -50%) translate(calc(var(--px, 0) * 6px), calc(var(--py, 0) * 6px));
+  background:
+    linear-gradient(var(--c) 0 0) 0 0 / 14px 2px,
+    linear-gradient(var(--c) 0 0) 0 0 / 2px 14px,
+    linear-gradient(var(--c) 0 0) 100% 0 / 14px 2px,
+    linear-gradient(var(--c) 0 0) 100% 0 / 2px 14px,
+    linear-gradient(var(--c) 0 0) 0 100% / 14px 2px,
+    linear-gradient(var(--c) 0 0) 0 100% / 2px 14px,
+    linear-gradient(var(--c) 0 0) 100% 100% / 14px 2px,
+    linear-gradient(var(--c) 0 0) 100% 100% / 2px 14px;
+  background-repeat: no-repeat;
+  transition: --c 200ms;
+}
+
+.hero-frame[data-state="tracking"] .hud-bracket {
+  --c: var(--color-signal);
+}
+
+.hero-frame[data-state="tracking"] .hud-bracket-eye {
+  --c: var(--color-timing);
+}
+
+.hud-label {
+  position: absolute;
+  left: calc(100% + 6px);
+  top: -2px;
+  white-space: nowrap;
+  padding: 1px 4px;
+  background: rgba(7, 8, 10, 0.78);
+  color: var(--color-snow);
+  font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+  font-size: 0.625rem;
+  letter-spacing: 0.1em;
+}
+
+.hud-readout {
+  padding: 2px 6px;
+  background: rgba(7, 8, 10, 0.78);
+  color: var(--color-timing);
+  font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+  font-size: 0.625rem;
+  letter-spacing: 0.1em;
+}
+
+.hero-frame[data-state="tracking"] [data-status] {
+  color: var(--color-signal);
+}
+
+.hud-label-left {
+  left: auto;
+  right: calc(100% + 6px);
+}
+
+.hud-label-below {
+  left: 0;
+  top: calc(100% + 4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hud-cue-pointer,
+  .hud-cue-touch {
+    display: none;
   }
 }
