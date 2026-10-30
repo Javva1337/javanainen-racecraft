@@ -39,7 +39,7 @@ export function HeaderCta({ lang, initialMode, variant }: Props) {
   const label = t[mode];
   const marker = (
     <span
-      className={`h-1.5 w-1.5 shrink-0 bg-flagyellow ${mode === "during" ? "animate-pulse" : ""}`}
+      className={`h-1.5 w-1.5 shrink-0 bg-signal ${mode === "during" ? "animate-pulse" : ""}`}
       aria-hidden="true"
     />
   );
@@ -49,7 +49,7 @@ export function HeaderCta({ lang, initialMode, variant }: Props) {
       <Link
         href={href}
         aria-label={t.ariaLabel[mode]}
-        className="heading-caps mb-2 flex items-center justify-between whitespace-nowrap border border-flagyellow/60 px-4 py-3 text-sm tracking-[0.12em] text-flagyellow transition-colors duration-200 hover:border-flagyellow hover:bg-flagyellow/10"
+        className="heading-caps mb-2 flex items-center justify-between whitespace-nowrap border border-signal/60 px-4 py-3 text-sm tracking-[0.12em] text-signal transition-colors duration-200 hover:border-signal hover:bg-signal/10"
       >
         <span className="flex items-center gap-2">
           {marker}
@@ -65,7 +65,7 @@ export function HeaderCta({ lang, initialMode, variant }: Props) {
     <Link
       href={href}
       aria-label={t.ariaLabel[mode]}
-      className="heading-caps hidden shrink-0 items-center gap-2 whitespace-nowrap border border-flagyellow/60 px-2.5 py-1 text-xs tracking-[0.12em] text-flagyellow transition-colors duration-200 hover:border-flagyellow hover:bg-flagyellow/10 sm:inline-flex"
+      className="heading-caps hidden shrink-0 items-center gap-2 whitespace-nowrap border border-signal/60 px-2.5 py-1 text-xs tracking-[0.12em] text-signal transition-colors duration-200 hover:border-signal hover:bg-signal/10 sm:inline-flex"
     >
       {marker}
       <span>

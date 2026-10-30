@@ -40,6 +40,7 @@ export function Header({ lang, mode }: Props) {
 
   return (
     <header
+      data-site-header
       className={`fixed inset-x-0 top-0 z-50 transition-colors duration-200 ${
         isScrolled || isMenuOpen
           ? "border-b border-line bg-midnight/90 backdrop-blur-md"
