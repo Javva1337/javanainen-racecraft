@@ -40,7 +40,7 @@ export function NewsletterForm({ lang }: { lang: Lang }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-2">
+    <form onSubmit={handleSubmit} className="newsletter-form space-y-2">
       <input
         type="text"
         name="name"
@@ -49,7 +49,7 @@ export function NewsletterForm({ lang }: { lang: Lang }) {
         aria-label={t.nameAriaLabel}
         className={INPUT_CLASS}
       />
-      <div className="grid grid-cols-[minmax(0,1fr)_auto] gap-2">
+      <div className="newsletter-row grid grid-cols-[minmax(0,1fr)_auto] gap-2">
         <input
           type="email"
           name="email"
@@ -61,7 +61,7 @@ export function NewsletterForm({ lang }: { lang: Lang }) {
         <button
           type="submit"
           disabled={status === "pending"}
-          className="btn btn-primary shrink-0 !px-4 !py-2.5 text-xs disabled:opacity-60"
+          className="newsletter-submit btn btn-primary shrink-0 !px-4 !py-2.5 text-xs disabled:opacity-60"
         >
           {status === "pending" ? t.pending : t.button}
         </button>
@@ -77,9 +77,9 @@ export function NewsletterForm({ lang }: { lang: Lang }) {
         className="absolute left-[-9999px] h-0 w-0 opacity-0"
       />
 
-      <p className="text-xs leading-relaxed text-mist-dim">
+      <p className="newsletter-consent text-xs leading-relaxed text-mist-dim">
         {t.consent}{" "}
-        <a href={`mailto:${CONTACT_EMAIL}`} className="text-flagblue-bright underline">
+        <a href={`mailto:${CONTACT_EMAIL}`} className="newsletter-link text-flagblue-bright underline">
           {CONTACT_EMAIL}
         </a>
         .
@@ -88,7 +88,7 @@ export function NewsletterForm({ lang }: { lang: Lang }) {
       {status === "error" && (
         <p className="text-sm text-mist" role="alert">
           {t.error}{" "}
-          <a href={`mailto:${CONTACT_EMAIL}`} className="text-flagblue-bright underline">
+          <a href={`mailto:${CONTACT_EMAIL}`} className="newsletter-link text-flagblue-bright underline">
             {CONTACT_EMAIL}
           </a>
         </p>

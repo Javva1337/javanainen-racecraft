@@ -1,0 +1,42 @@
+{
+  "tone": "friendly",
+  "pronoun": "you-only",
+  "headingStyle": "Sentence case",
+  "headingLengthClass": "tight",
+  "ctaVerbs": [
+    {
+      "value": "copy",
+      "count": 1
+    },
+    {
+      "value": "subscribe",
+      "count": 1
+    }
+  ],
+  "buttonPatterns": [
+    {
+      "value": "copy email",
+      "count": 1
+    },
+    {
+      "value": "subscribe",
+      "count": 1
+    }
+  ],
+  "sampleHeadings": [
+    "CREATOR\nJOURNEY.",
+    "FITNESS",
+    "PRODUCTIVITY",
+    "GAMING STREAMER",
+    "STREAMING PODCAST",
+    "WHERE YOU'LL FIND ME.",
+    "BEN KALUZA",
+    "STUDIO",
+    "OS",
+    "LAB"
+  ],
+  "stats": {
+    "buttons": 2,
+    "headings": 13
+  }
+}

@@ -30,7 +30,7 @@ const COPY = {
     latestNews: "Senaste nyheten",
     allNews: "Alla nyheter",
     vmHref: "/vm-2026",
-    imgAlt: "Rickard Javanainens hjälm i närbild",
+    imgAlt: "Rickard Javanainen i kartstolen med svenska flaggan på hjälmen",
   },
   en: {
     lede: "The story doesn't end in the archive. Its latest chapter was raced in Vandel.",
@@ -51,7 +51,7 @@ const COPY = {
     latestNews: "Latest news",
     allNews: "All news",
     vmHref: "/en/vm-2026",
-    imgAlt: "Rickard Javanainen's helmet in close-up",
+    imgAlt: "Rickard Javanainen in the kart, Swedish flag on his helmet",
   },
 } as const;
 
@@ -97,7 +97,7 @@ export function ChapterVandel({
         <figure>
           <ImageReveal className="aspect-square border border-line">
             <Image
-              src="/images/gallery-5.png"
+              src="/images/gallery-5.jpg"
               alt={t.imgAlt}
               width={800}
               height={800}
