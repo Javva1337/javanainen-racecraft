@@ -1,0 +1,527 @@
+{
+  "colors": {
+    "all": [
+      {
+        "hex": "#0b0b0b",
+        "rgb": {
+          "r": 11,
+          "g": 11,
+          "b": 11,
+          "a": 1
+        },
+        "hsl": {
+          "h": 0,
+          "s": 0,
+          "l": 4
+        },
+        "count": 585,
+        "areaShare": 0.918,
+        "contexts": [
+          "background",
+          "text",
+          "border"
+        ]
+      },
+      {
+        "hex": "#f2f2f2",
+        "rgb": {
+          "r": 242,
+          "g": 242,
+          "b": 242,
+          "a": 1
+        },
+        "hsl": {
+          "h": 0,
+          "s": 0,
+          "l": 95
+        },
+        "count": 251,
+        "areaShare": 0,
+        "contexts": [
+          "text",
+          "border",
+          "background"
+        ]
+      },
+      {
+        "hex": "#e2e2dd",
+        "rgb": {
+          "r": 226,
+          "g": 226,
+          "b": 221,
+          "a": 1
+        },
+        "hsl": {
+          "h": 60,
+          "s": 8,
+          "l": 88
+        },
+        "count": 118,
+        "areaShare": 0,
+        "contexts": [
+          "text",
+          "border"
+        ]
+      },
+      {
+        "hex": "#8a8a85",
+        "rgb": {
+          "r": 138,
+          "g": 138,
+          "b": 133,
+          "a": 1
+        },
+        "hsl": {
+          "h": 60,
+          "s": 2,
+          "l": 53
+        },
+        "count": 116,
+        "areaShare": 0,
+        "contexts": [
+          "text",
+          "border"
+        ]
+      },
+      {
+        "hex": "#cfcfca",
+        "rgb": {
+          "r": 207,
+          "g": 207,
+          "b": 202,
+          "a": 1
+        },
+        "hsl": {
+          "h": 60,
+          "s": 5,
+          "l": 80
+        },
+        "count": 78,
+        "areaShare": 0,
+        "contexts": [
+          "text",
+          "border"
+        ]
+      },
+      {
+        "hex": "#000000",
+        "rgb": {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "a": 1
+        },
+        "hsl": {
+          "h": 0,
+          "s": 0,
+          "l": 0
+        },
+        "count": 52,
+        "areaShare": 0,
+        "contexts": [
+          "text",
+          "border"
+        ]
+      },
+      {
+        "hex": "#5e5e5a",
+        "rgb": {
+          "r": 94,
+          "g": 94,
+          "b": 90,
+          "a": 1
+        },
+        "hsl": {
+          "h": 60,
+          "s": 2,
+          "l": 36
+        },
+        "count": 28,
+        "areaShare": 0,
+        "contexts": [
+          "text",
+          "border"
+        ]
+      },
+      {
+        "hex": "#6e6e6a",
+        "rgb": {
+          "r": 110,
+          "g": 110,
+          "b": 106,
+          "a": 1
+        },
+        "hsl": {
+          "h": 60,
+          "s": 2,
+          "l": 42
+        },
+        "count": 22,
+        "areaShare": 0,
+        "contexts": [
+          "text",
+          "border"
+        ]
+      },
+      {
+        "hex": "#faf600",
+        "rgb": {
+          "r": 250,
+          "g": 246,
+          "b": 0,
+          "a": 1
+        },
+        "hsl": {
+          "h": 59,
+          "s": 100,
+          "l": 49
+        },
+        "count": 18,
+        "areaShare": 0,
+        "contexts": [
+          "text",
+          "border"
+        ]
+      },
+      {
+        "hex": "#ffffff",
+        "rgb": {
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 1
+        },
+        "hsl": {
+          "h": 0,
+          "s": 0,
+          "l": 100
+        },
+        "count": 16,
+        "areaShare": 0,
+        "contexts": [
+          "text",
+          "border"
+        ]
+      },
+      {
+        "hex": "#bdbdb8",
+        "rgb": {
+          "r": 189,
+          "g": 189,
+          "b": 184,
+          "a": 1
+        },
+        "hsl": {
+          "h": 60,
+          "s": 4,
+          "l": 73
+        },
+        "count": 16,
+        "areaShare": 0,
+        "contexts": [
+          "text",
+          "border"
+        ]
+      },
+      {
+        "hex": "#9a9a95",
+        "rgb": {
+          "r": 154,
+          "g": 154,
+          "b": 149,
+          "a": 1
+        },
+        "hsl": {
+          "h": 60,
+          "s": 2,
+          "l": 59
+        },
+        "count": 14,
+        "areaShare": 0,
+        "contexts": [
+          "text",
+          "border"
+        ]
+      },
+      {
+        "hex": "#2c2c29",
+        "rgb": {
+          "r": 44,
+          "g": 44,
+          "b": 41,
+          "a": 1
+        },
+        "hsl": {
+          "h": 60,
+          "s": 4,
+          "l": 17
+        },
+        "count": 10,
+        "areaShare": 0,
+        "contexts": [
+          "border"
+        ]
+      },
+      {
+        "hex": "#141413",
+        "rgb": {
+          "r": 20,
+          "g": 20,
+          "b": 19,
+          "a": 1
+        },
+        "hsl": {
+          "h": 60,
+          "s": 3,
+          "l": 8
+        },
+        "count": 8,
+        "areaShare": 0.082,
+        "contexts": [
+          "background"
+        ]
+      },
+      {
+        "hex": "#3a3a37",
+        "rgb": {
+          "r": 58,
+          "g": 58,
+          "b": 55,
+          "a": 1
+        },
+        "hsl": {
+          "h": 60,
+          "s": 3,
+          "l": 22
+        },
+        "count": 6,
+        "areaShare": 0,
+        "contexts": [
+          "text",
+          "border"
+        ]
+      },
+      {
+        "hex": "#b3261e",
+        "rgb": {
+          "r": 179,
+          "g": 38,
+          "b": 30,
+          "a": 1
+        },
+        "hsl": {
+          "h": 3,
+          "s": 71,
+          "l": 41
+        },
+        "count": 2,
+        "areaShare": 0,
+        "contexts": [
+          "text",
+          "border"
+        ]
+      },
+      {
+        "hex": "#4a4a46",
+        "rgb": {
+          "r": 74,
+          "g": 74,
+          "b": 70,
+          "a": 1
+        },
+        "hsl": {
+          "h": 60,
+          "s": 3,
+          "l": 28
+        },
+        "count": 1,
+        "areaShare": 0,
+        "contexts": [
+          "border"
+        ]
+      }
+    ]
+  },
+  "regions": [
+    {
+      "role": "nav",
+      "tag": "header",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "w": 1280,
+        "h": 116.84375
+      },
+      "heading": null,
+      "buttonCount": 0,
+      "cardCount": 0,
+      "className": "chrome gutter"
+    },
+    {
+      "role": "nav",
+      "tag": "nav",
+      "bounds": {
+        "x": 1017.28125,
+        "y": 18,
+        "w": 242.71875,
+        "h": 95.78125
+      },
+      "heading": null,
+      "buttonCount": 0,
+      "cardCount": 0,
+      "className": null
+    },
+    {
+      "role": "content",
+      "tag": "section",
+      "bounds": {
+        "x": 0,
+        "y": 2126.53125,
+        "w": 1280,
+        "h": 5211
+      },
+      "heading": "CREATOR\nJOURNEY.",
+      "buttonCount": 0,
+      "cardCount": 8,
+      "className": "story"
+    },
+    {
+      "role": "content",
+      "tag": "section",
+      "bounds": {
+        "x": 0,
+        "y": 7337.53125,
+        "w": 1280,
+        "h": 1352.984375
+      },
+      "heading": "WHERE YOU'LL FIND ME.",
+      "buttonCount": 0,
+      "cardCount": 0,
+      "className": "today gutter"
+    },
+    {
+      "role": "content",
+      "tag": "section",
+      "bounds": {
+        "x": 0,
+        "y": 8690.515625,
+        "w": 1280,
+        "h": 1306.640625
+      },
+      "heading": "BRAND PARTNERSHIPS",
+      "buttonCount": 2,
+      "cardCount": 33,
+      "className": "work gutter"
+    },
+    {
+      "role": "footer",
+      "tag": "footer",
+      "bounds": {
+        "x": 0,
+        "y": 9997.15625,
+        "w": 1280,
+        "h": 79
+      },
+      "heading": null,
+      "buttonCount": 0,
+      "cardCount": 0,
+      "className": "mono"
+    }
+  ],
+  "componentClusters": [
+    {
+      "kind": "button",
+      "structuralHash": "button",
+      "instanceCount": 2,
+      "variants": [
+        {
+          "css": {
+            "background": "rgb(11, 11, 11)",
+            "color": "rgb(248, 248, 246)",
+            "padding": "12px 18px 12px 18px",
+            "borderRadius": "0px",
+            "border": "1px solid rgb(11, 11, 11)",
+            "fontSize": "14px",
+            "fontWeight": "500"
+          },
+          "instanceCount": 2
+        }
+      ]
+    },
+    {
+      "kind": "input",
+      "structuralHash": "input",
+      "instanceCount": 1,
+      "variants": [
+        {
+          "css": {
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(11, 11, 11)",
+            "padding": "0px 14px 0px 14px",
+            "borderRadius": "0px",
+            "border": "1px 0px 1px 1px solid none solid solid rgb(11, 11, 11)",
+            "fontSize": "16px",
+            "fontWeight": "400"
+          },
+          "instanceCount": 1
+        }
+      ]
+    }
+  ],
+  "accessibility": {
+    "remediation": []
+  },
+  "cssHealth": {
+    "sheets": [
+      {
+        "url": "https://benkaluza.com/",
+        "totalBytes": 25814,
+        "usedBytes": 15595,
+        "unusedBytes": 10219,
+        "unusedPercent": 40
+      },
+      {
+        "url": "https://benkaluza.com/",
+        "totalBytes": 4681,
+        "usedBytes": 0,
+        "unusedBytes": 4681,
+        "unusedPercent": 100
+      }
+    ],
+    "totalBytes": 30495,
+    "usedBytes": 15595,
+    "unusedBytes": 14900,
+    "unusedPercent": 49,
+    "importantCount": 3,
+    "duplicates": 357,
+    "vendorPrefixes": {
+      "webkit": 8,
+      "moz": 0,
+      "ms": 0,
+      "o": 0
+    },
+    "keyframes": [
+      {
+        "name": "marquee",
+        "steps": 1
+      }
+    ],
+    "specificity": {
+      "max": [
+        1,
+        4,
+        64
+      ],
+      "average": [
+        0.01,
+        1.31,
+        3.84
+      ],
+      "count": 239
+    },
+    "issues": [
+      "3 !important rules",
+      "357 duplicate declarations"
+    ]
+  }
+}
