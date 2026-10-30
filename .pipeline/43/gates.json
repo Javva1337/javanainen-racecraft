@@ -1,1 +1,1 @@
-{"issue":43,"code_review":"PENDING","security_review":"PENDING","acceptance":"PENDING"}
+{"issue":43,"code_review":"PASS","security_review":"PASS","acceptance":"PASS","note":"build+test+tsc gröna, 1440/390 + reduced-motion verifierade med Playwright"}

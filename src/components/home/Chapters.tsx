@@ -88,7 +88,7 @@ export function Chapters({
       </Chapter>
 
       <Chapter id="brons-2016" no="02" kicker="Italien · 2016" title="VM-brons 2016">
-        <Stat value={`3:a av ${STORY_FACTS.field2016}`} label="Totalt i hyrkart-VM" />
+        <Stat value={`3:e av ${STORY_FACTS.field2016}`} label="Totalt i hyrkart-VM" />
         <Reveal delayMs={80}>
           <p className="max-w-xl border-l-2 border-signal pl-4 leading-relaxed text-mist">
             2016 vann jag finalracet, och eftersom titeln avgörs på hela veckans poäng räckte det
