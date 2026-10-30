@@ -1,13 +1,18 @@
 import { Header } from "@/components/Header";
+import { ChromeGate } from "@/components/ChromeGate";
 import { Footer } from "@/components/Footer";
 import { getSiteMode } from "@/lib/mode";
 
 export default function SwedishLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <Header lang="sv" mode={getSiteMode()} />
+      <ChromeGate>
+        <Header lang="sv" mode={getSiteMode()} />
+      </ChromeGate>
       <main className="pt-16">{children}</main>
-      <Footer lang="sv" />
+      <ChromeGate>
+        <Footer lang="sv" />
+      </ChromeGate>
     </>
   );
 }
