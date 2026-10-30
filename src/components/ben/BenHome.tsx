@@ -141,86 +141,86 @@ export function BenHome({ lang }: { lang: Lang }) {
       </header>
 
       <main>
-      <h1 className="sr-only">
-        {SITE_NAME} — {lang === "sv" ? "hyrkartförare" : "rental kart racer"}
-      </h1>
+        <h1 className="sr-only">
+          {SITE_NAME} — {lang === "sv" ? "hyrkartförare" : "rental kart racer"}
+        </h1>
 
-      {/* H — hero */}
-      <BenHero lang={lang} />
+        {/* H — hero */}
+        <BenHero lang={lang} />
 
-      {/* 1 — journey */}
-      <BenJourney lang={lang} />
+        {/* 1 — journey */}
+        <BenJourney lang={lang} />
 
-      {/* 2 — var du hittar mig */}
-      <section id="channels" className="bc" aria-labelledby="bc-h">
-        <h2 id="bc-h" className="bc-head">
-          {t.findHead[0]}
-          <br />
-          {t.findHead[1]}
-        </h2>
-        <ul className="bc-list">
-          {CHANNELS.map((c) => {
-            const href = lang === "en" && c.hrefEn ? c.hrefEn : c.href;
-            const inner = (
-              <>
-                <div className="bc-name">
-                  <span className="bc-title">
-                    {c.name}
-                    <span className="bc-icon"><Icon name={c.icon} /></span>
-                  </span>
-                  <span className="bc-handle">{c.handle}</span>
+        {/* 2 — var du hittar mig */}
+        <section id="channels" className="bc" aria-labelledby="bc-h">
+          <h2 id="bc-h" className="bc-head">
+            {t.findHead[0]}
+            <br />
+            {t.findHead[1]}
+          </h2>
+          <ul className="bc-list">
+            {CHANNELS.map((c) => {
+              const href = lang === "en" && c.hrefEn ? c.hrefEn : c.href;
+              const inner = (
+                <>
+                  <div className="bc-name">
+                    <span className="bc-title">
+                      {c.name}
+                      <span className="bc-icon"><Icon name={c.icon} /></span>
+                    </span>
+                    <span className="bc-handle">{c.handle}</span>
+                  </div>
+                  <p className="bc-text">{c.text[lang]}</p>
+                </>
+              );
+              return (
+                <li key={c.name}>
+                  {c.external ? (
+                    <a href={href} target="_blank" rel="noopener noreferrer" className="bc-row">
+                      {inner}
+                    </a>
+                  ) : (
+                    <Link href={href} className="bc-row">{inner}</Link>
+                  )}
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+
+        {/* 3 — partners */}
+        <section id="partners" className="bp" aria-labelledby="bp-h">
+          <h2 id="bp-h" className="sr-only">{t.partHead}</h2>
+          <ol className="bp-list">
+            {t.parts.map((p) => (
+              <li key={p.n} className="bp-row">
+                <span className="bp-n">{p.n}</span>
+                <h3 className="bp-title">{p.title}</h3>
+                <div className="bp-body">
+                  <p>{p.text}</p>
+                  {p.cta && (
+                    <Link href={p.cta.href} className="bp-cta">{p.cta.label} →</Link>
+                  )}
                 </div>
-                <p className="bc-text">{c.text[lang]}</p>
-              </>
-            );
-            return (
-              <li key={c.name}>
-                {c.external ? (
-                  <a href={href} target="_blank" rel="noopener noreferrer" className="bc-row">
-                    {inner}
-                  </a>
-                ) : (
-                  <Link href={href} className="bc-row">{inner}</Link>
-                )}
               </li>
-            );
-          })}
-        </ul>
-      </section>
-
-      {/* 3 — partners */}
-      <section id="partners" className="bp" aria-labelledby="bp-h">
-        <h2 id="bp-h" className="sr-only">{t.partHead}</h2>
-        <ol className="bp-list">
-          {t.parts.map((p) => (
-            <li key={p.n} className="bp-row">
-              <span className="bp-n">{p.n}</span>
-              <h3 className="bp-title">{p.title}</h3>
-              <div className="bp-body">
-                <p>{p.text}</p>
-                {p.cta && (
-                  <Link href={p.cta.href} className="bp-cta">{p.cta.label} →</Link>
-                )}
-              </div>
-            </li>
-          ))}
-        </ol>
-        <ul className="bp-logos">
-          {PARTNERS.map((partner) => (
-            <li key={partner.name}>
-              <a
-                href={partner.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`bp-logo ${partner.chip === "light" ? "is-light" : ""}`}
-                aria-label={partner.name}
-              >
-                <Image src={partner.logo} alt={partner.name} width={160} height={48} />
-              </a>
-            </li>
-          ))}
-        </ul>
-      </section>
+            ))}
+          </ol>
+          <ul className="bp-logos">
+            {PARTNERS.map((partner) => (
+              <li key={partner.name}>
+                <a
+                  href={partner.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`bp-logo ${partner.chip === "light" ? "is-light" : ""}`}
+                  aria-label={partner.name}
+                >
+                  <Image src={partner.logo} alt={partner.name} width={160} height={48} />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
 
       </main>
 

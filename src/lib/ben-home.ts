@@ -6,6 +6,7 @@ import { CHAPTERS } from "./career-story";
 import { KWC, SOCIAL, STUDIO } from "./site";
 import { RESULTS, STORY_FACTS } from "./results";
 import type { Lang } from "./dictionary";
+import { cap, ordinalEn } from "./text-utils";
 
 type L = Record<Lang, string>;
 
@@ -29,12 +30,6 @@ const WORDS: Record<number, L> = {
   2: { sv: "två", en: "two" },
   3: { sv: "tre", en: "three" },
   10: { sv: "tio", en: "ten" },
-};
-const cap = (w: string) => w.charAt(0).toUpperCase() + w.slice(1);
-const ordinalEn = (n: number) => {
-  const v = n % 100;
-  const suf = v >= 11 && v <= 13 ? "th" : ({ 1: "st", 2: "nd", 3: "rd" } as Record<number, string>)[n % 10] ?? "th";
-  return `${n}${suf}`;
 };
 const word = (n: number, lang: Lang) => WORDS[n]?.[lang] ?? String(n);
 
@@ -98,7 +93,7 @@ export const JOURNEY: JourneyCard[] = [
     title: { sv: "Polen", en: "Poland" },
     text: {
       sv: `${r2018.result.sv} i VM, med en klättring från ${f.climb2018.from}:e till ${f.climb2018.to}:e i finalracet. Samma år tog jag min andra SRKC-titel, i Göteborg.`,
-      en: `${r2018.result.en} at the Worlds, climbing from ${f.climb2018.from}th to ${f.climb2018.to}th in the final race. That year I also took a second SRKC title, in Gothenburg.`,
+      en: `${r2018.result.en} at the Worlds, climbing from ${ordinalEn(f.climb2018.from)} to ${ordinalEn(f.climb2018.to)} in the final race. That year I also took a second SRKC title, in Gothenburg.`,
     },
     image: {
       src: "/images/gallery-2.jpg",
