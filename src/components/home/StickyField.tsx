@@ -55,15 +55,23 @@ export function StickyField() {
       canvas.width = Math.round(w * dpr);
       canvas.height = Math.round(h * dpr);
       cell = w < 640 ? 16 : 20;
-      cols = Math.ceil(w / cell);
-      rows = Math.ceil(h / cell);
-      bits = new Uint8Array(cols * rows);
-      for (let i = 0; i < bits.length; i++) bits[i] = Math.random() < 0.5 ? 0 : 1;
-      colSpeed = new Float32Array(cols);
-      colPhase = new Float32Array(cols);
-      for (let c = 0; c < cols; c++) {
-        colSpeed[c] = 0.04 + Math.random() * 0.09;
-        colPhase[c] = Math.random();
+      const nextCols = Math.ceil(w / cell);
+      const nextRows = Math.ceil(h / cell);
+      // Mobilens URL-fält ändrar bara höjden — behåll fältet då, annars hoppar det
+      if (nextCols !== cols || nextRows > rows) {
+        const colsChanged = nextCols !== cols;
+        cols = nextCols;
+        rows = nextRows;
+        bits = new Uint8Array(cols * rows);
+        for (let i = 0; i < bits.length; i++) bits[i] = Math.random() < 0.5 ? 0 : 1;
+        if (colsChanged) {
+          colSpeed = new Float32Array(cols);
+          colPhase = new Float32Array(cols);
+          for (let c = 0; c < cols; c++) {
+            colSpeed[c] = 0.04 + Math.random() * 0.09;
+            colPhase[c] = Math.random();
+          }
+        }
       }
       dirty = true;
     };
@@ -150,7 +158,10 @@ export function StickyField() {
     resize();
     const onResize = () => {
       resize();
-      if (reduce) draw(0);
+      if (reduce) {
+        draw(0);
+        dirty = false;
+      }
     };
     window.addEventListener("resize", onResize);
 

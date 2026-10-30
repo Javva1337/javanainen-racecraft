@@ -6,7 +6,7 @@ import { StickyField } from "@/components/home/StickyField";
 import { getAllArticles } from "@/lib/content";
 import { DICT } from "@/lib/dictionary";
 import { getSiteMode } from "@/lib/mode";
-import { DEFAULT_DESCRIPTION, DEFAULT_TITLE } from "@/lib/site";
+import { DEFAULT_DESCRIPTION, DEFAULT_TITLE, KWC } from "@/lib/site";
 
 export const revalidate = 3600;
 
@@ -39,7 +39,7 @@ export default function HomePage() {
         ctaLabel={cta.label}
         secondaryHref="#laser-racet"
         secondaryLabel="Läs racecraft"
-        micro="41:a av 180 · Vandel 2026 · VM-brons 2016"
+        micro={`${KWC.result2026.sv} · Vandel 2026 · VM-brons 2016`}
       />
       <Chapters latest={latest} vmHref={vmHref} />
     </HomeScroll>

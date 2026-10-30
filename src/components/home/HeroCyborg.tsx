@@ -83,6 +83,7 @@ export function HeroCyborg({ ctaHref, ctaLabel, secondaryHref, secondaryLabel, m
     let nextGlitch = performance.now() + 4000;
     let patternTick = 0;
     let tracking = false;
+    let disposed = false;
 
     const makeCanvas = (w: number, h: number) => {
       const c = document.createElement("canvas");
@@ -170,6 +171,10 @@ export function HeroCyborg({ ctaHref, ctaLabel, secondaryHref, secondaryLabel, m
       robotLoading = true;
       const img = new window.Image();
       img.onload = () => {
+        if (disposed || fr.w < 1 || fr.h < 1) {
+          robotLoading = false;
+          return;
+        }
         robot = buildRobot(img, Math.round(fr.w * dpr), Math.round(fr.h * dpr));
         robotLoading = false;
       };
@@ -288,6 +293,10 @@ export function HeroCyborg({ ctaHref, ctaLabel, secondaryHref, secondaryLabel, m
         frame.dataset.state = "scanning";
         setStatus("SCANNING");
       }
+    };
+
+    const onUp = (e: PointerEvent) => {
+      if (e.pointerType === "touch") onLeave();
     };
 
     const renderEat = () => {
@@ -466,12 +475,11 @@ export function HeroCyborg({ ctaHref, ctaLabel, secondaryHref, secondaryLabel, m
     hero.addEventListener("pointermove", onMove);
     hero.addEventListener("pointerdown", onMove);
     hero.addEventListener("pointerleave", onLeave);
-    hero.addEventListener("pointerup", (e) => {
-      if (e.pointerType === "touch") onLeave();
-    });
+    hero.addEventListener("pointerup", onUp);
     raf = requestAnimationFrame(frameLoop);
 
     return () => {
+      disposed = true;
       cancelAnimationFrame(raf);
       window.clearInterval(readout);
       io.disconnect();
@@ -480,6 +488,7 @@ export function HeroCyborg({ ctaHref, ctaLabel, secondaryHref, secondaryLabel, m
       hero.removeEventListener("pointermove", onMove);
       hero.removeEventListener("pointerdown", onMove);
       hero.removeEventListener("pointerleave", onLeave);
+      hero.removeEventListener("pointerup", onUp);
     };
   }, []);
 

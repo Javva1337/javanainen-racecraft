@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Article } from "@/lib/content";
-import { PARTNERS } from "@/lib/site";
+import { STORY_FACTS } from "@/lib/results";
+import { KWC, PARTNERS } from "@/lib/site";
 import { Reveal } from "@/components/Reveal";
 import { TrackLayoutsTeaser } from "@/components/TrackLayoutsTeaser";
 
@@ -87,7 +88,7 @@ export function Chapters({
       </Chapter>
 
       <Chapter id="brons-2016" no="02" kicker="Italien · 2016" title="VM-brons 2016">
-        <Stat value="3:a av 102" label="Totalt i hyrkart-VM" />
+        <Stat value={`3:a av ${STORY_FACTS.field2016}`} label="Totalt i hyrkart-VM" />
         <Reveal delayMs={80}>
           <p className="max-w-xl border-l-2 border-signal pl-4 leading-relaxed text-mist">
             2016 vann jag finalracet, och eftersom titeln avgörs på hela veckans poäng räckte det
@@ -97,7 +98,7 @@ export function Chapters({
       </Chapter>
 
       <Chapter id="vandel-2026" no="03" kicker="Vandel · Danmark · 2026" title="VM i Vandel 2026">
-        <Stat value="41:a av 180" label="Kart World Championship 2026" />
+        <Stat value={KWC.result2026.sv} label="Kart World Championship 2026" />
         <Reveal delayMs={80}>
           <p className="max-w-xl leading-relaxed text-mist">
             Kart World Championship kördes på Vandel Kart i Danmark 22 juli–1 augusti 2026. Jag tog
