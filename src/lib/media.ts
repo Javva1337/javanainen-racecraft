@@ -42,9 +42,9 @@ export const MEDIA_ITEMS: MediaItem[] = [
     height: 800,
   },
   {
-    src: "/images/gallery-5.png",
-    alt: { sv: "Hjälmen — stilren", en: "Helmet close-up" },
-    caption: { sv: "Hjälmen · Sverige, 2026", en: "The helmet · Sweden, 2026" },
+    src: "/images/gallery-5.jpg",
+    alt: { sv: "Rickard i kartstolen med svenska flaggan på hjälmen", en: "Rickard in the kart, Swedish flag on his helmet" },
+    caption: { sv: "Före start · Sverige, 2026", en: "Before the start · Sweden, 2026" },
     width: 800,
     height: 800,
   },

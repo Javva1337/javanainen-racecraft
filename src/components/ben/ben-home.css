@@ -94,12 +94,12 @@
   justify-content: center;
   background: var(--b-void);
 }
-/* Wide-still 2389:1344; blir bredare än viewport på smala skärmar och klipps, hjälmen förblir centrerad */
+/* Wide-bakgrund 16:9; blir bredare än viewport på smala skärmar och klipps, centrerad */
 .bh-wide {
   position: relative;
   flex-shrink: 0;
   height: 100svh;
-  aspect-ratio: 2389 / 1344;
+  aspect-ratio: 16 / 9;
 }
 .bh-zoom {
   position: absolute;
@@ -112,23 +112,24 @@
   object-fit: cover;
   object-position: 50% 50%;
 }
-/* Wide-stillen har porträttet hårdinklistrat (34,25–65,75 %) med svart kant och ljus rand; dölj hela
-   kolumnen och tona ut wide mjukt strax utanför den (32→34,25 % resp. 65,75→68 %), där wide är ren void
-   och möter stage-bakgrunden sömlöst. Porträttets egen fjädring står för övergången. */
+/* Bakgrundsfotot dämpas så att porträttet och rubriken står ut */
 .bh-img--wide {
-  -webkit-mask-image: linear-gradient(90deg, #000 32%, transparent 34.25%, transparent 65.75%, #000 68%);
-  mask-image: linear-gradient(90deg, #000 32%, transparent 34.25%, transparent 65.75%, #000 68%);
+  filter: brightness(0.35) saturate(0.8);
 }
-/* Porträtt 752/2389 = 31,5 % av wide, centrerat; sidorna fjädras mot wide */
+/* Porträtt 3:4 (75svh bred vid full höjd = 42,2 % av wide), centrerat; sidorna fjädras mot bakgrunden */
 .bh-portrait {
   position: absolute;
   top: 0;
   bottom: 0;
   left: 50%;
-  width: 31.5%;
+  width: 42.2%;
   transform: translateX(-50%);
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 18%, #000 82%, transparent);
-  mask-image: linear-gradient(90deg, transparent, #000 18%, #000 82%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent);
+}
+/* Start-bilden är 16:9; beskär till hjälm och axlar */
+.bh-img--helmet {
+  object-position: 22% 50%;
 }
 .bh-img--alt {
   opacity: var(--p);

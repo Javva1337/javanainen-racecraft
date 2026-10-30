@@ -8,19 +8,19 @@ const COPY = {
   sv: {
     tagline: "Hyrkartförare från Dalarna. VM-brons 2016.",
     hint2: "SCROLLA FÖR ATT AVSLÖJA",
-    alt: "Rickard Javanainen — hjälm med svenska flaggan, scrolla för att se ansiktet",
+    alt: "Rickard Javanainen — i kartstolen med svenska flaggan på hjälmen. Scrolla för att se ansiktet",
   },
   en: {
     tagline: "Rental kart racer from Dalarna. Worlds bronze 2016.",
     hint2: "SCROLL TO REVEAL",
-    alt: "Rickard Javanainen — Swedish-flag helmet, scroll to reveal his face",
+    alt: "Rickard Javanainen — in the kart with a Swedish flag on his helmet. Scroll to see his face",
   },
 } as const;
 
 const SRC = {
-  wide: "/hero-lando/03-wide-16x9.jpg",
-  portrait: "/hero-lando/01-portrait-9x16.jpg",
-  alt: "/hero-lando/02-layer-alt-9x16.jpg",
+  wide: "/images/hero-rain.jpg",
+  portrait: "/images/hero-poster.jpg",
+  alt: "/images/portrait.jpg",
 };
 
 export function BenHero({ lang }: { lang: Lang }) {
@@ -63,18 +63,18 @@ export function BenHero({ lang }: { lang: Lang }) {
   return (
     <section ref={root} className="bh">
       <div className="bh-stage">
-        {/* Gemensam zoom för wide + porträtt så att alla tre stills förblir alignade */}
+        {/* Pressfoto: bakgrund (dämpad) + hjälmbild som tonas över till ansiktet via --p */}
         <div className="bh-wide">
           <div className="bh-zoom">
             <Image src={SRC.wide} alt="" aria-hidden="true" fill priority sizes="178vh" className="bh-img bh-img--wide" />
             <div className="bh-portrait">
-              <Image src={SRC.portrait} alt={t.alt} fill priority sizes="56vh" className="bh-img" />
+              <Image src={SRC.portrait} alt={t.alt} fill priority sizes="75vh" className="bh-img bh-img--helmet" />
               <Image
                 src={SRC.alt}
                 alt=""
                 aria-hidden="true"
                 fill
-                sizes="56vh"
+                sizes="75vh"
                 className="bh-img bh-img--alt"
               />
             </div>

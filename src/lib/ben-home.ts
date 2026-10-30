@@ -124,8 +124,8 @@ export const JOURNEY: JourneyCard[] = [
       en: `${KWC.venue}, ${KWC.driverCount} drivers. ${cap(word(f.qualiPodiums2026, "en"))} podiums in the qualifying heats and a semifinal. I finished ${KWC.result2026.en}.`,
     },
     image: {
-      src: "/images/gallery-5.png",
-      alt: { sv: "Hjälmen — stilren", en: "Helmet close-up" },
+      src: "/images/gallery-5.jpg",
+      alt: { sv: "Rickard i kartstolen med svenska flaggan på hjälmen", en: "Rickard in the kart, Swedish flag on his helmet" },
     },
   },
 ];
