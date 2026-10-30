@@ -120,7 +120,7 @@ export function BenHome({ lang }: { lang: Lang }) {
   return (
     <div className={`ben-home ${geist.variable} ${geistMono.variable}`}>
       {/* 0 — sticky nav */}
-      <header className="bn" role="banner">
+      <header className="bn">
         <Link href={home} className="bn-logo">
           RICKARD
           <br />
@@ -132,14 +132,15 @@ export function BenHome({ lang }: { lang: Lang }) {
             <li><Link href={t.tracksHref}>{t.nav.tracks}</Link></li>
             <li><a href="#partners">{t.nav.partners}</a></li>
             <li className="bn-lang">
-              <Link href="/" hrefLang="sv" lang="sv" aria-label="Svenska" aria-current={lang === "sv" ? "true" : undefined}>SV</Link>
+              <Link href="/" hrefLang="sv" lang="sv" aria-label="Svenska" aria-current={lang === "sv" ? "page" : undefined}>SV</Link>
               {" / "}
-              <Link href="/en" hrefLang="en" lang="en" aria-label="English" aria-current={lang === "en" ? "true" : undefined}>EN</Link>
+              <Link href="/en" hrefLang="en" lang="en" aria-label="English" aria-current={lang === "en" ? "page" : undefined}>EN</Link>
             </li>
           </ul>
         </nav>
       </header>
 
+      <main>
       <h1 className="sr-only">
         {SITE_NAME} — {lang === "sv" ? "hyrkartförare" : "rental kart racer"}
       </h1>
@@ -221,8 +222,10 @@ export function BenHome({ lang }: { lang: Lang }) {
         </ul>
       </section>
 
+      </main>
+
       {/* 4 — footer */}
-      <footer className="bf" role="contentinfo">
+      <footer className="bf">
         <div className="bf-top">
           <p className="bf-name">
             RICKARD

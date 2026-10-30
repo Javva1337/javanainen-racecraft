@@ -3,10 +3,6 @@
  * (som använder det blå temat) inte påverkas. Inga nya hex: värdena nedan
  * är exakt de som designlang extraherade från benkaluza.com.
  */
-main:has(> .ben-home) {
-  padding-top: 0;
-}
-
 .ben-home {
   --b-primary: #faf600;
   --b-secondary: #b3261e;
@@ -607,4 +603,4 @@ main:has(> .ben-home) {
 .bf-news form input { padding: 12px 14px; }
 
 .bn-lang { margin-top: 6px; font-size: 0.8em; }
-.bn-lang a[aria-current="true"] { text-decoration: underline; text-underline-offset: 3px; }
+.bn-lang a[aria-current="page"] { text-decoration: underline; text-underline-offset: 3px; }

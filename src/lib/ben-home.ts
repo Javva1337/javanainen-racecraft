@@ -30,6 +30,12 @@ const WORDS: Record<number, L> = {
   3: { sv: "tre", en: "three" },
   10: { sv: "tio", en: "ten" },
 };
+const cap = (w: string) => w.charAt(0).toUpperCase() + w.slice(1);
+const ordinalEn = (n: number) => {
+  const v = n % 100;
+  const suf = v >= 11 && v <= 13 ? "th" : ({ 1: "st", 2: "nd", 3: "rd" } as Record<number, string>)[n % 10] ?? "th";
+  return `${n}${suf}`;
+};
 const word = (n: number, lang: Lang) => WORDS[n]?.[lang] ?? String(n);
 
 const r2015 = res(2015, "KWC — VM");
@@ -58,7 +64,7 @@ export const JOURNEY: JourneyCard[] = [
     title: chapter("banracing").title,
     text: {
       sv: `${f.renault2007.place}:a totalt i Renault Junior Cup ${f.renault2007.year}. I Ginetta G20 Cup 2011 vann jag ${f.ginetta2011.wins} av ${f.ginetta2011.races} race.`,
-      en: `${f.renault2007.place === 2 ? "Second" : f.renault2007.place} overall in the ${f.renault2007.year} Renault Junior Cup. In the 2011 Ginetta G20 Cup I won ${f.ginetta2011.wins} of ${f.ginetta2011.races} races.`,
+      en: `${ordinalEn(f.renault2007.place)} overall in the ${f.renault2007.year} Renault Junior Cup. In the 2011 Ginetta G20 Cup I won ${f.ginetta2011.wins} of ${f.ginetta2011.races} races.`,
     },
   },
   {
@@ -119,8 +125,8 @@ export const JOURNEY: JourneyCard[] = [
     tag: { sv: "VANDEL", en: "VANDEL" },
     title: { sv: "KWC i Danmark", en: "KWC in Denmark" },
     text: {
-      sv: `${KWC.venue}, ${KWC.driverCount} förare. ${word(f.qualiPodiums2026, "sv")} pallplatser i kvalheaten och semifinal. Jag slutade ${KWC.result2026.sv}.`,
-      en: `${KWC.venue}, ${KWC.driverCount} drivers. ${word(f.qualiPodiums2026, "en")} podiums in the qualifying heats and a semifinal. I finished ${KWC.result2026.en}.`,
+      sv: `${KWC.venue}, ${KWC.driverCount} förare. ${cap(word(f.qualiPodiums2026, "sv"))} pallplatser i kvalheaten och semifinal. Jag slutade ${KWC.result2026.sv}.`,
+      en: `${KWC.venue}, ${KWC.driverCount} drivers. ${cap(word(f.qualiPodiums2026, "en"))} podiums in the qualifying heats and a semifinal. I finished ${KWC.result2026.en}.`,
     },
     image: {
       src: "/images/gallery-5.png",

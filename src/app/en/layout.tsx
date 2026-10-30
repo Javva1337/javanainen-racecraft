@@ -1,5 +1,5 @@
 import { Header } from "@/components/Header";
-import { ChromeGate } from "@/components/ChromeGate";
+import { ChromeGate, MainGate } from "@/components/ChromeGate";
 import { Footer } from "@/components/Footer";
 import { HtmlLang } from "@/components/HtmlLang";
 import { getSiteMode } from "@/lib/mode";
@@ -11,7 +11,7 @@ export default function EnglishLayout({ children }: { children: React.ReactNode 
       <ChromeGate>
         <Header lang="en" mode={getSiteMode()} />
       </ChromeGate>
-      <main className="pt-16">{children}</main>
+      <MainGate>{children}</MainGate>
       <ChromeGate>
         <Footer lang="en" />
       </ChromeGate>
