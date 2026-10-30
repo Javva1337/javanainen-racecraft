@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import type { Lang } from "@/lib/dictionary";
 
@@ -13,7 +13,7 @@ const COPY = {
     tagline: "Hyrkartförare från Dalarna. VM-brons 2016.",
     scanning: "SKANNAR",
     tracking: "FÖLJER",
-    alt: "Rickard Javanainen med pokalen från VM i Italien 2016",
+    alt: "Rickard Javanainen med pokal",
   },
   en: {
     mesh: "FACE MESH · 468 PTS",
@@ -23,7 +23,7 @@ const COPY = {
     tagline: "Rental kart racer from Dalarna. Worlds bronze 2016.",
     scanning: "SCANNING",
     tracking: "TRACKING",
-    alt: "Rickard Javanainen with the trophy from the 2016 Worlds in Italy",
+    alt: "Rickard Javanainen with a trophy",
   },
 } as const;
 
@@ -48,6 +48,7 @@ const BIN = binaryBlock(60, 70);
 
 export function BenHero({ lang }: { lang: Lang }) {
   const t = COPY[lang];
+  const [reduced, setReduced] = useState(false);
   const root = useRef<HTMLElement>(null);
   const frame = useRef<HTMLDivElement>(null);
   const machine = useRef<HTMLDivElement>(null);
@@ -60,13 +61,20 @@ export function BenHero({ lang }: { lang: Lang }) {
   const noseEl = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const sync = () => setReduced(mq.matches);
+    sync();
+    mq.addEventListener("change", sync);
+    return () => mq.removeEventListener("change", sync);
+  }, []);
+
+  useEffect(() => {
     const el = root.current;
     const fr = frame.current;
     const mach = machine.current;
     const cv = field.current;
     if (!el || !fr || !mach || !cv) return;
 
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const coarse = window.matchMedia("(hover: none)").matches;
     const ctx = cv.getContext("2d");
     const cs = getComputedStyle(el);
@@ -103,21 +111,27 @@ export function BenHero({ lang }: { lang: Lang }) {
     };
     resize();
     window.addEventListener("resize", resize);
+    // Dessa noder renderas tomma av React och ägs av effekten (ingen hydreringskonflikt)
+    if (yawEl.current) yawEl.current.textContent = "+00.0";
+    if (pitchEl.current) pitchEl.current.textContent = "+00.0";
+    if (modeEl.current) modeEl.current.textContent = t.scanning;
 
-    // Scroll: paper → void (0..1 över hjältens extra scrolldjup)
+    // Scroll: paper → void (0..1 över hjältens extra scrolldjup).
+    // Textfärgen växlar stegvis vid p > 0.5 så kontrasten håller mitt i övergången.
     const onScroll = () => {
       const r = el.getBoundingClientRect();
       const span = Math.max(1, el.offsetHeight - window.innerHeight);
       const p = Math.min(1, Math.max(0, -r.top / span));
       el.style.setProperty("--p", p.toFixed(3));
+      el.dataset.tone = p > 0.5 ? "void" : "paper";
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
 
     if (reduced) {
       mach.style.display = "none";
-      if (modeEl.current) modeEl.current.textContent = t.scanning;
       return () => {
+        mach.style.display = "";
         window.removeEventListener("resize", resize);
         window.removeEventListener("scroll", onScroll);
       };
@@ -213,19 +227,38 @@ export function BenHero({ lang }: { lang: Lang }) {
       }
       raf = requestAnimationFrame(tick);
     };
-    raf = requestAnimationFrame(tick);
+    // Kör bara när hjälten syns och fliken är aktiv
+    let inView = true;
+    const sync = () => {
+      const run = inView && !document.hidden;
+      if (run && !raf) raf = requestAnimationFrame(tick);
+      if (!run && raf) {
+        cancelAnimationFrame(raf);
+        raf = 0;
+      }
+    };
+    const io = new IntersectionObserver(([entry]) => {
+      inView = entry.isIntersecting;
+      sync();
+    });
+    io.observe(el);
+    document.addEventListener("visibilitychange", sync);
+    sync();
 
     return () => {
+      io.disconnect();
+      document.removeEventListener("visibilitychange", sync);
       cancelAnimationFrame(raf);
+      mach.style.display = "";
       window.removeEventListener("resize", resize);
       window.removeEventListener("scroll", onScroll);
       el.removeEventListener("pointermove", onMove);
       el.removeEventListener("pointerdown", onDown);
     };
-  }, [t.scanning, t.tracking]);
+  }, [t.scanning, t.tracking, reduced]);
 
   return (
-    <section ref={root} className="bh" data-mode="scanning" aria-label={t.alt}>
+    <section ref={root} className="bh" data-mode="scanning" data-tone="paper" data-reduced={reduced ? "1" : "0"}>
       <div className="bh-stage">
         <canvas ref={field} className="bh-field" aria-hidden="true" />
 
@@ -263,9 +296,9 @@ export function BenHero({ lang }: { lang: Lang }) {
 
         <p className="bh-hud bh-hud--tl">{t.mesh}</p>
         <p className="bh-hud bh-hud--tr">
-          YAW <span ref={yawEl}>+0.0</span>° · PITCH <span ref={pitchEl}>+0.0</span>°
+          YAW <span ref={yawEl} />° · PITCH <span ref={pitchEl} />°
           <br />
-          <span ref={modeEl} className="bh-mode">{t.scanning}</span>
+          <span ref={modeEl} className="bh-mode" />
         </p>
         <p className="bh-hud bh-hud--bl">
           <span className="bh-hint-pointer">{t.hint}</span>

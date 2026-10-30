@@ -22,52 +22,63 @@ const res = (year: number, competition: string) =>
   RESULTS.find((r) => r.year === year && r.competition === competition)!;
 
 const chapter = (id: string) => CHAPTERS.find((c) => c.id === id)!;
+/** Första året i kapitlets spann ("2007–2011" → "2007") */
+const firstYear = (id: string) => chapter(id).years.split("–")[0];
+
+const WORDS: Record<number, L> = {
+  2: { sv: "två", en: "two" },
+  3: { sv: "tre", en: "three" },
+  10: { sv: "tio", en: "ten" },
+};
+const word = (n: number, lang: Lang) => WORDS[n]?.[lang] ?? String(n);
 
 const r2015 = res(2015, "KWC — VM");
+const srkc2015 = res(2015, "SRKC Linköping");
 const r2016 = res(2016, "KWC — VM");
 const r2018 = res(2018, "KWC — VM");
 const r2021 = res(2021, "SRKC");
+const r2026 = res(2026, "KWC — VM");
 const f = STORY_FACTS;
 
 export const JOURNEY: JourneyCard[] = [
   {
     id: "dalarna",
-    year: "2002",
+    year: String(f.kartStart.year),
     tag: { sv: "DALARNA", en: "DALARNA" },
-    title: { sv: chapter("dalarna").title.sv, en: chapter("dalarna").title.en },
+    title: chapter("dalarna").title,
     text: {
-      sv: "Första gokarten i Dalarna, tio år gammal. Direkt fast.",
-      en: "First go-kart in Dalarna, aged ten. Hooked straight away.",
+      sv: `Första gokarten i Dalarna ${f.kartStart.year}, ${word(f.kartStart.age, "sv")} år gammal. Jag blev fast direkt.`,
+      en: `My first go-kart in Dalarna in ${f.kartStart.year}, aged ${word(f.kartStart.age, "en")}. I was hooked straight away.`,
     },
   },
   {
     id: "banracing",
-    year: "2007",
+    year: firstYear("banracing"),
     tag: { sv: "BANRACING", en: "CIRCUIT RACING" },
-    title: { sv: "Banracing", en: "Circuit racing" },
+    title: chapter("banracing").title,
     text: {
-      sv: `Tvåa totalt i Renault Junior Cup. 2011 vann jag ${f.ginetta2011.wins} av ${f.ginetta2011.races} race i Ginetta G20 Cup.`,
-      en: `Runner-up in the Renault Junior Cup. In 2011 I won ${f.ginetta2011.wins} of ${f.ginetta2011.races} races in the Ginetta G20 Cup.`,
+      sv: `${f.renault2007.place}:a totalt i Renault Junior Cup ${f.renault2007.year}. I Ginetta G20 Cup 2011 vann jag ${f.ginetta2011.wins} av ${f.ginetta2011.races} race.`,
+      en: `${f.renault2007.place === 2 ? "Second" : f.renault2007.place} overall in the ${f.renault2007.year} Renault Junior Cup. In the 2011 Ginetta G20 Cup I won ${f.ginetta2011.wins} of ${f.ginetta2011.races} races.`,
     },
   },
   {
     id: "genombrottet",
-    year: "2015",
+    year: String(srkc2015.year),
     tag: { sv: "HYRKART", en: "RENTAL KART" },
-    title: { sv: "Genombrottet", en: "The breakthrough" },
+    title: chapter("genombrottet").title,
     text: {
-      sv: `Vann första SRKC i Linköping. VM-debut i Italien: ${r2015.result.sv}.`,
-      en: `Won the first SRKC in Linköping. Worlds debut in Italy: ${r2015.result.en}.`,
+      sv: `Jag vann första SRKC i Linköping och debuterade i VM i Italien: ${r2015.result.sv}.`,
+      en: `I won the first SRKC in Linköping and made my Worlds debut in Italy: ${r2015.result.en}.`,
     },
   },
   {
     id: "bronset",
-    year: "2016",
+    year: String(r2016.year),
     tag: { sv: "VM-BRONS", en: "WORLDS BRONZE" },
-    title: { sv: "Bronset", en: "The bronze" },
+    title: chapter("bronset").title,
     text: {
-      sv: `Vann finalracet i Italien. ${r2016.result.sv} förare, VM-brons.`,
-      en: `Won the final in Italy. ${r2016.result.en} drivers, bronze.`,
+      sv: `Jag vann finalracet i Italien. ${r2016.result.sv} förare totalt, och VM-brons.`,
+      en: `I won the final race in Italy. ${r2016.result.en} drivers overall, and a bronze medal.`,
     },
     image: {
       src: "/images/gallery-3.jpg",
@@ -76,12 +87,12 @@ export const JOURNEY: JourneyCard[] = [
   },
   {
     id: "jakten",
-    year: "2018",
+    year: String(r2018.year),
     tag: { sv: "JAKTEN", en: "THE CHASE" },
     title: { sv: "Polen", en: "Poland" },
     text: {
-      sv: `${r2018.result.sv} i VM. Från ${f.climb2018.from}:e till ${f.climb2018.to}:e i finalracet. Andra SRKC-titeln i Göteborg.`,
-      en: `${r2018.result.en} at the Worlds. From ${f.climb2018.from}th to ${f.climb2018.to}th in the final race. Second SRKC title in Gothenburg.`,
+      sv: `${r2018.result.sv} i VM, med en klättring från ${f.climb2018.from}:e till ${f.climb2018.to}:e i finalracet. Samma år tog jag min andra SRKC-titel, i Göteborg.`,
+      en: `${r2018.result.en} at the Worlds, climbing from ${f.climb2018.from}th to ${f.climb2018.to}th in the final race. That year I also took a second SRKC title, in Gothenburg.`,
     },
     image: {
       src: "/images/gallery-2.jpg",
@@ -90,7 +101,7 @@ export const JOURNEY: JourneyCard[] = [
   },
   {
     id: "comeback",
-    year: "2021",
+    year: String(r2021.year),
     tag: { sv: "SRKC", en: "SRKC" },
     title: { sv: "Comebacken", en: "The comeback" },
     text: {
@@ -104,12 +115,12 @@ export const JOURNEY: JourneyCard[] = [
   },
   {
     id: "vandel",
-    year: "2026",
+    year: String(r2026.year),
     tag: { sv: "VANDEL", en: "VANDEL" },
     title: { sv: "KWC i Danmark", en: "KWC in Denmark" },
     text: {
-      sv: `${KWC.venue}, ${KWC.driverCount} förare. Tre pallplatser i kvalheaten, semifinal, ${KWC.result2026.sv} totalt.`,
-      en: `${KWC.venue}, ${KWC.driverCount} drivers. Three podiums in the qualifying heats, semifinal, ${KWC.result2026.en} overall.`,
+      sv: `${KWC.venue}, ${KWC.driverCount} förare. ${word(f.qualiPodiums2026, "sv")} pallplatser i kvalheaten och semifinal. Jag slutade ${KWC.result2026.sv}.`,
+      en: `${KWC.venue}, ${KWC.driverCount} drivers. ${word(f.qualiPodiums2026, "en")} podiums in the qualifying heats and a semifinal. I finished ${KWC.result2026.en}.`,
     },
     image: {
       src: "/images/gallery-5.png",
@@ -143,7 +154,7 @@ export const CHANNELS: Channel[] = [
     href: SOCIAL.facebook,
     external: true,
     icon: "facebook",
-    text: { sv: "Längre inlägg och nyheter om säsongen.", en: "Longer posts and season news." },
+    text: { sv: "Längre inlägg om säsongen.", en: "Longer posts about the season." },
   },
   {
     name: "VM 2026",
@@ -172,6 +183,6 @@ export const CHANNELS: Channel[] = [
     href: STUDIO.url,
     external: true,
     icon: "studio",
-    text: { sv: "Webbyrån jag driver, och som byggt den här sajten.", en: "The web studio I run, which built this site." },
+    text: { sv: "Webbyrån jag driver. Den har byggt den här sajten.", en: "The web studio I run. It built this site." },
   },
 ];

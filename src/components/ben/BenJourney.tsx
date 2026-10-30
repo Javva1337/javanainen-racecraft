@@ -10,7 +10,13 @@ import { JOURNEY } from "@/lib/ben-home";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
+const COPY = {
+  sv: { head: ["RACING", "RESAN."], label: "Racingresan i kapitel" },
+  en: { head: ["RACING", "JOURNEY."], label: "Racing journey in chapters" },
+} as const;
+
 export function BenJourney({ lang }: { lang: Lang }) {
+  const t = COPY[lang];
   const wrap = useRef<HTMLDivElement>(null);
   const viewport = useRef<HTMLDivElement>(null);
   const track = useRef<HTMLUListElement>(null);
@@ -57,15 +63,15 @@ export function BenJourney({ lang }: { lang: Lang }) {
   return (
     <section id="story" className="bj" aria-labelledby="bj-h">
       <h2 id="bj-h" className="bj-head">
-        RACING
+        {t.head[0]}
         <br />
-        JOURNEY.
+        {t.head[1]}
       </h2>
       <div ref={wrap} className="bj-pin">
         <div ref={ghost} className="bj-ghost" aria-hidden="true">
           {JOURNEY[0].year}
         </div>
-        <div ref={viewport} className="bj-viewport" tabIndex={0} role="region" aria-label="Racing journey">
+        <div ref={viewport} className="bj-viewport" tabIndex={0} role="region" aria-label={t.label}>
           <ul ref={track} className="bj-track">
             {JOURNEY.map((c) => (
               <li key={c.id} className="bj-card">

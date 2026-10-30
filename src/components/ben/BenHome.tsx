@@ -18,19 +18,19 @@ const COPY = {
       {
         n: "01",
         title: "PARTNERS",
-        text: "Primab har följt satsningen från start. Labatus är ny för 2026. Tack till båda för att det går att åka.",
+        text: "Primab har följt satsningen från start. Labatus är ny för 2026. Tack till båda för att jag kan åka.",
         cta: null,
       },
       {
         n: "02",
         title: "SAMARBETE",
-        text: "Vill du följa satsningen eller synas i den? Skriv ett par rader så tar vi det därifrån.",
+        text: "Vill du följa satsningen eller vara med i den? Skriv några rader så hör jag av mig.",
         cta: { label: "KONTAKT", href: "/kontakt" },
       },
       {
         n: "03",
         title: "MEDIA",
-        text: "Pressbilder och kort fakta om VM-brons 2016 och KWC 2026 finns samlade.",
+        text: "Här finns pressbilder och fakta om VM-brons 2016 och KWC 2026.",
         cta: { label: "PRESS", href: "/press" },
       },
     ],
@@ -49,19 +49,19 @@ const COPY = {
       {
         n: "01",
         title: "PARTNERS",
-        text: "Primab has backed the effort from the start. Labatus is new for 2026. Thanks to both for making it possible to race.",
+        text: "Primab has backed the effort from the start. Labatus is new for 2026. Thanks to both for making it possible for me to race.",
         cta: null,
       },
       {
         n: "02",
         title: "WORKING TOGETHER",
-        text: "Want to follow the effort or be part of it? Send a few lines and we'll take it from there.",
+        text: "Want to follow the effort or be part of it? Send a few lines and I'll get back to you.",
         cta: { label: "CONTACT", href: "/en/contact" },
       },
       {
         n: "03",
         title: "MEDIA",
-        text: "Press photos and short facts on the 2016 Worlds bronze and KWC 2026 are collected in one place.",
+        text: "Press photos and facts about the 2016 Worlds bronze and KWC 2026.",
         cta: { label: "PRESS", href: "/en/press" },
       },
     ],
@@ -120,7 +120,7 @@ export function BenHome({ lang }: { lang: Lang }) {
   return (
     <div className={`ben-home ${geist.variable} ${geistMono.variable}`}>
       {/* 0 — sticky nav */}
-      <header className="bn">
+      <header className="bn" role="banner">
         <Link href={home} className="bn-logo">
           RICKARD
           <br />
@@ -131,6 +131,11 @@ export function BenHome({ lang }: { lang: Lang }) {
             <li><a href="#story">{t.nav.story}</a></li>
             <li><Link href={t.tracksHref}>{t.nav.tracks}</Link></li>
             <li><a href="#partners">{t.nav.partners}</a></li>
+            <li className="bn-lang">
+              <Link href="/" hrefLang="sv" lang="sv" aria-label="Svenska" aria-current={lang === "sv" ? "true" : undefined}>SV</Link>
+              {" / "}
+              <Link href="/en" hrefLang="en" lang="en" aria-label="English" aria-current={lang === "en" ? "true" : undefined}>EN</Link>
+            </li>
           </ul>
         </nav>
       </header>
@@ -170,7 +175,7 @@ export function BenHome({ lang }: { lang: Lang }) {
             return (
               <li key={c.name}>
                 {c.external ? (
-                  <a href={href} target="_blank" rel={c.icon === "studio" ? "noopener" : "noopener noreferrer"} className="bc-row">
+                  <a href={href} target="_blank" rel="noopener noreferrer" className="bc-row">
                     {inner}
                   </a>
                 ) : (
@@ -217,7 +222,7 @@ export function BenHome({ lang }: { lang: Lang }) {
       </section>
 
       {/* 4 — footer */}
-      <footer className="bf">
+      <footer className="bf" role="contentinfo">
         <div className="bf-top">
           <p className="bf-name">
             RICKARD
@@ -239,7 +244,7 @@ export function BenHome({ lang }: { lang: Lang }) {
           </ul>
           <p>
             © {new Date().getFullYear()} {SITE_NAME}. {t.rights} {t.builtBy}{" "}
-            <a href={STUDIO.url} target="_blank" rel="noopener">{STUDIO.name}</a>.
+            <a href={STUDIO.url} target="_blank" rel="noopener noreferrer">{STUDIO.name}</a>.
           </p>
         </div>
       </footer>
