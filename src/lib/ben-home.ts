@@ -125,7 +125,7 @@ export const JOURNEY: JourneyCard[] = [
     },
     image: {
       src: "/images/gallery-5.png",
-      alt: { sv: "Hjälmen i närbild", en: "Helmet close-up" },
+      alt: { sv: "Hjälmen — stilren", en: "Helmet close-up" },
     },
   },
 ];

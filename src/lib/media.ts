@@ -43,7 +43,7 @@ export const MEDIA_ITEMS: MediaItem[] = [
   },
   {
     src: "/images/gallery-5.png",
-    alt: { sv: "Hjälmen i närbild", en: "Helmet close-up" },
+    alt: { sv: "Hjälmen — stilren", en: "Helmet close-up" },
     caption: { sv: "Hjälmen · Sverige, 2026", en: "The helmet · Sweden, 2026" },
     width: 800,
     height: 800,
