@@ -7,13 +7,13 @@ import type { Lang } from "@/lib/dictionary";
 const COPY = {
   sv: {
     tagline: "Hyrkartförare från Dalarna. VM-brons 2016.",
-    hint2: "SCROLLA",
-    alt: "Rickard Javanainen i racingställ och hjälm med mörkt visir",
+    hint2: "SCROLLA FÖR ATT AVSLÖJA",
+    alt: "Rickard Javanainen — hjälm med svenska flaggan, scrolla för att se ansiktet",
   },
   en: {
     tagline: "Rental kart racer from Dalarna. Worlds bronze 2016.",
-    hint2: "SCROLL",
-    alt: "Rickard Javanainen in race suit and helmet with a dark visor",
+    hint2: "SCROLL TO REVEAL",
+    alt: "Rickard Javanainen — Swedish-flag helmet, scroll to reveal his face",
   },
 } as const;
 
