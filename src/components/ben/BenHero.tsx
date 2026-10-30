@@ -6,13 +6,11 @@ import type { Lang } from "@/lib/dictionary";
 
 const COPY = {
   sv: {
-    kicker: "HYRKARTFÖRARE · DALARNA",
     tagline: "Hyrkartförare från Dalarna. VM-brons 2016.",
     hint2: "SCROLLA",
     alt: "Rickard Javanainen i racingställ och hjälm med mörkt visir",
   },
   en: {
-    kicker: "RENTAL KART RACER · DALARNA",
     tagline: "Rental kart racer from Dalarna. Worlds bronze 2016.",
     hint2: "SCROLL",
     alt: "Rickard Javanainen in race suit and helmet with a dark visor",
@@ -68,7 +66,7 @@ export function BenHero({ lang }: { lang: Lang }) {
         {/* Gemensam zoom för wide + porträtt så att alla tre stills förblir alignade */}
         <div className="bh-wide">
           <div className="bh-zoom">
-            <Image src={SRC.wide} alt="" aria-hidden="true" fill sizes="178vh" className="bh-img bh-img--wide" />
+            <Image src={SRC.wide} alt="" aria-hidden="true" fill priority sizes="178vh" className="bh-img bh-img--wide" />
             <div className="bh-portrait">
               <Image src={SRC.portrait} alt={t.alt} fill priority sizes="56vh" className="bh-img" />
               <Image
@@ -84,7 +82,6 @@ export function BenHero({ lang }: { lang: Lang }) {
         </div>
 
         <div className="bh-copy">
-          <p className="bh-kicker">{t.kicker}</p>
           {/* BenHome har redan sidans h1 (sr-only) — den visuella rubriken är därför en p */}
           <p className="bh-title" aria-hidden="true">
             <span>RICKARD</span>
