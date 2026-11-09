@@ -1,0 +1,416 @@
+{
+  "$description": "Motion tokens extracted by designlang",
+  "duration": {
+    "sm": {
+      "$value": "228ms",
+      "$type": "duration",
+      "ms": 228,
+      "$extensions": {
+        "designlang.observed": true
+      }
+    },
+    "md": {
+      "$value": "300ms",
+      "$type": "duration",
+      "ms": 300,
+      "$extensions": {
+        "designlang.observed": true
+      }
+    },
+    "lg": {
+      "$value": "450ms",
+      "$type": "duration",
+      "ms": 450,
+      "$extensions": {
+        "designlang.observed": true
+      }
+    },
+    "xl": {
+      "$value": "1s",
+      "$type": "duration",
+      "ms": 1000,
+      "$extensions": {
+        "designlang.observed": true
+      }
+    },
+    "xxl": {
+      "$value": "1.6s",
+      "$type": "duration",
+      "ms": 1600,
+      "$extensions": {
+        "designlang.observed": true
+      }
+    }
+  },
+  "easing": {
+    "ease-out-999": {
+      "$value": "cubic-bezier(0.2, 0.7, 0.2, 1)",
+      "$type": "cubicBezier",
+      "family": "ease-out"
+    }
+  },
+  "spring": {},
+  "$meta": {
+    "feel": "responsive",
+    "scrollLinked": true,
+    "runtime": {
+      "triggers": [
+        "scroll"
+      ],
+      "observed": 36
+    }
+  },
+  "choreography": {},
+  "scroll": {
+    "reveal-1": {
+      "$type": "designlang.scrollRecipe",
+      "kind": "reveal",
+      "properties": [
+        "filter"
+      ],
+      "durationMs": 450,
+      "easing": "ease",
+      "selector": "figure:nth-of-type(1) > div > div:nth-of-type(2) > img"
+    },
+    "reveal-2": {
+      "$type": "designlang.scrollRecipe",
+      "kind": "reveal",
+      "properties": [
+        "filter"
+      ],
+      "durationMs": 450,
+      "easing": "ease",
+      "selector": "figure:nth-of-type(2) > div > div:nth-of-type(2) > img"
+    },
+    "reveal-3": {
+      "$type": "designlang.scrollRecipe",
+      "kind": "reveal",
+      "properties": [
+        "color"
+      ],
+      "durationMs": 300,
+      "easing": "ease",
+      "selector": "ol#railSteps > li:nth-of-type(1) > span:nth-of-type(1)"
+    },
+    "reveal-4": {
+      "$type": "designlang.scrollRecipe",
+      "kind": "reveal",
+      "properties": [
+        "color"
+      ],
+      "durationMs": 300,
+      "easing": "ease",
+      "selector": "ol#railSteps > li:nth-of-type(1) > span:nth-of-type(2)"
+    },
+    "reveal-5": {
+      "$type": "designlang.scrollRecipe",
+      "kind": "reveal",
+      "properties": [
+        "background-color"
+      ],
+      "durationMs": 300,
+      "easing": "ease",
+      "selector": "ol#railSteps > li:nth-of-type(2)"
+    },
+    "reveal-6": {
+      "$type": "designlang.scrollRecipe",
+      "kind": "reveal",
+      "properties": [
+        "color"
+      ],
+      "durationMs": 300,
+      "easing": "ease",
+      "selector": "ol#railSteps > li:nth-of-type(2) > span:nth-of-type(1)"
+    },
+    "reveal-7": {
+      "$type": "designlang.scrollRecipe",
+      "kind": "reveal",
+      "properties": [
+        "color"
+      ],
+      "durationMs": 300,
+      "easing": "ease",
+      "selector": "ol#railSteps > li:nth-of-type(2) > span:nth-of-type(2)"
+    },
+    "reveal-8": {
+      "$type": "designlang.scrollRecipe",
+      "kind": "reveal",
+      "properties": [
+        "filter"
+      ],
+      "durationMs": 450,
+      "easing": "ease",
+      "selector": "figure:nth-of-type(6) > div > div:nth-of-type(2) > img"
+    },
+    "reveal-9": {
+      "$type": "designlang.scrollRecipe",
+      "kind": "reveal",
+      "properties": [
+        "background-color"
+      ],
+      "durationMs": 300,
+      "easing": "ease",
+      "selector": "ol#railSteps > li:nth-of-type(3)"
+    },
+    "reveal-10": {
+      "$type": "designlang.scrollRecipe",
+      "kind": "reveal",
+      "properties": [
+        "color"
+      ],
+      "durationMs": 300,
+      "easing": "ease",
+      "selector": "ol#railSteps > li:nth-of-type(3) > span:nth-of-type(1)"
+    },
+    "reveal-11": {
+      "$type": "designlang.scrollRecipe",
+      "kind": "reveal",
+      "properties": [
+        "color"
+      ],
+      "durationMs": 300,
+      "easing": "ease",
+      "selector": "ol#railSteps > li:nth-of-type(3) > span:nth-of-type(2)"
+    },
+    "reveal-12": {
+      "$type": "designlang.scrollRecipe",
+      "kind": "reveal",
+      "properties": [
+        "background-color"
+      ],
+      "durationMs": 300,
+      "easing": "ease",
+      "selector": "ol#railSteps > li:nth-of-type(4)"
+    },
+    "reveal-13": {
+      "$type": "designlang.scrollRecipe",
+      "kind": "reveal",
+      "properties": [
+        "color"
+      ],
+      "durationMs": 300,
+      "easing": "ease",
+      "selector": "ol#railSteps > li:nth-of-type(4) > span:nth-of-type(1)"
+    },
+    "reveal-14": {
+      "$type": "designlang.scrollRecipe",
+      "kind": "reveal",
+      "properties": [
+        "color"
+      ],
+      "durationMs": 300,
+      "easing": "ease",
+      "selector": "ol#railSteps > li:nth-of-type(4) > span:nth-of-type(2)"
+    },
+    "reveal-15": {
+      "$type": "designlang.scrollRecipe",
+      "kind": "reveal",
+      "properties": [
+        "background-color"
+      ],
+      "durationMs": 300,
+      "easing": "ease",
+      "selector": "ol#railSteps > li:nth-of-type(5)"
+    },
+    "reveal-16": {
+      "$type": "designlang.scrollRecipe",
+      "kind": "reveal",
+      "properties": [
+        "color"
+      ],
+      "durationMs": 300,
+      "easing": "ease",
+      "selector": "ol#railSteps > li:nth-of-type(5) > span:nth-of-type(1)"
+    },
+    "reveal-17": {
+      "$type": "designlang.scrollRecipe",
+      "kind": "reveal",
+      "properties": [
+        "color"
+      ],
+      "durationMs": 300,
+      "easing": "ease",
+      "selector": "ol#railSteps > li:nth-of-type(5) > span:nth-of-type(2)"
+    },
+    "reveal-18": {
+      "$type": "designlang.scrollRecipe",
+      "kind": "reveal",
+      "properties": [
+        "background-color"
+      ],
+      "durationMs": 300,
+      "easing": "ease",
+      "selector": "ol#railSteps > li:nth-of-type(6)"
+    },
+    "reveal-19": {
+      "$type": "designlang.scrollRecipe",
+      "kind": "reveal",
+      "properties": [
+        "color"
+      ],
+      "durationMs": 300,
+      "easing": "ease",
+      "selector": "ol#railSteps > li:nth-of-type(6) > span:nth-of-type(1)"
+    },
+    "reveal-20": {
+      "$type": "designlang.scrollRecipe",
+      "kind": "reveal",
+      "properties": [
+        "color"
+      ],
+      "durationMs": 300,
+      "easing": "ease",
+      "selector": "ol#railSteps > li:nth-of-type(6) > span:nth-of-type(2)"
+    },
+    "reveal-21": {
+      "$type": "designlang.scrollRecipe",
+      "kind": "reveal",
+      "properties": [
+        "filter"
+      ],
+      "durationMs": 450,
+      "easing": "ease",
+      "selector": "figure:nth-of-type(8) > div > div:nth-of-type(2) > video"
+    },
+    "reveal-22": {
+      "$type": "designlang.scrollRecipe",
+      "kind": "reveal",
+      "properties": [
+        "background-color"
+      ],
+      "durationMs": 300,
+      "easing": "ease",
+      "selector": "ol#railSteps > li:nth-of-type(7)"
+    },
+    "reveal-23": {
+      "$type": "designlang.scrollRecipe",
+      "kind": "reveal",
+      "properties": [
+        "color"
+      ],
+      "durationMs": 300,
+      "easing": "ease",
+      "selector": "ol#railSteps > li:nth-of-type(7) > span:nth-of-type(1)"
+    },
+    "reveal-24": {
+      "$type": "designlang.scrollRecipe",
+      "kind": "reveal",
+      "properties": [
+        "color"
+      ],
+      "durationMs": 300,
+      "easing": "ease",
+      "selector": "ol#railSteps > li:nth-of-type(7) > span:nth-of-type(2)"
+    },
+    "reveal-25": {
+      "$type": "designlang.scrollRecipe",
+      "kind": "reveal",
+      "properties": [
+        "background-color"
+      ],
+      "durationMs": 300,
+      "easing": "ease",
+      "selector": "ol#railSteps > li:nth-of-type(8)"
+    },
+    "reveal-26": {
+      "$type": "designlang.scrollRecipe",
+      "kind": "reveal",
+      "properties": [
+        "color"
+      ],
+      "durationMs": 300,
+      "easing": "ease",
+      "selector": "ol#railSteps > li:nth-of-type(8) > span:nth-of-type(1)"
+    },
+    "reveal-27": {
+      "$type": "designlang.scrollRecipe",
+      "kind": "reveal",
+      "properties": [
+        "color"
+      ],
+      "durationMs": 300,
+      "easing": "ease",
+      "selector": "ol#railSteps > li:nth-of-type(8) > span:nth-of-type(2)"
+    },
+    "parallax-28": {
+      "$type": "designlang.scrollRecipe",
+      "kind": "parallax",
+      "properties": [
+        "transform"
+      ],
+      "durationMs": 1600,
+      "easing": "cubic-bezier(0.3, 0.6, 0.2, 1)",
+      "selector": "section#today > div"
+    },
+    "parallax-29": {
+      "$type": "designlang.scrollRecipe",
+      "kind": "parallax",
+      "properties": [
+        "transform"
+      ],
+      "durationMs": 1600,
+      "easing": "cubic-bezier(0.3, 0.6, 0.2, 1)",
+      "selector": "section#today > div > div:nth-of-type(1)"
+    },
+    "parallax-30": {
+      "$type": "designlang.scrollRecipe",
+      "kind": "parallax",
+      "properties": [
+        "transform"
+      ],
+      "durationMs": 1600,
+      "easing": "cubic-bezier(0.3, 0.6, 0.2, 1)",
+      "selector": "section#today > div > div:nth-of-type(2)"
+    },
+    "parallax-31": {
+      "$type": "designlang.scrollRecipe",
+      "kind": "parallax",
+      "properties": [
+        "transform"
+      ],
+      "durationMs": 1600,
+      "easing": "cubic-bezier(0.3, 0.6, 0.2, 1)",
+      "selector": "section#today > div > div:nth-of-type(3)"
+    },
+    "parallax-32": {
+      "$type": "designlang.scrollRecipe",
+      "kind": "parallax",
+      "properties": [
+        "transform"
+      ],
+      "durationMs": 1600,
+      "easing": "cubic-bezier(0.3, 0.6, 0.2, 1)",
+      "selector": "section#today > div > div:nth-of-type(4)"
+    },
+    "parallax-33": {
+      "$type": "designlang.scrollRecipe",
+      "kind": "parallax",
+      "properties": [
+        "transform"
+      ],
+      "durationMs": 1600,
+      "easing": "cubic-bezier(0.3, 0.6, 0.2, 1)",
+      "selector": "section#work > div:nth-of-type(1)"
+    },
+    "parallax-34": {
+      "$type": "designlang.scrollRecipe",
+      "kind": "parallax",
+      "properties": [
+        "transform"
+      ],
+      "durationMs": 1600,
+      "easing": "cubic-bezier(0.3, 0.6, 0.2, 1)",
+      "selector": "section#work > div:nth-of-type(1) > article:nth-of-type(3)"
+    },
+    "parallax-35": {
+      "$type": "designlang.scrollRecipe",
+      "kind": "parallax",
+      "properties": [
+        "transform"
+      ],
+      "durationMs": 1000,
+      "easing": "cubic-bezier(0.2, 0.7, 0.2, 1)",
+      "selector": "div:nth-of-type(1) > article:nth-of-type(3) > h3 > span"
+    }
+  }
+}

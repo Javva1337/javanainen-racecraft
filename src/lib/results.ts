@@ -107,6 +107,12 @@ export const STORY_FACTS = {
   climb2018: { from: 16, to: 9 },
   /** Ginetta G20 Cup 2011 (TIMELINE: "vann 2 av 6 race. 8:a av 22 förare") */
   ginetta2011: { wins: 2, races: 6, place: 8, drivers: 22 },
+  /** Första gokarten i Dalarna (press.ts: "började köra gokart i Dalarna 2002, tio år gammal") */
+  kartStart: { year: 2002, age: 10 },
+  /** Renault Junior Cup 2007 — tvåa totalt (ChapterBanracing: "2:a plats totalt") */
+  renault2007: { year: 2007, place: 2 },
+  /** KWC 2026 — pallplatser i kvalheaten (RESULTS-not: "tre pallplatser i kvalheaten") */
+  qualiPodiums2026: 3,
 } as const;
 
 /** "Javanainen i siffror" */
